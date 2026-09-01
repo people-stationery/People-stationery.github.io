@@ -3,7 +3,6 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     margin: 0;
     color: #222;
@@ -29,6 +28,7 @@ body {
             rgba(0, 0, 0, 0.025) 82px
         );
 }
+
 
 
 /* ヘッダー */
