@@ -3,6 +3,7 @@
 * {
     box-sizing: border-box;
 }
+```css
 body {
     margin: 0;
     color: #222;
@@ -18,18 +19,39 @@ body {
 
     line-height: 1.8;
 
-    /* 薄いグレーの斜めストライプ */
+    /*
+     * 人文房具 背景
+     *
+     * 右下から
+     * 青 → グレー → 白
+     *
+     * 大きな円形グラデーションで
+     * 曲線的に変化させる。
+     */
     background-image:
+        radial-gradient(
+            ellipse 75% 65% at 105% 105%,
+            rgba(37, 99, 235, 0.20) 0%,
+            rgba(37, 99, 235, 0.13) 18%,
+            rgba(120, 120, 120, 0.10) 38%,
+            rgba(180, 180, 180, 0.06) 55%,
+            rgba(255, 255, 255, 0) 78%
+        ),
+
+        /*
+         * 太めのグレーの縞模様
+         */
         repeating-linear-gradient(
             135deg,
-            transparent,
-            transparent 80px,
-            rgba(0, 0, 0, 0.025) 80px,
-            rgba(0, 0, 0, 0.025) 82px
+            transparent 0px,
+            transparent 55px,
+            rgba(80, 80, 80, 0.035) 55px,
+            rgba(80, 80, 80, 0.035) 75px
         );
+
+    background-attachment: fixed;
 }
-
-
+```
 
 /* ヘッダー */
 header {
