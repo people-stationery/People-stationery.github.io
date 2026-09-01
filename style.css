@@ -1,18 +1,217 @@
+```css
+/* 全体 */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background: white;
-    color: #333333;
-    font-family: sans-serif;
     margin: 0;
-    padding: 40px;
+    color: #222;
+    background-color: #ffffff;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+
+    line-height: 1.8;
+
+    /* 薄いグレーの斜めストライプ */
+    background-image:
+        repeating-linear-gradient(
+            135deg,
+            transparent,
+            transparent 80px,
+            rgba(0, 0, 0, 0.025) 80px,
+            rgba(0, 0, 0, 0.025) 82px
+        );
 }
 
-h1 {
-    color: #2563eb;
-    font-size: 42px;
+
+/* ヘッダー */
+header {
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid #e5e5e5;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-h2 {
-    color: #2563eb;
-    border-left: 5px solid #2563eb;
-    padding-left: 12px;
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    padding: 18px 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+
+/* ロゴ */
+.logo {
+    color: #172554;
+    text-decoration: none;
+
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+
+/* ナビ */
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: #555;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #2563eb;
+}
+
+
+/* メイン */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+
+/* ヒーロー */
+.hero {
+    padding: 110px 0 120px;
+}
+
+.small-title {
+    color: #2563eb;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.hero h1 {
+    margin: 20px 0;
+
+    color: #111827;
+
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+}
+
+.description {
+    color: #666;
+    font-size: 16px;
+}
+
+
+/* 記事 */
+.articles {
+    padding: 70px 0 110px;
+}
+
+.articles h2 {
+    color: #111827;
+
+    font-size: 28px;
+    margin-bottom: 35px;
+}
+
+.article-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+article {
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    transition: 0.2s;
+}
+
+article:hover {
+    transform: translateY(-4px);
+    border-color: #93c5fd;
+}
+
+.category {
+    margin: 0 0 8px;
+
+    color: #2563eb;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+article h3 {
+    margin: 0 0 10px;
+
+    font-size: 19px;
+}
+
+article p:last-child {
+    margin: 0;
+
+    color: #666;
+    font-size: 14px;
+}
+
+
+/* フッター */
+footer {
+    padding: 35px 24px;
+
+    text-align: center;
+
+    color: #888;
+
+    font-size: 12px;
+
+    border-top: 1px solid #e5e5e5;
+}
+
+
+/* iPad・スマホ向け */
+@media (max-width: 700px) {
+
+    .hero {
+        padding: 80px 0;
+    }
+
+    .article-list {
+        grid-template-columns: 1fr;
+    }
+
+    .header-inner {
+        padding: 16px 20px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+}
+```
