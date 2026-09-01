@@ -1,18 +1,26 @@
-
+```css id="9xw4cp"
 /* ========================================
    人文房具 - Style Sheet
 ======================================== */
 
 
-/* 全体 */
+/* ========================================
+   全体
+======================================== */
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    background: #ffffff;
+}
+
 body {
     margin: 0;
+
     color: #222;
+
     background: #ffffff;
 
     font-family:
@@ -28,10 +36,56 @@ body {
 
 
 /* ========================================
-   背景
+   背景の曲線ストライプ
 ======================================== */
 
-/* 上部の曲線ストライプ */
+/*
+   上から下に向かって
+   白 → グレー → 青
+   と変化する。
+
+   青い円を置くのではなく、
+   「縞模様そのもの」が青くなる。
+*/
+
+body::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 850px;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    /*
+     * 曲線の縞模様
+     */
+    background:
+        repeating-radial-gradient(
+            ellipse 1000px 520px at 5% 0%,
+
+            rgba(90, 90, 90, 0.045) 0px,
+            rgba(90, 90, 90, 0.045) 24px,
+
+            rgba(255, 255, 255, 0) 24px,
+            rgba(255, 255, 255, 0) 75px
+        );
+}
+
+
+/*
+   縞模様を右下に向かって
+   青く染める。
+
+   このレイヤーも「縞模様」なので、
+   青い円には見えにくい。
+*/
 
 body::after {
     content: "";
@@ -48,57 +102,50 @@ body::after {
 
     z-index: 0;
 
+    /*
+     * 曲線ストライプ
+     */
     background:
         repeating-radial-gradient(
-            ellipse 900px 500px at 10% 0%,
-            rgba(90, 90, 90, 0.035) 0px,
-            rgba(90, 90, 90, 0.035) 22px,
-            rgba(255, 255, 255, 0) 22px,
-            rgba(255, 255, 255, 0) 70px
+            ellipse 1000px 520px at 5% 0%,
+
+            rgba(37, 99, 235, 0.00) 0px,
+            rgba(37, 99, 235, 0.00) 24px,
+
+            rgba(37, 99, 235, 0.16) 24px,
+            rgba(37, 99, 235, 0.16) 75px
         );
-}
 
-
-/* 右下の青 → グレー → 白 */
-
-body::before {
-    content: "";
-
-    position: absolute;
-
-    right: -30vw;
-    top: 100px;
-
-    width: 100vw;
-    height: 800px;
-
-    pointer-events: none;
-
-    z-index: 0;
-
-    background:
+    /*
+     * 右下だけ青く見せるためのマスク
+     */
+    mask-image:
         radial-gradient(
-            ellipse 75% 70% at 75% 70%,
+            ellipse 80% 80% at 100% 100%,
+            black 0%,
+            black 35%,
+            transparent 75%
+        );
 
-            rgba(37, 99, 235, 0.28) 0%,
-
-            rgba(37, 99, 235, 0.22) 20%,
-
-            rgba(120, 125, 135, 0.16) 42%,
-
-            rgba(190, 192, 198, 0.08) 58%,
-
-            rgba(255, 255, 255, 0) 76%
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse 80% 80% at 100% 100%,
+            black 0%,
+            black 35%,
+            transparent 75%
         );
 }
 
 
-/* 背景よりコンテンツを前に出す */
+/* ========================================
+   コンテンツを背景より前に
+======================================== */
 
 header,
 main,
 footer {
     position: relative;
+
     z-index: 1;
 }
 
@@ -134,7 +181,9 @@ header {
 }
 
 
-/* ロゴ */
+/* ========================================
+   ロゴ
+======================================== */
 
 .logo {
     color: #172554;
@@ -149,7 +198,9 @@ header {
 }
 
 
-/* ナビ */
+/* ========================================
+   ナビゲーション
+======================================== */
 
 nav {
     display: flex;
@@ -253,7 +304,7 @@ main {
 article {
     padding: 28px;
 
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.94);
 
     border: 1px solid #e5e7eb;
 
@@ -336,3 +387,4 @@ footer {
         gap: 18px;
     }
 }
+```
