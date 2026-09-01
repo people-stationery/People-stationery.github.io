@@ -411,3 +411,50 @@ footer {
     }
 }
 ```
+
+```css
+/* ========================================
+   記事一覧カード
+======================================== */
+
+.article-card {
+    display: block;
+
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    color: #222222;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.article-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #93c5fd;
+}
+
+.article-card h3 {
+    margin: 0 0 8px;
+
+    color: #111827;
+
+    font-size: 19px;
+}
+
+.article-date {
+    margin: 0;
+
+    color: #888888;
+
+    font-size: 13px;
+}
+```
+
