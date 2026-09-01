@@ -1,16 +1,16 @@
-```css id="9xw4cp"
+
 /* ========================================
    人文房具 - Style Sheet
-======================================== */
-
-
-/* ========================================
-   全体
 ======================================== */
 
 * {
     box-sizing: border-box;
 }
+
+
+/* ========================================
+   全体
+======================================== */
 
 html {
     background: #ffffff;
@@ -32,20 +32,22 @@ body {
         sans-serif;
 
     line-height: 1.8;
+
+    position: relative;
 }
 
 
 /* ========================================
-   背景の曲線ストライプ
+   曲線ストライプ背景
 ======================================== */
 
 /*
-   上から下に向かって
-   白 → グレー → 青
-   と変化する。
+   上部〜右下まで続く
+   大きな曲線の縞模様。
 
-   青い円を置くのではなく、
-   「縞模様そのもの」が青くなる。
+   縞そのものに
+   白 → 灰 → 青
+   の色変化を与える。
 */
 
 body::before {
@@ -57,34 +59,72 @@ body::before {
     left: 0;
 
     width: 100%;
-    height: 850px;
+    height: 900px;
 
     pointer-events: none;
 
     z-index: 0;
 
     /*
-     * 曲線の縞模様
+     * 曲線状の縞模様
      */
     background:
         repeating-radial-gradient(
-            ellipse 1000px 520px at 5% 0%,
+            ellipse 1100px 600px at 5% 0%,
 
-            rgba(90, 90, 90, 0.045) 0px,
-            rgba(90, 90, 90, 0.045) 24px,
+            rgba(95, 95, 95, 0.00) 0px,
+            rgba(95, 95, 95, 0.00) 22px,
 
-            rgba(255, 255, 255, 0) 24px,
-            rgba(255, 255, 255, 0) 75px
+            rgba(95, 95, 95, 0.055) 22px,
+            rgba(95, 95, 95, 0.055) 62px
+        );
+
+    /*
+     * 右下に向かって
+     *
+     * 白
+     * ↓
+     * 薄いグレー
+     * ↓
+     * 青
+     *
+     * と変化させる。
+     */
+    mask-image:
+        radial-gradient(
+            ellipse 110% 100% at 100% 100%,
+
+            black 0%,
+            black 30%,
+
+            rgba(0, 0, 0, 0.75) 45%,
+            rgba(0, 0, 0, 0.35) 62%,
+
+            transparent 88%
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse 110% 100% at 100% 100%,
+
+            black 0%,
+            black 30%,
+
+            rgba(0, 0, 0, 0.75) 45%,
+            rgba(0, 0, 0, 0.35) 62%,
+
+            transparent 88%
         );
 }
 
 
 /*
-   縞模様を右下に向かって
-   青く染める。
+   同じ曲線ストライプに
+   青〜グレーの色を重ねる。
 
-   このレイヤーも「縞模様」なので、
-   青い円には見えにくい。
+   「青い円」ではなく
+   「青く染まった縞模様」
+   にするのがポイント。
 */
 
 body::after {
@@ -96,56 +136,66 @@ body::after {
     left: 0;
 
     width: 100%;
-    height: 850px;
+    height: 900px;
 
     pointer-events: none;
 
     z-index: 0;
 
     /*
-     * 曲線ストライプ
+     * 同じ曲線の縞
      */
     background:
         repeating-radial-gradient(
-            ellipse 1000px 520px at 5% 0%,
+            ellipse 1100px 600px at 5% 0%,
 
             rgba(37, 99, 235, 0.00) 0px,
-            rgba(37, 99, 235, 0.00) 24px,
+            rgba(37, 99, 235, 0.00) 22px,
 
-            rgba(37, 99, 235, 0.16) 24px,
-            rgba(37, 99, 235, 0.16) 75px
+            rgba(37, 99, 235, 0.22) 22px,
+            rgba(37, 99, 235, 0.22) 62px
         );
 
     /*
-     * 右下だけ青く見せるためのマスク
+     * 青は右下だけ。
+     * 境界は曲線。
      */
     mask-image:
         radial-gradient(
-            ellipse 80% 80% at 100% 100%,
+            ellipse 85% 85% at 100% 100%,
+
             black 0%,
-            black 35%,
-            transparent 75%
+            black 25%,
+
+            rgba(0, 0, 0, 0.8) 40%,
+            rgba(0, 0, 0, 0.35) 58%,
+
+            transparent 82%
         );
 
     -webkit-mask-image:
         radial-gradient(
-            ellipse 80% 80% at 100% 100%,
+            ellipse 85% 85% at 100% 100%,
+
             black 0%,
-            black 35%,
-            transparent 75%
+            black 25%,
+
+            rgba(0, 0, 0, 0.8) 40%,
+            rgba(0, 0, 0, 0.35) 58%,
+
+            transparent 82%
         );
 }
 
 
 /* ========================================
-   コンテンツを背景より前に
+   コンテンツ
 ======================================== */
 
 header,
 main,
 footer {
     position: relative;
-
     z-index: 1;
 }
 
@@ -359,7 +409,7 @@ footer {
 
     font-size: 12px;
 
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e7eb;
 
     background: #ffffff;
 }
@@ -387,4 +437,3 @@ footer {
         gap: 18px;
     }
 }
-```
