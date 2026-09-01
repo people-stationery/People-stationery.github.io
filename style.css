@@ -1,16 +1,16 @@
-
+```css
 /* ========================================
    人文房具 - Style Sheet
 ======================================== */
-
-* {
-    box-sizing: border-box;
-}
 
 
 /* ========================================
    全体
 ======================================== */
+
+* {
+    box-sizing: border-box;
+}
 
 html {
     background: #ffffff;
@@ -19,7 +19,7 @@ html {
 body {
     margin: 0;
 
-    color: #222;
+    color: #222222;
 
     background: #ffffff;
 
@@ -38,17 +38,25 @@ body {
 
 
 /* ========================================
-   曲線ストライプ背景
+   背景
 ======================================== */
 
 /*
-   上部〜右下まで続く
-   大きな曲線の縞模様。
+   曲線状の縞模様。
 
-   縞そのものに
-   白 → 灰 → 青
-   の色変化を与える。
+   縞の「灰色部分」だけが
+
+       白
+        ↓
+       灰
+        ↓
+       青
+
+   と変化する。
+
+   白い縞には青が入らない。
 */
+
 
 body::before {
     content: "";
@@ -66,65 +74,56 @@ body::before {
     z-index: 0;
 
     /*
-     * 曲線状の縞模様
+     * 縞模様そのものに
+     * 白 → 灰 → 青
+     * のグラデーションを与える。
      */
     background:
-        repeating-radial-gradient(
-            ellipse 1100px 600px at 5% 0%,
-
-            rgba(95, 95, 95, 0.00) 0px,
-            rgba(95, 95, 95, 0.00) 22px,
-
-            rgba(95, 95, 95, 0.055) 22px,
-            rgba(95, 95, 95, 0.055) 62px
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #ffffff 30%,
+            #e4e5e7 52%,
+            #aeb3bb 72%,
+            #4f83d8 100%
         );
 
     /*
-     * 右下に向かって
+     * 曲線状の縞模様。
      *
-     * 白
-     * ↓
-     * 薄いグレー
-     * ↓
-     * 青
-     *
-     * と変化させる。
+     * 黒い部分 = 色を表示
+     * 透明部分 = 背景の白を表示
      */
     mask-image:
-        radial-gradient(
-            ellipse 110% 100% at 100% 100%,
+        repeating-radial-gradient(
+            ellipse 1100px 600px at 0% 0%,
 
-            black 0%,
-            black 30%,
+            black 0px,
+            black 26px,
 
-            rgba(0, 0, 0, 0.75) 45%,
-            rgba(0, 0, 0, 0.35) 62%,
-
-            transparent 88%
+            transparent 26px,
+            transparent 82px
         );
 
     -webkit-mask-image:
-        radial-gradient(
-            ellipse 110% 100% at 100% 100%,
+        repeating-radial-gradient(
+            ellipse 1100px 600px at 0% 0%,
 
-            black 0%,
-            black 30%,
+            black 0px,
+            black 26px,
 
-            rgba(0, 0, 0, 0.75) 45%,
-            rgba(0, 0, 0, 0.35) 62%,
-
-            transparent 88%
+            transparent 26px,
+            transparent 82px
         );
 }
 
 
-/*
-   同じ曲線ストライプに
-   青〜グレーの色を重ねる。
+/* ========================================
+   背景を最新記事付近までで終了
+======================================== */
 
-   「青い円」ではなく
-   「青く染まった縞模様」
-   にするのがポイント。
+/*
+   背景の下側を自然に白へ。
 */
 
 body::after {
@@ -143,59 +142,32 @@ body::after {
     z-index: 0;
 
     /*
-     * 同じ曲線の縞
+     * 下へ行くほど透明にする。
+     *
+     * これによって
+     * 最新記事より下は
+     * ほぼ完全な白になる。
      */
     background:
-        repeating-radial-gradient(
-            ellipse 1100px 600px at 5% 0%,
-
-            rgba(37, 99, 235, 0.00) 0px,
-            rgba(37, 99, 235, 0.00) 22px,
-
-            rgba(37, 99, 235, 0.22) 22px,
-            rgba(37, 99, 235, 0.22) 62px
-        );
-
-    /*
-     * 青は右下だけ。
-     * 境界は曲線。
-     */
-    mask-image:
-        radial-gradient(
-            ellipse 85% 85% at 100% 100%,
-
-            black 0%,
-            black 25%,
-
-            rgba(0, 0, 0, 0.8) 40%,
-            rgba(0, 0, 0, 0.35) 58%,
-
-            transparent 82%
-        );
-
-    -webkit-mask-image:
-        radial-gradient(
-            ellipse 85% 85% at 100% 100%,
-
-            black 0%,
-            black 25%,
-
-            rgba(0, 0, 0, 0.8) 40%,
-            rgba(0, 0, 0, 0.35) 58%,
-
-            transparent 82%
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0) 65%,
+            rgba(255, 255, 255, 0.55) 82%,
+            rgba(255, 255, 255, 1) 100%
         );
 }
 
 
 /* ========================================
-   コンテンツ
+   コンテンツを背景より前へ
 ======================================== */
 
 header,
 main,
 footer {
     position: relative;
+
     z-index: 1;
 }
 
@@ -259,7 +231,7 @@ nav {
 }
 
 nav a {
-    color: #555;
+    color: #555555;
 
     text-decoration: none;
 
@@ -321,7 +293,7 @@ main {
 }
 
 .description {
-    color: #666;
+    color: #666666;
 
     font-size: 16px;
 }
@@ -390,7 +362,7 @@ article h3 {
 article p:last-child {
     margin: 0;
 
-    color: #666;
+    color: #666666;
 
     font-size: 14px;
 }
@@ -405,7 +377,7 @@ footer {
 
     text-align: center;
 
-    color: #888;
+    color: #888888;
 
     font-size: 12px;
 
@@ -437,3 +409,4 @@ footer {
         gap: 18px;
     }
 }
+```
