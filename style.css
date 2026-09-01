@@ -78,15 +78,17 @@ body::before {
      * 白 → 灰 → 青
      * のグラデーションを与える。
      */
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff 0%,
-            #ffffff 30%,
-            #e4e5e7 52%,
-            #aeb3bb 72%,
-            #4f83d8 100%
-        );
+   
+background:
+    linear-gradient(
+        135deg,
+        #fdfdfd 0%,
+        #ffffff 28%,
+        #e1e3e6 50%,
+        #aeb4bd 72%,
+        #5485d2 100%
+    );
+
 
     /*
      * 曲線状の縞模様。
