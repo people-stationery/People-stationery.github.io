@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 ```css
+```css
 body {
     margin: 0;
     color: #222;
@@ -22,36 +23,34 @@ body {
     /*
      * 人文房具 背景
      *
-     * 右下から
-     * 青 → グレー → 白
+     * ① 大きな曲線のグラデーション
+     *    右下 → 青 → グレー → 白
      *
-     * 大きな円形グラデーションで
-     * 曲線的に変化させる。
+     * ② 太めのグレーの斜めストライプ
      */
     background-image:
+
         radial-gradient(
-            ellipse 75% 65% at 105% 105%,
-            rgba(37, 99, 235, 0.20) 0%,
-            rgba(37, 99, 235, 0.13) 18%,
-            rgba(120, 120, 120, 0.10) 38%,
-            rgba(180, 180, 180, 0.06) 55%,
-            rgba(255, 255, 255, 0) 78%
+            ellipse 90% 75% at 105% 105%,
+            #2563eb 0%,
+            #2563eb 12%,
+            #7d8490 32%,
+            #b9bdc4 48%,
+            rgba(255, 255, 255, 0) 70%
         ),
 
-        /*
-         * 太めのグレーの縞模様
-         */
         repeating-linear-gradient(
             135deg,
-            transparent 0px,
-            transparent 55px,
-            rgba(80, 80, 80, 0.035) 55px,
-            rgba(80, 80, 80, 0.035) 75px
+            rgba(90, 90, 90, 0.055) 0px,
+            rgba(90, 90, 90, 0.055) 28px,
+            rgba(255, 255, 255, 0) 28px,
+            rgba(255, 255, 255, 255, 0) 72px
         );
 
     background-attachment: fixed;
 }
 ```
+
 
 /* ヘッダー */
 header {
