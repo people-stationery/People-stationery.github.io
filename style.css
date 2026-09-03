@@ -486,3 +486,25 @@ footer {
     color: #888;
     font-size: 13px;
 }
+
+
+/* 記事ナビゲーション */
+.article-navigation {
+    max-width: 800px;
+    margin: 60px auto 20px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-navigation a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+}
+
+.article-navigation a:hover {
+    opacity: 0.6;
+}
