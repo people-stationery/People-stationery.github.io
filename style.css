@@ -536,3 +536,131 @@ footer {
 .article-navigation a:hover {
     opacity: 0.6;
 }
+/* =========================
+   ハンバーガーメニュー
+========================= */
+
+.menu-button {
+    position: fixed;
+    top: 18px;
+    right: 22px;
+    width: 46px;
+    height: 46px;
+
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    cursor: pointer;
+    z-index: 1001;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.menu-button:hover {
+    transform: scale(1.05);
+}
+
+.menu-button span {
+    width: 20px;
+    height: 2px;
+    background: #426791;
+    border-radius: 2px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.2s ease;
+}
+
+
+/* メニュー本体 */
+
+.menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 260px;
+    height: auto;
+    min-height: 220px;
+
+    padding: 85px 35px 35px;
+
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+
+    box-shadow: -5px 8px 25px rgba(0, 0, 0, 0.08);
+
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    /* 初期状態：上に隠す */
+    transform: translateY(-110%);
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.3s ease;
+}
+
+
+/* 開いた状態 */
+
+.menu-panel.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* メニュー文字 */
+
+.menu-panel a {
+    color: #426791;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+
+    padding: 8px 0;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.menu-panel a:hover {
+    transform: translateX(5px);
+    opacity: 0.65;
+}
+
+
+/* 開いたとき☰→× */
+
+.menu-button.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
