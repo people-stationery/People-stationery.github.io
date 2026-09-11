@@ -95,6 +95,18 @@
     <footer>
         <p>© 人文房具</p>
     </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const menuButton = document.getElementById("menuButton");
+    const menuPanel = document.getElementById("menuPanel");
+
+    menuButton.addEventListener("click", function () {
+        menuButton.classList.toggle("active");
+        menuPanel.classList.toggle("active");
+    });
+
+});
+</script>
 </body>
 </html>
