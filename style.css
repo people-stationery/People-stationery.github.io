@@ -299,7 +299,35 @@ main {
     font-size: 16px;
 }
 
+/* ========================================
+   YouTubeボタン
+======================================== */
 
+.youtube-button {
+    display: inline-block;
+
+    margin: 10px 0 20px;
+    padding: 12px 24px;
+
+    background: #426791;
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+.youtube-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+}
 /* ========================================
    最新記事
 ======================================== */
