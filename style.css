@@ -1,10 +1,5 @@
 /* ========================================
-   人文房具 - Style Sheet
-======================================== */
-
-
-/* ========================================
-   全体
+   基本設定
 ======================================== */
 
 * {
@@ -14,14 +9,16 @@
 html {
     margin: 0;
     padding: 0;
-
-    background: #ffffff;
+    scroll-behavior: smooth;
 }
+
 body {
     margin: 0;
     padding: 0;
+
     color: #222222;
     background: #ffffff;
+
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -29,10 +26,15 @@ body {
         "Hiragino Kaku Gothic ProN",
         "Yu Gothic",
         sans-serif;
+
     line-height: 1.8;
+
     position: relative;
 
-    /* ページ表示時は最初ぼかしておく */
+    /*
+        ページ読み込み直後は
+        ぼかして透明にする
+    */
     opacity: 0;
     filter: blur(10px);
 
@@ -40,111 +42,39 @@ body {
         opacity 0.8s ease,
         filter 0.8s ease;
 }
+
+
+/* ========================================
+   ページ表示完了
+======================================== */
+
+body.page-loaded {
+    opacity: 1;
+    filter: blur(0);
+}
+
+
 /* ========================================
    ページ遷移
 ======================================== */
 
 body.page-leave {
     opacity: 0;
-
     filter: blur(10px);
 }
 
 
 /* ========================================
-   背景
+   リンク
 ======================================== */
 
-body::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 900px;
-
-    pointer-events: none;
-
-    z-index: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fdfdfd 0%,
-            #ffffff 28%,
-            #ffffff 50%,
-            #aeb4bd 72%,
-            #6b96dc 100%
-        );
-
-    mask-image:
-        repeating-radial-gradient(
-            ellipse 1100px 600px at 0% 0%,
-
-            black 0px,
-            black 26px,
-
-            transparent 26px,
-            transparent 82px
-        );
-
-    -webkit-mask-image:
-        repeating-radial-gradient(
-            ellipse 1100px 600px at 0% 0%,
-
-            black 0px,
-            black 26px,
-
-            transparent 26px,
-            transparent 82px
-        );
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-
-/* ========================================
-   背景のフェード
-======================================== */
-
-body::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 900px;
-
-    pointer-events: none;
-
-    z-index: 0;
-
-    background:
-        linear-gradient(
-            to bottom,
-
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0) 65%,
-            rgba(255, 255, 255, 0.55) 82%,
-            rgba(255, 255, 255, 1) 100%
-        );
-}
-
-
-/* ========================================
-   コンテンツ
-======================================== */
-
-header,
-main,
-footer {
-    position: relative;
-
-    z-index: 1;
+a:hover {
+    opacity: 0.7;
 }
 
 
@@ -153,32 +83,19 @@ footer {
 ======================================== */
 
 header {
-    position: sticky;
-
-    top: 0;
-
     width: 100%;
-
-    background: rgba(255, 255, 255, 0.96);
-
-    border-bottom: 1px solid #d1d5db;
-
-    z-index: 10;
+    position: relative;
+    z-index: 9000;
 }
 
-
 .header-inner {
-    max-width: 1100px;
-
-    margin: 0 auto;
-
-    padding: 18px 24px;
+    width: 100%;
+    min-height: 80px;
 
     display: flex;
-
-    justify-content: space-between;
-
     align-items: center;
+
+    padding: 0 32px;
 }
 
 
@@ -187,322 +104,17 @@ header {
 ======================================== */
 
 .logo {
-    color: #172554;
-
-    text-decoration: none;
-
-    font-size: 24px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.08em;
-}
-
-
-/* ========================================
-   通常のnav
-======================================== */
-
-nav {
-    display: flex;
-
-    gap: 28px;
-}
-
-
-nav a {
-    color: #555555;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
+    font-size: 20px;
     font-weight: 600;
+    letter-spacing: 0.04em;
 
-    letter-spacing: 0.12em;
-
-    transition: 0.8s;
-}
-
-
-nav a:hover {
-    color: #2563eb;
+    transition: opacity 0.3s ease;
 }
 
 
 /* ========================================
-   メイン
+   ハンバーガーボタン
 ======================================== */
-
-main {
-    max-width: 1100px;
-
-    margin: 0 auto;
-
-    padding: 0 24px;
-}
-
-
-/* ========================================
-   ヒーロー
-======================================== */
-
-.hero {
-    padding: 110px 0 120px;
-}
-
-
-.small-title {
-    color: #2563eb;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.2em;
-}
-
-
-.hero h1 {
-    margin: 20px 0;
-
-    color: #111827;
-
-    font-size: clamp(42px, 7vw, 76px);
-
-    line-height: 1.25;
-
-    letter-spacing: 0.03em;
-}
-
-
-.description {
-    color: #666666;
-
-    font-size: 16px;
-}
-
-
-/* ========================================
-   YouTubeボタン
-======================================== */
-
-.youtube-button {
-    display: inline-block;
-
-    margin: 10px 0 20px;
-
-    padding: 12px 24px;
-
-    background: #426791;
-
-    color: #ffffff;
-
-    border-radius: 8px;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    text-decoration: none;
-
-    transition:
-        transform 0.2s,
-        opacity 0.2s;
-}
-
-
-.youtube-button:hover {
-    transform: translateY(-2px);
-
-    opacity: 0.85;
-}
-
-
-/* ========================================
-   最新記事
-======================================== */
-
-.articles {
-    padding: 70px 0 110px;
-}
-
-
-.articles h2 {
-    margin-bottom: 35px;
-
-    color: #111827;
-
-    font-size: 28px;
-}
-
-
-.article-list {
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 22px;
-}
-
-
-article {
-    padding: 28px;
-
-    background: rgba(255, 255, 255, 0.94);
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 12px;
-
-    transition: 0.2s;
-}
-
-
-article:hover {
-    transform: translateY(-4px);
-
-    border-color: #93c5fd;
-}
-
-
-.category {
-    margin: 0 0 8px;
-
-    color: #2563eb;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.12em;
-}
-
-
-article h3 {
-    margin: 0 0 10px;
-
-    font-size: 19px;
-}
-
-
-article p:last-child {
-    margin: 0;
-
-    color: #666666;
-
-    font-size: 14px;
-}
-
-
-/* ========================================
-   記事一覧カード
-======================================== */
-
-.article-card {
-    display: block;
-
-    padding: 28px;
-
-    background: rgba(255, 255, 255, 0.94);
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 14px;
-
-    color: #222222;
-
-    text-decoration: none;
-
-    transition: 0.2s;
-}
-
-
-.article-card:hover {
-    transform: translateY(-4px);
-
-    border-color: #93c5fd;
-}
-
-
-.article-card h3 {
-    margin: 0 0 8px;
-
-    color: #111827;
-
-    font-size: 19px;
-}
-
-
-.article-date {
-    margin: 0;
-
-    color: #888888;
-
-    font-size: 13px;
-}
-
-
-/* ========================================
-   記事ナビゲーション
-======================================== */
-
-.article-navigation {
-    max-width: 800px;
-
-    margin: 60px auto 20px;
-
-    padding-top: 25px;
-
-    border-top: 1px solid #dddddd;
-
-    display: flex;
-
-    justify-content: space-between;
-}
-
-
-.article-navigation a {
-    text-decoration: none;
-
-    color: inherit;
-
-    transition: opacity 0.8s;
-}
-
-
-.article-navigation a:hover {
-    opacity: 0.6;
-}
-
-
-/* ========================================
-   フッター
-======================================== */
-
-footer {
-    padding: 35px 24px;
-
-    text-align: center;
-
-    color: #888888;
-
-    font-size: 12px;
-
-    border-top: 1px solid #e5e7eb;
-
-    background: #ffffff;
-}
-
-
-/* ========================================
-   ハンバーガーメニュー
-======================================== */
-
-
-/* ----------------------------------------
-   メニューボタン
----------------------------------------- */
 
 .menu-button {
     position: fixed;
@@ -513,185 +125,63 @@ footer {
     width: 48px;
     height: 48px;
 
-    margin: 0;
     padding: 0;
 
     border: none;
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.92);
 
     display: flex;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
 
-    gap: 6px;
+    gap: 5px;
 
     cursor: pointer;
 
     z-index: 10001;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.08);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
+.menu-button:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.12);
+}
 
 .menu-button span {
     display: block;
 
-    width: 22px;
+    width: 20px;
     height: 2px;
 
-    background: #426791;
+    background: #222222;
 
-    border-radius: 2px;
-
-    transition: 0.3s ease;
-}
-
-
-/* ----------------------------------------
-   メニューパネル
----------------------------------------- */
-
-.menu-panel {
-    position: fixed !important;
-
-    top: 50vh !important;
-    left: 50vw !important;
-
-    width: 66vw;
-    height: 66vh;
-
-    margin: 0 !important;
-    padding: 0;
-
-    /*
-       常に画面中央
-       ここはアニメーションさせない
-    */
-    transform: translate(-50%, -50%) scale(0.96) !important;
-
-    background: rgba(255, 255, 255, 0.88);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    border-radius: 24px;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 28px;
-
-    z-index: 10000;
-
-    /*
-       最初は透明
-    */
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.12);
-
-    /*
-       透明度と大きさだけ変化
-    */
-    transition:
-        opacity 1.00s ease,
-        transform 1.20s cubic-bezier(0.22, 1, 0.36, 1),
-        visibility 1.00s ease;
-}
-
-
-/* ----------------------------------------
-   メニューを開いた状態
----------------------------------------- */
-
-.menu-panel.active {
-    top: 50vh !important;
-    left: 50vw !important;
-
-    /*
-       中央のまま、少しだけ大きくなる
-    */
-    transform: translate(-50%, -50%) scale(1) !important;
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-}
-
-
-/* ----------------------------------------
-   メニュー項目
----------------------------------------- */
-
-.menu-panel a {
-    color: #172554;
-
-    text-decoration: none;
-
-    font-size: 28px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.12em;
-
-    /*
-       メニュー文字も透明から表示
-    */
-    opacity: 0;
-
-    transform: translateY(8px);
+    border-radius: 999px;
 
     transition:
-        opacity 0.8s ease,
-        transform 1.0s cubic-bezier(0.22, 1, 0.36, 1);
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
 
 
-/* ----------------------------------------
-   メニュー項目を表示
----------------------------------------- */
-
-.menu-panel.active a {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* ----------------------------------------
-   順番にふわっと表示
----------------------------------------- */
-
-.menu-panel.active a:nth-child(1) {
-    transition-delay: 0.08s;
-}
-
-.menu-panel.active a:nth-child(2) {
-    transition-delay: 0.14s;
-}
-
-.menu-panel.active a:nth-child(3) {
-    transition-delay: 0.20s;
-}
-
-
-/* ----------------------------------------
-   三本線 → ×
----------------------------------------- */
+/* ========================================
+   ハンバーガー → ×
+======================================== */
 
 .menu-button.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
 }
 
 .menu-button.active span:nth-child(2) {
@@ -699,30 +189,12 @@ footer {
 }
 
 .menu-button.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 
 /* ========================================
-   iPad・スマートフォン
-======================================== */
-
-@media (max-width: 700px) {
-
-    .menu-panel {
-        width: 86vw;
-
-        height: 70vh;
-    }
-
-    .menu-panel a {
-        font-size: 24px;
-    }
-
-
-   /* メニュー背景 */ 
-/* ========================================
-   メニュー外側の背景ぼかし
+   メニュー背景
 ======================================== */
 
 .menu-backdrop {
@@ -737,6 +209,7 @@ footer {
 
     opacity: 0;
     visibility: hidden;
+
     pointer-events: none;
 
     z-index: 9999;
@@ -748,6 +221,78 @@ footer {
 
 .menu-backdrop.active {
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* ========================================
+   メニューパネル
+======================================== */
+
+.menu-panel {
+    position: fixed !important;
+
+    top: 50vh !important;
+    left: 50vw !important;
+
+    width: 66vw;
+    height: 66vh;
+
+    margin: 0 !important;
+    padding: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.96) !important;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 28px;
+
+    z-index: 10000;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.12);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0.4s ease;
+}
+
+
+/* ========================================
+   メニュー表示
+======================================== */
+
+.menu-panel.active {
+    top: 50vh !important;
+    left: 50vw !important;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1) !important;
+
+    opacity: 1;
 
     visibility: visible;
 
@@ -755,7 +300,552 @@ footer {
 }
 
 
-/* メニュー本体はぼかしより前 */
-.menu-panel {
-    z-index: 10000;
+/* ========================================
+   メニュー内リンク
+======================================== */
+
+.menu-panel a {
+    position: relative;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    color: #222222;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.menu-panel a:hover {
+    opacity: 0.55;
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   メイン
+======================================== */
+
+main {
+    width: 100%;
+}
+
+
+/* ========================================
+   共通コンテナ
+======================================== */
+
+.container {
+    width: min(1100px, 90%);
+
+    margin: 0 auto;
+}
+
+
+/* ========================================
+   ヒーロー
+======================================== */
+
+.hero {
+    min-height: 70vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    margin: 0 0 20px;
+
+    font-size: clamp(36px, 7vw, 72px);
+
+    font-weight: 600;
+
+    letter-spacing: 0.04em;
+
+    line-height: 1.3;
+}
+
+.hero p {
+    margin: 0;
+
+    font-size: 16px;
+
+    color: #666666;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* ========================================
+   セクション
+======================================== */
+
+section {
+    width: 100%;
+
+    padding: 100px 20px;
+}
+
+.section-inner {
+    width: min(1000px, 90%);
+
+    margin: 0 auto;
+}
+
+section h2 {
+    margin: 0 0 40px;
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.05em;
+}
+
+
+/* ========================================
+   カード
+======================================== */
+
+.card {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.09);
+}
+
+
+/* ========================================
+   ARTICLE
+======================================== */
+
+.article-list {
+    width: min(1000px, 90%);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 30px;
+}
+
+.article-card {
+    display: block;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.1);
+}
+
+.article-card h3 {
+    margin: 0 0 12px;
+
+    font-size: 21px;
+
+    line-height: 1.5;
+}
+
+.article-card p {
+    margin: 0;
+
+    color: #777777;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   記事本文
+======================================== */
+
+.article {
+    width: min(800px, 90%);
+
+    margin: 0 auto;
+
+    padding: 80px 0;
+}
+
+.article h1 {
+    margin: 0 0 20px;
+
+    font-size: clamp(32px, 6vw, 54px);
+
+    line-height: 1.4;
+}
+
+.article .date {
+    margin-bottom: 50px;
+
+    color: #888888;
+
+    font-size: 14px;
+}
+
+.article h2 {
+    margin-top: 60px;
+
+    font-size: 28px;
+}
+
+.article h3 {
+    margin-top: 40px;
+
+    font-size: 22px;
+}
+
+.article p {
+    margin: 24px 0;
+
+    font-size: 16px;
+}
+
+.article img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    margin: 40px auto;
+
+    border-radius: 16px;
+}
+
+
+/* ========================================
+   ボタン
+======================================== */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 180px;
+
+    padding: 14px 28px;
+
+    border-radius: 999px;
+
+    background: #426791;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    letter-spacing: 0.05em;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.button:hover {
+    opacity: 0.85;
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   YouTubeリンク
+======================================== */
+
+.youtube-link {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 24px;
+
+    border-radius: 999px;
+
+    background: #222222;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.youtube-link:hover {
+    opacity: 0.8;
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   ABOUT
+======================================== */
+
+.about {
+    width: min(800px, 90%);
+
+    margin: 0 auto;
+
+    padding: 80px 0;
+}
+
+.about h1 {
+    margin-bottom: 40px;
+
+    font-size: clamp(36px, 6vw, 54px);
+}
+
+.about p {
+    margin: 24px 0;
+
+    color: #444444;
+}
+
+
+/* ========================================
+   フッター
+======================================== */
+
+footer {
+    width: 100%;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    color: #888888;
+
+    font-size: 13px;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* ========================================
+   スマホ
+======================================== */
+
+@media (max-width: 700px) {
+
+    /* ------------------------------------
+       ヘッダー
+    ------------------------------------ */
+
+    .header-inner {
+        min-height: 70px;
+
+        padding: 0 20px;
+    }
+
+
+    /* ------------------------------------
+       ハンバーガーボタン
+    ------------------------------------ */
+
+    .menu-button {
+        top: 16px;
+        right: 16px;
+
+        width: 46px;
+        height: 46px;
+    }
+
+
+    /* ------------------------------------
+       メニューパネル
+    ------------------------------------ */
+
+    .menu-panel {
+        width: 82vw;
+        height: 70vh;
+
+        border-radius: 22px;
+
+        gap: 24px;
+    }
+
+    .menu-panel a {
+        font-size: 20px;
+    }
+
+
+    /* ------------------------------------
+       ヒーロー
+    ------------------------------------ */
+
+    .hero {
+        min-height: 65vh;
+
+        padding: 70px 20px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+
+    /* ------------------------------------
+       セクション
+    ------------------------------------ */
+
+    section {
+        padding: 70px 20px;
+    }
+
+    section h2 {
+        font-size: 26px;
+    }
+
+
+    /* ------------------------------------
+       カード
+    ------------------------------------ */
+
+    .card {
+        padding: 24px;
+    }
+
+
+    /* ------------------------------------
+       ARTICLE
+    ------------------------------------ */
+
+    .article-list {
+        width: 90%;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .article-card {
+        padding: 24px;
+    }
+
+    .article {
+        width: 88%;
+
+        padding: 60px 0;
+    }
+
+    .article h1 {
+        font-size: 32px;
+    }
+
+    .article h2 {
+        font-size: 25px;
+
+        margin-top: 48px;
+    }
+
+    .article h3 {
+        font-size: 20px;
+    }
+
+    .article p {
+        font-size: 15px;
+    }
+
+
+    /* ------------------------------------
+       ABOUT
+    ------------------------------------ */
+
+    .about {
+        width: 88%;
+
+        padding: 60px 0;
+    }
+
+    .about h1 {
+        font-size: 34px;
+    }
+
+
+    /* ------------------------------------
+       フッター
+    ------------------------------------ */
+
+    footer {
+        padding: 50px 20px;
+    }
+
+}
+
+
+/* ========================================
+   小さいスマホ
+======================================== */
+
+@media (max-width: 400px) {
+
+    .menu-panel {
+        width: 88vw;
+        height: 72vh;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .menu-panel a {
+        font-size: 19px;
+    }
+
 }
