@@ -315,13 +315,13 @@ header {
     top: 0;
     right: 0;
 
-    width: 66.666vw;
+    width: 33.333vw;
     height: 100vh;
 
     padding: 0;
 
     background:
-        rgba(255,255,255,0.88);
+        rgba(255,255,255,0.86);
 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -350,13 +350,12 @@ header {
 
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
+    gap: 18px;
 }
-
-
 .menu-panel.active {
     opacity: 1;
 
