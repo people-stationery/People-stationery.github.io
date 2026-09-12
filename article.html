@@ -1,151 +1,263 @@
-
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ARTICLE | 人文房具</title>
-
-    <link rel="stylesheet" href="style.css">
+<title>ARTICLE | 人文房具</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- ヘッダー -->
-    <header>
-        <div class="header-inner">
-
-            <a href="index.html" class="logo">
-                people stationery
-            </a>
-
-<button class="menu-button" id="menuButton" aria-label="メニュー">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
-
-<div class="menu-backdrop" id="menuBackdrop"></div>
-
-<nav class="menu-panel" id="menuPanel">
+<!-- ========================================
+     ヘッダー
+======================================== -->
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="logo">
+            people stationery
+        </a>
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="メニュー"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+<!-- ========================================
+     メニューバックドロップ
+======================================== -->
+<div
+    class="menu-backdrop"
+    id="menuBackdrop"
+></div>
+<!-- ========================================
+     メニュー
+======================================== -->
+<nav
+    class="menu-panel"
+    id="menuPanel"
+>
     <a href="index.html">HOME</a>
     <a href="article.html">ARTICLE</a>
     <a href="about.html">ABOUT</a>
 </nav>
-
+<!-- ========================================
+     メイン
+======================================== -->
+<main>
+    <!-- ARTICLEタイトル -->
+    <section class="hero">
+        <p class="small-title">
+            ARTICLE
+        </p>
+        <h1>
+            記事一覧
+        </h1>
+        <p class="description">
+            人文房具の記事をまとめています。
+        </p>
+    </section>
+    <!-- ========================================
+         記事一覧
+    ======================================== -->
+    <section class="articles">
+        <h2>
+            記事一覧
+        </h2>
+        <div class="article-list">
+            <!-- 記事2 -->
+            <a
+                href="2.html"
+                class="article-card"
+            >
+                <p class="category">
+                    BLOG
+                </p>
+                <h3>
+                    Kaweco Art Sport Terrazzoについて
+                </h3>
+                <p class="article-date">
+                    2026/9/02
+                </p>
+            </a>
+            <!-- 記事1 -->
+            <a
+                href="1.html"
+                class="article-card"
+            >
+                <p class="category">
+                    BLOG
+                </p>
+                <h3>
+                    ブログサイトを立ち上げました！
+                </h3>
+                <p class="article-date">
+                    2026/9/01
+                </p>
+            </a>
         </div>
-    </header>
-
-
-    <!-- メイン -->
-    <main>
-
-        <section class="hero">
-
-            <p class="small-title">ARTICLE</p>
-
-            <h1>
-                記事一覧
-            </h1>
-
-            <p class="description">
-                人文房具の記事をまとめています。
-            </p>
-
-        </section>
-
-
-        <!-- 記事一覧 -->
-        <section class="articles">
-
-            <h2>記事一覧</h2>
-<a href="2.html" class="article-card">
-
-    <p class="category">BLOG</p>
-
-    <h3>Kaweco Art Sport Terrazzoについて</h3>
-
-    <p class="article-date">
-        2026/9/02
+    </section>
+</main>
+<!-- ========================================
+     フッター
+======================================== -->
+<footer>
+    <p>
+        © 人文房具
     </p>
-
-</a>
-            <div class="article-list">
-
-                <a href="1.html" class="article-card">
-
-                    <p class="category">BLOG</p>
-
-                    <h3>ブログサイトを立ち上げました！</h3>
-
-                    <p class="article-date">
-                        2026/9/01
-                    </p>
-
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- フッター -->
-    <footer>
-        <p>© 人文房具</p>
-    </footer>
+</footer>
+<!-- ========================================
+     JavaScript
+======================================== -->
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const menuButton = document.getElementById("menuButton");
-    const menuPanel = document.getElementById("menuPanel");
-
-    /* ハンバーガーメニュー */
-    menuButton.addEventListener("click", function () {
-
-        menuButton.classList.toggle("active");
-        menuPanel.classList.toggle("active");
-
-    });
-
-
-    /* ページ遷移 */
-    const links = document.querySelectorAll("a[href]");
-
-    links.forEach(function (link) {
-
-        link.addEventListener("click", function (e) {
-
-            const href = link.getAttribute("href");
-
-            if (
-                !href ||
-                href.startsWith("#") ||
-                href.startsWith("http") ||
-                link.target === "_blank"
-            ) {
-                return;
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+            /* ========================================
+               要素取得
+            ======================================== */
+            const menuButton =
+                document.getElementById(
+                    "menuButton"
+                );
+            const menuPanel =
+                document.getElementById(
+                    "menuPanel"
+                );
+            const menuBackdrop =
+                document.getElementById(
+                    "menuBackdrop"
+                );
+            /* ========================================
+               ページ読み込み完了
+            ======================================== */
+            requestAnimationFrame(
+                function () {
+                    document.body.classList.add(
+                        "page-loaded"
+                    );
+                }
+            );
+            /* ========================================
+               メニューを閉じる
+            ======================================== */
+            function closeMenu() {
+                menuButton.classList.remove(
+                    "active"
+                );
+                menuPanel.classList.remove(
+                    "active"
+                );
+                menuBackdrop.classList.remove(
+                    "active"
+                );
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
             }
-
-            e.preventDefault();
-
-            menuButton.classList.remove("active");
-            menuPanel.classList.remove("active");
-
-            document.body.classList.add("page-leave");
-
-            setTimeout(function () {
-                window.location.href = href;
-            }, 350);
-
-        });
-
-    });
-
-});
+            /* ========================================
+               ハンバーガーメニュー
+            ======================================== */
+            menuButton.addEventListener(
+                "click",
+                function () {
+                    const isOpen =
+                        menuPanel.classList.toggle(
+                            "active"
+                        );
+                    menuButton.classList.toggle(
+                        "active",
+                        isOpen
+                    );
+                    menuBackdrop.classList.toggle(
+                        "active",
+                        isOpen
+                    );
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        String(isOpen)
+                    );
+                }
+            );
+            /* ========================================
+               背景クリック
+            ======================================== */
+            menuBackdrop.addEventListener(
+                "click",
+                function () {
+                    closeMenu();
+                }
+            );
+            /* ========================================
+               ESCキー
+            ======================================== */
+            document.addEventListener(
+                "keydown",
+                function (e) {
+                    if (e.key === "Escape") {
+                        closeMenu();
+                    }
+                }
+            );
+            /* ========================================
+               ページ遷移
+            ======================================== */
+            const links =
+                document.querySelectorAll(
+                    "a[href]"
+                );
+            links.forEach(
+                function (link) {
+                    link.addEventListener(
+                        "click",
+                        function (e) {
+                            const href =
+                                link.getAttribute(
+                                    "href"
+                                );
+                            /* 外部リンク等 */
+                            if (
+                                !href ||
+                                href.startsWith("#") ||
+                                href.startsWith("http") ||
+                                href.startsWith("mailto:") ||
+                                link.target === "_blank"
+                            ) {
+                                return;
+                            }
+                            /* 現在のページ */
+                            const currentPage =
+                                window.location.pathname
+                                    .split("/")
+                                    .pop();
+                            if (
+                                href === currentPage
+                            ) {
+                                return;
+                            }
+                            e.preventDefault();
+                            closeMenu();
+                            document.body.classList.add(
+                                "page-leave"
+                            );
+                            setTimeout(
+                                function () {
+                                    window.location.href =
+                                        href;
+                                },
+                                350
+                            );
+                        }
+                    );
+                }
+            );
+        }
+    );
 </script>
 </body>
 </html>
