@@ -374,6 +374,8 @@ header {
 .menu-panel a {
     display: block;
 
+    width: min(320px, 80%);
+
     padding: 17px 18px;
 
     color: #315878;
@@ -387,10 +389,18 @@ header {
 
     letter-spacing: 0.12em;
 
+    text-align: center;
+
     transition:
         background 0.25s ease,
-        color 0.25s ease,
-        padding-left 0.25s ease;
+        color 0.25s ease;
+}
+
+.menu-panel a:hover {
+    background:
+        rgba(66,103,145,0.07);
+
+    color: #203f5d;
 }
 text-align: center;
 
