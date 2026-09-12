@@ -113,10 +113,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuPanel = document.getElementById("menuPanel");
 
     /* ハンバーガーメニュー */
-    menuButton.addEventListener("click", function () {
+menuButton.addEventListener("click", function () {
 
-        menuButton.classList.toggle("active");
-        menuPanel.classList.toggle("active");
+    menuButton.classList.toggle("active");
+    menuPanel.classList.toggle("active");
+    menuBackdrop.classList.toggle("active");
 
     });
 
