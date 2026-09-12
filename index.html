@@ -158,91 +158,93 @@
          JavaScript
     ======================================== -->
 
-    <script>
+ <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        /* ========================================
+           ページ表示
+        ======================================== */
+
         document.body.classList.add("page-loaded");
 
-    const menuButton =
-        document.getElementById("menuButton");
-        document.addEventListener("DOMContentLoaded", function () {
 
-            const menuButton =
-                document.getElementById("menuButton");
+        const menuButton =
+            document.getElementById("menuButton");
 
-            const menuPanel =
-                document.getElementById("menuPanel");
+        const menuPanel =
+            document.getElementById("menuPanel");
 
 
-            /* ========================================
-               ハンバーガーメニュー
-            ======================================== */
+        /* ========================================
+           ハンバーガーメニュー
+        ======================================== */
 
-            menuButton.addEventListener("click", function () {
+        menuButton.addEventListener("click", function () {
 
-                menuButton.classList.toggle("active");
+            menuButton.classList.toggle("active");
 
-                menuPanel.classList.toggle("active");
+            menuPanel.classList.toggle("active");
 
-            });
-
-
-            /* ========================================
-               ページ遷移
-            ======================================== */
-
-            const links =
-                document.querySelectorAll("a[href]");
+        });
 
 
-            links.forEach(function (link) {
+        /* ========================================
+           ページ遷移
+        ======================================== */
 
-                link.addEventListener("click", function (e) {
-
-                    const href =
-                        link.getAttribute("href");
-
-
-                    /* 外部リンク・#リンク・新しいタブは除外 */
-
-                    if (
-                        !href ||
-                        href.startsWith("#") ||
-                        href.startsWith("http") ||
-                        link.target === "_blank"
-                    ) {
-                        return;
-                    }
+        const links =
+            document.querySelectorAll("a[href]");
 
 
-                    e.preventDefault();
+        links.forEach(function (link) {
+
+            link.addEventListener("click", function (e) {
+
+                const href =
+                    link.getAttribute("href");
 
 
-                    /* メニューを閉じる */
+                /* 外部リンク・#リンク・新しいタブは除外 */
 
-                    menuButton.classList.remove("active");
+                if (
+                    !href ||
+                    href.startsWith("#") ||
+                    href.startsWith("http") ||
+                    link.target === "_blank"
+                ) {
+                    return;
+                }
 
-                    menuPanel.classList.remove("active");
+
+                e.preventDefault();
 
 
-                    /* ページをぼかしながら消す */
+                /* メニューを閉じる */
 
-                    document.body.classList.add("page-leave");
+                menuButton.classList.remove("active");
+
+                menuPanel.classList.remove("active");
 
 
-                    /* 少し待ってページ移動 */
+                /* ページをぼかしながら消す */
 
-                    setTimeout(function () {
+                document.body.classList.add("page-leave");
 
-                        window.location.href = href;
 
-                    }, 350);
+                /* CSSの0.8秒に合わせて待つ */
 
-                });
+                setTimeout(function () {
+
+                    window.location.href = href;
+
+                }, 800);
 
             });
 
         });
 
-    </script>
+    });
+</script>
 
 </body>
 
