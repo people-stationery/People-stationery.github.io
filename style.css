@@ -312,34 +312,33 @@ header {
 .menu-panel {
     position: fixed;
 
-    top: 78px;
-    right: 22px;
+    inset: 0;
 
-    width: 250px;
+    width: 100%;
+    height: 100vh;
 
-    padding: 12px;
+    padding: 0;
 
     background:
-        rgba(255,255,255,0.90);
+        rgba(255,255,255,0.72);
 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 
-    border:
-        1px solid rgba(66,103,145,0.13);
+    border: none;
+    border-radius: 0;
 
-    border-radius: 20px;
-
-    box-shadow:
-        0 20px 55px rgba(42,73,104,0.16);
+    box-shadow: none;
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
-    transform:
-        translateY(-12px)
-        scale(0.97);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: scale(0.98);
 
     transition:
         opacity 0.35s ease,
