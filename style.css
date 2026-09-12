@@ -122,7 +122,6 @@ body::after {
 /* ========================================
    ヘッダー
 ======================================== */
-
 header {
     width: 100%;
 
@@ -135,7 +134,10 @@ header {
     border-bottom:
         1px solid rgba(66,103,145,0.12);
 
-    position: relative;
+    position: fixed;
+
+    top: 0;
+    left: 0;
 
     z-index: 100;
 }
@@ -151,6 +153,10 @@ header {
 
     display: flex;
     align-items: center;
+}
+   main {
+    padding-top: 76px;
+}
 }
 
 
