@@ -1,47 +1,98 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>people stationery</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
-    <!-- ヘッダー -->
+
+    <!-- ========================================
+         ヘッダー
+    ======================================== -->
+
     <header>
+
         <div class="header-inner">
+
             <a href="index.html" class="logo">
                 people stationery
             </a>
-            <button class="menu-button" id="menuButton">
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="メニューを開く"
+            >
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+
         </div>
+
     </header>
-    <!-- ハンバーガーメニュー -->
-    <nav class="menu-panel" id="menuPanel">
-        <a href="index.html">HOME</a>
-        <a href="article.html">ARTICLE</a>
-        <a href="about.html">ABOUT</a>
+
+
+    <!-- ========================================
+         ハンバーガーメニュー
+    ======================================== -->
+
+    <nav
+        class="menu-panel"
+        id="menuPanel"
+        aria-label="メインメニュー"
+    >
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="article.html">
+            ARTICLE
+        </a>
+
+        <a href="about.html">
+            ABOUT
+        </a>
+
     </nav>
-    <!-- メイン -->
+
+
+    <!-- ========================================
+         メイン
+    ======================================== -->
+
     <main>
+
         <section class="hero">
+
             <p class="small-title">
                 STATIONERY MEDIA
             </p>
+
             <h1>
                 文房具を、<br>
                 ちょっと深く。
             </h1>
+
             <p class="description">
                 文房具を観察して、調べて、考える。<br>
                 「人文房具」へようこそ。
             </p>
+
         </section>
+
+
         <!-- YouTube -->
+
         <a
             href="https://www.youtube.com/@そこら辺にいるただの人-Zzz"
             class="youtube-button"
@@ -50,52 +101,105 @@
         >
             YouTubeチャンネルはこちら↓
         </a>
-        <!-- 最新記事 -->
+
+
+        <!-- ========================================
+             最新記事
+        ======================================== -->
+
         <section class="articles">
+
             <h2>
                 最新記事
             </h2>
+
             <div class="article-list">
-                <a href="2.html" class="article-card">
+
+                <a
+                    href="2.html"
+                    class="article-card"
+                >
+
                     <p class="category">
                         BLOG
                     </p>
+
                     <h3>
                         kaweco art sport terrazzoについて
                     </h3>
+
                     <p class="article-date">
                         2026/9/02
                     </p>
+
                 </a>
+
             </div>
+
         </section>
+
     </main>
-    <!-- フッター -->
+
+
+    <!-- ========================================
+         フッター
+    ======================================== -->
+
     <footer>
+
         <p>
             © 人文房具
         </p>
+
     </footer>
-    <!-- JavaScript -->
+
+
+    <!-- ========================================
+         JavaScript
+    ======================================== -->
+
     <script>
+
         document.addEventListener("DOMContentLoaded", function () {
+
+            const menuButton =
+                document.getElementById("menuButton");
+
+            const menuPanel =
+                document.getElementById("menuPanel");
+
+
             /* ========================================
                ハンバーガーメニュー
             ======================================== */
-            const menuButton = document.getElementById("menuButton");
-            const menuPanel = document.getElementById("menuPanel");
+
             menuButton.addEventListener("click", function () {
+
                 menuButton.classList.toggle("active");
+
                 menuPanel.classList.toggle("active");
+
             });
+
+
             /* ========================================
                ページ遷移
             ======================================== */
-            const links = document.querySelectorAll("a[href]");
+
+            const links =
+                document.querySelectorAll("a[href]");
+
+
             links.forEach(function (link) {
+
                 link.addEventListener("click", function (e) {
-                    const href = link.getAttribute("href");
+
+                    const href =
+                        link.getAttribute("href");
+
+
                     /* 外部リンク・#リンク・新しいタブは除外 */
+
                     if (
                         !href ||
                         href.startsWith("#") ||
@@ -104,19 +208,39 @@
                     ) {
                         return;
                     }
+
+
                     e.preventDefault();
+
+
                     /* メニューを閉じる */
+
                     menuButton.classList.remove("active");
+
                     menuPanel.classList.remove("active");
-                    /* ページをフェードアウト */
+
+
+                    /* ページをぼかしながら消す */
+
                     document.body.classList.add("page-leave");
-                    /* 350ms後に移動 */
+
+
+                    /* 少し待ってページ移動 */
+
                     setTimeout(function () {
+
                         window.location.href = href;
+
                     }, 350);
+
                 });
+
             });
+
         });
+
     </script>
+
 </body>
+
 </html>
