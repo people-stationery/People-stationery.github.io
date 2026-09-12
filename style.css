@@ -609,9 +609,9 @@ footer {
        透明度と大きさだけ変化
     */
     transition:
-        opacity 0.35s ease,
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        visibility 0.35s ease;
+        opacity 1.00s ease,
+        transform 1.20s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 1.00s ease;
 }
 
 
