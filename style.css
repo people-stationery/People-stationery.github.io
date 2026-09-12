@@ -312,33 +312,34 @@ header {
 .menu-panel {
     position: fixed;
 
-    inset: 0;
+    top: 0;
+    right: 0;
 
-    width: 100%;
+    width: 66.666vw;
     height: 100vh;
 
     padding: 0;
 
     background:
-        rgba(255,255,255,0.72);
+        rgba(255,255,255,0.88);
 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 
-    border: none;
-    border-radius: 0;
+    border-left:
+        1px solid rgba(66,103,145,0.13);
 
-    box-shadow: none;
+    border-radius: 24px 0 0 24px;
+
+    box-shadow:
+        -15px 0 45px rgba(42,73,104,0.12);
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transform: scale(0.98);
+    transform:
+        translateX(30px);
 
     transition:
         opacity 0.35s ease,
@@ -346,6 +347,13 @@ header {
         visibility 0.35s ease;
 
     z-index: 10001;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
 }
 
 
