@@ -961,7 +961,7 @@ footer {
 
 
 /* ========================================
-   ボタン
+   ボタン本体
 ======================================== */
 
 .article-navigation a {
@@ -981,9 +981,6 @@ footer {
 
     text-decoration: none;
 
-    background:
-        rgba(255,255,255,0.86);
-
     border:
         1px solid rgba(66,103,145,0.16);
 
@@ -993,147 +990,93 @@ footer {
         0 8px 28px rgba(42,73,104,0.07);
 
     font-size: 14px;
-
     font-weight: 600;
 
     letter-spacing: 0.08em;
 
     overflow: hidden;
 
-    isolation: isolate;
+    /*
+        背景：
+        ① 三角形模様
+        ② 左ほど少し濃い青
+        ③ 全体は白ベース
+    */
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
+    background:
 
+        /* 左 → 右の濃淡 */
+        linear-gradient(
+            to right,
+            rgba(66,103,145,0.075) 0%,
+            rgba(66,103,145,0.045) 35%,
+            rgba(66,103,145,0.018) 70%,
+            rgba(255,255,255,0.10) 100%
+        ),
 
-/* ========================================
-   三角形パターン
-======================================== */
-
-.article-navigation a::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background-color:
-        rgba(255,255,255,0.15);
-
-    background-image:
+        /* 三角形 その1 */
         linear-gradient(
             30deg,
-            rgba(66,103,145,0.045) 12%,
-            transparent 12.5%,
-            transparent 87%,
-            rgba(66,103,145,0.045) 87.5%,
-            rgba(66,103,145,0.045)
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
         ),
+
+        /* 三角形 その2 */
         linear-gradient(
             150deg,
-            rgba(66,103,145,0.045) 12%,
-            transparent 12.5%,
-            transparent 87%,
-            rgba(66,103,145,0.045) 87.5%,
-            rgba(66,103,145,0.045)
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
         ),
+
+        /* 三角形 その3 */
         linear-gradient(
             30deg,
-            rgba(66,103,145,0.045) 12%,
-            transparent 12.5%,
-            transparent 87%,
-            rgba(66,103,145,0.045) 87.5%,
-            rgba(66,103,145,0.045)
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
         ),
-        linear-gradient(
-            150deg,
-            rgba(66,103,145,0.045) 12%,
-            transparent 12.5%,
-            transparent 87%,
-            rgba(66,103,145,0.045) 87.5%,
-            rgba(66,103,145,0.045)
-        );
+
+        /* 白い下地 */
+        rgba(255,255,255,0.88);
+
+    background-size:
+        100% 100%,
+        28px 28px,
+        28px 28px,
+        28px 28px,
+        100% 100%;
 
     background-position:
         0 0,
         0 0,
-        25px 25px,
-        25px 25px;
+        0 0,
+        14px 14px,
+        0 0;
 
-    background-size:
-        50px 50px;
-
-    opacity: 0.9;
-
-    pointer-events: none;
-
-    z-index: -1;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
 }
 
 
 /* ========================================
-   左側
-   少し濃い
+   文字を最前面に
 ======================================== */
 
-.article-navigation .prev-article::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to right,
-            rgba(66,103,145,0.075),
-            rgba(66,103,145,0.045),
-            rgba(66,103,145,0.012)
-        );
-
-    pointer-events: none;
-
-    z-index: -1;
+.article-navigation a {
+    isolation: isolate;
 }
 
 
 /* ========================================
-   右側
-   さらに薄く
+   左右の配置
 ======================================== */
-
-.article-navigation .next-article::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to right,
-            rgba(66,103,145,0.025),
-            rgba(66,103,145,0.012),
-            rgba(66,103,145,0)
-        );
-
-    pointer-events: none;
-
-    z-index: -1;
-}
-
-
-/* ========================================
-   文字
-======================================== */
-
-.article-navigation .prev-article,
-.article-navigation .next-article {
-    z-index: 1;
-}
 
 .article-navigation .prev-article {
     justify-content: flex-start;
@@ -1152,11 +1095,11 @@ footer {
     transform:
         translateY(-4px);
 
-    background:
-        rgba(255,255,255,0.94);
-
     box-shadow:
         0 14px 34px rgba(42,73,104,0.11);
+
+    background-color:
+        rgba(255,255,255,0.95);
 }
 
 
@@ -1177,17 +1120,41 @@ footer {
         gap: 10px;
     }
 
+
     .article-navigation a {
-        min-height: 62px;
+        min-height: 58px;
 
         padding:
-            0 15px;
+            0 14px;
 
         border-radius: 15px;
 
         font-size: 11px;
 
         letter-spacing: 0.04em;
+
+        background-size:
+            100% 100%,
+            22px 22px,
+            22px 22px,
+            22px 22px,
+            100% 100%;
+    }
+
+
+    .article-navigation a:hover {
+        transform:
+            translateY(-2px);
+    }
+
+
+    .article-navigation .prev-article:hover {
+        padding-left: 17px;
+    }
+
+
+    .article-navigation .next-article:hover {
+        padding-right: 17px;
     }
 
 }
