@@ -1,5 +1,3 @@
-
-```css
 /* ========================================
    人文房具 - Style Sheet
 ======================================== */
@@ -14,11 +12,15 @@
 }
 
 html {
+    margin: 0;
+    padding: 0;
+
     background: #ffffff;
 }
 
 body {
     margin: 0;
+    padding: 0;
 
     color: #222222;
 
@@ -37,15 +39,20 @@ body {
     position: relative;
 
     opacity: 1;
-    filter: blur(0);
 
     transition:
         opacity 0.35s ease,
         filter 0.35s ease;
 }
 
+
+/* ========================================
+   ページ遷移
+======================================== */
+
 body.page-leave {
     opacity: 0;
+
     filter: blur(10px);
 }
 
@@ -104,7 +111,7 @@ body::before {
 
 
 /* ========================================
-   背景を最新記事付近までで終了
+   背景のフェード
 ======================================== */
 
 body::after {
@@ -125,6 +132,7 @@ body::after {
     background:
         linear-gradient(
             to bottom,
+
             rgba(255, 255, 255, 0) 0%,
             rgba(255, 255, 255, 0) 65%,
             rgba(255, 255, 255, 0.55) 82%,
@@ -134,7 +142,7 @@ body::after {
 
 
 /* ========================================
-   コンテンツを背景より前へ
+   コンテンツ
 ======================================== */
 
 header,
@@ -151,16 +159,19 @@ footer {
 ======================================== */
 
 header {
-    background: rgba(255, 255, 255, 0.96);
-
-    border-bottom: 1px solid #d1d5db;
-
     position: sticky;
 
     top: 0;
 
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid #d1d5db;
+
     z-index: 10;
 }
+
 
 .header-inner {
     max-width: 1100px;
@@ -195,7 +206,7 @@ header {
 
 
 /* ========================================
-   通常ナビゲーション
+   通常のnav
 ======================================== */
 
 nav {
@@ -203,6 +214,7 @@ nav {
 
     gap: 28px;
 }
+
 
 nav a {
     color: #555555;
@@ -217,6 +229,7 @@ nav a {
 
     transition: 0.2s;
 }
+
 
 nav a:hover {
     color: #2563eb;
@@ -244,6 +257,7 @@ main {
     padding: 110px 0 120px;
 }
 
+
 .small-title {
     color: #2563eb;
 
@@ -253,6 +267,7 @@ main {
 
     letter-spacing: 0.2em;
 }
+
 
 .hero h1 {
     margin: 20px 0;
@@ -265,6 +280,7 @@ main {
 
     letter-spacing: 0.03em;
 }
+
 
 .description {
     color: #666666;
@@ -301,6 +317,7 @@ main {
         opacity 0.2s;
 }
 
+
 .youtube-button:hover {
     transform: translateY(-2px);
 
@@ -316,6 +333,7 @@ main {
     padding: 70px 0 110px;
 }
 
+
 .articles h2 {
     margin-bottom: 35px;
 
@@ -324,6 +342,7 @@ main {
     font-size: 28px;
 }
 
+
 .article-list {
     display: grid;
 
@@ -331,6 +350,7 @@ main {
 
     gap: 22px;
 }
+
 
 article {
     padding: 28px;
@@ -344,11 +364,13 @@ article {
     transition: 0.2s;
 }
 
+
 article:hover {
     transform: translateY(-4px);
 
     border-color: #93c5fd;
 }
+
 
 .category {
     margin: 0 0 8px;
@@ -362,11 +384,13 @@ article:hover {
     letter-spacing: 0.12em;
 }
 
+
 article h3 {
     margin: 0 0 10px;
 
     font-size: 19px;
 }
+
 
 article p:last-child {
     margin: 0;
@@ -399,11 +423,13 @@ article p:last-child {
     transition: 0.2s;
 }
 
+
 .article-card:hover {
     transform: translateY(-4px);
 
     border-color: #93c5fd;
 }
+
 
 .article-card h3 {
     margin: 0 0 8px;
@@ -412,6 +438,7 @@ article p:last-child {
 
     font-size: 19px;
 }
+
 
 .article-date {
     margin: 0;
@@ -440,6 +467,7 @@ article p:last-child {
     justify-content: space-between;
 }
 
+
 .article-navigation a {
     text-decoration: none;
 
@@ -447,6 +475,7 @@ article p:last-child {
 
     transition: opacity 0.2s;
 }
+
 
 .article-navigation a:hover {
     opacity: 0.6;
@@ -490,27 +519,39 @@ footer {
     width: 48px;
     height: 48px;
 
+    margin: 0;
+    padding: 0;
+
     border: none;
+
     border-radius: 50%;
 
     background: rgba(255, 255, 255, 0.9);
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
 
     gap: 6px;
 
     cursor: pointer;
 
-    z-index: 1001;
+    z-index: 10001;
 }
 
 
 .menu-button span {
+    display: block;
+
     width: 22px;
     height: 2px;
+
+    margin: 0;
+    padding: 0;
 
     background: #426791;
 
@@ -525,35 +566,45 @@ footer {
 ---------------------------------------- */
 
 .menu-panel {
-    position: fixed;
+    position: fixed !important;
 
-    top: 50%;
-    left: 50%;
+    top: 50vh !important;
+    left: 50vw !important;
 
     width: 66vw;
+
     height: 66vh;
 
-    transform: translate(-50%, -50%);
+    margin: 0 !important;
+
+    padding: 0;
+
+    transform: translate(-50%, -50%) !important;
 
     background: rgba(255, 255, 255, 0.88);
 
     backdrop-filter: blur(14px);
+
     -webkit-backdrop-filter: blur(14px);
 
     border-radius: 24px;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     gap: 28px;
 
-    z-index: 1000;
+    z-index: 10000;
 
     opacity: 0;
+
     visibility: hidden;
+
     pointer-events: none;
 
     box-shadow:
@@ -570,6 +621,11 @@ footer {
 ---------------------------------------- */
 
 .menu-panel.active {
+    top: 50vh !important;
+    left: 50vw !important;
+
+    transform: translate(-50%, -50%) !important;
+
     opacity: 1;
 
     visibility: visible;
@@ -588,6 +644,7 @@ footer {
     text-decoration: none;
 
     font-size: 28px;
+
     font-weight: 700;
 
     letter-spacing: 0.12em;
@@ -617,9 +674,11 @@ footer {
     transition-delay: 0.08s;
 }
 
+
 .menu-panel.active a:nth-child(2) {
     transition-delay: 0.16s;
 }
+
 
 .menu-panel.active a:nth-child(3) {
     transition-delay: 0.24s;
@@ -634,9 +693,11 @@ footer {
     transform: translateY(8px) rotate(45deg);
 }
 
+
 .menu-button.active span:nth-child(2) {
     opacity: 0;
 }
+
 
 .menu-button.active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
@@ -649,10 +710,27 @@ footer {
 
 @media (max-width: 700px) {
 
+    .header-inner {
+        padding: 16px 20px;
+    }
+
+
+    .hero {
+        padding: 80px 0;
+    }
+
+
+    .article-list {
+        grid-template-columns: 1fr;
+    }
+
+
     .menu-panel {
         width: 86vw;
+
         height: 70vh;
     }
+
 
     .menu-panel a {
         font-size: 24px;
