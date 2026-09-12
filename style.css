@@ -938,8 +938,7 @@ footer {
         transition: none;
     }
 
-}
-/* ========================================
+}/* ========================================
    記事ナビゲーション
 ======================================== */
 
@@ -981,9 +980,6 @@ footer {
 
     text-decoration: none;
 
-    background:
-        rgba(255,255,255,0.92);
-
     border:
         1px solid rgba(66,103,145,0.16);
 
@@ -999,104 +995,81 @@ footer {
 
     overflow: hidden;
 
-    isolation: isolate;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-
-/* ========================================
-   三角形パターン
-======================================== */
-
-.article-navigation a::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: -1;
-
-    background-image:
-
-        linear-gradient(
-            30deg,
-            rgba(66,103,145,0.07) 12%,
-            transparent 12.5%,
-            transparent 87%,
-            rgba(66,103,145,0.07) 87.5%,
-            rgba(66,103,145,0.07)
-        ),
-
-        linear-gradient(
-            150deg,
-            rgba(66,103,145,0.07) 12%,
-            transparent 12.5%,
-            transparent 87%,
-            rgba(66,103,145,0.07) 87.5%,
-            rgba(66,103,145,0.07)
-        ),
-
-        linear-gradient(
-            30deg,
-            rgba(66,103,145,0.07) 12%,
-            transparent 12.5%,
-            transparent 87%,
-            rgba(66,103,145,0.07) 87.5%,
-            rgba(66,103,145,0.07)
-        ),
-
-        linear-gradient(
-            150deg,
-            rgba(66,103,145,0.07) 12%,
-            transparent 12.5%,
-            transparent 87%,
-            rgba(66,103,145,0.07) 87.5%,
-            rgba(66,103,145,0.07)
-        );
-
-    background-size:
-        50px 50px,
-        50px 50px,
-        50px 50px,
-        50px 50px;
-
-    background-position:
-        0 0,
-        0 0,
-        25px 25px,
-        25px 25px;
-}
-
-
-/* ========================================
-   左側を少し濃くする
-======================================== */
-
-.article-navigation a::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: -1;
+    /*
+        背景：
+        ① 三角形模様
+        ② 左ほど少し濃い青
+        ③ 全体は白ベース
+    */
 
     background:
+
+        /* 左 → 右の濃淡 */
         linear-gradient(
             to right,
             rgba(66,103,145,0.075) 0%,
             rgba(66,103,145,0.045) 35%,
-            rgba(66,103,145,0.020) 70%,
-            rgba(255,255,255,0.01) 100%
-        );
+            rgba(66,103,145,0.018) 70%,
+            rgba(255,255,255,0.10) 100%
+        ),
+
+        /* 三角形 その1 */
+        linear-gradient(
+            30deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+
+        /* 三角形 その2 */
+        linear-gradient(
+            150deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+
+        /* 三角形 その3 */
+        linear-gradient(
+            30deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+
+        /* 白い下地 */
+        rgba(255,255,255,0.88);
+
+    background-size:
+        100% 100%,
+        28px 28px,
+        28px 28px,
+        28px 28px,
+        100% 100%;
+
+    background-position:
+        0 0,
+        0 0,
+        0 0,
+        14px 14px,
+        0 0;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* ========================================
+   文字を最前面に
+======================================== */
+
+.article-navigation a {
+    isolation: isolate;
 }
 
 
@@ -1123,6 +1096,9 @@ footer {
 
     box-shadow:
         0 14px 34px rgba(42,73,104,0.11);
+
+    background-color:
+        rgba(255,255,255,0.95);
 }
 
 
@@ -1155,21 +1131,13 @@ footer {
         font-size: 11px;
 
         letter-spacing: 0.04em;
-    }
 
-
-    .article-navigation a::before {
         background-size:
-            36px 36px,
-            36px 36px,
-            36px 36px,
-            36px 36px;
-
-        background-position:
-            0 0,
-            0 0,
-            18px 18px,
-            18px 18px;
+            100% 100%,
+            22px 22px,
+            22px 22px,
+            22px 22px,
+            100% 100%;
     }
 
 
