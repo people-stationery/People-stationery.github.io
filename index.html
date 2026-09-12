@@ -1,98 +1,82 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>people stationery</title>
-
-    <link rel="stylesheet" href="style.css">
+<title>people stationery</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
-
-    <!-- ========================================
-         ヘッダー
-    ======================================== -->
-
-    <header>
-
-        <div class="header-inner">
-
-            <a href="index.html" class="logo">
-                people stationery
-            </a>
-
-            <button
-                class="menu-button"
-                id="menuButton"
-                type="button"
-                aria-label="メニューを開く"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <!-- ========================================
-         ハンバーガーメニュー
-    ======================================== -->
-
-    <nav
-        class="menu-panel"
-        id="menuPanel"
-        aria-label="メインメニュー"
-    >
-
-        <a href="index.html">
-            HOME
+<!-- ========================================
+     ヘッダー
+======================================== -->
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="logo">
+            people stationery
         </a>
-
-        <a href="article.html">
-            ARTICLE
-        </a>
-
-        <a href="about.html">
-            ABOUT
-        </a>
-
-    </nav>
-
-
-    <!-- ========================================
-         メイン
-    ======================================== -->
-
-    <main>
-
-        <section class="hero">
-
-            <p class="small-title">
-                STATIONERY MEDIA
-            </p>
-
-            <h1>
-                文房具を、<br>
-                ちょっと深く。
-            </h1>
-
-            <p class="description">
-                文房具を観察して、調べて、考える。<br>
-                「人文房具」へようこそ。
-            </p>
-
-        </section>
-
-
-        <!-- YouTube -->
-
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="メニューを開く"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+<!-- ========================================
+     メニュー背景
+======================================== -->
+<div
+    class="menu-backdrop"
+    id="menuBackdrop"
+></div>
+<!-- ========================================
+     ハンバーガーメニュー
+======================================== -->
+<nav
+    class="menu-panel"
+    id="menuPanel"
+    aria-label="メインメニュー"
+>
+    <a href="index.html">
+        HOME
+    </a>
+    <a href="article.html">
+        ARTICLE
+    </a>
+    <a href="about.html">
+        ABOUT
+    </a>
+</nav>
+<!-- ========================================
+     メイン
+======================================== -->
+<main>
+    <!-- ====================================
+         ヒーロー
+    ==================================== -->
+    <section class="hero">
+        <p class="small-title">
+            STATIONERY MEDIA
+        </p>
+        <h1>
+            文房具を、<br>
+            ちょっと深く。
+        </h1>
+        <p class="description">
+            文房具を観察して、調べて、考える。<br>
+            「人文房具」へようこそ。
+        </p>
+    </section>
+    <!-- ====================================
+         YouTube
+    ==================================== -->
+    <div class="youtube-area">
         <a
             href="https://www.youtube.com/@そこら辺にいるただの人-Zzz"
             class="youtube-button"
@@ -101,151 +85,170 @@
         >
             YouTubeチャンネルはこちら↓
         </a>
-
-
-        <!-- ========================================
-             最新記事
-        ======================================== -->
-
-        <section class="articles">
-
-            <h2>
-                最新記事
-            </h2>
-
-            <div class="article-list">
-
-                <a
-                    href="2.html"
-                    class="article-card"
-                >
-
-                    <p class="category">
-                        BLOG
-                    </p>
-
-                    <h3>
-                        kaweco art sport terrazzoについて
-                    </h3>
-
-                    <p class="article-date">
-                        2026/9/02
-                    </p>
-
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ========================================
-         フッター
-    ======================================== -->
-
-    <footer>
-
-        <p>
-            © 人文房具
-        </p>
-
-    </footer>
-
-
-    <!-- ========================================
-         JavaScript
-    ======================================== -->
-
- <script>
+    </div>
+    <!-- ====================================
+         最新記事
+    ==================================== -->
+    <section class="articles">
+        <h2>
+            最新記事
+        </h2>
+        <div class="article-list">
+            <a
+                href="2.html"
+                class="article-card"
+            >
+                <p class="category">
+                    BLOG
+                </p>
+                <h3>
+                    kaweco art sport terrazzoについて
+                </h3>
+                <p class="article-date">
+                    2026/9/02
+                </p>
+            </a>
+        </div>
+    </section>
+</main>
+<!-- ========================================
+     フッター
+======================================== -->
+<footer>
+    <p>
+        © 人文房具
+    </p>
+</footer>
+<!-- ========================================
+     JavaScript
+======================================== -->
+<script>
     document.addEventListener("DOMContentLoaded", function () {
-
-        /* ========================================
-           ページ表示
-        ======================================== */
-
-        document.body.classList.add("page-loaded");
-
-
+        /* ====================================
+           要素取得
+        ==================================== */
         const menuButton =
             document.getElementById("menuButton");
-
         const menuPanel =
             document.getElementById("menuPanel");
-
-
-        /* ========================================
-           ハンバーガーメニュー
-        ======================================== */
-
-        menuButton.addEventListener("click", function () {
-
-            menuButton.classList.toggle("active");
-
-            menuPanel.classList.toggle("active");
-
+        const menuBackdrop =
+            document.getElementById("menuBackdrop");
+        /* ====================================
+           ページ表示
+        ==================================== */
+        /*
+            CSS側では最初、
+            opacity: 0;
+            filter: blur(10px);
+            になっている。
+            ここで page-loaded を追加して
+            通常表示に戻す。
+        */
+        requestAnimationFrame(function () {
+            document.body.classList.add("page-loaded");
         });
-
-
-        /* ========================================
+        /* ====================================
+           メニューを閉じる関数
+        ==================================== */
+        function closeMenu() {
+            menuButton.classList.remove("active");
+            menuPanel.classList.remove("active");
+            menuBackdrop.classList.remove("active");
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
+        /* ====================================
+           メニューを開く / 閉じる
+        ==================================== */
+        menuButton.addEventListener(
+            "click",
+            function () {
+                const isOpen =
+                    menuPanel.classList.toggle("active");
+                menuButton.classList.toggle(
+                    "active",
+                    isOpen
+                );
+                menuBackdrop.classList.toggle(
+                    "active",
+                    isOpen
+                );
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+            }
+        );
+        /* ====================================
+           背景をクリックしたら閉じる
+        ==================================== */
+        menuBackdrop.addEventListener(
+            "click",
+            function () {
+                closeMenu();
+            }
+        );
+        /* ====================================
+           ESCキーで閉じる
+        ==================================== */
+        document.addEventListener(
+            "keydown",
+            function (event) {
+                if (event.key === "Escape") {
+                    closeMenu();
+                }
+            }
+        );
+        /* ====================================
            ページ遷移
-        ======================================== */
-
+        ==================================== */
         const links =
             document.querySelectorAll("a[href]");
-
-
         links.forEach(function (link) {
-
-            link.addEventListener("click", function (e) {
-
-                const href =
-                    link.getAttribute("href");
-
-
-                /* 外部リンク・#リンク・新しいタブは除外 */
-
-                if (
-                    !href ||
-                    href.startsWith("#") ||
-                    href.startsWith("http") ||
-                    link.target === "_blank"
-                ) {
-                    return;
+            link.addEventListener(
+                "click",
+                function (event) {
+                    const href =
+                        link.getAttribute("href");
+                    /* ----------------------------
+                       除外するリンク
+                    ---------------------------- */
+                    if (
+                        !href ||
+                        href.startsWith("#") ||
+                        href.startsWith("http") ||
+                        href.startsWith("mailto:") ||
+                        link.target === "_blank"
+                    ) {
+                        return;
+                    }
+                    /* ----------------------------
+                       通常のページ遷移
+                    ---------------------------- */
+                    event.preventDefault();
+                    /* メニューを閉じる */
+                    closeMenu();
+                    /* ページをぼかして消す */
+                    document.body.classList.remove(
+                        "page-loaded"
+                    );
+                    document.body.classList.add(
+                        "page-leave"
+                    );
+                    /* CSSの0.8秒に合わせる */
+                    setTimeout(
+                        function () {
+                            window.location.href =
+                                href;
+                        },
+                        800
+                    );
                 }
-
-
-                e.preventDefault();
-
-
-                /* メニューを閉じる */
-
-                menuButton.classList.remove("active");
-
-                menuPanel.classList.remove("active");
-
-
-                /* ページをぼかしながら消す */
-
-                document.body.classList.add("page-leave");
-
-
-                /* CSSの0.8秒に合わせて待つ */
-
-                setTimeout(function () {
-
-                    window.location.href = href;
-
-                }, 800);
-
-            });
-
+            );
         });
-
     });
 </script>
-
 </body>
-
 </html>
