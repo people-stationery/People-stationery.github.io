@@ -961,7 +961,7 @@ footer {
 
 
 /* ========================================
-   ボタン本体
+   ボタン
 ======================================== */
 
 .article-navigation a {
@@ -982,7 +982,7 @@ footer {
     text-decoration: none;
 
     background:
-        rgba(255,255,255,0.82);
+        rgba(255,255,255,0.86);
 
     border:
         1px solid rgba(66,103,145,0.16);
@@ -993,11 +993,14 @@ footer {
         0 8px 28px rgba(42,73,104,0.07);
 
     font-size: 14px;
+
     font-weight: 600;
 
     letter-spacing: 0.08em;
 
     overflow: hidden;
+
+    isolation: isolate;
 
     transition:
         transform 0.3s ease,
@@ -1007,7 +1010,7 @@ footer {
 
 
 /* ========================================
-   三角形の敷き詰め模様
+   三角形パターン
 ======================================== */
 
 .article-navigation a::before {
@@ -1017,54 +1020,120 @@ footer {
 
     inset: 0;
 
+    background-color:
+        rgba(255,255,255,0.15);
+
     background-image:
-        repeating-conic-gradient(
-            from 30deg,
-            rgba(66,103,145,0.055) 0deg 30deg,
-            transparent 30deg 60deg
+        linear-gradient(
+            30deg,
+            rgba(66,103,145,0.045) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(66,103,145,0.045) 87.5%,
+            rgba(66,103,145,0.045)
+        ),
+        linear-gradient(
+            150deg,
+            rgba(66,103,145,0.045) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(66,103,145,0.045) 87.5%,
+            rgba(66,103,145,0.045)
+        ),
+        linear-gradient(
+            30deg,
+            rgba(66,103,145,0.045) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(66,103,145,0.045) 87.5%,
+            rgba(66,103,145,0.045)
+        ),
+        linear-gradient(
+            150deg,
+            rgba(66,103,145,0.045) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(66,103,145,0.045) 87.5%,
+            rgba(66,103,145,0.045)
         );
+
+    background-position:
+        0 0,
+        0 0,
+        25px 25px,
+        25px 25px;
 
     background-size:
-        42px 42px;
+        50px 50px;
 
-    opacity: 1;
+    opacity: 0.9;
 
-    mask-image:
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* ========================================
+   左側
+   少し濃い
+======================================== */
+
+.article-navigation .prev-article::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
         linear-gradient(
             to right,
-            rgba(0,0,0,0.9),
-            rgba(0,0,0,0.55),
-            rgba(0,0,0,0.08)
-        );
-
-    -webkit-mask-image:
-        linear-gradient(
-            to right,
-            rgba(0,0,0,0.9),
-            rgba(0,0,0,0.55),
-            rgba(0,0,0,0.08)
+            rgba(66,103,145,0.075),
+            rgba(66,103,145,0.045),
+            rgba(66,103,145,0.012)
         );
 
     pointer-events: none;
+
+    z-index: -1;
 }
 
 
 /* ========================================
-   文字を模様より前に
+   右側
+   さらに薄く
 ======================================== */
 
-.article-navigation a {
-    isolation: isolate;
+.article-navigation .next-article::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(66,103,145,0.025),
+            rgba(66,103,145,0.012),
+            rgba(66,103,145,0)
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
 }
 
-.article-navigation a {
+
+/* ========================================
+   文字
+======================================== */
+
+.article-navigation .prev-article,
+.article-navigation .next-article {
     z-index: 1;
 }
-
-
-/* ========================================
-   左右の配置
-======================================== */
 
 .article-navigation .prev-article {
     justify-content: flex-start;
@@ -1084,7 +1153,7 @@ footer {
         translateY(-4px);
 
     background:
-        rgba(255,255,255,0.92);
+        rgba(255,255,255,0.94);
 
     box-shadow:
         0 14px 34px rgba(42,73,104,0.11);
@@ -1120,41 +1189,5 @@ footer {
 
         letter-spacing: 0.04em;
     }
-
-    .article-navigation a::before {
-        background-size:
-            34px 34px;
-    }
-
-}
-
-/* ========================================
-記事ナビゲーション：スマホ
-======================================== */
-
-@media (max-width: 600px) {
-
-.article-navigation {
-    width:
-        calc(100% - 28px);
-    padding:
-        0 8px
-        25px;
-    gap: 10px;
-}
-.article-navigation a {
-    min-height: 58px;
-    padding:
-        0 14px;
-    border-radius: 15px;
-    font-size: 11px;
-    letter-spacing: 0.04em;
-}
-.article-navigation .prev-article:hover {
-    padding-left: 17px;
-}
-.article-navigation .next-article:hover {
-    padding-right: 17px;
-}
 
 }
