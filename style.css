@@ -18,52 +18,21 @@ html {
 
 body {
     margin: 0;
+    background: #ffffff;
+    color: #263746;
+    font-family: sans-serif;
 
-    color: #25364a;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.96) 0%,
-            rgba(241,247,252,0.94) 45%,
-            rgba(255,255,255,0.98) 100%
-        );
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Hiragino Kaku Gothic ProN",
-        "Yu Gothic",
-        "YuGothic",
-        sans-serif;
-
-    min-height: 100vh;
-
-    overflow-x: hidden;
-
-    /* ページ表示アニメーション */
     opacity: 0;
-    filter: blur(10px);
-
     transition:
-        opacity 0.8s ease,
-        filter 0.8s ease;
+        opacity 0.8s ease;
 }
-
-
-/* ページ表示 */
 
 body.page-loaded {
     opacity: 1;
-    filter: blur(0);
 }
-
-
-/* ページ離脱 */
 
 body.page-leave {
     opacity: 0;
-    filter: blur(10px);
 }
 
 
