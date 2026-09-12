@@ -1,3 +1,5 @@
+
+```css
 /* ========================================
    人文房具 - Style Sheet
 ======================================== */
@@ -33,29 +35,24 @@ body {
     line-height: 1.8;
 
     position: relative;
+
+    opacity: 1;
+    filter: blur(0);
+
+    transition:
+        opacity 0.35s ease,
+        filter 0.35s ease;
+}
+
+body.page-leave {
+    opacity: 0;
+    filter: blur(10px);
 }
 
 
 /* ========================================
    背景
 ======================================== */
-
-/*
-   曲線状の縞模様。
-
-   縞の「灰色部分」だけが
-
-       白
-        ↓
-       灰
-        ↓
-       青
-
-   と変化する。
-
-   白い縞には青が入らない。
-*/
-
 
 body::before {
     content: "";
@@ -72,29 +69,16 @@ body::before {
 
     z-index: 0;
 
-    /*
-     * 縞模様そのものに
-     * 白 → 灰 → 青
-     * のグラデーションを与える。
-     */
-   
-background:
-    linear-gradient(
-        135deg,
-        #fdfdfd 0%,
-        #ffffff 28%,
-        #ffffff 50%,
-        #aeb4bd 72%,
-        #6b96dc 100%
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #fdfdfd 0%,
+            #ffffff 28%,
+            #ffffff 50%,
+            #aeb4bd 72%,
+            #6b96dc 100%
+        );
 
-
-    /*
-     * 曲線状の縞模様。
-     *
-     * 黒い部分 = 色を表示
-     * 透明部分 = 背景の白を表示
-     */
     mask-image:
         repeating-radial-gradient(
             ellipse 1100px 600px at 0% 0%,
@@ -123,10 +107,6 @@ background:
    背景を最新記事付近までで終了
 ======================================== */
 
-/*
-   背景の下側を自然に白へ。
-*/
-
 body::after {
     content: "";
 
@@ -142,13 +122,6 @@ body::after {
 
     z-index: 0;
 
-    /*
-     * 下へ行くほど透明にする。
-     *
-     * これによって
-     * 最新記事より下は
-     * ほぼ完全な白になる。
-     */
     background:
         linear-gradient(
             to bottom,
@@ -222,7 +195,7 @@ header {
 
 
 /* ========================================
-   ナビゲーション
+   通常ナビゲーション
 ======================================== */
 
 nav {
@@ -299,6 +272,7 @@ main {
     font-size: 16px;
 }
 
+
 /* ========================================
    YouTubeボタン
 ======================================== */
@@ -307,14 +281,17 @@ main {
     display: inline-block;
 
     margin: 10px 0 20px;
+
     padding: 12px 24px;
 
     background: #426791;
+
     color: #ffffff;
 
     border-radius: 8px;
 
     font-size: 14px;
+
     font-weight: 600;
 
     text-decoration: none;
@@ -326,8 +303,11 @@ main {
 
 .youtube-button:hover {
     transform: translateY(-2px);
+
     opacity: 0.85;
 }
+
+
 /* ========================================
    最新記事
 ======================================== */
@@ -398,6 +378,82 @@ article p:last-child {
 
 
 /* ========================================
+   記事一覧カード
+======================================== */
+
+.article-card {
+    display: block;
+
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    color: #222222;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.article-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #93c5fd;
+}
+
+.article-card h3 {
+    margin: 0 0 8px;
+
+    color: #111827;
+
+    font-size: 19px;
+}
+
+.article-date {
+    margin: 0;
+
+    color: #888888;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   記事ナビゲーション
+======================================== */
+
+.article-navigation {
+    max-width: 800px;
+
+    margin: 60px auto 20px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #dddddd;
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.article-navigation a {
+    text-decoration: none;
+
+    color: inherit;
+
+    transition: opacity 0.2s;
+}
+
+.article-navigation a:hover {
+    opacity: 0.6;
+}
+
+
+/* ========================================
    フッター
 ======================================== */
 
@@ -413,6 +469,182 @@ footer {
     border-top: 1px solid #e5e7eb;
 
     background: #ffffff;
+}
+
+
+/* ========================================
+   ハンバーガーメニュー
+======================================== */
+
+
+/* ----------------------------------------
+   メニューボタン
+---------------------------------------- */
+
+.menu-button {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 6px;
+
+    cursor: pointer;
+
+    z-index: 1001;
+}
+
+.menu-button span {
+    width: 22px;
+    height: 2px;
+
+    background: #426791;
+
+    border-radius: 2px;
+
+    transition: 0.3s ease;
+}
+
+
+/* ----------------------------------------
+   メニューパネル
+---------------------------------------- */
+
+.menu-panel {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    width: 66vw;
+    height: 66vh;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 28px;
+
+    z-index: 1000;
+
+    transform: translate(-50%, -150%);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.3s ease;
+}
+
+
+/* ----------------------------------------
+   メニューを開いた状態
+---------------------------------------- */
+
+.menu-panel.active {
+    transform: translate(-50%, -50%);
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* ----------------------------------------
+   メニュー項目
+---------------------------------------- */
+
+.menu-panel a {
+    color: #172554;
+
+    text-decoration: none;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0;
+
+    transform: translateY(-15px);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menu-panel.active a {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ----------------------------------------
+   メニュー項目を順番に表示
+---------------------------------------- */
+
+.menu-panel.active a:nth-child(1) {
+    transition-delay: 0.08s;
+}
+
+.menu-panel.active a:nth-child(2) {
+    transition-delay: 0.16s;
+}
+
+.menu-panel.active a:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+
+/* ----------------------------------------
+   三本線 → ×
+---------------------------------------- */
+
+.menu-button.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 
@@ -437,377 +669,15 @@ footer {
     nav {
         gap: 18px;
     }
+
+    .menu-panel {
+        width: 86vw;
+
+        height: 70vh;
+    }
+
+    .menu-panel a {
+        font-size: 24px;
+    }
 }
-
-```css
-/* ========================================
-   記事一覧カード
-======================================== */
-
-.article-card {
-    display: block;
-
-    padding: 28px;
-
-    background: rgba(255, 255, 255, 0.94);
-
-    border: 1px solid #e5e7eb;
-    border-radius: 14px;
-
-    color: #222222;
-    text-decoration: none;
-
-    transition: 0.2s;
-}
-
-.article-card:hover {
-    transform: translateY(-4px);
-    border-color: #93c5fd;
-}
-
-.article-card h3 {
-    margin: 0 0 8px;
-
-    color: #111827;
-
-    font-size: 19px;
-}
-
-.article-date {
-    margin: 0;
-
-    color: #888888;
-
-    font-size: 13px;
-}
-
-/* 記事カード */
-
-.article-card {
-    display: block;
-    padding: 28px;
-
-    background: rgba(255, 255, 255, 0.94);
-
-    border: 1px solid #e5e7eb;
-    border-radius: 14px;
-
-    color: #222;
-    text-decoration: none;
-
-    transition: 0.2s;
-}
-
-.article-card:hover {
-    transform: translateY(-4px);
-    border-color: #93c5fd;
-}
-
-.article-card h3 {
-    margin: 0 0 8px;
-    color: #111827;
-    font-size: 19px;
-}
-
-.article-date {
-    margin: 0;
-    color: #888;
-    font-size: 13px;
-}
-
-
-/* 記事ナビゲーション */
-.article-navigation {
-    max-width: 800px;
-    margin: 60px auto 20px;
-    padding-top: 25px;
-    border-top: 1px solid #ddd;
-
-    display: flex;
-    justify-content: space-between;
-}
-
-.article-navigation a {
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.2s;
-}
-
-.article-navigation a:hover {
-    opacity: 0.6;
-}
-/* =========================
-   ハンバーガーメニュー
-========================= */
-
-.menu-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-
-    width: 48px;
-    height: 48px;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.9);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 6px;
-    cursor: pointer;
-
-    z-index: 1001;
-}
-
-.menu-button span {
-    width: 22px;
-    height: 2px;
-
-    background: #426791;
-    border-radius: 2px;
-
-    transition: 0.3s ease;
-}
-
-/* =========================
-   ハンバーガーメニュー
-========================= */
-
-.menu-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-
-    width: 48px;
-    height: 48px;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.9);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 6px;
-    cursor: pointer;
-
-    z-index: 1001;
-}
-
-.menu-button span {
-    width: 22px;
-    height: 2px;
-
-    background: #426791;
-    border-radius: 2px;
-
-    transition: 0.3s ease;
-}
-
-
-/* =========================
-   中央メニューパネル
-========================= */
-
-.menu-panel {
-    position: fixed;
-
-    top: 50%;
-    left: 50%;
-
-    width: 66vw;
-    height: 66vh;
-
-    background: rgba(255, 255, 255, 0.88);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    border-radius: 24px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 28px;
-
-    z-index: 1000;
-
-    /* 閉じている状態 */
-    transform: translate(-50%, -150%);
-    opacity: 0;
-    pointer-events: none;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.12);
-
-    transition:
-        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.3s ease;
-}
-
-
-/* =========================
-   開いた状態
-========================= */
-
-.menu-panel.active {
-    transform: translate(-50%, -50%);
-    opacity: 1;
-    pointer-events: auto;
-}
-
-
-/* =========================
-   メニュー項目
-========================= */
-
-.menu-panel a {
-    color: #172554;
-
-    text-decoration: none;
-
-    font-size: 28px;
-    font-weight: 700;
-
-    letter-spacing: 0.12em;
-
-    opacity: 0;
-
-    transform: translateY(-15px);
-
-    transition:
-        opacity 0.35s ease,
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.menu-panel.active a {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* 順番に出現 */
-
-.menu-panel.active a:nth-child(1) {
-    transition-delay: 0.08s;
-}
-
-.menu-panel.active a:nth-child(2) {
-    transition-delay: 0.16s;
-}
-
-.menu-panel.active a:nth-child(3) {
-    transition-delay: 0.24s;
-}
-
-
-/* =========================
-   三本線 → ×
-========================= */
-
-.menu-button.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.menu-button.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-button.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-
-/* ========================================
-   ページ遷移
-======================================== */
-
-body {
-    opacity: 1;
-    filter: blur(0);
-    transition:
-        opacity 0.35s ease,
-        filter 0.35s ease;
-}
-
-body.page-leave {
-    opacity: 0;
-    filter: blur(10px);
-}
-
-.menu-panel {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-
-    width: 66vw;
-    height: 66vh;
-
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    border-radius: 24px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
-
-    transform: translate(-50%, -150%);
-    opacity: 0;
-
-    transition:
-        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.3s ease;
-
-    z-index: 1000;
-}
-
-.menu-panel.active {
-    transform: translate(-50%, -50%);
-    opacity: 1;
-}
-
-.menu-panel a {
-    color: #172554;
-    text-decoration: none;
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-
-    opacity: 0;
-    transform: translateY(-15px);
-
-    transition:
-        opacity 0.35s ease,
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.menu-panel.active a {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.menu-panel.active a:nth-child(1) {
-    transition-delay: 0.08s;
-}
-
-.menu-panel.active a:nth-child(2) {
-    transition-delay: 0.16s;
-}
-
-.menu-panel.active a:nth-child(3) {
-    transition-delay: 0.24s;
-}
+```
