@@ -1316,22 +1316,86 @@ footer {
 
 }
 .article-list-back a {
-    display: inline-flex !important;
+    position: relative;
 
-    width: 220px !important;
-    height: 56px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    align-items: center !important;
-    justify-content: center !important;
+    min-height: 72px;
 
-    background: white !important;
+    padding: 0 25px;
 
-    border: 2px solid #426791 !important;
-    border-radius: 16px !important;
+    color: #315878;
 
-    color: #315878 !important;
+    text-decoration: none;
 
-    text-decoration: none !important;
+    border:
+        1px solid rgba(66,103,145,0.16);
 
-    box-shadow: 0 8px 25px rgba(42,73,104,0.15) !important;
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 28px rgba(42,73,104,0.07);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            to right,
+            rgba(66,103,145,0.075) 0%,
+            rgba(66,103,145,0.045) 35%,
+            rgba(66,103,145,0.018) 70%,
+            rgba(255,255,255,0.10) 100%
+        ),
+
+        linear-gradient(
+            30deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+
+        linear-gradient(
+            150deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+
+        linear-gradient(
+            30deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+
+        rgba(255,255,255,0.88);
+
+    background-size:
+        100% 100%,
+        28px 28px,
+        28px 28px,
+        28px 28px,
+        100% 100%;
+
+    background-position:
+        0 0,
+        0 0,
+        0 0,
+        14px 14px,
+        0 0;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
