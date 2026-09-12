@@ -491,17 +491,13 @@ footer {
     height: 48px;
 
     border: none;
-
     border-radius: 50%;
 
     background: rgba(255, 255, 255, 0.9);
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
 
     gap: 6px;
@@ -510,6 +506,7 @@ footer {
 
     z-index: 1001;
 }
+
 
 .menu-button span {
     width: 22px;
@@ -536,6 +533,8 @@ footer {
     width: 66vw;
     height: 66vh;
 
+    transform: translate(-50%, -50%);
+
     background: rgba(255, 255, 255, 0.88);
 
     backdrop-filter: blur(14px);
@@ -544,29 +543,25 @@ footer {
     border-radius: 24px;
 
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 28px;
 
     z-index: 1000;
 
-    transform: translate(-50%, -150%);
-
     opacity: 0;
-
+    visibility: hidden;
     pointer-events: none;
 
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.12);
 
     transition:
-        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.3s ease;
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 }
 
 
@@ -575,9 +570,9 @@ footer {
 ---------------------------------------- */
 
 .menu-panel.active {
-    transform: translate(-50%, -50%);
-
     opacity: 1;
+
+    visibility: visible;
 
     pointer-events: auto;
 }
@@ -593,7 +588,6 @@ footer {
     text-decoration: none;
 
     font-size: 28px;
-
     font-weight: 700;
 
     letter-spacing: 0.12em;
@@ -606,6 +600,7 @@ footer {
         opacity 0.35s ease,
         transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 
 .menu-panel.active a {
     opacity: 1;
@@ -654,30 +649,13 @@ footer {
 
 @media (max-width: 700px) {
 
-    .hero {
-        padding: 80px 0;
-    }
-
-    .article-list {
-        grid-template-columns: 1fr;
-    }
-
-    .header-inner {
-        padding: 16px 20px;
-    }
-
-    nav {
-        gap: 18px;
-    }
-
     .menu-panel {
         width: 86vw;
-
         height: 70vh;
     }
 
     .menu-panel a {
         font-size: 24px;
     }
+
 }
-```
