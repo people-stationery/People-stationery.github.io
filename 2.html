@@ -1,219 +1,410 @@
-/* ========================================
-   記事ナビゲーション
-======================================== */
+<!DOCTYPE html>
+<html lang="ja">
 
-.article-navigation {
-    width:
-        min(820px, calc(100% - 40px));
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    margin:
-        0 auto;
+    <title>Kaweco Art Sport Terrazzoについて | 人文房具</title>
 
-    padding:
-        0 20px
-        30px;
-
-    display: flex;
-
-    gap: 18px;
-}
+    <link rel="stylesheet" href="style.css">
+</head>
 
 
-/* ========================================
-   ボタン本体
-======================================== */
+<body>
 
-.article-navigation a {
-    position: relative;
+    <!-- ========================================
+         ヘッダー
+    ======================================== -->
 
-    flex: 1;
+    <header>
 
-    min-height: 72px;
+        <div class="header-inner">
 
-    display: flex;
-    align-items: center;
+            <a href="index.html" class="logo">
+                people stationery
+            </a>
 
-    padding:
-        0 25px;
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="メニュー"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-    color: #315878;
+        </div>
 
-    text-decoration: none;
-
-    border:
-        1px solid rgba(66,103,145,0.16);
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 28px rgba(42,73,104,0.07);
-
-    font-size: 14px;
-    font-weight: 600;
-
-    letter-spacing: 0.08em;
-
-    overflow: hidden;
-
-    /*
-        背景：
-        ① 三角形模様
-        ② 左ほど少し濃い青
-        ③ 全体は白ベース
-    */
-
-    background:
-
-        /* 左 → 右の濃淡 */
-        linear-gradient(
-            to right,
-            rgba(66,103,145,0.075) 0%,
-            rgba(66,103,145,0.045) 35%,
-            rgba(66,103,145,0.018) 70%,
-            rgba(255,255,255,0.10) 100%
-        ),
-
-        /* 三角形 その1 */
-        linear-gradient(
-            30deg,
-            transparent 45%,
-            rgba(66,103,145,0.055) 46%,
-            rgba(66,103,145,0.055) 54%,
-            transparent 55%
-        ),
-
-        /* 三角形 その2 */
-        linear-gradient(
-            150deg,
-            transparent 45%,
-            rgba(66,103,145,0.055) 46%,
-            rgba(66,103,145,0.055) 54%,
-            transparent 55%
-        ),
-
-        /* 三角形 その3 */
-        linear-gradient(
-            30deg,
-            transparent 45%,
-            rgba(66,103,145,0.055) 46%,
-            rgba(66,103,145,0.055) 54%,
-            transparent 55%
-        ),
-
-        /* 白い下地 */
-        rgba(255,255,255,0.88);
-
-    background-size:
-        100% 100%,
-        28px 28px,
-        28px 28px,
-        28px 28px,
-        100% 100%;
-
-    background-position:
-        0 0,
-        0 0,
-        0 0,
-        14px 14px,
-        0 0;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background-color 0.3s ease;
-}
+    </header>
 
 
-/* ========================================
-   文字を最前面に
-======================================== */
+    <!-- ========================================
+         メニューバックドロップ
+    ======================================== -->
 
-.article-navigation a {
-    isolation: isolate;
-}
-
-
-/* ========================================
-   左右の配置
-======================================== */
-
-.article-navigation .prev-article {
-    justify-content: flex-start;
-}
-
-.article-navigation .next-article {
-    justify-content: flex-end;
-}
+    <div
+        class="menu-backdrop"
+        id="menuBackdrop"
+    ></div>
 
 
-/* ========================================
-   ホバー
-======================================== */
+    <!-- ========================================
+         ハンバーガーメニュー
+    ======================================== -->
 
-.article-navigation a:hover {
-    transform:
-        translateY(-4px);
+    <nav
+        class="menu-panel"
+        id="menuPanel"
+    >
 
-    box-shadow:
-        0 14px 34px rgba(42,73,104,0.11);
+        <a href="index.html">HOME</a>
+        <a href="article.html">ARTICLE</a>
+        <a href="about.html">ABOUT</a>
 
-    background-color:
-        rgba(255,255,255,0.95);
-}
-
-
-/* ========================================
-   スマホ
-======================================== */
-
-@media (max-width: 600px) {
-
-    .article-navigation {
-        width:
-            calc(100% - 28px);
-
-        padding:
-            0 8px
-            25px;
-
-        gap: 10px;
-    }
+    </nav>
 
 
-    .article-navigation a {
-        min-height: 58px;
+    <!-- ========================================
+         メイン
+    ======================================== -->
 
-        padding:
-            0 14px;
+    <main>
 
-        border-radius: 15px;
+        <!-- ========================================
+             記事タイトル
+        ======================================== -->
 
-        font-size: 11px;
+        <section class="hero">
 
-        letter-spacing: 0.04em;
+            <p class="small-title">
+                BLOG / 2026.09.02
+            </p>
 
-        background-size:
-            100% 100%,
-            22px 22px,
-            22px 22px,
-            22px 22px,
-            100% 100%;
-    }
+            <h1>
+                Kaweco Art Sport<br>
+                Terrazzoについて
+            </h1>
 
-
-    .article-navigation a:hover {
-        transform:
-            translateY(-2px);
-    }
+        </section>
 
 
-    .article-navigation .prev-article:hover {
-        padding-left: 17px;
-    }
+        <!-- ========================================
+             記事本文
+        ======================================== -->
+
+        <section class="articles">
+
+            <article>
+
+                <p>
+                    今回は、私が最近気になっている万年筆、
+                    <strong>Kaweco Art Sport Terrazzo</strong>についての記事です。
+                </p>
+
+                <p>
+                    Kaweco Art Sportシリーズとは、
+                    Kawecoが展開している比較的新しい万年筆のシリーズです。
+                </p>
+
+                <p>
+                    私が特に気になっている「Terrazzo」はイタリア語で、
+                    セメントなどに砕いた大理石を混ぜて作る、
+                    モザイク模様の人工素材を指します。
+                </p>
+
+                <p>
+                    この万年筆は、職人によって一つ一つ手作業で模様が作られているそうで、
+                    同じ模様が二つとないところも魅力的です。
+                </p>
+
+                <p>
+                    パキッとした模様が入っていて、
+                    個人的にはとても可愛いデザインだと思います。
+                </p>
+
+                <p>
+                    最近かなり気になっている一本なので、
+                    <strong>9月中には手に入れたいです。</strong>
+                </p>
+
+            </article>
+
+        </section>
 
 
-    .article-navigation .next-article:hover {
-        padding-right: 17px;
-    }
+        <!-- ========================================
+             記事ナビ
+        ======================================== -->
 
-}
+        <section class="article-navigation">
+
+            <a
+                href="1.html"
+                class="prev-article"
+            >
+                ← 前の記事
+            </a>
+
+            <a
+                href="3.html"
+                class="next-article"
+            >
+                次の記事 →
+            </a>
+
+        </section>
+
+
+        <!-- ========================================
+             記事一覧へ戻る
+        ======================================== -->
+
+        <section class="articles">
+
+            <p>
+                <a href="article.html">
+                    ← 記事一覧へ戻る
+                </a>
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         フッター
+    ======================================== -->
+
+    <footer>
+
+        <p>
+            © 人文房具
+        </p>
+
+    </footer>
+
+
+    <!-- ========================================
+         JavaScript
+    ======================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                /* ========================================
+                   要素取得
+                ======================================== */
+
+                const menuButton =
+                    document.getElementById(
+                        "menuButton"
+                    );
+
+                const menuPanel =
+                    document.getElementById(
+                        "menuPanel"
+                    );
+
+                const menuBackdrop =
+                    document.getElementById(
+                        "menuBackdrop"
+                    );
+
+
+                /* ========================================
+                   ページ読み込み完了
+                ======================================== */
+
+                requestAnimationFrame(
+                    function () {
+
+                        document.body.classList.add(
+                            "page-loaded"
+                        );
+
+                    }
+                );
+
+
+                /* ========================================
+                   メニューを閉じる
+                ======================================== */
+
+                function closeMenu() {
+
+                    menuButton.classList.remove(
+                        "active"
+                    );
+
+                    menuPanel.classList.remove(
+                        "active"
+                    );
+
+                    menuBackdrop.classList.remove(
+                        "active"
+                    );
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+
+                /* ========================================
+                   ハンバーガーメニュー
+                ======================================== */
+
+                menuButton.addEventListener(
+                    "click",
+                    function () {
+
+                        const isOpen =
+                            menuPanel.classList.toggle(
+                                "active"
+                            );
+
+                        menuButton.classList.toggle(
+                            "active",
+                            isOpen
+                        );
+
+                        menuBackdrop.classList.toggle(
+                            "active",
+                            isOpen
+                        );
+
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            String(isOpen)
+                        );
+
+                    }
+                );
+
+
+                /* ========================================
+                   背景クリック
+                ======================================== */
+
+                menuBackdrop.addEventListener(
+                    "click",
+                    function () {
+
+                        closeMenu();
+
+                    }
+                );
+
+
+                /* ========================================
+                   ESCキー
+                ======================================== */
+
+                document.addEventListener(
+                    "keydown",
+                    function (e) {
+
+                        if (e.key === "Escape") {
+
+                            closeMenu();
+
+                        }
+
+                    }
+                );
+
+
+                /* ========================================
+                   ページ遷移
+                ======================================== */
+
+                const links =
+                    document.querySelectorAll(
+                        "a[href]"
+                    );
+
+                links.forEach(
+                    function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            function (e) {
+
+                                const href =
+                                    link.getAttribute(
+                                        "href"
+                                    );
+
+
+                                /* 外部リンク等 */
+
+                                if (
+                                    !href ||
+                                    href.startsWith("#") ||
+                                    href.startsWith("http") ||
+                                    href.startsWith("mailto:") ||
+                                    link.target === "_blank"
+                                ) {
+
+                                    return;
+
+                                }
+
+
+                                /* 現在のページ */
+
+                                const currentPage =
+                                    window.location.pathname
+                                        .split("/")
+                                        .pop();
+
+                                if (
+                                    href === currentPage
+                                ) {
+
+                                    return;
+
+                                }
+
+
+                                e.preventDefault();
+
+                                closeMenu();
+
+                                document.body.classList.add(
+                                    "page-leave"
+                                );
+
+                                setTimeout(
+                                    function () {
+
+                                        window.location.href =
+                                            href;
+
+                                    },
+                                    350
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
