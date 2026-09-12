@@ -258,6 +258,43 @@
             );
         }
     );
+                /* ========================================
+               スクロール表示
+            ======================================== */
+            const articleCards =
+                document.querySelectorAll(
+                    ".article-card"
+                );
+
+            const articleObserver =
+                new IntersectionObserver(
+                    function (entries) {
+                        entries.forEach(
+                            function (entry) {
+                                if (
+                                    entry.isIntersecting
+                                ) {
+                                    entry.target.classList.add(
+                                        "is-visible"
+                                    );
+
+                                    articleObserver.unobserve(
+                                        entry.target
+                                    );
+                                }
+                            }
+                        );
+                    },
+                    {
+                        threshold: 0.15
+                    }
+                );
+
+            articleCards.forEach(
+                function (card) {
+                    articleObserver.observe(card);
+                }
+            );
 </script>
 </body>
 </html>
