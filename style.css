@@ -787,17 +787,18 @@ footer {
     pointer-events: auto !important;
 }
 
-```css
-/* ページ遷移 */
-
 body {
-    transition:
-        opacity 0.35s ease,
-        filter 0.35s ease;
+    animation: pageEnter 0.45s ease forwards;
 }
 
-body.page-transition {
-    opacity: 0;
-    filter: blur(8px);
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
-```
