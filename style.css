@@ -523,17 +523,13 @@ footer {
     padding: 0;
 
     border: none;
-
     border-radius: 50%;
 
     background: rgba(255, 255, 255, 0.9);
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
 
     gap: 6px;
@@ -549,9 +545,6 @@ footer {
 
     width: 22px;
     height: 2px;
-
-    margin: 0;
-    padding: 0;
 
     background: #426791;
 
@@ -572,35 +565,37 @@ footer {
     left: 50vw !important;
 
     width: 66vw;
-
     height: 66vh;
 
     margin: 0 !important;
-
     padding: 0;
 
-    transform: translate(-50%, -50%) !important;
+    /*
+       常に画面中央
+       ここはアニメーションさせない
+    */
+    transform: translate(-50%, -50%) scale(0.96) !important;
 
     background: rgba(255, 255, 255, 0.88);
 
     backdrop-filter: blur(14px);
-
     -webkit-backdrop-filter: blur(14px);
 
     border-radius: 24px;
 
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 28px;
 
     z-index: 10000;
 
+    /*
+       最初は透明
+    */
     opacity: 0;
 
     visibility: hidden;
@@ -610,9 +605,13 @@ footer {
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.12);
 
+    /*
+       透明度と大きさだけ変化
+    */
     transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+        opacity 0.35s ease,
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0.35s ease;
 }
 
 
@@ -624,7 +623,10 @@ footer {
     top: 50vh !important;
     left: 50vw !important;
 
-    transform: translate(-50%, -50%) !important;
+    /*
+       中央のまま、少しだけ大きくなる
+    */
+    transform: translate(-50%, -50%) scale(1) !important;
 
     opacity: 1;
 
@@ -649,15 +651,22 @@ footer {
 
     letter-spacing: 0.12em;
 
+    /*
+       メニュー文字も透明から表示
+    */
     opacity: 0;
 
-    transform: translateY(-15px);
+    transform: translateY(8px);
 
     transition:
-        opacity 0.35s ease,
+        opacity 0.4s ease,
         transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+
+/* ----------------------------------------
+   メニュー項目を表示
+---------------------------------------- */
 
 .menu-panel.active a {
     opacity: 1;
@@ -667,21 +676,19 @@ footer {
 
 
 /* ----------------------------------------
-   メニュー項目を順番に表示
+   順番にふわっと表示
 ---------------------------------------- */
 
 .menu-panel.active a:nth-child(1) {
     transition-delay: 0.08s;
 }
 
-
 .menu-panel.active a:nth-child(2) {
-    transition-delay: 0.16s;
+    transition-delay: 0.14s;
 }
 
-
 .menu-panel.active a:nth-child(3) {
-    transition-delay: 0.24s;
+    transition-delay: 0.20s;
 }
 
 
@@ -693,11 +700,9 @@ footer {
     transform: translateY(8px) rotate(45deg);
 }
 
-
 .menu-button.active span:nth-child(2) {
     opacity: 0;
 }
-
 
 .menu-button.active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
@@ -710,27 +715,11 @@ footer {
 
 @media (max-width: 700px) {
 
-    .header-inner {
-        padding: 16px 20px;
-    }
-
-
-    .hero {
-        padding: 80px 0;
-    }
-
-
-    .article-list {
-        grid-template-columns: 1fr;
-    }
-
-
     .menu-panel {
         width: 86vw;
 
         height: 70vh;
     }
-
 
     .menu-panel a {
         font-size: 24px;
