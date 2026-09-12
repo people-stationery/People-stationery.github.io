@@ -758,3 +758,43 @@ footer {
 
     z-index: -1;
 }
+
+/* ========================================
+   メニュー背景
+======================================== */
+
+.menu-backdrop {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+
+/* メニューを開いたとき */
+
+.menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* メニュー本体を背景より上に */
+
+.menu-panel {
+    z-index: 10000;
+}
