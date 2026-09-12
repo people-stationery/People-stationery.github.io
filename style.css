@@ -720,27 +720,14 @@ footer {
     }
 
 
-   /* メニュー背景 */
-.menu-panel::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-
-    background: rgba(255, 255, 255, 0.08);
-}
-
+   /* メニュー背景 */ 
 /* ========================================
-   メニュー表示時の背景ぼかし
+   メニュー外側の背景ぼかし
 ======================================== */
 
-.menu-panel.active::before {
-    content: "";
-
+.menu-backdrop {
     position: fixed;
+
     inset: 0;
 
     background: rgba(255, 255, 255, 0.08);
@@ -748,7 +735,27 @@ footer {
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
 
+    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
 
-    z-index: -1;
+    z-index: 9999;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+.menu-backdrop.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* メニュー本体はぼかしより前 */
+.menu-panel {
+    z-index: 10000;
 }
