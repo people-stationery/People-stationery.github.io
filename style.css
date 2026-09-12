@@ -1315,3 +1315,23 @@ footer {
     }
 
 }
+.article-list-back a {
+    display: inline-flex !important;
+
+    width: 220px !important;
+    height: 56px !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: white !important;
+
+    border: 2px solid #426791 !important;
+    border-radius: 16px !important;
+
+    color: #315878 !important;
+
+    text-decoration: none !important;
+
+    box-shadow: 0 8px 25px rgba(42,73,104,0.15) !important;
+}
