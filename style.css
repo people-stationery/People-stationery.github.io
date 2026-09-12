@@ -739,8 +739,22 @@ footer {
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* メニュー表示時、背景をほんのりぼかす */
-.menu-panel.active {
+/* ========================================
+   メニュー表示時の背景ぼかし
+======================================== */
+
+.menu-panel.active::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.08);
+
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
+
+    pointer-events: none;
+
+    z-index: -1;
 }
