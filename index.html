@@ -143,5 +143,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ページ遷移 */
+    const links = document.querySelectorAll("a[href]");
+
+    links.forEach(link => {
+
+        link.addEventListener("click", function (e) {
+
+            const href = link.getAttribute("href");
+
+            if (
+                !href ||
+                href.startsWith("#") ||
+                href.startsWith("http") ||
+                link.target === "_blank"
+            ) {
+                return;
+            }
+
+            e.preventDefault();
+
+            document.body.classList.add("page-leave");
+
+            setTimeout(function () {
+                window.location.href = href;
+            }, 350);
+
+        });
+
+    });
+
+});
+</script>
 </body>
 </html>
