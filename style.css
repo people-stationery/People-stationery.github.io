@@ -278,10 +278,10 @@ header {
     inset: 0;
 
     background:
-        rgba(235,243,249,0.24);
+        rgba(235,243,249,0.18);
 
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 
     opacity: 0;
     visibility: hidden;
@@ -293,7 +293,6 @@ header {
         opacity 0.4s ease,
         visibility 0.4s ease;
 }
-
 
 .menu-backdrop.active {
     opacity: 1;
@@ -373,9 +372,9 @@ header {
 .menu-panel a {
     display: block;
 
-    width: min(320px, 80%);
+    width: 80%;
 
-    padding: 17px 18px;
+    padding: 16px 10px;
 
     color: #315878;
 
@@ -383,7 +382,7 @@ header {
 
     border-radius: 13px;
 
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 600;
 
     letter-spacing: 0.12em;
@@ -395,6 +394,12 @@ header {
         color 0.25s ease;
 }
 
+.menu-panel a:hover {
+    background:
+        rgba(66,103,145,0.07);
+
+    color: #203f5d;
+}
 .menu-panel a:hover {
     background:
         rgba(66,103,145,0.07);
