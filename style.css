@@ -738,3 +738,9 @@ footer {
 
     background: rgba(255, 255, 255, 0.08);
 }
+
+/* メニュー表示時、背景をほんのりぼかす */
+.menu-panel.active {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
