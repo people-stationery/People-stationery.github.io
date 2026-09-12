@@ -96,17 +96,56 @@
         <p>© 人文房具</p>
     </footer>
 <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const menuButton = document.getElementById("menuButton");
     const menuPanel = document.getElementById("menuPanel");
 
+    /* ハンバーガーメニュー */
     menuButton.addEventListener("click", function () {
+
         menuButton.classList.toggle("active");
         menuPanel.classList.toggle("active");
+
+    });
+
+
+    /* ページ遷移 */
+    const links = document.querySelectorAll("a[href]");
+
+    links.forEach(function (link) {
+
+        link.addEventListener("click", function (e) {
+
+            const href = link.getAttribute("href");
+
+            if (
+                !href ||
+                href.startsWith("#") ||
+                href.startsWith("http") ||
+                link.target === "_blank"
+            ) {
+                return;
+            }
+
+            e.preventDefault();
+
+            menuButton.classList.remove("active");
+            menuPanel.classList.remove("active");
+
+            document.body.classList.add("page-leave");
+
+            setTimeout(function () {
+                window.location.href = href;
+            }, 350);
+
+        });
+
     });
 
 });
+</script>
 </script>
 </body>
 </html>
