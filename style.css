@@ -356,12 +356,8 @@ header {
 
     pointer-events: auto;
 
-    transform:
-        translateY(0)
-        scale(1);
+    transform: scale(1);
 }
-
-
 /* ========================================
    メニュー項目
 ======================================== */
