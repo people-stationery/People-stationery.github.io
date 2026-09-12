@@ -17,15 +17,11 @@ html {
 
     background: #ffffff;
 }
-
 body {
     margin: 0;
     padding: 0;
-
     color: #222222;
-
     background: #ffffff;
-
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -33,19 +29,17 @@ body {
         "Hiragino Kaku Gothic ProN",
         "Yu Gothic",
         sans-serif;
-
     line-height: 1.8;
-
     position: relative;
 
-    opacity: 1;
+    /* ページ表示時は最初ぼかしておく */
+    opacity: 0;
+    filter: blur(10px);
 
     transition:
         opacity 0.8s ease,
         filter 0.8s ease;
 }
-
-
 /* ========================================
    ページ遷移
 ======================================== */
