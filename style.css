@@ -939,133 +939,193 @@ footer {
     }
 
 }
-
 /* ========================================
-記事ナビゲーション
+   記事ナビゲーション
 ======================================== */
 
 .article-navigation {
-width:
-min(820px, calc(100% - 40px));
+    width:
+        min(820px, calc(100% - 40px));
 
-margin:
-    0 auto;
-padding:
-    0 20px
-    30px;
-display: flex;
-justify-content: space-between;
-align-items: stretch;
-gap: 16px;
+    margin:
+        0 auto;
 
+    padding:
+        0 20px
+        30px;
+
+    display: flex;
+
+    gap: 18px;
+}
+
+
+/* ========================================
+   ボタン本体
+======================================== */
+
+.article-navigation a {
+    position: relative;
+
+    flex: 1;
+
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    padding:
+        0 25px;
+
+    color: #315878;
+
+    text-decoration: none;
+
+    background:
+        rgba(255,255,255,0.82);
+
+    border:
+        1px solid rgba(66,103,145,0.16);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 28px rgba(42,73,104,0.07);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* ========================================
+   三角形の敷き詰め模様
+======================================== */
+
+.article-navigation a::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        repeating-conic-gradient(
+            from 30deg,
+            rgba(66,103,145,0.055) 0deg 30deg,
+            transparent 30deg 60deg
+        );
+
+    background-size:
+        42px 42px;
+
+    opacity: 1;
+
+    mask-image:
+        linear-gradient(
+            to right,
+            rgba(0,0,0,0.9),
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.08)
+        );
+
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            rgba(0,0,0,0.9),
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.08)
+        );
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   文字を模様より前に
+======================================== */
+
+.article-navigation a {
+    isolation: isolate;
 }
 
 .article-navigation a {
-position: relative;
-
-flex: 1;
-min-height: 64px;
-display: flex;
-align-items: center;
-padding:
-    0 22px;
-color: #315878;
-text-decoration: none;
-background:
-    rgba(255,255,255,0.72);
-border:
-    1px solid rgba(66,103,145,0.14);
-border-radius: 17px;
-box-shadow:
-    0 7px 25px rgba(42,73,104,0.07);
-font-size: 13px;
-font-weight: 600;
-letter-spacing: 0.06em;
-transition:
-    transform 0.28s ease,
-    background 0.28s ease,
-    border-color 0.28s ease,
-    box-shadow 0.28s ease;
-
+    z-index: 1;
 }
 
-/* 左ボタン */
+
+/* ========================================
+   左右の配置
+======================================== */
 
 .article-navigation .prev-article {
-justify-content: flex-start;
+    justify-content: flex-start;
 }
-
-/* 右ボタン */
 
 .article-navigation .next-article {
-justify-content: flex-end;
+    justify-content: flex-end;
 }
 
-/* 左側のアクセント */
 
-.article-navigation .prev-article::before {
-content: “”;
-
-position: absolute;
-left: 0;
-top: 14px;
-bottom: 14px;
-width: 3px;
-border-radius: 3px;
-background:
-    linear-gradient(
-        to bottom,
-        #426791,
-        rgba(66,103,145,0.15)
-    );
-
-}
-
-/* 右側のアクセント */
-
-.article-navigation .next-article::after {
-content: “”;
-
-position: absolute;
-right: 0;
-top: 14px;
-bottom: 14px;
-width: 3px;
-border-radius: 3px;
-background:
-    linear-gradient(
-        to bottom,
-        rgba(66,103,145,0.15),
-        #426791
-    );
-
-}
-
-/* ホバー */
+/* ========================================
+   ホバー
+======================================== */
 
 .article-navigation a:hover {
-background:
-rgba(255,255,255,0.95);
+    transform:
+        translateY(-4px);
 
-border-color:
-    rgba(66,103,145,0.25);
-box-shadow:
-    0 13px 32px rgba(42,73,104,0.12);
-transform:
-    translateY(-4px);
+    background:
+        rgba(255,255,255,0.92);
 
+    box-shadow:
+        0 14px 34px rgba(42,73,104,0.11);
 }
 
-/* 左ボタンのホバー */
 
-.article-navigation .prev-article:hover {
-padding-left: 26px;
-}
+/* ========================================
+   スマホ
+======================================== */
 
-/* 右ボタンのホバー */
+@media (max-width: 600px) {
 
-.article-navigation .next-article:hover {
-padding-right: 26px;
+    .article-navigation {
+        width:
+            calc(100% - 28px);
+
+        padding:
+            0 8px
+            25px;
+
+        gap: 10px;
+    }
+
+    .article-navigation a {
+        min-height: 62px;
+
+        padding:
+            0 15px;
+
+        border-radius: 15px;
+
+        font-size: 11px;
+
+        letter-spacing: 0.04em;
+    }
+
+    .article-navigation a::before {
+        background-size:
+            34px 34px;
+    }
+
 }
 
 /* ========================================
