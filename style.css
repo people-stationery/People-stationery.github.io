@@ -1273,16 +1273,12 @@ footer {
 ======================================== */
 
 .article-list-back a:hover {
-
     transform:
-        translateY(-3px);
+        translateY(-4px);
 
     box-shadow:
-        0 13px 32px rgba(42,73,104,0.11);
-
+        0 14px 34px rgba(42,73,104,0.11);
 }
-
-
 /* ========================================
    スマホ
 ======================================== */
@@ -1290,7 +1286,6 @@ footer {
 @media (max-width: 600px) {
 
     .article-list-back {
-
         width:
             calc(100% - 28px);
 
@@ -1299,103 +1294,24 @@ footer {
             35px;
     }
 
-
     .article-list-back a {
-
-        min-height: 52px;
+        min-height: 58px;
 
         padding:
-            0 24px;
+            0 14px;
 
-        border-radius: 14px;
+        border-radius: 15px;
 
         font-size: 11px;
 
-        letter-spacing: 0.05em;
+        letter-spacing: 0.04em;
+
+        background-size:
+            100% 100%,
+            22px 22px,
+            22px 22px,
+            22px 22px,
+            100% 100%;
     }
 
-}
-.article-list-back a {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 72px;
-
-    padding: 0 25px;
-
-    color: #315878;
-
-    text-decoration: none;
-
-    border:
-        1px solid rgba(66,103,145,0.16);
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 28px rgba(42,73,104,0.07);
-
-    font-size: 14px;
-    font-weight: 600;
-
-    letter-spacing: 0.08em;
-
-    overflow: hidden;
-
-    background:
-
-        linear-gradient(
-            to right,
-            rgba(66,103,145,0.075) 0%,
-            rgba(66,103,145,0.045) 35%,
-            rgba(66,103,145,0.018) 70%,
-            rgba(255,255,255,0.10) 100%
-        ),
-
-        linear-gradient(
-            30deg,
-            transparent 45%,
-            rgba(66,103,145,0.055) 46%,
-            rgba(66,103,145,0.055) 54%,
-            transparent 55%
-        ),
-
-        linear-gradient(
-            150deg,
-            transparent 45%,
-            rgba(66,103,145,0.055) 46%,
-            rgba(66,103,145,0.055) 54%,
-            transparent 55%
-        ),
-
-        linear-gradient(
-            30deg,
-            transparent 45%,
-            rgba(66,103,145,0.055) 46%,
-            rgba(66,103,145,0.055) 54%,
-            transparent 55%
-        ),
-
-        rgba(255,255,255,0.88);
-
-    background-size:
-        100% 100%,
-        28px 28px,
-        28px 28px,
-        28px 28px,
-        100% 100%;
-
-    background-position:
-        0 0,
-        0 0,
-        0 0,
-        14px 14px,
-        0 0;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
 }
