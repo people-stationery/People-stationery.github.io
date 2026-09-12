@@ -364,7 +364,8 @@ header {
 
     pointer-events: auto;
 
-    transform: scale(1);
+    transform:
+        translateX(0);
 }
 /* ========================================
    メニュー項目
