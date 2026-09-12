@@ -1,122 +1,368 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaweco Art Sport Terrazzoについて | 人文房具</title>
-<link rel="stylesheet" href="style.css">
+
+    <title>Kaweco Art Sport Terrazzoについて | 人文房具</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
-<!-- ヘッダー -->
-<header>
-    <div class="header-inner">
-        <a href="index.html" class="logo">
-            people stationery
-        </a>
-        <button class="menu-button" id="menuButton">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-</header>
-<!-- ハンバーガーメニュー -->
-<nav class="menu-panel" id="menuPanel">
-    <a href="index.html">HOME</a>
-    <a href="article.html">ARTICLE</a>
-    <a href="about.html">ABOUT</a>
-</nav>
-<!-- メイン -->
-<main>
-    <section class="hero">
-        <p class="small-title">BLOG / 2026.09.02</p>
-        <h1>
-            Kaweco Art Sport<br>
-            Terrazzoについて
-        </h1>
-    </section>
-    <!-- 記事本文 -->
-    <section class="article-body">
-        <p>
-            今回は、自分が最近気になっている、
-            <strong>Kaweco Art Sport Terrazzo</strong>についての記事です。
-        </p>
-        <p>
-            Kaweco Art Sportシリーズとは、
-            Kawecoが展開している比較的新しい万年筆シリーズです。
-        </p>
-        <p>
-            私が気になっている「Terrazzo（テラゾ）」は、
-            イタリア語で、セメントに<strong>砕いた大理石</strong>などを混ぜた、
-            モザイク状の仕上げを施した人工素材を指します。
-        </p>
-        <p>
-            この万年筆は、職人によって一つ一つ手作業で模様が作られているそうで、
-            パキッとした模様がとても印象的です。
-        </p>
-        <p>
-            この独特な模様が個人的にはかなり好みで、
-            とても可愛いですね。
-        </p>
-        <p>
-            <strong>9月中には手に入れたいです。</strong>
-        </p>
-    </section>
-    <!-- 記事ナビ -->
-    <section class="article-navigation">
-        <a href="1.html" class="prev-article">
-            ← 前の記事
-        </a>
-        <a href="3.html" class="next-article">
-            次の記事 →
-        </a>
-    </section>
-    <!-- 記事一覧へ戻る -->
-    <section class="articles">
-        <p>
-            <a href="article.html">
-                ← 記事一覧へ戻る
+
+    <!-- ========================================
+         ヘッダー
+    ======================================== -->
+
+    <header>
+
+        <div class="header-inner">
+
+            <a href="index.html" class="logo">
+                people stationery
             </a>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="メニューを開く"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ========================================
+         ハンバーガーメニュー
+    ======================================== -->
+
+    <div
+        class="menu-backdrop"
+        id="menuBackdrop"
+    ></div>
+
+
+    <nav
+        class="menu-panel"
+        id="menuPanel"
+    >
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="article.html">
+            ARTICLE
+        </a>
+
+        <a href="about.html">
+            ABOUT
+        </a>
+
+    </nav>
+
+
+    <!-- ========================================
+         メイン
+    ======================================== -->
+
+    <main>
+
+        <!-- ヒーロー -->
+
+        <section class="hero">
+
+            <p class="small-title">
+                BLOG / 2026.09.02
+            </p>
+
+            <h1>
+                Kaweco Art Sport<br>
+                Terrazzoについて
+            </h1>
+
+        </section>
+
+
+        <!-- ========================================
+             記事本文
+        ======================================== -->
+
+        <section class="article-body">
+
+            <p>
+                今回は、自分が最近気になっている、
+                <strong>Kaweco Art Sport Terrazzo</strong>についての記事です。
+            </p>
+
+            <p>
+                Kaweco Art Sportシリーズとは、
+                Kawecoが展開している比較的新しい万年筆シリーズです。
+            </p>
+
+            <p>
+                私が気になっている「Terrazzo（テラゾ）」は、
+                イタリア語で、セメントに
+                <strong>砕いた大理石</strong>などを混ぜた、
+                モザイク状の仕上げを施した人工素材を指します。
+            </p>
+
+            <p>
+                この万年筆は、職人によって一つ一つ手作業で模様が作られているそうで、
+                パキッとした模様がとても印象的です。
+            </p>
+
+            <p>
+                この独特な模様が個人的にはかなり好みで、
+                とても可愛いですね。
+            </p>
+
+            <p>
+                <strong>9月中には手に入れたいです。</strong>
+            </p>
+
+        </section>
+
+
+        <!-- ========================================
+             記事ナビ
+        ======================================== -->
+
+        <section class="article-navigation">
+
+            <a
+                href="1.html"
+                class="prev-article"
+            >
+                ← 前の記事
+            </a>
+
+            <a
+                href="3.html"
+                class="next-article"
+            >
+                次の記事 →
+            </a>
+
+        </section>
+
+
+        <!-- ========================================
+             記事一覧へ戻る
+        ======================================== -->
+
+        <section class="articles">
+
+            <p>
+                <a href="article.html">
+                    ← 記事一覧へ戻る
+                </a>
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         フッター
+    ======================================== -->
+
+    <footer>
+
+        <p>
+            © 人文房具
         </p>
-    </section>
-</main>
-<!-- フッター -->
-<footer>
-    <p>© 人文房具</p>
-</footer>
-<!-- ハンバーガーメニュー・ページ遷移 -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const menuButton = document.getElementById("menuButton");
-        const menuPanel = document.getElementById("menuPanel");
-        /* ハンバーガーメニュー */
-        menuButton.addEventListener("click", function () {
-            menuButton.classList.toggle("active");
-            menuPanel.classList.toggle("active");
-        });
-        /* ページ遷移 */
-        const links = document.querySelectorAll("a[href]");
-        links.forEach(function (link) {
-            link.addEventListener("click", function (e) {
-                const href = link.getAttribute("href");
-                if (
-                    !href ||
-                    href.startsWith("#") ||
-                    href.startsWith("http") ||
-                    link.target === "_blank"
-                ) {
-                    return;
-                }
-                e.preventDefault();
-                menuButton.classList.remove("active");
-                menuPanel.classList.remove("active");
-                document.body.classList.add("page-leave");
-                setTimeout(function () {
-                    window.location.href = href;
-                }, 350);
+
+    </footer>
+
+
+    <!-- ========================================
+         JavaScript
+    ======================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const menuButton =
+                document.getElementById("menuButton");
+
+            const menuPanel =
+                document.getElementById("menuPanel");
+
+            const menuBackdrop =
+                document.getElementById("menuBackdrop");
+
+
+            /* ========================================
+               ページ読み込み
+            ======================================== */
+
+            requestAnimationFrame(function () {
+
+                document.body.classList.add("page-loaded");
+
             });
+
+
+            /* ========================================
+               メニューを閉じる
+            ======================================== */
+
+            function closeMenu() {
+
+                menuButton.classList.remove("active");
+
+                menuPanel.classList.remove("active");
+
+                menuBackdrop.classList.remove("active");
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+
+            /* ========================================
+               ハンバーガーメニュー
+            ======================================== */
+
+            menuButton.addEventListener(
+                "click",
+                function () {
+
+                    const isOpen =
+                        menuPanel.classList.contains("active");
+
+                    if (isOpen) {
+
+                        closeMenu();
+
+                    } else {
+
+                        menuButton.classList.add("active");
+
+                        menuPanel.classList.add("active");
+
+                        menuBackdrop.classList.add("active");
+
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            "true"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* ========================================
+               背景クリックで閉じる
+            ======================================== */
+
+            menuBackdrop.addEventListener(
+                "click",
+                function () {
+
+                    closeMenu();
+
+                }
+            );
+
+
+            /* ========================================
+               ESCキーで閉じる
+            ======================================== */
+
+            document.addEventListener(
+                "keydown",
+                function (e) {
+
+                    if (e.key === "Escape") {
+
+                        closeMenu();
+
+                    }
+
+                }
+            );
+
+
+            /* ========================================
+               ページ遷移
+            ======================================== */
+
+            const links =
+                document.querySelectorAll("a[href]");
+
+
+            links.forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function (e) {
+
+                        const href =
+                            link.getAttribute("href");
+
+
+                        /* 外部リンクなどは通常動作 */
+
+                        if (
+                            !href ||
+                            href.startsWith("#") ||
+                            href.startsWith("http") ||
+                            href.startsWith("mailto:") ||
+                            link.target === "_blank"
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        /* ページ遷移アニメーション */
+
+                        e.preventDefault();
+
+                        closeMenu();
+
+                        document.body.classList.add(
+                            "page-leave"
+                        );
+
+
+                        setTimeout(
+                            function () {
+
+                                window.location.href = href;
+
+                            },
+                            350
+                        );
+
+                    }
+                );
+
+            });
+
         });
-    });
-</script>
+
+    </script>
+
 </body>
+
 </html>
