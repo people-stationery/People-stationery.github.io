@@ -7,35 +7,63 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- ヘッダー -->
+<!-- ========================================
+     ヘッダー
+======================================== -->
 <header>
     <div class="header-inner">
         <a href="index.html" class="logo">
             people stationery
         </a>
-        <button class="menu-button" id="menuButton">
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="メニュー"
+            aria-expanded="false"
+        >
             <span></span>
             <span></span>
             <span></span>
         </button>
     </div>
 </header>
-<!-- ハンバーガーメニュー -->
-<nav class="menu-panel" id="menuPanel">
+<!-- ========================================
+     メニューバックドロップ
+======================================== -->
+<div
+    class="menu-backdrop"
+    id="menuBackdrop"
+></div>
+<!-- ========================================
+     ハンバーガーメニュー
+======================================== -->
+<nav
+    class="menu-panel"
+    id="menuPanel"
+>
     <a href="index.html">HOME</a>
     <a href="article.html">ARTICLE</a>
     <a href="about.html">ABOUT</a>
 </nav>
-<!-- メイン -->
+<!-- ========================================
+     メイン
+======================================== -->
 <main>
+    <!-- ========================================
+         記事タイトル
+    ======================================== -->
     <section class="hero">
-        <p class="small-title">BLOG / 2026.09.01</p>
+        <p class="small-title">
+            BLOG / 2026.09.01
+        </p>
         <h1>
             ブログサイトを<br>
             立ち上げました！
         </h1>
     </section>
-    <!-- 記事本文 -->
+    <!-- ========================================
+         記事本文
+    ======================================== -->
     <section class="articles">
         <article>
             <p>
@@ -58,16 +86,20 @@
             </p>
         </article>
     </section>
-    <!-- 記事ナビ -->
+    <!-- ========================================
+         記事ナビ
+    ======================================== -->
     <section class="article-navigation">
-        <a href="1.html" class="prev-article">
-            ← 前の記事
-        </a>
-        <a href="2.html" class="next-article">
+        <a
+            href="2.html"
+            class="next-article"
+        >
             次の記事 →
         </a>
     </section>
-    <!-- 記事一覧へ戻る -->
+    <!-- ========================================
+         記事一覧へ戻る
+    ======================================== -->
     <section class="articles">
         <p>
             <a href="article.html">
@@ -76,43 +108,162 @@
         </p>
     </section>
 </main>
-<!-- フッター -->
+<!-- ========================================
+     フッター
+======================================== -->
 <footer>
-    <p>© 人文房具</p>
+    <p>
+        © 人文房具
+    </p>
 </footer>
-<!-- ハンバーガーメニュー -->
+<!-- ========================================
+     JavaScript
+======================================== -->
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const menuButton = document.getElementById("menuButton");
-        const menuPanel = document.getElementById("menuPanel");
-        /* ハンバーガーメニュー */
-        menuButton.addEventListener("click", function () {
-            menuButton.classList.toggle("active");
-            menuPanel.classList.toggle("active");
-        });
-        /* ページ遷移 */
-        const links = document.querySelectorAll("a[href]");
-        links.forEach(function (link) {
-            link.addEventListener("click", function (e) {
-                const href = link.getAttribute("href");
-                if (
-                    !href ||
-                    href.startsWith("#") ||
-                    href.startsWith("http") ||
-                    link.target === "_blank"
-                ) {
-                    return;
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+            /* ========================================
+               要素取得
+            ======================================== */
+            const menuButton =
+                document.getElementById(
+                    "menuButton"
+                );
+            const menuPanel =
+                document.getElementById(
+                    "menuPanel"
+                );
+            const menuBackdrop =
+                document.getElementById(
+                    "menuBackdrop"
+                );
+            /* ========================================
+               ページ読み込み完了
+            ======================================== */
+            requestAnimationFrame(
+                function () {
+                    document.body.classList.add(
+                        "page-loaded"
+                    );
                 }
-                e.preventDefault();
-                menuButton.classList.remove("active");
-                menuPanel.classList.remove("active");
-                document.body.classList.add("page-leave");
-                setTimeout(function () {
-                    window.location.href = href;
-                }, 350);
-            });
-        });
-    });
+            );
+            /* ========================================
+               メニューを閉じる
+            ======================================== */
+            function closeMenu() {
+                menuButton.classList.remove(
+                    "active"
+                );
+                menuPanel.classList.remove(
+                    "active"
+                );
+                menuBackdrop.classList.remove(
+                    "active"
+                );
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+            }
+            /* ========================================
+               ハンバーガーメニュー
+            ======================================== */
+            menuButton.addEventListener(
+                "click",
+                function () {
+                    const isOpen =
+                        menuPanel.classList.toggle(
+                            "active"
+                        );
+                    menuButton.classList.toggle(
+                        "active",
+                        isOpen
+                    );
+                    menuBackdrop.classList.toggle(
+                        "active",
+                        isOpen
+                    );
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        String(isOpen)
+                    );
+                }
+            );
+            /* ========================================
+               背景クリック
+            ======================================== */
+            menuBackdrop.addEventListener(
+                "click",
+                function () {
+                    closeMenu();
+                }
+            );
+            /* ========================================
+               ESCキー
+            ======================================== */
+            document.addEventListener(
+                "keydown",
+                function (e) {
+                    if (e.key === "Escape") {
+                        closeMenu();
+                    }
+                }
+            );
+            /* ========================================
+               ページ遷移
+            ======================================== */
+            const links =
+                document.querySelectorAll(
+                    "a[href]"
+                );
+            links.forEach(
+                function (link) {
+                    link.addEventListener(
+                        "click",
+                        function (e) {
+                            const href =
+                                link.getAttribute(
+                                    "href"
+                                );
+                            /* 外部リンク等 */
+                            if (
+                                !href ||
+                                href.startsWith("#") ||
+                                href.startsWith("http") ||
+                                href.startsWith("mailto:") ||
+                                link.target === "_blank"
+                            ) {
+                                return;
+                            }
+                            /* 現在のページ */
+                            const currentPage =
+                                window.location.pathname
+                                    .split("/")
+                                    .pop();
+                            if (
+                                href === currentPage
+                            ) {
+                                return;
+                            }
+                            e.preventDefault();
+                            closeMenu();
+                            document.body.classList.add(
+                                "page-leave"
+                            );
+                            setTimeout(
+                                function () {
+                                    window.location.href =
+                                        href;
+                                },
+                                350
+                            );
+                        }
+                    );
+                }
+            );
+        }
+    );
 </script>
 </body>
-</html>ー
+</html>
