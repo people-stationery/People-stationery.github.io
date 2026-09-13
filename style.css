@@ -1333,3 +1333,23 @@ footer {
             100% 100%;
     }
 }
+/* ========================================
+   ページ遷移：ボーダー
+======================================== */
+
+body::before {
+    transform: translateY(-100%);
+    opacity: 1;
+
+    animation: pageBorderIn 0.7s ease-out forwards;
+}
+
+@keyframes pageBorderIn {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
