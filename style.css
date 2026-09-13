@@ -1384,3 +1384,18 @@ body::before {
         transform: translateY(0);
     }
 }
+
+.page-border {
+    transform: translateY(-100%) !important;
+    animation: borderSlideIn 1s ease-out forwards !important;
+}
+
+@keyframes borderSlideIn {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
