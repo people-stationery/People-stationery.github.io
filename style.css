@@ -1383,3 +1383,21 @@ header {
         transform: translateX(0);
     }
 }
+
+/* ========================================
+   ABOUT スクロールアニメーション
+======================================== */
+
+.about-section {
+    opacity: 0;
+    transform: translateX(-80px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.about-section.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
