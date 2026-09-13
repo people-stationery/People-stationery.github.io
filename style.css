@@ -1339,7 +1339,7 @@ footer {
 
 header {
     transform: translateY(-100%);
-    animation: headerDown 0.8s ease-out forwards;
+    animation: headerDown 0.8s ease-out 1.0forwards;
 }
 
 @keyframes headerDown {
