@@ -86,7 +86,7 @@ body::after {
     height: 650px;
 
     top: -280px;
-    right: -220px;
+    right: 0px;
 
     background:
         radial-gradient(
