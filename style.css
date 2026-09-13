@@ -1107,16 +1107,12 @@ footer {
 /* ========================================
    ホバー
 ======================================== */
-
-.article-navigation a:hover {
-    transform:
-        translateY(-4px);
-
+.article-card:hover {
     box-shadow:
-        0 14px 34px rgba(42,73,104,0.11);
+        0 16px 38px rgba(60, 90, 120, 0.13);
 
-    background-color:
-        rgba(255,255,255,0.95);
+    border-color:
+        rgba(66, 103, 145, 0.25);
 }
 
 
