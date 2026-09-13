@@ -1336,30 +1336,13 @@ footer {
 /* ========================================
    ページ遷移：ボーダー
 ======================================== */
-
-body::before {
-    transform: translateY(-100%);
-    opacity: 1;
-
-    animation: pageBorderIn 3.0s ease-out forwards;
-}
-
-@keyframes pageBorderIn {
-    from {
-        transform: translateY(-100%);
-    }
-
-    to {
-        transform: translateY(0);
-    }
-}
-
 /* ========================================
    ページ遷移：ボーダー
 ======================================== */
 
 .page-border {
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -1372,22 +1355,10 @@ body::before {
 
     pointer-events: none;
 
-    animation: borderSlideIn 1s ease-out;
-}
+    transform: translateY(-100%);
 
-@keyframes borderSlideIn {
-    0% {
-        transform: translateY(-100%);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.page-border {
-    transform: translateY(-100%) !important;
-    animation: borderSlideIn 1s ease-out forwards !important;
+    animation:
+        borderSlideIn 0.8s ease-out forwards;
 }
 
 @keyframes borderSlideIn {
