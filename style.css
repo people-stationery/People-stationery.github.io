@@ -1364,20 +1364,23 @@ body::before {
     left: 0;
 
     width: 100%;
-    height: 10px;
+    height: 3px;
 
-    background: red;
+    background: #426791;
 
     z-index: 99999;
 
     pointer-events: none;
+
+    animation: borderSlideIn 1s ease-out;
 }
+
 @keyframes borderSlideIn {
-    from {
+    0% {
         transform: translateY(-100%);
     }
 
-    to {
+    100% {
         transform: translateY(0);
     }
 }
