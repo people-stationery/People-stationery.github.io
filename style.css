@@ -1363,3 +1363,23 @@ header {
     }
 }
 
+.hero > * {
+    opacity: 0;
+
+    transform: translateX(-50px);
+
+    animation:
+        heroTextIn 0.8s ease 2.1s forwards;
+}
+
+@keyframes heroTextIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
