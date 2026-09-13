@@ -675,6 +675,10 @@ main {
         translateX(-100px);
 }
 
+.article-page .article-card.from-bottom {
+    transform:
+        translateY(100px);
+}
 .article-page .article-card.is-visible {
     opacity: 1;
 
