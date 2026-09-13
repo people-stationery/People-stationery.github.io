@@ -1369,7 +1369,7 @@ header {
     transform: translateX(-50px);
 
     animation:
-        heroTextIn 0.8s ease 2.1s forwards;
+        heroTextIn 0.8s ease 1.2s forwards;
 }
 
 @keyframes heroTextIn {
