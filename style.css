@@ -60,7 +60,7 @@ body::before {
 opacity: 0;
 
 animation:
-    backgroundFadeIn 0.8s ease 1.3s forwards;
+    backgroundFadeIn 0.8s ease 0.8s forwards;
    
     z-index: -2;
 }
