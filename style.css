@@ -64,8 +64,15 @@ animation:
    
     z-index: -2;
 }
+@keyframes backgroundFadeIn {
+    from {
+        opacity: 0;
+    }
 
-
+    to {
+        opacity: 1;
+    }
+}
 /* ========================================
    青い光
 ======================================== */
