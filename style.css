@@ -308,7 +308,7 @@ header {
         24px 0 0 24px;
 
     box-shadow:
-        -15px 0 45px rgba(42,73,104,0.12);
+        -15px 0 45px rgba(42,73,104,0.12);u
 
     opacity: 0;
     visibility: hidden;
@@ -1339,7 +1339,7 @@ footer {
 
 header {
     transform: translateY(-100%);
-    animation: headerDown 0.8s ease-out 0.5s forwards;
+    animation: headerDown 0.8s ease-out 0.2s forwards;
 }
 
 @keyframes headerDown {
