@@ -1334,28 +1334,15 @@ footer {
     }
 }
 /* ========================================
-   ページ遷移：境目
+   ページ遷移：ヘッダー
 ======================================== */
 
-.page-border {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    background: rgba(66, 103, 145, 0.18);
-
-    z-index: 99999;
-    pointer-events: none;
-
+header {
     transform: translateY(-100%);
-
-    animation: pageBorderDown 1s ease-out forwards;
+    animation: headerDown 0.8s ease-out forwards;
 }
 
-@keyframes pageBorderDown {
+@keyframes headerDown {
     from {
         transform: translateY(-100%);
     }
@@ -1364,3 +1351,4 @@ footer {
         transform: translateY(0);
     }
 }
+
