@@ -1,489 +1,389 @@
-<!DOCTYPE html>
-<html lang="ja">
+/* ========================================
+   CATALOG
+======================================== */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+.catalog {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 90px 20px 120px;
+}
 
-    <title>CATALOG | 人文房具</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+/* ----------------------------------------
+   HEADER
+---------------------------------------- */
 
-<body>
+.catalog-header {
+    padding: 0 0 20px;
+}
 
-<div class="page-line"></div>
+.catalog-label {
+    margin: 0 0 18px;
 
+    color: #6c8aa5;
 
-<!-- ========================================
-     ヘッダー
-======================================== -->
+    font-size: 11px;
+    font-weight: 700;
 
-<header>
+    letter-spacing: 0.18em;
+}
 
-    <div class="header-inner">
+.catalog-header h1 {
+    margin: 0;
 
-        <a href="index.html" class="logo">
-            people stationery
-        </a>
+    color: #294967;
 
-        <button
-            class="menu-button"
-            id="menuButton"
-            aria-label="メニュー"
-            aria-expanded="false"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+    font-size: clamp(32px, 6vw, 55px);
+    line-height: 1.4;
 
-    </div>
+    letter-spacing: 0.04em;
+}
 
-</header>
+.catalog-description {
+    margin: 28px 0 0;
 
+    color: #52697d;
 
-<!-- ========================================
-     メニュー背景
-======================================== -->
+    font-size: 15px;
+    line-height: 2.1;
 
-<div
-    class="menu-backdrop"
-    id="menuBackdrop"
-></div>
+    letter-spacing: 0.03em;
+}
 
 
-<!-- ========================================
-     ハンバーガーメニュー
-======================================== -->
+/* ----------------------------------------
+   SECTION
+---------------------------------------- */
 
-<nav
-    class="menu-panel"
-    id="menuPanel"
->
+.catalog-section {
+    padding: 40px 0 20px;
+}
 
-    <a href="index.html">
-        HOME
-    </a>
+.catalog-section h2 {
+    margin:
+        20px 0 28px;
 
-    <a href="article.html">
-        ARTICLE
-    </a>
+    color: #315878;
 
-    <a href="catalog.html">
-        CATALOG
-    </a>
+    font-size: 24px;
 
-    <a href="about.html">
-        ABOUT
-    </a>
+    letter-spacing: 0.08em;
+}
 
-</nav>
 
+/* ----------------------------------------
+   CATEGORY
+---------------------------------------- */
 
-<!-- ========================================
-     CATALOG
-======================================== -->
+.category-list {
+    display: grid;
 
-<main class="catalog">
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
 
+    gap: 20px;
+}
 
-    <!-- ====================================
-         ヒーロー
-    ==================================== -->
+.category-item {
+    position: relative;
 
-    <section class="catalog-header">
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-        <p class="catalog-label">
-            STATIONERY CATALOG
-        </p>
+    min-height: 120px;
 
-        <h1>
-            CATALOG
-        </h1>
+    padding: 30px;
 
-        <p class="catalog-description">
-            人文房具に登場する文房具を、
-            カタログ形式でまとめています。
-        </p>
+    color: inherit;
+    text-decoration: none;
 
-    </section>
+    background:
+        rgba(255,255,255,0.68);
 
+    border:
+        1px solid rgba(66,103,145,0.13);
 
-    <!-- ====================================
-         CATEGORY
-    ==================================== -->
+    border-radius: 20px;
 
-    <section class="catalog-section">
+    box-shadow:
+        0 8px 30px rgba(42,73,104,0.07);
 
-        <h2>
-            CATEGORY
-        </h2>
+    overflow: hidden;
 
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
 
-        <div class="category-list">
 
-            <a
-                href="#"
-                class="category-item"
-            >
+/* ARTICLEカードと同じ左ライン */
 
-                <span>
-                    SHARP PENCIL
-                </span>
+.category-item::before {
+    content: "";
 
-                <small>
-                    シャープペンシル
-                </small>
+    position: absolute;
 
-            </a>
+    left: 0;
+    top: 0;
 
+    width: 4px;
+    height: 100%;
 
-            <a
-                href="#"
-                class="category-item"
-            >
-
-                <span>
-                    BALLPOINT PEN
-                </span>
-
-                <small>
-                    ボールペン
-                </small>
-
-            </a>
-
-
-            <a
-                href="#"
-                class="category-item"
-            >
-
-                <span>
-                    FOUNTAIN PEN
-                </span>
-
-                <small>
-                    万年筆
-                </small>
-
-            </a>
-
-
-            <a
-                href="#"
-                class="category-item"
-            >
-
-                <span>
-                    OTHER
-                </span>
-
-                <small>
-                    その他
-                </small>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- ====================================
-         ITEMS
-    ==================================== -->
-
-    <section class="catalog-section">
-
-
-        <div class="catalog-section-title">
-
-            <h2>
-                ITEMS
-            </h2>
-
-            <span class="item-count">
-                1 ITEM
-            </span>
-
-        </div>
-
-
-        <div class="catalog-grid">
-
-
-            <!-- ==================================
-                 KURUTOGA Dive
-            ================================== -->
-
-            <article class="catalog-card">
-
-                <a href="#">
-
-                    <div class="catalog-card-image">
-                        <!-- 画像をここに入れる -->
-                    </div>
-
-
-                    <div class="catalog-card-info">
-
-                        <p class="catalog-card-category">
-                            SHARP PENCIL
-                        </p>
-
-                        <h3>
-                            KURUTOGA Dive
-                        </h3>
-
-                        <p class="catalog-card-color">
-                            Grand Blue
-                        </p>
-
-                    </div>
-
-                </a>
-
-            </article>
-
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<!-- ========================================
-     フッター
-======================================== -->
-
-<footer>
-
-    <p>
-        © 人文房具
-    </p>
-
-</footer>
-
-
-<!-- ========================================
-     JavaScript
-======================================== -->
-
-<script>
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-
-        /* ====================================
-           要素取得
-        ==================================== */
-
-        const menuButton =
-            document.getElementById("menuButton");
-
-        const menuPanel =
-            document.getElementById("menuPanel");
-
-        const menuBackdrop =
-            document.getElementById("menuBackdrop");
-
-
-        /* ====================================
-           ページ表示
-        ==================================== */
-
-        requestAnimationFrame(
-            function () {
-
-                document.body.classList.add(
-                    "page-loaded"
-                );
-
-            }
+    background:
+        linear-gradient(
+            to bottom,
+            #426791,
+            rgba(66,103,145,0.15)
         );
 
+    opacity: 0.8;
+}
 
-        /* ====================================
-           メニューを閉じる
-        ==================================== */
+.category-item span {
+    color: #315878;
 
-        function closeMenu() {
+    font-size: 15px;
+    font-weight: 700;
 
-            menuButton.classList.remove(
-                "active"
-            );
+    letter-spacing: 0.12em;
+}
 
-            menuPanel.classList.remove(
-                "active"
-            );
+.category-item small {
+    margin-top: 8px;
 
-            menuBackdrop.classList.remove(
-                "active"
-            );
+    color: #8ca0b1;
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+    font-size: 11px;
 
-        }
+    letter-spacing: 0.08em;
+}
 
+.category-item:hover {
+    transform: translateY(-5px);
 
-        /* ====================================
-           メニュー開閉
-        ==================================== */
+    border-color:
+        rgba(66,103,145,0.24);
 
-        menuButton.addEventListener(
-            "click",
-            function () {
-
-                const isOpen =
-                    menuPanel.classList.toggle(
-                        "active"
-                    );
+    box-shadow:
+        0 15px 38px rgba(42,73,104,0.13);
+}
 
 
-                menuButton.classList.toggle(
-                    "active",
-                    isOpen
-                );
+/* ----------------------------------------
+   ITEMS TITLE
+---------------------------------------- */
+
+.catalog-section-title {
+    display: flex;
+
+    align-items: baseline;
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+}
+
+.catalog-section-title h2 {
+    margin: 0;
+}
+
+.item-count {
+    color: #8ca0b1;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+}
 
 
-                menuBackdrop.classList.toggle(
-                    "active",
-                    isOpen
-                );
+/* ----------------------------------------
+   ITEM LIST
+---------------------------------------- */
+
+.catalog-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 20px;
+}
 
 
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
+/* ARTICLE CARDにかなり寄せる */
 
-            }
+.catalog-card {
+    position: relative;
+
+    background:
+        rgba(255,255,255,0.68);
+
+    border:
+        1px solid rgba(66,103,145,0.13);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 30px rgba(42,73,104,0.07);
+
+    overflow: hidden;
+
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.catalog-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #426791,
+            rgba(66,103,145,0.15)
         );
 
+    opacity: 0.8;
 
-        /* ====================================
-           背景クリック
-        ==================================== */
+    z-index: 2;
+}
 
-        menuBackdrop.addEventListener(
-            "click",
-            function () {
+.catalog-card:hover {
+    transform: translateY(-5px);
 
-                closeMenu();
+    border-color:
+        rgba(66,103,145,0.24);
 
-            }
+    box-shadow:
+        0 15px 38px rgba(42,73,104,0.13);
+}
+
+.catalog-card a {
+    display: block;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ----------------------------------------
+   ITEM IMAGE
+---------------------------------------- */
+
+.catalog-card-image {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(66,103,145,0.055),
+            rgba(255,255,255,0.75)
         );
 
-
-        /* ====================================
-           ESCキー
-        ==================================== */
-
-        document.addEventListener(
-            "keydown",
-            function (e) {
-
-                if (e.key === "Escape") {
-
-                    closeMenu();
-
-                }
-
-            }
-        );
+    border-bottom:
+        1px solid rgba(66,103,145,0.10);
+}
 
 
-        /* ====================================
-           ページ遷移
-        ==================================== */
+/* ----------------------------------------
+   ITEM INFO
+---------------------------------------- */
 
-        const links =
-            document.querySelectorAll(
-                "a[href]"
-            );
+.catalog-card-info {
+    padding: 25px 30px 28px;
+}
 
+.catalog-card-category {
+    margin: 0 0 10px;
 
-        links.forEach(
-            function (link) {
+    color: #7794ac;
 
-                link.addEventListener(
-                    "click",
-                    function (e) {
+    font-size: 10px;
+    font-weight: 700;
 
-                        const href =
-                            link.getAttribute(
-                                "href"
-                            );
+    letter-spacing: 0.18em;
+}
 
+.catalog-card-info h3 {
+    margin: 0 0 8px;
 
-                        if (
-                            !href ||
-                            href.startsWith("#") ||
-                            href.startsWith("http") ||
-                            href.startsWith("mailto:") ||
-                            link.target === "_blank"
-                        ) {
+    color: #304f6b;
 
-                            return;
+    font-size: 19px;
+    line-height: 1.5;
+}
 
-                        }
+.catalog-card-color {
+    margin: 0;
 
+    color: #8ca0b1;
 
-                        const currentPage =
-                            window.location.pathname
-                                .split("/")
-                                .pop();
+    font-size: 12px;
+
+    letter-spacing: 0.08em;
+}
 
 
-                        if (
-                            href === currentPage
-                        ) {
+/* ----------------------------------------
+   MOBILE
+---------------------------------------- */
 
-                            return;
+@media (max-width: 600px) {
 
-                        }
-
-
-                        e.preventDefault();
-
-
-                        closeMenu();
-
-
-                        document.body.classList.add(
-                            "page-leave"
-                        );
-
-
-                        setTimeout(
-                            function () {
-
-                                window.location.href =
-                                    href;
-
-                            },
-                            350
-                        );
-
-                    }
-                );
-
-            }
-        );
-
+    .catalog {
+        padding:
+            80px 20px 100px;
     }
-);
 
-</script>
+    .catalog-header {
+        padding-bottom: 10px;
+    }
 
+    .catalog-description {
+        font-size: 14px;
+    }
 
-</body>
-</html>
+    .catalog-section {
+        padding-top: 35px;
+    }
+
+    .category-list {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .category-item {
+        min-height: 105px;
+        padding: 25px 28px;
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-section-title {
+        margin-bottom: 22px;
+    }
+
+    .catalog-card-info {
+        padding:
+            22px 28px 25px;
+    }
+}
