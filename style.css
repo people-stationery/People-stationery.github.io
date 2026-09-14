@@ -1401,6 +1401,33 @@ header {
     opacity: 1;
     transform: translateX(0);
 }
+/* ========================================
+   BACKGROUND BLUE GLOW
+======================================== */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 650px;
+    height: 650px;
+
+    top: -280px;
+    right: -10px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(66,103,145,0.13) 0%,
+            rgba(66,103,145,0.04) 45%,
+            transparent 72%
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+}
 
 /* ========================================
    CATALOG
