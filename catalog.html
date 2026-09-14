@@ -32,7 +32,6 @@
                 people stationery
             </a>
 
-
             <button
                 class="menu-button"
                 id="menuButton"
@@ -89,6 +88,10 @@
 
     <main class="catalog">
 
+        <!-- ----------------------------------------
+             CATALOG HEADER
+        ---------------------------------------- -->
+
         <section class="catalog-header">
 
             <p class="catalog-label">
@@ -118,62 +121,207 @@
             </h2>
 
 
-            <div class="category-list">
+            <!-- ------------------------------------
+                 CATEGORY NAVIGATION
+            ------------------------------------ -->
 
-                <a
-                    href="#"
-                    class="category-item"
+            <div
+                class="catalog-category-nav"
+                role="tablist"
+                aria-label="文房具カテゴリー"
+            >
+
+                <button
+                    class="catalog-category-tab active"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="category-mechanical-pencil"
+                    data-category="mechanical-pencil"
                 >
-                    <span>
-                        SHARP PENCIL
-                    </span>
-
-                    <small>
-                        シャープペンシル
-                    </small>
-                </a>
+                    MECHANICAL PENCIL
+                </button>
 
 
-                <a
-                    href="#"
-                    class="category-item"
+                <button
+                    class="catalog-category-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="category-ball-point-pen"
+                    data-category="ball-point-pen"
                 >
-                    <span>
-                        BALLPOINT PEN
-                    </span>
-
-                    <small>
-                        ボールペン
-                    </small>
-                </a>
+                    BALL POINT PEN
+                </button>
 
 
-                <a
-                    href="#"
-                    class="category-item"
+                <button
+                    class="catalog-category-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="category-fountain-pen"
+                    data-category="fountain-pen"
                 >
-                    <span>
-                        FOUNTAIN PEN
-                    </span>
-
-                    <small>
-                        万年筆
-                    </small>
-                </a>
+                    FOUNTAIN PEN
+                </button>
 
 
-                <a
-                    href="#"
-                    class="category-item"
+                <button
+                    class="catalog-category-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="category-another"
+                    data-category="another"
                 >
-                    <span>
-                        OTHER
-                    </span>
+                    ANOTHER
+                </button>
 
-                    <small>
-                        その他
-                    </small>
-                </a>
+            </div>
+
+
+            <!-- ------------------------------------
+                 CATEGORY CONTENT
+            ------------------------------------ -->
+
+            <div class="catalog-category-content">
+
+
+                <!-- MECHANICAL PENCIL -->
+
+                <section
+                    class="catalog-category-panel active"
+                    id="category-mechanical-pencil"
+                    role="tabpanel"
+                    data-panel="mechanical-pencil"
+                >
+
+                    <div class="catalog-category-description">
+
+                        <h3>
+                            MECHANICAL PENCIL
+                        </h3>
+
+                        <p>
+                            シャープペンシルに関する
+                            文房具をまとめています。
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="#"
+                        class="catalog-list-link"
+                    >
+                        <span>一覧ページへ</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                </section>
+
+
+                <!-- BALL POINT PEN -->
+
+                <section
+                    class="catalog-category-panel"
+                    id="category-ball-point-pen"
+                    role="tabpanel"
+                    data-panel="ball-point-pen"
+                    hidden
+                >
+
+                    <div class="catalog-category-description">
+
+                        <h3>
+                            BALL POINT PEN
+                        </h3>
+
+                        <p>
+                            ボールペンに関する
+                            文房具をまとめています。
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="#"
+                        class="catalog-list-link"
+                    >
+                        <span>一覧ページへ</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                </section>
+
+
+                <!-- FOUNTAIN PEN -->
+
+                <section
+                    class="catalog-category-panel"
+                    id="category-fountain-pen"
+                    role="tabpanel"
+                    data-panel="fountain-pen"
+                    hidden
+                >
+
+                    <div class="catalog-category-description">
+
+                        <h3>
+                            FOUNTAIN PEN
+                        </h3>
+
+                        <p>
+                            万年筆に関する
+                            文房具をまとめています。
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="#"
+                        class="catalog-list-link"
+                    >
+                        <span>一覧ページへ</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                </section>
+
+
+                <!-- ANOTHER -->
+
+                <section
+                    class="catalog-category-panel"
+                    id="category-another"
+                    role="tabpanel"
+                    data-panel="another"
+                    hidden
+                >
+
+                    <div class="catalog-category-description">
+
+                        <h3>
+                            ANOTHER
+                        </h3>
+
+                        <p>
+                            その他の文房具や、
+                            カテゴリーに分類されないものをまとめています。
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="#"
+                        class="catalog-list-link"
+                    >
+                        <span>一覧ページへ</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                </section>
+
 
             </div>
 
@@ -275,18 +423,15 @@
                                 "active"
                             );
 
-
                         menuButton.classList.toggle(
                             "active",
                             isOpen
                         );
 
-
                         menuBackdrop.classList.toggle(
                             "active",
                             isOpen
                         );
-
 
                         menuButton.setAttribute(
                             "aria-expanded",
@@ -338,7 +483,6 @@
                         "a[href]"
                     );
 
-
                 links.forEach(
                     function (link) {
 
@@ -350,7 +494,6 @@
                                     link.getAttribute(
                                         "href"
                                     );
-
 
                                 if (
                                     !href ||
@@ -364,12 +507,10 @@
 
                                 }
 
-
                                 const currentPage =
                                     window.location.pathname
                                         .split("/")
                                         .pop();
-
 
                                 if (
                                     href === currentPage
@@ -379,17 +520,13 @@
 
                                 }
 
-
                                 e.preventDefault();
 
-
                                 closeMenu();
-
 
                                 document.body.classList.add(
                                     "page-leave"
                                 );
-
 
                                 setTimeout(
                                     function () {
@@ -400,6 +537,103 @@
                                     },
                                     350
                                 );
+
+                            }
+                        );
+
+                    }
+                );
+
+
+                /* --------------------------------
+                   CATEGORY
+                -------------------------------- */
+
+                const categoryTabs =
+                    document.querySelectorAll(
+                        ".catalog-category-tab"
+                    );
+
+                const categoryPanels =
+                    document.querySelectorAll(
+                        ".catalog-category-panel"
+                    );
+
+
+                categoryTabs.forEach(
+                    function (tab) {
+
+                        tab.addEventListener(
+                            "click",
+                            function () {
+
+                                const category =
+                                    tab.dataset.category;
+
+
+                                categoryTabs.forEach(
+                                    function (item) {
+
+                                        item.classList.remove(
+                                            "active"
+                                        );
+
+                                        item.setAttribute(
+                                            "aria-selected",
+                                            "false"
+                                        );
+
+                                    }
+                                );
+
+
+                                categoryPanels.forEach(
+                                    function (panel) {
+
+                                        panel.classList.remove(
+                                            "active"
+                                        );
+
+                                        panel.hidden = true;
+
+                                    }
+                                );
+
+
+                                tab.classList.add(
+                                    "active"
+                                );
+
+                                tab.setAttribute(
+                                    "aria-selected",
+                                    "true"
+                                );
+
+
+                                const targetPanel =
+                                    document.querySelector(
+                                        '[data-panel="' +
+                                        category +
+                                        '"]'
+                                    );
+
+
+                                if (targetPanel) {
+
+                                    targetPanel.hidden =
+                                        false;
+
+                                    requestAnimationFrame(
+                                        function () {
+
+                                            targetPanel.classList.add(
+                                                "active"
+                                            );
+
+                                        }
+                                    );
+
+                                }
 
                             }
                         );
