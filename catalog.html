@@ -1,102 +1,461 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CATALOG | people stationery</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <div class="page-line"></div>
+
     <!-- ========================================
          ヘッダー
     ======================================== -->
+
     <header>
+
         <div class="header-inner">
+
             <a href="index.html" class="logo">
                 people stationery
             </a>
-            <button class="menu-button" aria-label="メニュー">
-                ☰
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="メニューを開く"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
+
         </div>
+
     </header>
+
+
+    <!-- ========================================
+         メニュー背景
+    ======================================== -->
+
+    <div
+        class="menu-backdrop"
+        id="menuBackdrop"
+    ></div>
+
+
+    <!-- ========================================
+         ハンバーガーメニュー
+    ======================================== -->
+
+    <nav
+        class="menu-panel"
+        id="menuPanel"
+        aria-label="メインメニュー"
+    >
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="article.html">
+            ARTICLE
+        </a>
+
+        <a href="catalog.html">
+            CATALOG
+        </a>
+
+        <a href="about.html">
+            ABOUT
+        </a>
+
+    </nav>
+
+
     <!-- ========================================
          CATALOG
     ======================================== -->
+
     <main class="catalog">
+
         <section class="catalog-header">
-            <p class="catalog-label">STATIONERY CATALOG</p>
-            <h1>CATALOG</h1>
+
+            <p class="catalog-label">
+                STATIONERY CATALOG
+            </p>
+
+            <h1>
+                CATALOG
+            </h1>
+
             <p class="catalog-description">
                 people stationeryに登場する文房具を、
                 カタログ形式でまとめています。
             </p>
+
         </section>
+
+
         <!-- ========================================
              CATEGORY
         ======================================== -->
+
         <section class="catalog-section">
-            <h2>CATEGORY</h2>
+
+            <h2>
+                CATEGORY
+            </h2>
+
             <div class="category-list">
+
                 <a href="#" class="category-item">
-                    <span>SHARP PENCIL</span>
-                    <small>シャープペンシル</small>
+                    <span>
+                        SHARP PENCIL
+                    </span>
+
+                    <small>
+                        シャープペンシル
+                    </small>
                 </a>
+
+
                 <a href="#" class="category-item">
-                    <span>BALLPOINT PEN</span>
-                    <small>ボールペン</small>
+                    <span>
+                        BALLPOINT PEN
+                    </span>
+
+                    <small>
+                        ボールペン
+                    </small>
                 </a>
+
+
                 <a href="#" class="category-item">
-                    <span>FOUNTAIN PEN</span>
-                    <small>万年筆</small>
+                    <span>
+                        FOUNTAIN PEN
+                    </span>
+
+                    <small>
+                        万年筆
+                    </small>
                 </a>
+
+
                 <a href="#" class="category-item">
-                    <span>OTHER</span>
-                    <small>その他</small>
+                    <span>
+                        OTHER
+                    </span>
+
+                    <small>
+                        その他
+                    </small>
                 </a>
+
             </div>
+
         </section>
+
+
         <!-- ========================================
              ITEM LIST
         ======================================== -->
+
         <section class="catalog-section">
+
             <div class="catalog-section-title">
-                <h2>ITEMS</h2>
+
+                <h2>
+                    ITEMS
+                </h2>
+
                 <span class="item-count">
                     0 ITEMS
                 </span>
+
             </div>
+
+
             <div class="catalog-grid">
+
                 <!--
                 文房具を追加するときは
                 このカードをコピーして使う
                 -->
+
                 <article class="catalog-card">
+
                     <a href="#">
+
                         <div class="catalog-card-image">
                             <!-- 画像 -->
                         </div>
+
+
                         <div class="catalog-card-info">
+
                             <p class="catalog-card-category">
                                 SHARP PENCIL
                             </p>
+
                             <h3>
                                 KURUTOGA Dive
                             </h3>
+
                             <p class="catalog-card-color">
                                 Grand Blue
                             </p>
+
                         </div>
+
                     </a>
+
                 </article>
+
             </div>
+
         </section>
+
     </main>
+
+
     <!-- ========================================
-         FOOTER
+         フッター
     ======================================== -->
+
     <footer>
-        <p>© people stationery</p>
+
+        <p>
+            © 人文房具
+        </p>
+
     </footer>
+
+
+    <!-- ========================================
+         JavaScript
+    ======================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                /* ====================================
+                   要素取得
+                ==================================== */
+
+                const menuButton =
+                    document.getElementById("menuButton");
+
+                const menuPanel =
+                    document.getElementById("menuPanel");
+
+                const menuBackdrop =
+                    document.getElementById("menuBackdrop");
+
+
+                /* ====================================
+                   ページ表示
+                ==================================== */
+
+                requestAnimationFrame(
+                    function () {
+
+                        document.body.classList.add(
+                            "page-loaded"
+                        );
+
+                    }
+                );
+
+
+                /* ====================================
+                   メニューを閉じる関数
+                ==================================== */
+
+                function closeMenu() {
+
+                    menuButton.classList.remove(
+                        "active"
+                    );
+
+                    menuPanel.classList.remove(
+                        "active"
+                    );
+
+                    menuBackdrop.classList.remove(
+                        "active"
+                    );
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+
+                /* ====================================
+                   メニューを開く / 閉じる
+                ==================================== */
+
+                menuButton.addEventListener(
+                    "click",
+                    function () {
+
+                        const isOpen =
+                            menuPanel.classList.toggle(
+                                "active"
+                            );
+
+                        menuButton.classList.toggle(
+                            "active",
+                            isOpen
+                        );
+
+                        menuBackdrop.classList.toggle(
+                            "active",
+                            isOpen
+                        );
+
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            String(isOpen)
+                        );
+
+                    }
+                );
+
+
+                /* ====================================
+                   背景をクリックしたら閉じる
+                ==================================== */
+
+                menuBackdrop.addEventListener(
+                    "click",
+                    function () {
+
+                        closeMenu();
+
+                    }
+                );
+
+
+                /* ====================================
+                   ESCキーで閉じる
+                ==================================== */
+
+                document.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (event.key === "Escape") {
+
+                            closeMenu();
+
+                        }
+
+                    }
+                );
+
+
+                /* ====================================
+                   ページ遷移
+                ==================================== */
+
+                const links =
+                    document.querySelectorAll(
+                        "a[href]"
+                    );
+
+
+                links.forEach(
+                    function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            function (event) {
+
+                                const href =
+                                    link.getAttribute(
+                                        "href"
+                                    );
+
+
+                                /* ----------------------------
+                                   除外するリンク
+                                ---------------------------- */
+
+                                if (
+                                    !href ||
+                                    href.startsWith("#") ||
+                                    href.startsWith("http") ||
+                                    href.startsWith("mailto:") ||
+                                    link.target === "_blank"
+                                ) {
+
+                                    return;
+
+                                }
+
+
+                                /* ----------------------------
+                                   通常のページ遷移
+                                ---------------------------- */
+
+                                event.preventDefault();
+
+
+                                /* メニューを閉じる */
+
+                                closeMenu();
+
+
+                                /* ページをぼかして消す */
+
+                                document.body.classList.remove(
+                                    "page-loaded"
+                                );
+
+                                document.body.classList.add(
+                                    "page-leave"
+                                );
+
+
+                                /* CSSの0.8秒に合わせる */
+
+                                setTimeout(
+                                    function () {
+
+                                        window.location.href =
+                                            href;
+
+                                    },
+                                    800
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
 </body>
+
 </html>
