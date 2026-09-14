@@ -1859,3 +1859,149 @@ header {
             none;
     }
 }
+/* ========================================
+CATALOG ページ入場アニメーション
+======================================== */
+
+/* ––––––––––––––––––––
+初期状態
+–––––––––––––––––––– */
+
+.catalog .catalog-header,
+.catalog .catalog-section {
+opacity: 0;
+transform: translateY(35px);
+}
+
+/* ––––––––––––––––––––
+CATALOG HEADER
+–––––––––––––––––––– */
+
+.catalog .catalog-header {
+animation:
+catalogFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1)
+0.55s forwards;
+}
+
+/* ––––––––––––––––––––
+CATEGORY SECTION
+–––––––––––––––––––– */
+
+.catalog .catalog-section {
+animation:
+catalogFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1)
+0.8s forwards;
+}
+
+/* ––––––––––––––––––––
+CATEGORY BUTTON
+–––––––––––––––––––– */
+
+.catalog .catalog-category-tab {
+opacity: 0;
+transform: translateY(25px);
+}
+
+.catalog .catalog-category-tab:nth-child(1) {
+animation:
+catalogCategoryIn 0.65s cubic-bezier(0.22, 1, 0.36, 1)
+1.05s forwards;
+}
+
+.catalog .catalog-category-tab:nth-child(2) {
+animation:
+catalogCategoryIn 0.65s cubic-bezier(0.22, 1, 0.36, 1)
+1.15s forwards;
+}
+
+.catalog .catalog-category-tab:nth-child(3) {
+animation:
+catalogCategoryIn 0.65s cubic-bezier(0.22, 1, 0.36, 1)
+1.25s forwards;
+}
+
+.catalog .catalog-category-tab:nth-child(4) {
+animation:
+catalogCategoryIn 0.65s cubic-bezier(0.22, 1, 0.36, 1)
+1.35s forwards;
+}
+
+/* ––––––––––––––––––––
+CATEGORY CONTENT
+–––––––––––––––––––– */
+
+.catalog .catalog-category-content {
+opacity: 0;
+transform: translateY(20px);
+
+animation:
+    catalogContentIn 0.7s cubic-bezier(0.22, 1, 0.36, 1)
+    1.55s forwards;
+
+}
+
+/* ––––––––––––––––––––
+アニメーション本体
+–––––––––––––––––––– */
+
+@keyframes catalogFadeUp {
+
+from {
+    opacity: 0;
+    transform:
+        translateY(35px);
+}
+to {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+
+}
+
+@keyframes catalogCategoryIn {
+
+from {
+    opacity: 0;
+    transform:
+        translateY(25px);
+}
+to {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+
+}
+
+@keyframes catalogContentIn {
+
+from {
+    opacity: 0;
+    transform:
+        translateY(20px);
+}
+to {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+
+}
+
+/* ========================================
+アニメーション軽減設定
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+.catalog .catalog-header,
+.catalog .catalog-section,
+.catalog .catalog-category-tab,
+.catalog .catalog-category-content {
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+}
