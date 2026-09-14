@@ -1407,515 +1407,6 @@ header {
 ======================================== */
 
 .catalog {
-    width:
-        min(1100px, calc(100% - 40px));
-
-    margin: 0 auto;
-
-    padding-top: 76px;
-}
-
-
-/* ========================================
-   CATALOG ヘッダー
-======================================== */
-
-.catalog-header {
-    position: relative;
-
-    min-height: 430px;
-
-    padding:
-        100px 20px
-        80px;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-
-    overflow: hidden;
-}
-
-.catalog-header::before {
-    content: "";
-
-    position: absolute;
-
-    width: 420px;
-    height: 420px;
-
-    right: -150px;
-    top: 20px;
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(66,103,145,0.10),
-            rgba(255,255,255,0)
-        );
-
-    pointer-events: none;
-}
-
-.catalog-header::after {
-    content: "";
-
-    position: absolute;
-
-    width: 170px;
-    height: 170px;
-
-    right: 100px;
-    bottom: 30px;
-
-    border:
-        1px solid rgba(66,103,145,0.13);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-}
-
-
-/* ========================================
-   CATALOG 小見出し
-======================================== */
-
-.catalog-label {
-    position: relative;
-
-    margin:
-        0 0 18px;
-
-    color: #6c8aa5;
-
-    font-size: 12px;
-    font-weight: 700;
-
-    letter-spacing: 0.22em;
-
-    z-index: 1;
-}
-
-
-/* ========================================
-   CATALOG タイトル
-======================================== */
-
-.catalog-header h1 {
-    position: relative;
-
-    margin: 0;
-
-    color: #294967;
-
-    font-size:
-        clamp(42px, 7vw, 78px);
-
-    line-height: 1.25;
-
-    letter-spacing: 0.04em;
-
-    font-weight: 700;
-
-    z-index: 1;
-}
-
-
-/* ========================================
-   CATALOG 説明
-======================================== */
-
-.catalog-description {
-    position: relative;
-
-    margin:
-        28px 0 0;
-
-    color: #62778c;
-
-    font-size: 15px;
-
-    line-height: 2;
-
-    letter-spacing: 0.05em;
-
-    z-index: 1;
-}
-
-
-/* ========================================
-   CATALOG セクション
-======================================== */
-
-.catalog-section {
-    padding:
-        60px 20px
-        90px;
-}
-
-.catalog-section h2 {
-    margin:
-        0 0 28px;
-
-    color: #315878;
-
-    font-size: 25px;
-
-    letter-spacing: 0.08em;
-}
-
-
-/* ========================================
-   CATEGORY
-======================================== */
-
-.category-list {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 16px;
-}
-
-
-.category-item {
-    position: relative;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    min-height: 110px;
-
-    padding:
-        25px 30px;
-
-    color: #315878;
-
-    text-decoration: none;
-
-    background:
-        rgba(255,255,255,0.72);
-
-    border:
-        1px solid rgba(66,103,145,0.14);
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 28px rgba(42,73,104,0.06);
-
-    overflow: hidden;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-}
-
-
-.category-item::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 4px;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #426791,
-            rgba(66,103,145,0.12)
-        );
-
-    opacity: 0.8;
-}
-
-
-.category-item span {
-    font-size: 15px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.12em;
-}
-
-
-.category-item small {
-    margin-top: 8px;
-
-    color: #8ca0b1;
-
-    font-size: 11px;
-
-    letter-spacing: 0.08em;
-}
-
-
-.category-item:hover {
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(66,103,145,0.24);
-
-    box-shadow:
-        0 14px 35px rgba(42,73,104,0.12);
-}
-
-
-/* ========================================
-   ITEMS タイトル
-======================================== */
-
-.catalog-section-title {
-    display: flex;
-
-    align-items: baseline;
-
-    justify-content: space-between;
-
-    margin-bottom: 28px;
-}
-
-
-.catalog-section-title h2 {
-    margin: 0;
-}
-
-
-.item-count {
-    color: #8ca0b1;
-
-    font-size: 11px;
-    font-weight: 600;
-
-    letter-spacing: 0.12em;
-}
-
-
-/* ========================================
-   商品グリッド
-======================================== */
-
-.catalog-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
-
-    gap: 20px;
-}
-
-
-/* ========================================
-   商品カード
-======================================== */
-
-.catalog-card {
-    position: relative;
-
-    background:
-        rgba(255,255,255,0.70);
-
-    border:
-        1px solid rgba(66,103,145,0.13);
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 8px 30px rgba(42,73,104,0.07);
-
-    overflow: hidden;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-}
-
-
-.catalog-card:hover {
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(66,103,145,0.24);
-
-    box-shadow:
-        0 15px 38px rgba(42,73,104,0.13);
-}
-
-
-.catalog-card a {
-    display: block;
-
-    color: inherit;
-
-    text-decoration: none;
-}
-
-
-/* ========================================
-   商品画像
-======================================== */
-
-.catalog-card-image {
-    width: 100%;
-
-    aspect-ratio: 4 / 3;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(66,103,145,0.055),
-            rgba(255,255,255,0.75)
-        );
-
-    border-bottom:
-        1px solid rgba(66,103,145,0.10);
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* ========================================
-   商品情報
-======================================== */
-
-.catalog-card-info {
-    padding: 25px 28px 28px;
-}
-
-
-.catalog-card-category {
-    margin:
-        0 0 10px;
-
-    color: #7794ac;
-
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: 0.18em;
-}
-
-
-.catalog-card-info h3 {
-    margin:
-        0 0 8px;
-
-    color: #304f6b;
-
-    font-size: 19px;
-
-    line-height: 1.5;
-}
-
-
-.catalog-card-color {
-    margin: 0;
-
-    color: #8ca0b1;
-
-    font-size: 12px;
-
-    letter-spacing: 0.08em;
-}
-
-
-/* ========================================
-   CATALOG スマホ
-======================================== */
-
-@media (max-width: 600px) {
-
-    .catalog {
-        width:
-            calc(100% - 28px);
-
-        padding-top: 68px;
-    }
-
-
-    .catalog-header {
-        min-height: 420px;
-
-        padding:
-            80px 8px
-            60px;
-    }
-
-
-    .catalog-header h1 {
-        font-size:
-            clamp(38px, 11vw, 55px);
-    }
-
-
-    .catalog-description {
-        font-size: 13px;
-    }
-
-
-    .catalog-section {
-        padding:
-            50px 8px
-            70px;
-    }
-
-
-    .category-list {
-        grid-template-columns: 1fr;
-
-        gap: 12px;
-    }
-
-
-    .category-item {
-        min-height: 95px;
-
-        padding:
-            22px 25px;
-    }
-
-
-    .catalog-grid {
-        grid-template-columns: 1fr;
-
-        gap: 16px;
-    }
-
-
-    .catalog-card-info {
-        padding:
-            22px 24px 25px;
-    }
-
-
-    .catalog-section-title {
-        margin-bottom: 22px;
-    }
-}
-/* ========================================
-   CATALOG
-======================================== */
-
-.catalog {
     max-width: 1100px;
     margin: 0 auto;
     padding: 90px 20px 120px;
@@ -1965,292 +1456,245 @@ header {
 
 
 /* ----------------------------------------
-   SECTION
----------------------------------------- */
-
-.catalog-section {
-    padding: 40px 0 20px;
-}
-
-.catalog-section h2 {
-    margin:
-        20px 0 28px;
-
-    color: #315878;
-
-    font-size: 24px;
-
-    letter-spacing: 0.08em;
-}
-
-
-/* ----------------------------------------
    CATEGORY
 ---------------------------------------- */
 
-.category-list {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
-
-    gap: 20px;
+.catalog-section {
+    padding: 70px 0 20px;
 }
 
-.category-item {
-    position: relative;
+.catalog-section h2 {
+    margin: 0 0 35px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    min-height: 120px;
-
-    padding: 30px;
-
-    color: inherit;
-    text-decoration: none;
-
-    background:
-        rgba(255,255,255,0.68);
-
-    border:
-        1px solid rgba(66,103,145,0.13);
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 8px 30px rgba(42,73,104,0.07);
-
-    overflow: hidden;
-
-    transition:
-        box-shadow 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease;
-}
-
-
-/* ARTICLEカードと同じ左ライン */
-
-.category-item::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 4px;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #426791,
-            rgba(66,103,145,0.15)
-        );
-
-    opacity: 0.8;
-}
-
-.category-item span {
     color: #315878;
 
-    font-size: 15px;
-    font-weight: 700;
-
-    letter-spacing: 0.12em;
-}
-
-.category-item small {
-    margin-top: 8px;
-
-    color: #8ca0b1;
-
-    font-size: 11px;
+    font-size: 25px;
 
     letter-spacing: 0.08em;
 }
 
-.category-item:hover {
-    transform: translateY(-5px);
-
-    border-color:
-        rgba(66,103,145,0.24);
-
-    box-shadow:
-        0 15px 38px rgba(42,73,104,0.13);
-}
-
 
 /* ----------------------------------------
-   ITEMS TITLE
+   CATEGORY NAVIGATION
 ---------------------------------------- */
 
-.catalog-section-title {
-    display: flex;
-
-    align-items: baseline;
-    justify-content: space-between;
-
-    margin-bottom: 28px;
-}
-
-.catalog-section-title h2 {
-    margin: 0;
-}
-
-.item-count {
-    color: #8ca0b1;
-
-    font-size: 11px;
-    font-weight: 600;
-
-    letter-spacing: 0.12em;
-}
-
-
-/* ----------------------------------------
-   ITEM LIST
----------------------------------------- */
-
-.catalog-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
-
-    gap: 20px;
-}
-
-
-/* ARTICLE CARDにかなり寄せる */
-
-.catalog-card {
+.catalog-category-nav {
     position: relative;
 
-    background:
-        rgba(255,255,255,0.68);
+    display: flex;
 
-    border:
-        1px solid rgba(66,103,145,0.13);
+    width: 100%;
 
-    border-radius: 20px;
-
-    box-shadow:
-        0 8px 30px rgba(42,73,104,0.07);
-
-    overflow: hidden;
-
-    transition:
-        box-shadow 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease;
+    border-bottom:
+        1px solid rgba(66,103,145,0.16);
 }
 
-.catalog-card::before {
+
+/* カテゴリー */
+
+.catalog-category-tab {
+    position: relative;
+
+    flex: 1;
+
+    padding: 18px 12px 20px;
+
+    color: #8ca0b1;
+
+    background: transparent;
+
+    border: none;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+/* 下のライン */
+
+.catalog-category-tab::after {
     content: "";
 
     position: absolute;
 
-    left: 0;
-    top: 0;
+    left: 50%;
+    bottom: -1px;
 
-    width: 4px;
-    height: 100%;
+    width: 0;
+    height: 3px;
 
-    background:
-        linear-gradient(
-            to bottom,
-            #426791,
-            rgba(66,103,145,0.15)
-        );
+    background: #426791;
 
-    opacity: 0.8;
+    transform:
+        translateX(-50%);
 
-    z-index: 2;
-}
-
-.catalog-card:hover {
-    transform: translateY(-5px);
-
-    border-color:
-        rgba(66,103,145,0.24);
-
-    box-shadow:
-        0 15px 38px rgba(42,73,104,0.13);
-}
-
-.catalog-card a {
-    display: block;
-
-    color: inherit;
-    text-decoration: none;
+    transition:
+        width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
-/* ----------------------------------------
-   ITEM IMAGE
----------------------------------------- */
+/* 選択中 */
 
-.catalog-card-image {
+.catalog-category-tab.active {
+    color: #315878;
+}
+
+.catalog-category-tab.active::after {
     width: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(66,103,145,0.055),
-            rgba(255,255,255,0.75)
-        );
-
-    border-bottom:
-        1px solid rgba(66,103,145,0.10);
 }
 
 
 /* ----------------------------------------
-   ITEM INFO
+   CATEGORY CONTENT
 ---------------------------------------- */
 
-.catalog-card-info {
-    padding: 25px 30px 28px;
+.catalog-category-content {
+    position: relative;
+
+    margin-top: 45px;
+
+    min-height: 150px;
 }
 
-.catalog-card-category {
-    margin: 0 0 10px;
 
-    color: #7794ac;
+/* ----------------------------------------
+   CATEGORY PANEL
+---------------------------------------- */
 
-    font-size: 10px;
-    font-weight: 700;
+.catalog-category-panel {
+    position: relative;
 
-    letter-spacing: 0.18em;
+    padding:
+        5px 5px 30px;
+
+    opacity: 0;
+
+    transform:
+        translateX(20px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.4s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
 }
 
-.catalog-card-info h3 {
-    margin: 0 0 8px;
 
-    color: #304f6b;
+/* 表示中 */
 
-    font-size: 19px;
-    line-height: 1.5;
+.catalog-category-panel.active {
+    opacity: 1;
+
+    transform:
+        translateX(0);
 }
 
-.catalog-card-color {
-    margin: 0;
 
-    color: #8ca0b1;
+/* ----------------------------------------
+   CATEGORY DESCRIPTION
+---------------------------------------- */
 
-    font-size: 12px;
+.catalog-category-description h3 {
+    margin: 0 0 14px;
+
+    color: #315878;
+
+    font-size: 20px;
 
     letter-spacing: 0.08em;
+}
+
+.catalog-category-description p {
+    margin: 0;
+
+    color: #52697d;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    letter-spacing: 0.03em;
+}
+
+
+/* ----------------------------------------
+   LIST LINK
+---------------------------------------- */
+
+.catalog-list-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 28px;
+
+    padding-bottom: 6px;
+
+    color: #426791;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    border-bottom:
+        1px solid rgba(66,103,145,0.35);
+
+    transition:
+        gap 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* 矢印 */
+
+.catalog-list-link span:last-child {
+    font-size: 17px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* ホバー */
+
+.catalog-list-link:hover {
+    gap: 20px;
+
+    border-color:
+        rgba(66,103,145,0.75);
+}
+
+.catalog-list-link:hover span:last-child {
+    transform:
+        translateX(4px);
+}
+
+
+/* ----------------------------------------
+   HIDDEN
+---------------------------------------- */
+
+.catalog-category-panel[hidden] {
+    display: none;
 }
 
 
@@ -2274,29 +1718,59 @@ header {
     }
 
     .catalog-section {
-        padding-top: 35px;
+        padding-top: 55px;
     }
 
-    .category-list {
-        grid-template-columns: 1fr;
-        gap: 16px;
+    .catalog-section h2 {
+        margin-bottom: 28px;
     }
 
-    .category-item {
-        min-height: 105px;
-        padding: 25px 28px;
+
+    /* カテゴリーを横一列に維持 */
+
+    .catalog-category-nav {
+        overflow-x: auto;
+
+        scrollbar-width: none;
     }
 
-    .catalog-grid {
-        grid-template-columns: 1fr;
+    .catalog-category-nav::-webkit-scrollbar {
+        display: none;
     }
 
-    .catalog-section-title {
-        margin-bottom: 22px;
-    }
 
-    .catalog-card-info {
+    .catalog-category-tab {
+        flex:
+            0 0 auto;
+
+        min-width: 145px;
+
         padding:
-            22px 28px 25px;
+            16px 14px 18px;
+
+        font-size: 10px;
     }
+
+
+    .catalog-category-content {
+        margin-top: 35px;
+
+        min-height: 180px;
+    }
+
+
+    .catalog-category-panel {
+        padding:
+            5px 0 25px;
+    }
+
+
+    .catalog-category-description h3 {
+        font-size: 18px;
+    }
+
+    .catalog-category-description p {
+        font-size: 13px;
+    }
+
 }
