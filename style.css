@@ -1439,36 +1439,58 @@ body::after {
         90px 20px
         120px;
 }
-/* ----------------------------------------
-   HEADER
----------------------------------------- */
+/* ========================================
+   CATALOG ヘッダー
+======================================== */
+
 .catalog-header {
-    padding:
-        0 0 20px;
+    min-height: calc(100vh - 76px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 100px 20px;
+
+    position: relative;
 }
+
+
+/* 小見出し */
+
 .catalog-label {
-    margin:
-        0 0 18px;
-    color: #6c8aa5;
-    font-size: 11px;
+    margin: 0 0 28px;
+
+    font-size: 15px;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
+
+    color: #6f8eaa;
 }
+
+
+/* CATALOG */
+
 .catalog-header h1 {
     margin: 0;
+
+    font-size: clamp(52px, 8vw, 92px);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+
     color: #294967;
-    font-size:
-        clamp(32px, 6vw, 55px);
-    line-height: 1.4;
-    letter-spacing: 0.04em;
 }
+
+
+/* 説明 */
+
 .catalog-description {
-    margin:
-        28px 0 0;
-    color: #52697d;
-    font-size: 15px;
-    line-height: 2.1;
-    letter-spacing: 0.03em;
+    margin: 42px 0 0;
+
+    font-size: 17px;
+    line-height: 2;
+
+    color: #5f7890;
 }
 /* ----------------------------------------
    CATEGORY
