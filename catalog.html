@@ -5,447 +5,472 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CATALOG | people stationery</title>
+    <title>CATALOG | 人文房具</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="page-line"></div>
+<div class="page-line"></div>
 
-    <!-- ========================================
-         ヘッダー
-    ======================================== -->
 
-    <header>
+<!-- ========================================
+     ヘッダー
+======================================== -->
 
-        <div class="header-inner">
+<header>
 
-            <a href="index.html" class="logo">
-                people stationery
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            people stationery
+        </a>
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="メニュー"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ========================================
+     メニュー背景
+======================================== -->
+
+<div
+    class="menu-backdrop"
+    id="menuBackdrop"
+></div>
+
+
+<!-- ========================================
+     ハンバーガーメニュー
+======================================== -->
+
+<nav
+    class="menu-panel"
+    id="menuPanel"
+>
+
+    <a href="index.html">
+        HOME
+    </a>
+
+    <a href="article.html">
+        ARTICLE
+    </a>
+
+    <a href="catalog.html">
+        CATALOG
+    </a>
+
+    <a href="about.html">
+        ABOUT
+    </a>
+
+</nav>
+
+
+<!-- ========================================
+     CATALOG
+======================================== -->
+
+<main class="catalog">
+
+
+    <!-- ====================================
+         ヒーロー
+    ==================================== -->
+
+    <section class="catalog-header">
+
+        <p class="catalog-label">
+            STATIONERY CATALOG
+        </p>
+
+        <h1>
+            CATALOG
+        </h1>
+
+        <p class="catalog-description">
+            人文房具に登場する文房具を、
+            カタログ形式でまとめています。
+        </p>
+
+    </section>
+
+
+    <!-- ====================================
+         CATEGORY
+    ==================================== -->
+
+    <section class="catalog-section">
+
+        <h2>
+            CATEGORY
+        </h2>
+
+
+        <div class="category-list">
+
+            <a
+                href="#"
+                class="category-item"
+            >
+
+                <span>
+                    SHARP PENCIL
+                </span>
+
+                <small>
+                    シャープペンシル
+                </small>
+
             </a>
 
-            <button
-                class="menu-button"
-                id="menuButton"
-                type="button"
-                aria-label="メニューを開く"
-                aria-expanded="false"
+
+            <a
+                href="#"
+                class="category-item"
             >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+
+                <span>
+                    BALLPOINT PEN
+                </span>
+
+                <small>
+                    ボールペン
+                </small>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="category-item"
+            >
+
+                <span>
+                    FOUNTAIN PEN
+                </span>
+
+                <small>
+                    万年筆
+                </small>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="category-item"
+            >
+
+                <span>
+                    OTHER
+                </span>
+
+                <small>
+                    その他
+                </small>
+
+            </a>
 
         </div>
 
-    </header>
+    </section>
 
 
-    <!-- ========================================
-         メニュー背景
-    ======================================== -->
+    <!-- ====================================
+         ITEMS
+    ==================================== -->
 
-    <div
-        class="menu-backdrop"
-        id="menuBackdrop"
-    ></div>
+    <section class="catalog-section">
 
 
-    <!-- ========================================
-         ハンバーガーメニュー
-    ======================================== -->
-
-    <nav
-        class="menu-panel"
-        id="menuPanel"
-        aria-label="メインメニュー"
-    >
-
-        <a href="index.html">
-            HOME
-        </a>
-
-        <a href="article.html">
-            ARTICLE
-        </a>
-
-        <a href="catalog.html">
-            CATALOG
-        </a>
-
-        <a href="about.html">
-            ABOUT
-        </a>
-
-    </nav>
-
-
-    <!-- ========================================
-         CATALOG
-    ======================================== -->
-
-    <main class="catalog">
-
-        <section class="catalog-header">
-
-            <p class="catalog-label">
-                STATIONERY CATALOG
-            </p>
-
-            <h1>
-                CATALOG
-            </h1>
-
-            <p class="catalog-description">
-                people stationeryに登場する文房具を、
-                カタログ形式でまとめています。
-            </p>
-
-        </section>
-
-
-        <!-- ========================================
-             CATEGORY
-        ======================================== -->
-
-        <section class="catalog-section">
+        <div class="catalog-section-title">
 
             <h2>
-                CATEGORY
+                ITEMS
             </h2>
 
-            <div class="category-list">
+            <span class="item-count">
+                1 ITEM
+            </span>
 
-                <a href="#" class="category-item">
-                    <span>
-                        SHARP PENCIL
-                    </span>
+        </div>
 
-                    <small>
-                        シャープペンシル
-                    </small>
+
+        <div class="catalog-grid">
+
+
+            <!-- ==================================
+                 KURUTOGA Dive
+            ================================== -->
+
+            <article class="catalog-card">
+
+                <a href="#">
+
+                    <div class="catalog-card-image">
+                        <!-- 画像をここに入れる -->
+                    </div>
+
+
+                    <div class="catalog-card-info">
+
+                        <p class="catalog-card-category">
+                            SHARP PENCIL
+                        </p>
+
+                        <h3>
+                            KURUTOGA Dive
+                        </h3>
+
+                        <p class="catalog-card-color">
+                            Grand Blue
+                        </p>
+
+                    </div>
+
                 </a>
 
-
-                <a href="#" class="category-item">
-                    <span>
-                        BALLPOINT PEN
-                    </span>
-
-                    <small>
-                        ボールペン
-                    </small>
-                </a>
+            </article>
 
 
-                <a href="#" class="category-item">
-                    <span>
-                        FOUNTAIN PEN
-                    </span>
+        </div>
 
-                    <small>
-                        万年筆
-                    </small>
-                </a>
+    </section>
+
+</main>
 
 
-                <a href="#" class="category-item">
-                    <span>
-                        OTHER
-                    </span>
+<!-- ========================================
+     フッター
+======================================== -->
 
-                    <small>
-                        その他
-                    </small>
-                </a>
+<footer>
 
-            </div>
+    <p>
+        © 人文房具
+    </p>
 
-        </section>
+</footer>
 
 
-        <!-- ========================================
-             ITEM LIST
-        ======================================== -->
+<!-- ========================================
+     JavaScript
+======================================== -->
 
-        <section class="catalog-section">
+<script>
 
-            <div class="catalog-section-title">
-
-                <h2>
-                    ITEMS
-                </h2>
-
-                <span class="item-count">
-                    0 ITEMS
-                </span>
-
-            </div>
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
 
-            <div class="catalog-grid">
+        /* ====================================
+           要素取得
+        ==================================== */
 
-                <!--
-                文房具を追加するときは
-                このカードをコピーして使う
-                -->
+        const menuButton =
+            document.getElementById("menuButton");
 
-                <article class="catalog-card">
+        const menuPanel =
+            document.getElementById("menuPanel");
 
-                    <a href="#">
-
-                        <div class="catalog-card-image">
-                            <!-- 画像 -->
-                        </div>
+        const menuBackdrop =
+            document.getElementById("menuBackdrop");
 
 
-                        <div class="catalog-card-info">
+        /* ====================================
+           ページ表示
+        ==================================== */
 
-                            <p class="catalog-card-category">
-                                SHARP PENCIL
-                            </p>
-
-                            <h3>
-                                KURUTOGA Dive
-                            </h3>
-
-                            <p class="catalog-card-color">
-                                Grand Blue
-                            </p>
-
-                        </div>
-
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ========================================
-         フッター
-    ======================================== -->
-
-    <footer>
-
-        <p>
-            © 人文房具
-        </p>
-
-    </footer>
-
-
-    <!-- ========================================
-         JavaScript
-    ======================================== -->
-
-    <script>
-
-        document.addEventListener(
-            "DOMContentLoaded",
+        requestAnimationFrame(
             function () {
 
-                /* ====================================
-                   要素取得
-                ==================================== */
+                document.body.classList.add(
+                    "page-loaded"
+                );
 
-                const menuButton =
-                    document.getElementById("menuButton");
-
-                const menuPanel =
-                    document.getElementById("menuPanel");
-
-                const menuBackdrop =
-                    document.getElementById("menuBackdrop");
+            }
+        );
 
 
-                /* ====================================
-                   ページ表示
-                ==================================== */
+        /* ====================================
+           メニューを閉じる
+        ==================================== */
 
-                requestAnimationFrame(
-                    function () {
+        function closeMenu() {
 
-                        document.body.classList.add(
-                            "page-loaded"
-                        );
+            menuButton.classList.remove(
+                "active"
+            );
 
-                    }
+            menuPanel.classList.remove(
+                "active"
+            );
+
+            menuBackdrop.classList.remove(
+                "active"
+            );
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+
+        /* ====================================
+           メニュー開閉
+        ==================================== */
+
+        menuButton.addEventListener(
+            "click",
+            function () {
+
+                const isOpen =
+                    menuPanel.classList.toggle(
+                        "active"
+                    );
+
+
+                menuButton.classList.toggle(
+                    "active",
+                    isOpen
                 );
 
 
-                /* ====================================
-                   メニューを閉じる関数
-                ==================================== */
+                menuBackdrop.classList.toggle(
+                    "active",
+                    isOpen
+                );
 
-                function closeMenu() {
 
-                    menuButton.classList.remove(
-                        "active"
-                    );
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
 
-                    menuPanel.classList.remove(
-                        "active"
-                    );
+            }
+        );
 
-                    menuBackdrop.classList.remove(
-                        "active"
-                    );
 
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
+        /* ====================================
+           背景クリック
+        ==================================== */
+
+        menuBackdrop.addEventListener(
+            "click",
+            function () {
+
+                closeMenu();
+
+            }
+        );
+
+
+        /* ====================================
+           ESCキー
+        ==================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (e) {
+
+                if (e.key === "Escape") {
+
+                    closeMenu();
 
                 }
 
+            }
+        );
 
-                /* ====================================
-                   メニューを開く / 閉じる
-                ==================================== */
 
-                menuButton.addEventListener(
+        /* ====================================
+           ページ遷移
+        ==================================== */
+
+        const links =
+            document.querySelectorAll(
+                "a[href]"
+            );
+
+
+        links.forEach(
+            function (link) {
+
+                link.addEventListener(
                     "click",
-                    function () {
+                    function (e) {
 
-                        const isOpen =
-                            menuPanel.classList.toggle(
-                                "active"
+                        const href =
+                            link.getAttribute(
+                                "href"
                             );
 
-                        menuButton.classList.toggle(
-                            "active",
-                            isOpen
-                        );
 
-                        menuBackdrop.classList.toggle(
-                            "active",
-                            isOpen
-                        );
+                        if (
+                            !href ||
+                            href.startsWith("#") ||
+                            href.startsWith("http") ||
+                            href.startsWith("mailto:") ||
+                            link.target === "_blank"
+                        ) {
 
-                        menuButton.setAttribute(
-                            "aria-expanded",
-                            String(isOpen)
-                        );
-
-                    }
-                );
-
-
-                /* ====================================
-                   背景をクリックしたら閉じる
-                ==================================== */
-
-                menuBackdrop.addEventListener(
-                    "click",
-                    function () {
-
-                        closeMenu();
-
-                    }
-                );
-
-
-                /* ====================================
-                   ESCキーで閉じる
-                ==================================== */
-
-                document.addEventListener(
-                    "keydown",
-                    function (event) {
-
-                        if (event.key === "Escape") {
-
-                            closeMenu();
+                            return;
 
                         }
 
-                    }
-                );
+
+                        const currentPage =
+                            window.location.pathname
+                                .split("/")
+                                .pop();
 
 
-                /* ====================================
-                   ページ遷移
-                ==================================== */
+                        if (
+                            href === currentPage
+                        ) {
 
-                const links =
-                    document.querySelectorAll(
-                        "a[href]"
-                    );
+                            return;
 
-
-                links.forEach(
-                    function (link) {
-
-                        link.addEventListener(
-                            "click",
-                            function (event) {
-
-                                const href =
-                                    link.getAttribute(
-                                        "href"
-                                    );
+                        }
 
 
-                                /* ----------------------------
-                                   除外するリンク
-                                ---------------------------- */
-
-                                if (
-                                    !href ||
-                                    href.startsWith("#") ||
-                                    href.startsWith("http") ||
-                                    href.startsWith("mailto:") ||
-                                    link.target === "_blank"
-                                ) {
-
-                                    return;
-
-                                }
+                        e.preventDefault();
 
 
-                                /* ----------------------------
-                                   通常のページ遷移
-                                ---------------------------- */
-
-                                event.preventDefault();
+                        closeMenu();
 
 
-                                /* メニューを閉じる */
-
-                                closeMenu();
-
-
-                                /* ページをぼかして消す */
-
-                                document.body.classList.remove(
-                                    "page-loaded"
-                                );
-
-                                document.body.classList.add(
-                                    "page-leave"
-                                );
+                        document.body.classList.add(
+                            "page-leave"
+                        );
 
 
-                                /* CSSの0.8秒に合わせる */
+                        setTimeout(
+                            function () {
 
-                                setTimeout(
-                                    function () {
+                                window.location.href =
+                                    href;
 
-                                        window.location.href =
-                                            href;
-
-                                    },
-                                    800
-                                );
-
-                            }
+                            },
+                            350
                         );
 
                     }
@@ -454,8 +479,11 @@
             }
         );
 
-    </script>
+    }
+);
+
+</script>
+
 
 </body>
-
 </html>
