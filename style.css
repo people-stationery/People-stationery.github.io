@@ -1405,372 +1405,457 @@ header {
 /* ========================================
    CATALOG
 ======================================== */
-
 .catalog {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 90px 20px 120px;
+    padding:
+        90px 20px
+        120px;
 }
-
-
 /* ----------------------------------------
    HEADER
 ---------------------------------------- */
-
 .catalog-header {
-    padding: 0 0 20px;
+    padding:
+        0 0 20px;
 }
-
 .catalog-label {
-    margin: 0 0 18px;
-
+    margin:
+        0 0 18px;
     color: #6c8aa5;
-
     font-size: 11px;
     font-weight: 700;
-
     letter-spacing: 0.18em;
 }
-
 .catalog-header h1 {
     margin: 0;
-
     color: #294967;
-
-    font-size: clamp(32px, 6vw, 55px);
+    font-size:
+        clamp(32px, 6vw, 55px);
     line-height: 1.4;
-
     letter-spacing: 0.04em;
 }
-
 .catalog-description {
-    margin: 28px 0 0;
-
+    margin:
+        28px 0 0;
     color: #52697d;
-
     font-size: 15px;
     line-height: 2.1;
-
     letter-spacing: 0.03em;
 }
-
-
 /* ----------------------------------------
    CATEGORY
 ---------------------------------------- */
-
 .catalog-section {
-    padding: 70px 0 20px;
+    padding:
+        70px 0 20px;
 }
-
 .catalog-section h2 {
-    margin: 0 0 35px;
-
+    margin:
+        0 0 35px;
     color: #315878;
-
     font-size: 25px;
-
     letter-spacing: 0.08em;
 }
-
-
-/* ----------------------------------------
+/* ========================================
    CATEGORY NAVIGATION
----------------------------------------- */
-
+======================================== */
 .catalog-category-nav {
-    position: relative;
-
     display: flex;
-
     width: 100%;
-
-    border-bottom:
-        1px solid rgba(66,103,145,0.16);
+    gap: 14px;
+    overflow: visible;
 }
-
-
-/* カテゴリー */
-
+/* ========================================
+   CATEGORY BUTTON
+======================================== */
 .catalog-category-tab {
     position: relative;
-
     flex: 1;
-
-    padding: 18px 12px 20px;
-
-    color: #8ca0b1;
-
-    background: transparent;
-
-    border: none;
-
+    min-height: 92px;
+    padding:
+        20px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #52697d;
+    background:
+        /* 左から右への淡い光 */
+        linear-gradient(
+            to right,
+            rgba(66,103,145,0.075) 0%,
+            rgba(66,103,145,0.045) 35%,
+            rgba(66,103,145,0.018) 70%,
+            rgba(255,255,255,0.12) 100%
+        ),
+        /* 斜め模様 */
+        linear-gradient(
+            30deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+        linear-gradient(
+            150deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+        linear-gradient(
+            30deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+        rgba(255,255,255,0.88);
+    background-size:
+        100% 100%,
+        28px 28px,
+        28px 28px,
+        28px 28px,
+        100% 100%;
+    background-position:
+        0 0,
+        0 0,
+        0 0,
+        14px 14px,
+        0 0;
+    border:
+        1px solid rgba(66,103,145,0.16);
+    border-radius:
+        18px;
+    box-shadow:
+        0 8px 28px rgba(42,73,104,0.07);
     font-family: inherit;
-
     font-size: 12px;
     font-weight: 700;
-
     letter-spacing: 0.08em;
-
     cursor: pointer;
-
+    overflow: hidden;
+    isolation: isolate;
     transition:
-        color 0.25s ease;
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        color 0.3s ease,
+        background-position 0.5s ease;
 }
-
-
-/* 下のライン */
-
+/* ----------------------------------------
+   ボタン上の淡い光
+---------------------------------------- */
+.catalog-category-tab::before {
+    content: "";
+    position: absolute;
+    top: -80%;
+    left: -35%;
+    width: 55%;
+    height: 260%;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.5),
+            transparent
+        );
+    transform:
+        rotate(18deg)
+        translateX(-180%);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.3s ease;
+}
+/* ----------------------------------------
+   ボタン上の細いライン
+---------------------------------------- */
 .catalog-category-tab::after {
     content: "";
-
     position: absolute;
-
     left: 50%;
-    bottom: -1px;
-
+    bottom: 0;
     width: 0;
     height: 3px;
-
-    background: #426791;
-
+    background:
+        linear-gradient(
+            to right,
+            rgba(66,103,145,0),
+            #426791,
+            rgba(66,103,145,0)
+        );
     transform:
         translateX(-50%);
-
+    border-radius:
+        3px 3px 0 0;
     transition:
-        width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-
-/* 選択中 */
-
-.catalog-category-tab.active {
-    color: #315878;
-}
-
-.catalog-category-tab.active::after {
-    width: 100%;
-}
-
-
-/* ----------------------------------------
-   CATEGORY CONTENT
----------------------------------------- */
-
-.catalog-category-content {
-    position: relative;
-
-    margin-top: 45px;
-
-    min-height: 150px;
-}
-
-
-/* ----------------------------------------
-   CATEGORY PANEL
----------------------------------------- */
-
-.catalog-category-panel {
-    position: relative;
-
-    padding:
-        5px 5px 30px;
-
-    opacity: 0;
-
-    transform:
-        translateX(20px);
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.4s cubic-bezier(
+        width 0.4s cubic-bezier(
             0.22,
             1,
             0.36,
             1
         );
 }
-
-
+/* ----------------------------------------
+   HOVER
+---------------------------------------- */
+.catalog-category-tab:hover {
+    color: #294967;
+    transform:
+        translateY(-5px);
+    border-color:
+        rgba(66,103,145,0.26);
+    box-shadow:
+        0 15px 38px rgba(42,73,104,0.13);
+    background-position:
+        100% 0,
+        10px 5px,
+        -5px 10px,
+        20px 20px,
+        0 0;
+}
+.catalog-category-tab:hover::before {
+    opacity: 1;
+    transform:
+        rotate(18deg)
+        translateX(420%);
+}
+.catalog-category-tab:hover::after {
+    width: 70%;
+}
+/* ----------------------------------------
+   ACTIVE
+---------------------------------------- */
+.catalog-category-tab.active {
+    color: #294967;
+    border-color:
+        rgba(66,103,145,0.28);
+    box-shadow:
+        0 12px 34px rgba(42,73,104,0.11);
+    background-position:
+        100% 0,
+        8px 4px,
+        -4px 8px,
+        18px 18px,
+        0 0;
+}
+.catalog-category-tab.active::after {
+    width: 72%;
+}
+/* ----------------------------------------
+   ACTIVE + HOVER
+---------------------------------------- */
+.catalog-category-tab.active:hover {
+    transform:
+        translateY(-5px);
+    box-shadow:
+        0 17px 40px rgba(42,73,104,0.15);
+}
+/* ========================================
+   CATEGORY CONTENT
+======================================== */
+.catalog-category-content {
+    position: relative;
+    margin-top:
+        45px;
+    min-height:
+        150px;
+}
+/* ========================================
+   CATEGORY PANEL
+======================================== */
+.catalog-category-panel {
+    position: relative;
+    padding:
+        5px 5px 30px;
+    opacity: 0;
+    transform:
+        translateX(25px);
+    transition:
+        opacity 0.35s ease,
+        transform 0.45s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
 /* 表示中 */
-
 .catalog-category-panel.active {
     opacity: 1;
-
     transform:
         translateX(0);
 }
-
-
-/* ----------------------------------------
+/* ========================================
    CATEGORY DESCRIPTION
----------------------------------------- */
-
+======================================== */
 .catalog-category-description h3 {
-    margin: 0 0 14px;
-
+    margin:
+        0 0 14px;
     color: #315878;
-
     font-size: 20px;
-
     letter-spacing: 0.08em;
 }
-
 .catalog-category-description p {
     margin: 0;
-
     color: #52697d;
-
     font-size: 14px;
-
     line-height: 2;
-
     letter-spacing: 0.03em;
 }
-
-
-/* ----------------------------------------
+/* ========================================
    LIST LINK
----------------------------------------- */
-
+======================================== */
 .catalog-list-link {
     display: inline-flex;
-
     align-items: center;
-
     gap: 14px;
-
-    margin-top: 28px;
-
-    padding-bottom: 6px;
-
+    margin-top:
+        28px;
+    padding-bottom:
+        6px;
     color: #426791;
-
     text-decoration: none;
-
     font-size: 13px;
     font-weight: 700;
-
     letter-spacing: 0.08em;
-
     border-bottom:
         1px solid rgba(66,103,145,0.35);
-
     transition:
         gap 0.3s ease,
         border-color 0.3s ease;
 }
-
-
 /* 矢印 */
-
 .catalog-list-link span:last-child {
     font-size: 17px;
-
     line-height: 1;
-
     transition:
         transform 0.3s ease;
 }
-
-
 /* ホバー */
-
 .catalog-list-link:hover {
-    gap: 20px;
-
+    gap:
+        20px;
     border-color:
         rgba(66,103,145,0.75);
 }
-
 .catalog-list-link:hover span:last-child {
     transform:
         translateX(4px);
 }
-
-
-/* ----------------------------------------
+/* ========================================
    HIDDEN
----------------------------------------- */
-
+======================================== */
 .catalog-category-panel[hidden] {
     display: none;
 }
-
-
-/* ----------------------------------------
+/* ========================================
    MOBILE
----------------------------------------- */
-
+======================================== */
 @media (max-width: 600px) {
-
     .catalog {
         padding:
-            80px 20px 100px;
+            80px 20px
+            100px;
     }
-
     .catalog-header {
-        padding-bottom: 10px;
+        padding-bottom:
+            10px;
     }
-
     .catalog-description {
-        font-size: 14px;
+        font-size:
+            14px;
     }
-
     .catalog-section {
-        padding-top: 55px;
+        padding-top:
+            55px;
     }
-
     .catalog-section h2 {
-        margin-bottom: 28px;
+        margin-bottom:
+            28px;
     }
-
-
-    /* カテゴリーを横一列に維持 */
-
+    /* ------------------------------------
+       カテゴリーボタン
+       横一列を維持
+    ------------------------------------ */
     .catalog-category-nav {
-        overflow-x: auto;
-
-        scrollbar-width: none;
+        gap:
+            10px;
+        overflow-x:
+            auto;
+        padding:
+            5px 2px 10px;
+        scrollbar-width:
+            none;
+        -webkit-overflow-scrolling:
+            touch;
     }
-
     .catalog-category-nav::-webkit-scrollbar {
-        display: none;
+        display:
+            none;
     }
-
-
     .catalog-category-tab {
         flex:
-            0 0 auto;
-
-        min-width: 145px;
-
+            0 0 145px;
+        min-height:
+            78px;
         padding:
-            16px 14px 18px;
-
-        font-size: 10px;
+            16px 12px;
+        border-radius:
+            15px;
+        font-size:
+            10px;
+        letter-spacing:
+            0.05em;
+        box-shadow:
+            0 6px 20px rgba(42,73,104,0.07);
+        background-size:
+            100% 100%,
+            22px 22px,
+            22px 22px,
+            22px 22px,
+            100% 100%;
     }
-
-
+    .catalog-category-tab:hover {
+        transform:
+            translateY(-3px);
+        box-shadow:
+            0 11px 26px rgba(42,73,104,0.11);
+    }
+    .catalog-category-tab.active {
+        box-shadow:
+            0 9px 25px rgba(42,73,104,0.10);
+    }
     .catalog-category-content {
-        margin-top: 35px;
-
-        min-height: 180px;
+        margin-top:
+            35px;
+        min-height:
+            180px;
     }
-
-
     .catalog-category-panel {
         padding:
             5px 0 25px;
     }
-
-
     .catalog-category-description h3 {
-        font-size: 18px;
+        font-size:
+            18px;
     }
-
     .catalog-category-description p {
-        font-size: 13px;
+        font-size:
+            13px;
     }
-
+}
+/* ========================================
+   アニメーション軽減
+======================================== */
+@media (prefers-reduced-motion: reduce) {
+    .catalog-category-tab,
+    .catalog-category-tab::before,
+    .catalog-category-tab::after,
+    .catalog-category-panel {
+        transition:
+            none;
+    }
 }
