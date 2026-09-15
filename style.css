@@ -2578,3 +2578,32 @@ body.page-loaded .catalog-list-back {
     }
 
 }
+
+/* ========================================
+   CATALOG HEADER DECORATION
+======================================== */
+
+.catalog-header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    left: -250px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(66, 103, 145, 0.10),
+            rgba(255, 255, 255, 0)
+        );
+
+    pointer-events: none;
+}
