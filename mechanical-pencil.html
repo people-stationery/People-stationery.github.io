@@ -225,7 +225,65 @@
     ======================================== -->
 
 <script>
+    /* ========================================
+       ページ表示
+    ======================================== */
+
     document.body.classList.add("page-loaded");
+
+
+    /* ========================================
+       ハンバーガーメニュー
+    ======================================== */
+
+    const menuButton = document.querySelector(".menu-button");
+    const menuPanel = document.querySelector(".menu-panel");
+    const menuBackdrop = document.querySelector(".menu-backdrop");
+
+
+    menuButton.addEventListener("click", () => {
+
+        menuButton.classList.toggle("active");
+
+        menuPanel.classList.toggle("active");
+
+        menuBackdrop.classList.toggle("active");
+
+    });
+
+
+    /* ========================================
+       背景をクリックして閉じる
+    ======================================== */
+
+    menuBackdrop.addEventListener("click", () => {
+
+        menuButton.classList.remove("active");
+
+        menuPanel.classList.remove("active");
+
+        menuBackdrop.classList.remove("active");
+
+    });
+
+
+    /* ========================================
+       メニュー項目をクリックして閉じる
+    ======================================== */
+
+    menuPanel.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            menuButton.classList.remove("active");
+
+            menuPanel.classList.remove("active");
+
+            menuBackdrop.classList.remove("active");
+
+        });
+
+    });
 </script>
 
 </body>
