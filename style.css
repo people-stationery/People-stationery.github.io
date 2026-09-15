@@ -2578,7 +2578,6 @@ body.page-loaded .catalog-list-back {
     }
 
 }
-
 /* ========================================
    CATALOG HEADER DECORATION
 ======================================== */
@@ -2591,19 +2590,16 @@ body.page-loaded .catalog-list-back {
     width: 420px;
     height: 420px;
 
-    left: -250px;
+    left: -180px;
     top: 50%;
 
     transform: translateY(-50%);
 
     border-radius: 50%;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(66, 103, 145, 0.10),
-            rgba(255, 255, 255, 0)
-        );
+    background: rgba(66, 103, 145, 0.15);
 
     pointer-events: none;
+
+    z-index: 0;
 }
