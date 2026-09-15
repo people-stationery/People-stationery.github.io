@@ -2590,7 +2590,7 @@ body.page-loaded .catalog-list-back {
     width: 420px;
     height: 420px;
 
-    left: -180px;
+    right: -180px;
     top: 50%;
 
     transform: translateY(-50%);
