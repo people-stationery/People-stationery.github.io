@@ -1941,3 +1941,626 @@ body.page-loaded .catalog-section {
     }
 
 }
+
+/* ========================================
+   MECHANICAL PENCIL LIST PAGE
+======================================== */
+
+
+/* ========================================
+   ページヘッダー
+======================================== */
+
+.catalog-list-header {
+    min-height: calc(100vh - 76px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding:
+        100px 20px;
+
+    position: relative;
+}
+
+
+/* ========================================
+   小見出し
+======================================== */
+
+.catalog-list-label {
+    margin:
+        0 0 28px;
+
+    color: #6f8eaa;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+}
+
+
+/* ========================================
+   ページタイトル
+======================================== */
+
+.catalog-list-header h1 {
+    margin: 0;
+
+    color: #294967;
+
+    font-size:
+        clamp(48px, 7vw, 82px);
+
+    line-height: 1.2;
+
+    letter-spacing: 0.02em;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   説明
+======================================== */
+
+.catalog-list-description {
+    margin:
+        42px 0 0;
+
+    color: #5f7890;
+
+    font-size: 17px;
+
+    line-height: 2;
+
+    letter-spacing: 0.03em;
+}
+
+
+/* ========================================
+   商品一覧
+======================================== */
+
+.mechanical-pencil-list {
+    padding:
+        70px 20px
+        100px;
+}
+
+
+/* ========================================
+   商品一覧タイトル
+======================================== */
+
+.mechanical-pencil-list > h2 {
+    margin:
+        0 0 35px;
+
+    color: #315878;
+
+    font-size: 25px;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* ========================================
+   商品カード一覧
+======================================== */
+
+.mechanical-pencil-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 20px;
+}
+
+
+/* ========================================
+   商品カード
+======================================== */
+
+.stationery-card {
+    position: relative;
+
+    min-height: 220px;
+
+    padding: 30px;
+
+    background:
+        rgba(255,255,255,0.68);
+
+    border:
+        1px solid rgba(66,103,145,0.13);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 30px rgba(42,73,104,0.07);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* ========================================
+   左ライン
+======================================== */
+
+.stationery-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #426791,
+            rgba(66,103,145,0.15)
+        );
+
+    opacity: 0.8;
+}
+
+
+/* ========================================
+   カード内部
+======================================== */
+
+.stationery-card-inner {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* ========================================
+   メーカー
+======================================== */
+
+.stationery-card-maker {
+    margin:
+        0 0 10px;
+
+    color: #7794ac;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+}
+
+
+/* ========================================
+   商品名
+======================================== */
+
+.stationery-card-name {
+    margin:
+        0 0 18px;
+
+    color: #304f6b;
+
+    font-size: 21px;
+
+    line-height: 1.5;
+
+    letter-spacing: 0.04em;
+}
+
+
+/* ========================================
+   商品説明
+======================================== */
+
+.stationery-card-description {
+    margin:
+        0;
+
+    color: #52697d;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    letter-spacing: 0.03em;
+}
+
+
+/* ========================================
+   DETAIL
+======================================== */
+
+.stationery-card-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top:
+        25px;
+
+    padding-bottom:
+        5px;
+
+    color: #426791;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.10em;
+
+    border-bottom:
+        1px solid rgba(66,103,145,0.35);
+
+    transition:
+        gap 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.stationery-card-link span:last-child {
+    font-size: 16px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.stationery-card-link:hover {
+    gap: 18px;
+
+    border-color:
+        rgba(66,103,145,0.75);
+}
+
+
+.stationery-card-link:hover span:last-child {
+    transform:
+        translateX(4px);
+}
+
+
+/* ========================================
+   カード HOVER
+======================================== */
+
+.stationery-card:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(66,103,145,0.24);
+
+    box-shadow:
+        0 15px 38px rgba(42,73,104,0.13);
+}
+
+
+/* ========================================
+   CATALOGへ戻る
+======================================== */
+
+.catalog-list-back {
+    width:
+        min(820px, calc(100% - 40px));
+
+    margin:
+        0 auto;
+
+    padding:
+        0 20px
+        70px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.catalog-list-back a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    min-height: 58px;
+
+    padding:
+        0 32px;
+
+    color: #315878;
+
+    text-decoration: none;
+
+    border:
+        1px solid rgba(66,103,145,0.16);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 28px rgba(42,73,104,0.07);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    background:
+
+        linear-gradient(
+            to right,
+            rgba(66,103,145,0.075) 0%,
+            rgba(66,103,145,0.045) 35%,
+            rgba(66,103,145,0.018) 70%,
+            rgba(255,255,255,0.10) 100%
+        ),
+
+        linear-gradient(
+            30deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+
+        linear-gradient(
+            150deg,
+            transparent 45%,
+            rgba(66,103,145,0.055) 46%,
+            rgba(66,103,145,0.055) 54%,
+            transparent 55%
+        ),
+
+        rgba(255,255,255,0.88);
+
+    background-size:
+        100% 100%,
+        28px 28px,
+        28px 28px,
+        100% 100%;
+
+    background-position:
+        0 0,
+        0 0,
+        14px 14px,
+        0 0;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.catalog-list-back a:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 14px 34px rgba(42,73,104,0.11);
+}
+
+
+/* ========================================
+   ページ入場アニメーション
+======================================== */
+
+.catalog-list-header,
+.mechanical-pencil-list,
+.catalog-list-back {
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+}
+
+
+body.page-loaded .catalog-list-header {
+    animation:
+        mechanicalPageIn 0.8s ease forwards;
+
+    animation-delay:
+        0.25s;
+}
+
+
+body.page-loaded .mechanical-pencil-list {
+    animation:
+        mechanicalPageIn 0.8s ease forwards;
+
+    animation-delay:
+        0.45s;
+}
+
+
+body.page-loaded .catalog-list-back {
+    animation:
+        mechanicalPageIn 0.8s ease forwards;
+
+    animation-delay:
+        0.65s;
+}
+
+
+@keyframes mechanicalPageIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* ========================================
+   スマホ
+======================================== */
+
+@media (max-width: 600px) {
+
+    .catalog-list-header {
+        min-height:
+            calc(100vh - 68px);
+
+        padding:
+            80px 8px;
+    }
+
+
+    .catalog-list-label {
+        margin-bottom:
+            22px;
+
+        font-size: 11px;
+    }
+
+
+    .catalog-list-header h1 {
+        font-size:
+            clamp(38px, 11vw, 55px);
+    }
+
+
+    .catalog-list-description {
+        margin-top:
+            30px;
+
+        font-size:
+            13px;
+    }
+
+
+    .mechanical-pencil-list {
+        padding:
+            55px 8px
+            80px;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            16px;
+    }
+
+
+    .mechanical-pencil-list > h2 {
+        margin-bottom:
+            28px;
+
+        font-size:
+            20px;
+    }
+
+
+    .stationery-card {
+        min-height:
+            200px;
+
+        padding:
+            25px;
+
+        border-radius:
+            17px;
+    }
+
+
+    .stationery-card-name {
+        font-size:
+            19px;
+    }
+
+
+    .stationery-card-description {
+        font-size:
+            13px;
+    }
+
+
+    .catalog-list-back {
+        width:
+            calc(100% - 28px);
+
+        padding:
+            0 8px
+            50px;
+    }
+
+
+    .catalog-list-back a {
+        min-height:
+            55px;
+
+        width:
+            100%;
+
+        padding:
+            0 14px;
+
+        border-radius:
+            15px;
+
+        font-size:
+            11px;
+    }
+
+}
+
+
+/* ========================================
+   アニメーション軽減
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .catalog-list-header,
+    .mechanical-pencil-list,
+    .catalog-list-back,
+    .stationery-card,
+    .stationery-card-link,
+    .catalog-list-back a {
+        animation: none;
+
+        transition: none;
+    }
+
+    .catalog-list-header,
+    .mechanical-pencil-list,
+    .catalog-list-back {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
