@@ -428,7 +428,7 @@ main {
     overflow: hidden;
 }
 
-.hero::before,
+.hero::before {
     content: "";
     position: absolute;
     width: 420px;
@@ -444,7 +444,7 @@ main {
     pointer-events: none;
 }
 
-.hero::after,
+.hero::after {
     content: "";
     position: absolute;
     width: 180px;
