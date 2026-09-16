@@ -2570,10 +2570,6 @@ body.page-loaded .catalog-list-back {
    CATALOG 円の位置をHOMEと統一
 ======================================== */
 
-.catalog-header::before {
-    top: 40px;
-}
-
 .catalog-header::after {
     top: 310px;
     bottom: auto;
