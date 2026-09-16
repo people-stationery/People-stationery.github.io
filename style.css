@@ -2610,3 +2610,12 @@ body.page-loaded .catalog-list-back {
 
     pointer-events: none;
 }
+
+.catalog-section {
+    padding:
+        70px 0 20px;
+
+    position: relative;
+
+    outline: 2px solid red;
+}
