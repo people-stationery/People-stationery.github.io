@@ -429,7 +429,6 @@ main {
 }
 
 .hero::before,
-.catalog-header::before {
     content: "";
     position: absolute;
     width: 420px;
@@ -446,7 +445,6 @@ main {
 }
 
 .hero::after,
-.catalog-header::after {
     content: "";
     position: absolute;
     width: 180px;
