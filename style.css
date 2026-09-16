@@ -2574,3 +2574,50 @@ body.page-loaded .catalog-list-back {
     top: 310px;
     bottom: auto;
 }
+
+/* ========================================
+   CATALOG SECTION の円
+======================================== */
+
+.catalog-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.catalog-section::before {
+    content: "";
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: -160px;
+    top: 40px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(66,103,145,.10),
+        rgba(255,255,255,0)
+    );
+
+    pointer-events: none;
+}
+
+.catalog-section::after {
+    content: "";
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: 100px;
+    top: 310px;
+
+    border: 1px solid rgba(66,103,145,.13);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
