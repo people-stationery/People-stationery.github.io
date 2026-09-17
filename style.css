@@ -2564,3 +2564,54 @@ body.page-loaded .catalog-list-back {
 
 }
 
+.catalog-tabs {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+
+    border: 1px solid rgba(38, 55, 70, 0.15);
+    border-radius: 999px;
+}
+
+.catalog-tab {
+    flex: 1;
+
+    border: none;
+    background: rgba(220, 232, 242, 0.55);
+
+    color: #263746;
+
+    padding: 16px 12px;
+
+    font: inherit;
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        filter 0.3s ease;
+}
+
+.catalog-tab + .catalog-tab {
+    border-left: 1px solid rgba(38, 55, 70, 0.12);
+}
+
+.catalog-tab.active {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+
+/* ====================================
+   説明
+==================================== */
+
+.catalog-content {
+    margin-top: 40px;
+}
+
+.catalog-panel {
+    display: none;
+}
+
+.catalog-panel.active {
+    display: block;
+}
