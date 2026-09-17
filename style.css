@@ -2615,3 +2615,29 @@ body.page-loaded .catalog-list-back {
 .catalog-panel.active {
     display: block;
 }
+.catalog-link {
+    display: inline-block;
+
+    margin-top: 24px;
+    padding: 11px 22px;
+
+    border: 1px solid rgba(38, 55, 70, 0.25);
+    border-radius: 999px;
+
+    color: #263746;
+    background: rgba(255, 255, 255, 0.7);
+
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.catalog-link:hover {
+    background: rgba(220, 232, 242, 0.7);
+    border-color: rgba(38, 55, 70, 0.4);
+    transform: translateY(-2px);
+}
