@@ -104,15 +104,70 @@
     </section>
 
 
-    <!-- ====================================
-         CATALOG カテゴリ
-    ==================================== -->
-    <section class="catalog">
+ <!-- ====================================
+     CATALOG カテゴリ
+==================================== -->
+<section class="catalog">
 
-        <!-- ==================================
-             Mechanical Pencil
-        ================================== -->
-        <section class="catalog-section">
+    <!-- ==================================
+         カテゴリ選択
+    ================================== -->
+    <div class="catalog-tabs" role="tablist">
+
+        <button
+            class="catalog-tab active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-category="mechanical"
+        >
+            Mechanical Pencil
+        </button>
+
+        <button
+            class="catalog-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="ball-point"
+        >
+            Ball Point Pen
+        </button>
+
+        <button
+            class="catalog-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="fountain"
+        >
+            Fountain Pen
+        </button>
+
+        <button
+            class="catalog-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="another"
+        >
+            Another
+        </button>
+
+    </div>
+
+
+    <!-- ==================================
+         カテゴリ説明
+    ================================== -->
+    <div class="catalog-content">
+
+
+        <!-- Mechanical Pencil -->
+        <section
+            class="catalog-panel active"
+            data-panel="mechanical"
+        >
 
             <h2>
                 Mechanical Pencil
@@ -133,10 +188,11 @@
         </section>
 
 
-        <!-- ==================================
-             Ball Point Pen
-        ================================== -->
-        <section class="catalog-section">
+        <!-- Ball Point Pen -->
+        <section
+            class="catalog-panel"
+            data-panel="ball-point"
+        >
 
             <h2>
                 Ball Point Pen
@@ -157,10 +213,11 @@
         </section>
 
 
-        <!-- ==================================
-             Fountain Pen
-        ================================== -->
-        <section class="catalog-section">
+        <!-- Fountain Pen -->
+        <section
+            class="catalog-panel"
+            data-panel="fountain"
+        >
 
             <h2>
                 Fountain Pen
@@ -181,10 +238,11 @@
         </section>
 
 
-        <!-- ==================================
-             Another
-        ================================== -->
-        <section class="catalog-section">
+        <!-- Another -->
+        <section
+            class="catalog-panel"
+            data-panel="another"
+        >
 
             <h2>
                 Another
@@ -204,11 +262,9 @@
 
         </section>
 
-    </section>
+    </div>
 
-</main>
-
-
+</section>
 <!-- ========================================
      フッター
 ======================================== -->
