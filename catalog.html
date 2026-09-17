@@ -443,7 +443,56 @@ document.addEventListener(
 
                         }
 
-
+/* ====================================
+   CATALOGカテゴリ切り替え
+==================================== */
+const catalogTabs =
+    document.querySelectorAll(
+        ".catalog-tab"
+    );
+const catalogPanels =
+    document.querySelectorAll(
+        ".catalog-panel"
+    );
+catalogTabs.forEach(
+    function (tab) {
+        tab.addEventListener(
+            "click",
+            function () {
+                const category =
+                    tab.dataset.category;
+                /* ------------------------
+                   ボタンの選択状態
+                ------------------------ */
+                catalogTabs.forEach(
+                    function (item) {
+                        const isActive =
+                            item === tab;
+                        item.classList.toggle(
+                            "active",
+                            isActive
+                        );
+                        item.setAttribute(
+                            "aria-selected",
+                            String(isActive)
+                        );
+                    }
+                );
+                /* ------------------------
+                   説明の切り替え
+                ------------------------ */
+                catalogPanels.forEach(
+                    function (panel) {
+                        panel.classList.toggle(
+                            "active",
+                            panel.dataset.panel === category
+                        );
+                    }
+                );
+            }
+        );
+    }
+);
                         /* ------------------------
                            通常のページ遷移
                         ------------------------ */
