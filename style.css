@@ -2708,3 +2708,72 @@ body.page-loaded .catalog-list-back {
     }
 
 }
+
+/* ========================================
+   CATALOG BACK BUTTON
+======================================== */
+
+.catalog-list-back {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 70px;
+    padding: 14px 22px;
+
+    color: #263746;
+    text-decoration: none;
+
+    border: 1px solid rgba(66, 103, 145, 0.25);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.95),
+            rgba(230,240,249,0.8)
+        );
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* 模様 */
+
+.catalog-list-back::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0,
+            transparent 12px,
+            rgba(66, 103, 145, 0.08) 12px,
+            rgba(66, 103, 145, 0.08) 14px
+        );
+
+    pointer-events: none;
+}
+
+
+/* 文字を模様より前に */
+
+.catalog-list-back span {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ホバー */
+
+.catalog-list-back:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(66, 103, 145, 0.12);
+}
