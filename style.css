@@ -2742,3 +2742,23 @@ body.page-loaded .catalog-list-back {
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
+/* ========================================
+   SERIES SCROLL REVEAL
+======================================== */
+
+.series-products .stationery-card {
+    opacity: 0;
+    transform: translateX(-45px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+
+/* 表示されたカード */
+
+.series-products .stationery-card.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
