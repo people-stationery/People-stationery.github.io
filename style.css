@@ -2751,8 +2751,8 @@ body.page-loaded .catalog-list-back {
     transform: translateX(-45px);
 
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+        opacity 2s ease,
+        transform 2s ease;
 }
 
 
