@@ -2,7 +2,10 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
     <title>Mechanical Pencil | people stationery</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +16,10 @@
     ======================================== -->
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo">
+            <a
+                href="index.html"
+                class="logo"
+            >
                 people stationery
             </a>
             <button
@@ -62,16 +68,17 @@
     ======================================== -->
     <main>
         <!-- ====================================
-             ページヘッダー
+             ヒーロー
         ==================================== -->
-        <section class="catalog-list-header">
-            <p class="catalog-list-label">
+        <section class="hero">
+            <p class="small-title">
                 CATALOG / MECHANICAL PENCIL
             </p>
             <h1>
-                Mechanical Pencil
+                Mechanical<br>
+                Pencil
             </h1>
-            <p class="catalog-list-description">
+            <p class="description">
                 書くための道具として、<br>
                 さまざまなシャープペンシルを紹介します。
             </p>
@@ -102,8 +109,12 @@
                         href="#"
                         class="stationery-card-link"
                     >
-                        <span>DETAIL</span>
-                        <span>→</span>
+                        <span>
+                            DETAIL
+                        </span>
+                        <span>
+                            →
+                        </span>
                     </a>
                 </div>
             </article>
@@ -126,8 +137,12 @@
                         href="#"
                         class="stationery-card-link"
                     >
-                        <span>DETAIL</span>
-                        <span>→</span>
+                        <span>
+                            DETAIL
+                        </span>
+                        <span>
+                            →
+                        </span>
                     </a>
                 </div>
             </article>
@@ -150,8 +165,12 @@
                         href="#"
                         class="stationery-card-link"
                     >
-                        <span>DETAIL</span>
-                        <span>→</span>
+                        <span>
+                            DETAIL
+                        </span>
+                        <span>
+                            →
+                        </span>
                     </a>
                 </div>
             </article>
@@ -161,7 +180,9 @@
         ==================================== -->
         <div class="catalog-list-back">
             <a href="catalog.html">
-                <span>←</span>
+                <span>
+                    ←
+                </span>
                 <span>
                     CATALOGへ戻る
                 </span>
@@ -187,11 +208,17 @@
                    要素取得
                 ==================================== */
                 const menuButton =
-                    document.getElementById("menuButton");
+                    document.getElementById(
+                        "menuButton"
+                    );
                 const menuPanel =
-                    document.getElementById("menuPanel");
+                    document.getElementById(
+                        "menuPanel"
+                    );
                 const menuBackdrop =
-                    document.getElementById("menuBackdrop");
+                    document.getElementById(
+                        "menuBackdrop"
+                    );
                 /* ====================================
                    ページ表示
                 ==================================== */
@@ -259,7 +286,9 @@
                 document.addEventListener(
                     "keydown",
                     function (event) {
-                        if (event.key === "Escape") {
+                        if (
+                            event.key === "Escape"
+                        ) {
                             closeMenu();
                         }
                     }
