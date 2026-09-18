@@ -291,6 +291,46 @@
     <script>
         document.addEventListener(
             "DOMContentLoaded",
+            /* ========================================
+   SERIES SCROLL REVEAL
+======================================== */
+
+const seriesCards = document.querySelectorAll(
+    ".series-products .stationery-card"
+);
+
+const seriesObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (!entry.isIntersecting) return;
+
+            const card = entry.target;
+
+            const cards = [
+                ...card.parentElement.querySelectorAll(
+                    ".stationery-card"
+                )
+            ];
+
+            const index = cards.indexOf(card);
+
+            setTimeout(() => {
+                card.classList.add("is-visible");
+            }, index * 120);
+
+            seriesObserver.unobserve(card);
+        });
+    },
+    {
+        threshold: 0.2
+    }
+);
+
+seriesCards.forEach((card) => {
+    seriesObserver.observe(card);
+});
             function () {
                 /* ====================================
                    要素取得
