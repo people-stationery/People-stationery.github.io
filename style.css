@@ -2641,3 +2641,70 @@ body.page-loaded .catalog-list-back {
     border-color: rgba(38, 55, 70, 0.4);
     transform: translateY(-2px);
 }
+
+/* ========================================
+   SERIES PRODUCTS
+======================================== */
+
+.series-section {
+    margin-top: 80px;
+}
+
+.series-maker {
+    margin: 0 0 6px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: #71808d;
+}
+
+.series-title {
+    margin: 0 0 24px;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+}
+
+
+/* 商品を横一列にする */
+
+.series-products {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding: 4px 2px 12px;
+
+    scrollbar-width: thin;
+}
+
+
+/* カードを小さく固定 */
+
+.series-products .stationery-card {
+    flex: 0 0 170px;
+    width: 170px;
+}
+
+
+/* スマホ */
+
+@media (max-width: 700px) {
+
+    .series-section {
+        margin-top: 60px;
+    }
+
+    .series-title {
+        font-size: 21px;
+        margin-bottom: 20px;
+    }
+
+    .series-products {
+        gap: 12px;
+    }
+
+    .series-products .stationery-card {
+        flex-basis: 150px;
+        width: 150px;
+    }
+
+}
