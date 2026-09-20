@@ -1,1 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Fountain Pen | people stationery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+    <div class="page-line"></div>
+
+    <!-- ========================================
+         ヘッダー
+    ======================================== -->
+
+    <header>
+        <div class="header-inner">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                people stationery
+            </a>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="メニューを開く"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- ========================================
+         メニュー背景
+    ======================================== -->
+
+    <div
+        class="menu-backdrop"
+        id="menuBackdrop"
+    ></div>
+
+
+    <!-- ========================================
+         ハンバーガーメニュー
+    ======================================== -->
+
+    <nav
+        class="menu-panel"
+        id="menuPanel"
+        aria-label="メインメニュー"
+    >
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="article.html">
+            ARTICLE
+        </a>
+
+        <a href="catalog.html">
+            CATALOG
+        </a>
+
+        <a href="about.html">
+            ABOUT
+        </a>
+
+    </nav>
+
+
+    <!-- ========================================
+         メイン
+    ======================================== -->
+
+    <main>
+
+        <!-- ====================================
+             ヒーロー
+        ==================================== -->
+
+        <section class="hero">
+
+            <p class="small-title">
+                CATALOG / FOUNTAIN PEN
+            </p>
+
+            <h1>
+                Fountain<br>
+                Pen
+            </h1>
+
+            <p class="description">
+                書くための道具として、<br>
+                さまざまな万年筆を紹介します。
+            </p>
+
+        </section>
+
+
+        <!-- ========================================
+             FOUNTAIN PEN CATALOG
+        ======================================== -->
+
+        <section class="catalog-list">
+
+
+            <!-- ====================================
+                 ここにシリーズを追加
+            ==================================== -->
+
+
+            <!-- 例：
+
+            <div class="series-section">
+
+                <p class="series-maker">PILOT</p>
+                <h2 class="series-title">
+                    CUSTOM Series
+                </h2>
+
+                <div class="series-products">
+
+                    <article class="stationery-card">
+
+                        <div class="stationery-card-inner">
+
+                            <h3 class="stationery-card-name">
+                                CUSTOM 74
+                            </h3>
+
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+            -->
+
+
+            <!-- ====================================
+                 CATALOG BACK
+            ==================================== -->
+
+            <a
+                href="catalog.html"
+                class="catalog-list-back"
+            >
+                <span>←</span>
+                <span>CATALOGへ戻る</span>
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         フッター
+    ======================================== -->
+
+    <footer>
+
+        <p>
+            © 人文房具
+        </p>
+
+    </footer>
+
+
+    <!-- ========================================
+         JavaScript
+    ======================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* ====================================
+                   要素取得
+                ==================================== */
+
+                const menuButton =
+                    document.getElementById(
+                        "menuButton"
+                    );
+
+                const menuPanel =
+                    document.getElementById(
+                        "menuPanel"
+                    );
+
+                const menuBackdrop =
+                    document.getElementById(
+                        "menuBackdrop"
+                    );
+
+
+                /* ====================================
+                   ページ表示
+                ==================================== */
+
+                requestAnimationFrame(
+                    function () {
+
+                        document.body.classList.add(
+                            "page-loaded"
+                        );
+
+                    }
+                );
+
+
+                /* ====================================
+                   メニューを閉じる関数
+                ==================================== */
+
+                function closeMenu() {
+
+                    menuButton.classList.remove(
+                        "active"
+                    );
+
+                    menuPanel.classList.remove(
+                        "active"
+                    );
+
+                    menuBackdrop.classList.remove(
+                        "active"
+                    );
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+
+                /* ====================================
+                   メニューを開く / 閉じる
+                ==================================== */
+
+                menuButton.addEventListener(
+                    "click",
+                    function () {
+
+                        const isOpen =
+                            menuPanel.classList.toggle(
+                                "active"
+                            );
+
+                        menuButton.classList.toggle(
+                            "active",
+                            isOpen
+                        );
+
+                        menuBackdrop.classList.toggle(
+                            "active",
+                            isOpen
+                        );
+
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            String(isOpen)
+                        );
+
+                    }
+                );
+
+
+                /* ====================================
+                   背景をクリックしたら閉じる
+                ==================================== */
+
+                menuBackdrop.addEventListener(
+                    "click",
+                    function () {
+
+                        closeMenu();
+
+                    }
+                );
+
+
+                /* ====================================
+                   ESCキーで閉じる
+                ==================================== */
+
+                document.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (
+                            event.key === "Escape"
+                        ) {
+
+                            closeMenu();
+
+                        }
+
+                    }
+                );
+
+
+                /* ====================================
+                   SERIES SCROLL REVEAL
+                ==================================== */
+
+                const seriesCards =
+                    document.querySelectorAll(
+                        ".series-products .stationery-card"
+                    );
+
+                const seriesObserver =
+                    new IntersectionObserver(
+                        function (entries) {
+
+                            entries.forEach(
+                                function (entry) {
+
+                                    if (
+                                        !entry.isIntersecting
+                                    ) {
+                                        return;
+                                    }
+
+                                    const card =
+                                        entry.target;
+
+                                    const cards = [
+                                        ...card.parentElement.querySelectorAll(
+                                            ".stationery-card"
+                                        )
+                                    ];
+
+                                    const index =
+                                        cards.indexOf(
+                                            card
+                                        );
+
+                                    setTimeout(
+                                        function () {
+
+                                            card.classList.add(
+                                                "is-visible"
+                                            );
+
+                                        },
+                                        index * 120
+                                    );
+
+                                    seriesObserver.unobserve(
+                                        card
+                                    );
+
+                                }
+                            );
+
+                        },
+                        {
+                            threshold: 0.2
+                        }
+                    );
+
+
+                seriesCards.forEach(
+                    function (card) {
+
+                        seriesObserver.observe(
+                            card
+                        );
+
+                    }
+                );
+
+
+                /* ====================================
+                   ページ遷移
+                ==================================== */
+
+                const links =
+                    document.querySelectorAll(
+                        "a[href]"
+                    );
+
+                links.forEach(
+                    function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            function (event) {
+
+                                const href =
+                                    link.getAttribute(
+                                        "href"
+                                    );
+
+
+                                /* ----------------------------
+                                   除外するリンク
+                                ---------------------------- */
+
+                                if (
+                                    !href ||
+                                    href.startsWith("#") ||
+                                    href.startsWith("http") ||
+                                    href.startsWith("mailto:") ||
+                                    link.target === "_blank"
+                                ) {
+
+                                    return;
+
+                                }
+
+
+                                /* ----------------------------
+                                   通常のページ遷移
+                                ---------------------------- */
+
+                                event.preventDefault();
+
+
+                                /* メニューを閉じる */
+
+                                closeMenu();
+
+
+                                /* ページをぼかして消す */
+
+                                document.body.classList.remove(
+                                    "page-loaded"
+                                );
+
+                                document.body.classList.add(
+                                    "page-leave"
+                                );
+
+
+                                /* CSSの0.8秒に合わせる */
+
+                                setTimeout(
+                                    function () {
+
+                                        window.location.href =
+                                            href;
+
+                                    },
+                                    800
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
