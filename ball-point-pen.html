@@ -1,54 +1,742 @@
-<section class="catalog-list">
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Ball Point Pen | people stationery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-line"></div>
     <!-- ========================================
-         JETSTREAM SERIES
+         ヘッダー
     ======================================== -->
-
-    <div class="series-section">
-
-        <p class="series-maker">MITSUBISHI</p>
-        <h2 class="series-title">JETSTREAM Series</h2>
-
-        <div class="series-products">
-
-            <article class="stationery-card">
-                <div class="stationery-card-inner">
-                    <h3 class="stationery-card-name">
-                        standard
-                    </h3>
-
-                    <a href="#" class="stationery-card-link">
-                        <span>DETAIL</span>
-                        <span>→</span>
-                    </a>
-                </div>
-            </article>
-
-            <article class="stationery-card">
-                <div class="stationery-card-inner">
-                    <h3 class="stationery-card-name">
-                        EDGE
-                    </h3>
-
-                    <a href="#" class="stationery-card-link">
-                        <span>DETAIL</span>
-                        <span>→</span>
-                    </a>
-                </div>
-            </article>
-
-            <article class="stationery-card">
-                <div class="stationery-card-inner">
-                    <h3 class="stationery-card-name">
-                        PRIME
-                    </h3>
-
-                    <a href="#" class="stationery-card-link">
-                        <span>DETAIL</span>
-                        <span>→</span>
-                    </a>
-                </div>
-            </article>
-
+    <header>
+        <div class="header-inner">
+            <a
+                href="index.html"
+                class="logo"
+            >
+                people stationery
+            </a>
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="メニューを開く"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </div>
+    </header>
+    <!-- ========================================
+         メニュー背景
+    ======================================== -->
+    <div
+        class="menu-backdrop"
+        id="menuBackdrop"
+    ></div>
+    <!-- ========================================
+         ハンバーガーメニュー
+    ======================================== -->
+    <nav
+        class="menu-panel"
+        id="menuPanel"
+        aria-label="メインメニュー"
+    >
+        <a href="index.html">
+            HOME
+        </a>
+        <a href="article.html">
+            ARTICLE
+        </a>
+        <a href="catalog.html">
+            CATALOG
+        </a>
+        <a href="about.html">
+            ABOUT
+        </a>
+    </nav>
+    <!-- ========================================
+         メイン
+    ======================================== -->
+    <main>
+        <!-- ====================================
+             ヒーロー
+        ==================================== -->
+        <section class="hero">
+            <p class="small-title">
+                CATALOG / BALL POINT PEN
+            </p>
+            <h1>
+                Ball Point<br>
+                Pen
+            </h1>
+            <p class="description">
+                書くための道具として、<br>
+                さまざまなボールペンを紹介します。
+            </p>
+        </section>
+        <!-- ========================================
+             BALL POINT PEN CATALOG
+        ======================================== -->
+        <section class="catalog-list">
+            <!-- ====================================
+                 JETSTREAM SERIES
+            ==================================== -->
+            <div class="series-section">
+                <p class="series-maker">
+                    MITSUBISHI
+                </p>
+                <h2 class="series-title">
+                    JETSTREAM Series
+                </h2>
+                <div class="series-products">
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                JETSTREAM
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                JETSTREAM EDGE
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                JETSTREAM PRIME
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                JETSTREAM PRIME 3
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- ====================================
+                 UNI-BALL ONE SERIES
+            ==================================== -->
+            <div class="series-section">
+                <p class="series-maker">
+                    MITSUBISHI
+                </p>
+                <h2 class="series-title">
+                    uni-ball one Series
+                </h2>
+                <div class="series-products">
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                uni-ball one
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                uni-ball one P
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                uni-ball one F
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- ====================================
+                 ACRO SERIES
+            ==================================== -->
+            <div class="series-section">
+                <p class="series-maker">
+                    PILOT
+                </p>
+                <h2 class="series-title">
+                    Acro Series
+                </h2>
+                <div class="series-products">
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                Acroball
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                Acro 1000
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                Acro 500
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- ====================================
+                 DR.GRIP SERIES
+            ==================================== -->
+            <div class="series-section">
+                <p class="series-maker">
+                    PILOT
+                </p>
+                <h2 class="series-title">
+                    Dr.GRIP Series
+                </h2>
+                <div class="series-products">
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                Dr.GRIP
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                Dr.GRIP 4+1
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- ====================================
+                 SARASA SERIES
+            ==================================== -->
+            <div class="series-section">
+                <p class="series-maker">
+                    ZEBRA
+                </p>
+                <h2 class="series-title">
+                    SARASA Series
+                </h2>
+                <div class="series-products">
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                SARASA clip
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                SARASA dry
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                SARASA Grand
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                SARASA nano
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- ====================================
+                 ENERGEL SERIES
+            ==================================== -->
+            <div class="series-section">
+                <p class="series-maker">
+                    PENTEL
+                </p>
+                <h2 class="series-title">
+                    EnerGel Series
+                </h2>
+                <div class="series-products">
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                EnerGel
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                EnerGel BLN75
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                EnerGel Infree
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- ====================================
+                 BLen SERIES
+            ==================================== -->
+            <div class="series-section">
+                <p class="series-maker">
+                    ZEBRA
+                </p>
+                <h2 class="series-title">
+                    bLen Series
+                </h2>
+                <div class="series-products">
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                bLen
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                bLen 3C
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- ====================================
+                 JETSTREAM PRIME / HIGH-END
+            ==================================== -->
+            <div class="series-section">
+                <p class="series-maker">
+                    MITSUBISHI
+                </p>
+                <h2 class="series-title">
+                    Premium Series
+                </h2>
+                <div class="series-products">
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                JETSTREAM PRIME
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="stationery-card">
+                        <div class="stationery-card-inner">
+                            <h3 class="stationery-card-name">
+                                uni-ball Signo
+                            </h3>
+                            <a
+                                href="#"
+                                class="stationery-card-link"
+                            >
+                                <span>DETAIL</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- ====================================
+                 CATALOG BACK
+            ==================================== -->
+            <a
+                href="catalog.html"
+                class="catalog-list-back"
+            >
+                <span>←</span>
+                <span>CATALOGへ戻る</span>
+            </a>
+        </section>
+    </main>
+    <!-- ========================================
+         フッター
+    ======================================== -->
+    <footer>
+        <p>
+            © 人文房具
+        </p>
+    </footer>
+    <!-- ========================================
+         JavaScript
+    ======================================== -->
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+                /* ====================================
+                   要素取得
+                ==================================== */
+                const menuButton =
+                    document.getElementById(
+                        "menuButton"
+                    );
+                const menuPanel =
+                    document.getElementById(
+                        "menuPanel"
+                    );
+                const menuBackdrop =
+                    document.getElementById(
+                        "menuBackdrop"
+                    );
+                /* ====================================
+                   ページ表示
+                ==================================== */
+                requestAnimationFrame(
+                    function () {
+                        document.body.classList.add(
+                            "page-loaded"
+                        );
+                    }
+                );
+                /* ====================================
+                   メニューを閉じる関数
+                ==================================== */
+                function closeMenu() {
+                    menuButton.classList.remove(
+                        "active"
+                    );
+                    menuPanel.classList.remove(
+                        "active"
+                    );
+                    menuBackdrop.classList.remove(
+                        "active"
+                    );
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+                }
+                /* ====================================
+                   メニューを開く / 閉じる
+                ==================================== */
+                menuButton.addEventListener(
+                    "click",
+                    function () {
+                        const isOpen =
+                            menuPanel.classList.toggle(
+                                "active"
+                            );
+                        menuButton.classList.toggle(
+                            "active",
+                            isOpen
+                        );
+                        menuBackdrop.classList.toggle(
+                            "active",
+                            isOpen
+                        );
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            String(isOpen)
+                        );
+                    }
+                );
+                /* ====================================
+                   背景をクリックしたら閉じる
+                ==================================== */
+                menuBackdrop.addEventListener(
+                    "click",
+                    function () {
+                        closeMenu();
+                    }
+                );
+                /* ====================================
+                   ESCキーで閉じる
+                ==================================== */
+                document.addEventListener(
+                    "keydown",
+                    function (event) {
+                        if (
+                            event.key === "Escape"
+                        ) {
+                            closeMenu();
+                        }
+                    }
+                );
+                /* ====================================
+                   SERIES SCROLL REVEAL
+                ==================================== */
+                const seriesCards =
+                    document.querySelectorAll(
+                        ".series-products .stationery-card"
+                    );
+                const seriesObserver =
+                    new IntersectionObserver(
+                        function (entries) {
+                            entries.forEach(
+                                function (entry) {
+                                    if (
+                                        !entry.isIntersecting
+                                    ) {
+                                        return;
+                                    }
+                                    const card =
+                                        entry.target;
+                                    const cards = [
+                                        ...card.parentElement.querySelectorAll(
+                                            ".stationery-card"
+                                        )
+                                    ];
+                                    const index =
+                                        cards.indexOf(
+                                            card
+                                        );
+                                    setTimeout(
+                                        function () {
+                                            card.classList.add(
+                                                "is-visible"
+                                            );
+                                        },
+                                        index * 120
+                                    );
+                                    seriesObserver.unobserve(
+                                        card
+                                    );
+                                }
+                            );
+                        },
+                        {
+                            threshold: 0.2
+                        }
+                    );
+                seriesCards.forEach(
+                    function (card) {
+                        seriesObserver.observe(
+                            card
+                        );
+                    }
+                );
+                /* ====================================
+                   ページ遷移
+                ==================================== */
+                const links =
+                    document.querySelectorAll(
+                        "a[href]"
+                    );
+                links.forEach(
+                    function (link) {
+                        link.addEventListener(
+                            "click",
+                            function (event) {
+                                const href =
+                                    link.getAttribute(
+                                        "href"
+                                    );
+                                /* ----------------------------
+                                   除外するリンク
+                                ---------------------------- */
+                                if (
+                                    !href ||
+                                    href.startsWith("#") ||
+                                    href.startsWith("http") ||
+                                    href.startsWith("mailto:") ||
+                                    link.target === "_blank"
+                                ) {
+                                    return;
+                                }
+                                /* ----------------------------
+                                   通常のページ遷移
+                                ---------------------------- */
+                                event.preventDefault();
+                                /* メニューを閉じる */
+                                closeMenu();
+                                /* ページをぼかして消す */
+                                document.body.classList.remove(
+                                    "page-loaded"
+                                );
+                                document.body.classList.add(
+                                    "page-leave"
+                                );
+                                /* CSSの0.8秒に合わせる */
+                                setTimeout(
+                                    function () {
+                                        window.location.href =
+                                            href;
+                                    },
+                                    800
+                                );
+                            }
+                        );
+                    }
+                );
+            }
+        );
+    </script>
+</body>
+</html>
