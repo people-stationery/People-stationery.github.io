@@ -1040,7 +1040,45 @@
                     }
                 );
 
+/* ========================================
+   SERIES HORIZONTAL SCROLL BUTTON
+======================================== */
 
+document.querySelectorAll(".series-products-wrapper").forEach(wrapper => {
+
+    const products = wrapper.querySelector(".series-products");
+    const button = wrapper.querySelector(".series-scroll-button");
+
+    if (!products || !button) return;
+
+    const updateButton = () => {
+
+        const maxScroll =
+            products.scrollWidth - products.clientWidth;
+
+        if (products.scrollLeft >= maxScroll - 5) {
+            button.classList.add("is-hidden");
+        } else {
+            button.classList.remove("is-hidden");
+        }
+    };
+
+    button.addEventListener("click", () => {
+
+        products.scrollBy({
+            left: products.clientWidth * 0.7,
+            behavior: "smooth"
+        });
+
+    });
+
+    products.addEventListener("scroll", updateButton);
+
+    window.addEventListener("resize", updateButton);
+
+    updateButton();
+
+});
                 /* ====================================
                    ページ遷移
                 ==================================== */
