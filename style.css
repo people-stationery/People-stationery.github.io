@@ -2762,3 +2762,78 @@ body.page-loaded .catalog-list-back {
     opacity: 1;
     transform: translateX(0);
 }
+
+/* ========================================
+   SERIES HORIZONTAL SCROLL
+======================================== */
+
+.series-products-wrapper {
+    position: relative;
+}
+
+.series-products {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.series-products::-webkit-scrollbar {
+    display: none;
+}
+
+.series-products .stationery-card {
+    flex: 0 0 auto;
+}
+
+
+/* ========================================
+   SERIES SCROLL BUTTON
+======================================== */
+
+.series-scroll-button {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.92);
+    color: #263746;
+
+    font-size: 20px;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    box-shadow:
+        0 4px 14px rgba(38, 55, 70, 0.12);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.series-scroll-button:hover {
+    transform: translateY(-50%) scale(1.06);
+
+    box-shadow:
+        0 6px 18px rgba(38, 55, 70, 0.18);
+}
+
+.series-scroll-button.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
