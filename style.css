@@ -2570,80 +2570,49 @@ body.page-loaded .catalog-list-back {
 
 .catalog-tabs-wrap {
     position: relative;
-
     width: 100%;
     height: 52px;
-
     margin: 0 0 45px;
-
     overflow: hidden;
 }
 
 
 /* ========================================
-   棒
+   最初は小さな ●
 ======================================== */
 
 .catalog-tabs {
     position: relative;
 
-    width: 52px;
-    height: 2px;
-
-    margin-top: 25px;
-
-    background: #426791;
-
-    border: none;
-    border-radius: 2px;
-
-    box-shadow: none;
-
-    overflow: visible;
-
-    transition:
-        width 0.7s cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        ),
-        height 0.2s ease,
-        background 0.3s ease;
-}
-
-
-/* ========================================
-   最初の ●
-======================================== */
-
-.catalog-tabs::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 50%;
+    display: flex;
+    align-items: stretch;
 
     width: 8px;
     height: 8px;
 
+    margin-top: 22px;
+
     background: #426791;
 
+    border: none;
     border-radius: 50%;
 
-    transform:
-        translateY(-50%);
+    box-shadow: none;
 
-    z-index: 5;
+    overflow: hidden;
 
     transition:
-        opacity 0.2s ease;
+        width 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        margin-top 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        border-radius 0.7s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
 /* ========================================
-   展開後の棒
+   展開したら横長のタブへ
 ======================================== */
 
 .catalog-tabs-wrap.is-expanded .catalog-tabs {
@@ -2652,8 +2621,7 @@ body.page-loaded .catalog-list-back {
 
     margin-top: 0;
 
-    background:
-        rgba(255,255,255,0.88);
+    background: rgba(255,255,255,0.88);
 
     border:
         1px solid rgba(66,103,145,0.16);
@@ -2665,14 +2633,8 @@ body.page-loaded .catalog-list-back {
 }
 
 
-.catalog-tabs-wrap.is-expanded .catalog-tabs::before {
-    opacity: 0;
-}
-
-
 /* ========================================
    ボタン
-   棒が伸び切ってから表示
 ======================================== */
 
 .catalog-tab {
@@ -2684,6 +2646,7 @@ body.page-loaded .catalog-list-back {
     padding: 0 18px;
 
     border: none;
+
     border-right:
         1px solid rgba(66,103,145,0.13);
 
@@ -2713,12 +2676,11 @@ body.page-loaded .catalog-list-back {
 
 
 /* ========================================
-   展開完了後
+   展開後に文字を表示
 ======================================== */
 
 .catalog-tabs-wrap.is-expanded .catalog-tab {
     opacity: 1;
-
     pointer-events: auto;
 }
 
@@ -2761,16 +2723,13 @@ body.page-loaded .catalog-list-back {
 
 .catalog-content {
     position: relative;
-
     min-height: 170px;
 }
 
 
 .catalog-panel {
     display: none;
-
-    padding:
-        5px 5px 30px;
+    padding: 5px 5px 30px;
 }
 
 
@@ -2780,8 +2739,7 @@ body.page-loaded .catalog-list-back {
 
 
 .catalog-panel h2 {
-    margin:
-        0 0 14px;
+    margin: 0 0 14px;
 
     color: #315878;
 
@@ -2853,11 +2811,10 @@ body.page-loaded .catalog-list-back {
     }
 
     .catalog-tabs {
-        width: 48px;
+        width: 8px;
+        height: 8px;
 
-        height: 2px;
-
-        margin-top: 23px;
+        margin-top: 20px;
     }
 
     .catalog-tabs-wrap.is-expanded .catalog-tabs {
@@ -2872,11 +2829,11 @@ body.page-loaded .catalog-list-back {
     .catalog-tab {
         height: 48px;
 
-        padding: 0 10px;
+        padding: 0 8px;
 
         font-size: 10px;
 
-        letter-spacing: 0.03em;
+        letter-spacing: 0.02em;
     }
 
     .catalog-panel {
