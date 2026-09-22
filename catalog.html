@@ -109,9 +109,15 @@
 ==================================== -->
 <section class="catalog">
 
-    <!-- ==================================
-         カテゴリ選択
-    ================================== -->
+   <!-- ==================================
+     カテゴリ選択
+     
+     スクロールすると
+     円 → 横長のタブへ展開
+================================== -->
+
+<div class="catalog-tabs-wrap">
+
     <div class="catalog-tabs" role="tablist">
 
         <button
@@ -155,6 +161,8 @@
         </button>
 
     </div>
+
+</div>
 
 
     <!-- ==================================
@@ -383,6 +391,107 @@ document.addEventListener(
                     function () {
                         const category =
                             tab.dataset.category;
+
+                        /* ====================================
+   CATALOGタブ展開アニメーション
+==================================== */
+
+const catalogTabsWrap =
+    document.querySelector(
+        ".catalog-tabs-wrap"
+    );
+
+const catalogTabs =
+    document.querySelector(
+        ".catalog-tabs"
+    );
+
+
+function updateCatalogTabs() {
+
+    if (!catalogTabsWrap || !catalogTabs) {
+        return;
+    }
+
+
+    const rect =
+        catalogTabsWrap.getBoundingClientRect();
+
+    const windowHeight =
+        window.innerHeight;
+
+
+    /* --------------------------------
+       展開開始位置
+
+       カテゴリが画面下部に入ってきた
+       あたりから展開開始
+    -------------------------------- */
+
+    const start =
+        windowHeight * 0.85;
+
+
+    /* --------------------------------
+       展開終了位置
+
+       ここまでスクロールすると
+       完全に横長になる
+    -------------------------------- */
+
+    const end =
+        windowHeight * 0.45;
+
+
+    /* --------------------------------
+       0〜1に変換
+    -------------------------------- */
+
+    let progress =
+        (start - rect.top) /
+        (start - end);
+
+
+    progress =
+        Math.max(
+            0,
+            Math.min(
+                1,
+                progress
+            )
+        );
+
+
+    /* --------------------------------
+       CSSへ進行度を渡す
+    -------------------------------- */
+
+    catalogTabsWrap.style.setProperty(
+        "--catalog-progress",
+        progress
+    );
+
+}
+
+
+/* --------------------------------
+   スクロール
+-------------------------------- */
+
+window.addEventListener(
+    "scroll",
+    updateCatalogTabs,
+    {
+        passive: true
+    }
+);
+
+
+/* --------------------------------
+   初期状態
+-------------------------------- */
+
+updateCatalogTabs();
                         /* ------------------------
                            タブの選択状態
                         ------------------------ */
