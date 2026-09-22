@@ -2849,16 +2849,32 @@ body.page-loaded .catalog-list-back {
     width: 100%;
     height: 48px;
 
-    margin: 0 auto;
-
     position: relative;
+
+    margin: 0 auto;
+}
+
+
+/* ========================================
+   伸びる背景
+======================================== */
+
+.catalog-tabs-wrap::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
 
     transform-origin: left center;
 
     transform:
-        scaleX(
-            var(--catalog-progress)
-        );
+        scaleX(var(--catalog-progress));
 
     border: 1px solid
         rgba(66, 103, 145, 0.35);
@@ -2868,11 +2884,11 @@ body.page-loaded .catalog-list-back {
     background:
         rgba(255, 255, 255, 0.9);
 
-    overflow: hidden;
-
     box-shadow:
         0 4px 18px
         rgba(38, 55, 70, 0.05);
+
+    pointer-events: none;
 }
 
 
@@ -2881,17 +2897,18 @@ body.page-loaded .catalog-list-back {
 ======================================== */
 
 .catalog-tabs {
+
+    position: relative;
+
     display: flex;
 
     width: 100%;
     height: 100%;
-
-    transform-origin: left center;
 }
 
 
 /* ========================================
-   各タブ
+   各ボタン
 ======================================== */
 
 .catalog-tab {
@@ -2933,24 +2950,13 @@ body.page-loaded .catalog-list-back {
 
 
 /* ========================================
-   展開したら文字を表示
+   展開完了
 ======================================== */
 
 .catalog-tabs-wrap.expanded .catalog-tab {
+
     opacity: 1;
-}
 
-
-/* ========================================
-   ホバー
-======================================== */
-
-.catalog-tab:hover {
-
-    background:
-        rgba(66, 103, 145, 0.07);
-
-    color: #263746;
 }
 
 
@@ -2966,6 +2972,21 @@ body.page-loaded .catalog-list-back {
     color: #263746;
 
     font-weight: 500;
+
+}
+
+
+/* ========================================
+   ホバー
+======================================== */
+
+.catalog-tab:hover {
+
+    background:
+        rgba(66, 103, 145, 0.07);
+
+    color: #263746;
+
 }
 
 
@@ -2980,6 +3001,7 @@ body.page-loaded .catalog-list-back {
         rgba(66, 103, 145, 0.45);
 
     outline-offset: -3px;
+
 }
 
 
