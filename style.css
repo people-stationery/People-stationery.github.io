@@ -2660,34 +2660,45 @@ body.page-loaded .catalog-list-back {
 
 
 /* ========================================
-   ● が右へスライド
+   スライドする円
 ======================================== */
 
-.catalog-tabs-wrap.is-expanded .catalog-tabs::before {
-    left: 100%;
+.catalog-tabs::before {
+    content: "";
 
-    opacity: 0;
-}
+    position: absolute;
 
+    left: 26px;
+    top: 26px;
 
-/* ========================================
-   展開後に横棒を出す
-======================================== */
+    width: 52px;
+    height: 52px;
 
-.catalog-tabs-wrap.is-expanded .catalog-tabs {
-    background:
-        rgba(255,255,255,0.88);
+    background: #ffffff;
 
     border:
         1px solid rgba(66,103,145,0.16);
 
-    box-shadow:
-        0 8px 28px rgba(42,73,104,0.07);
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 10;
+
+    transition:
+        left 1.6s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+        opacity 0.5s ease 1.6s;
 }
 
 
 /* ========================================
-   ● の軌跡
+   円の軌跡
 ======================================== */
 
 .catalog-tabs-wrap::before {
@@ -2708,7 +2719,23 @@ body.page-loaded .catalog-list-back {
     z-index: 5;
 
     transition:
-        width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        width 1.6s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+
+/* ========================================
+   展開
+======================================== */
+
+.catalog-tabs-wrap.is-expanded .catalog-tabs::before {
+    left: calc(100% - 26px);
+
+    opacity: 0;
 }
 
 
