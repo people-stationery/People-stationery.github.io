@@ -480,7 +480,37 @@ document.addEventListener(
         /* --------------------------------
            初期状態
         -------------------------------- */
-        updateCatalogTabs();
+        const catalogTabsWrap = document.querySelector(".catalog-tabs-wrap");
+
+let catalogTabsExpanded = false;
+
+function updateCatalogTabs() {
+    if (!catalogTabsWrap || catalogTabsExpanded) return;
+
+    const rect = catalogTabsWrap.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    /* 少しスクロールしたら展開開始 */
+    if (rect.top < windowHeight * 0.85) {
+        catalogTabsExpanded = true;
+
+        catalogTabsWrap.classList.add("is-expanded");
+
+        /* 棒を伸ばす */
+        catalogTabsWrap.style.setProperty(
+            "--catalog-progress",
+            "1"
+        );
+    }
+}
+
+window.addEventListener(
+    "scroll",
+    updateCatalogTabs,
+    { passive: true }
+);
+
+updateCatalogTabs();
         /* ====================================
            ページ遷移
         ==================================== */
