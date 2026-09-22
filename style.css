@@ -2802,20 +2802,67 @@ body.page-loaded .catalog-list-back {
         display: none;
     }
 
-    .catalog-tab {
-        flex:
-            0 0 145px;
+.catalog-tab {
+    flex: 1;
 
-        min-height: 78px;
+    min-height: 52px;
 
-        padding:
-            16px 12px;
+    padding:
+        0 18px;
 
-        font-size: 10px;
+    border: none;
 
-        letter-spacing: 0.05em;
-    }
+    border-right:
+        1px solid rgba(66,103,145,0.13);
 
+    background:
+        transparent;
+
+    color: #52697d;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.catalog-tab:last-child {
+    border-right: none;
+}
+
+
+/* ========================================
+   HOVER
+======================================== */
+
+.catalog-tab:hover {
+    background:
+        rgba(66,103,145,0.045);
+
+    color: #294967;
+}
+
+
+/* ========================================
+   ACTIVE
+======================================== */
+
+.catalog-tab.active {
+    background:
+        rgba(66,103,145,0.10);
+
+    color: #294967;
+}
     .catalog-panel {
         padding:
             5px 0 25px;
