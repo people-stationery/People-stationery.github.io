@@ -2564,9 +2564,20 @@ body.page-loaded .catalog-list-back {
 
 }
 
+/* ========================================
+   CATALOG TABS
+======================================== */
+
+.catalog-tabs-wrap {
+    width: 100%;
+    height: 48px;
+    margin: 0 auto;
+}
+
 .catalog-tabs {
     display: flex;
     width: 100%;
+    height: 100%;
     overflow: hidden;
 
     border: 1px solid rgba(38, 55, 70, 0.15);
@@ -2575,34 +2586,40 @@ body.page-loaded .catalog-list-back {
 
 .catalog-tab {
     flex: 1;
+    min-width: 0;
 
     border: none;
+    border-right: 1px solid rgba(66, 103, 145, 0.18);
+
     background: rgba(220, 232, 242, 0.55);
+    color: #526779;
 
-    color: #263746;
-
-    padding: 16px 12px;
+    padding: 0 12px;
 
     font: inherit;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+
+    white-space: nowrap;
     cursor: pointer;
 
     transition:
-        background 0.3s ease,
-        filter 0.3s ease;
+        background 0.25s ease,
+        color 0.25s ease;
 }
 
-.catalog-tab + .catalog-tab {
-    border-left: 1px solid rgba(38, 55, 70, 0.12);
+.catalog-tab:last-child {
+    border-right: none;
 }
 
 .catalog-tab.active {
     background: rgba(255, 255, 255, 0.95);
+    color: #263746;
 }
 
-
-/* ====================================
-   説明
-==================================== */
+.catalog-tab:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
 
 .catalog-content {
     margin-top: 40px;
@@ -2614,410 +2631,4 @@ body.page-loaded .catalog-list-back {
 
 .catalog-panel.active {
     display: block;
-}
-.catalog-link {
-    display: inline-block;
-
-    margin-top: 24px;
-    padding: 11px 22px;
-
-    border: 1px solid rgba(38, 55, 70, 0.25);
-    border-radius: 999px;
-
-    color: #263746;
-    background: rgba(255, 255, 255, 0.7);
-
-    text-decoration: none;
-    font-size: 0.9rem;
-
-    transition:
-        background 0.3s ease,
-        transform 0.3s ease,
-        border-color 0.3s ease;
-}
-
-.catalog-link:hover {
-    background: rgba(220, 232, 242, 0.7);
-    border-color: rgba(38, 55, 70, 0.4);
-    transform: translateY(-2px);
-}
-
-/* ========================================
-   SERIES PRODUCTS
-======================================== */
-
-.series-section {
-    margin-top: 80px;
-}
-
-.series-maker {
-    margin: 0 0 6px;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    color: #71808d;
-}
-
-.series-title {
-    margin: 0 0 24px;
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-}
-
-
-/* 商品を横一列にする */
-
-.series-products {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    padding: 4px 2px 12px;
-
-    scrollbar-width: thin;
-}
-
-
-/* カードを小さく固定 */
-
-.series-products .stationery-card {
-    flex: 0 0 170px;
-    width: 170px;
-}
-
-
-/* スマホ */
-
-@media (max-width: 700px) {
-
-    .series-section {
-        margin-top: 60px;
-    }
-
-    .series-title {
-        font-size: 21px;
-        margin-bottom: 20px;
-    }
-
-    .series-products {
-        gap: 12px;
-    }
-
-    .series-products .stationery-card {
-        flex-basis: 150px;
-        width: 150px;
-    }
-
-}
-
-.catalog-list-back {
-    position: relative;
-    z-index: 10;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-
-    margin-top: 40px;
-    padding: 8px 14px;
-
-    color: #263746;
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 0.03em;
-
-    border: 1px solid rgba(66, 103, 145, 0.28);
-    border-radius: 999px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.98),
-            rgba(230,240,249,0.9)
-        );
-
-    overflow: hidden;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-/* ========================================
-   SERIES SCROLL REVEAL
-======================================== */
-
-.series-products .stationery-card {
-    opacity: 0;
-    transform: translateX(-45px);
-
-    transition:
-        opacity 1.3s ease,
-        transform 1.3s ease;
-}
-
-
-/* 表示されたカード */
-
-.series-products .stationery-card.is-visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* ========================================
-   SERIES HORIZONTAL SCROLL
-======================================== */
-
-.series-products-wrapper {
-    position: relative;
-}
-
-.series-products {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-}
-
-.series-products::-webkit-scrollbar {
-    display: none;
-}
-
-.series-products .stationery-card {
-    flex: 0 0 auto;
-}
-
-
-/* ========================================
-   SERIES SCROLL BUTTON
-======================================== */
-
-.series-scroll-button {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-
-    width: 44px;
-    height: 44px;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.92);
-    color: #263746;
-
-    font-size: 20px;
-    line-height: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-
-    transform: translateY(-50%);
-
-    box-shadow:
-        0 4px 14px rgba(38, 55, 70, 0.12);
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.series-scroll-button:hover {
-    transform: translateY(-50%) scale(1.06);
-
-    box-shadow:
-        0 6px 18px rgba(38, 55, 70, 0.18);
-}
-
-.series-scroll-button.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* ========================================
-   CATALOG TABS
-   ● → RIGHT EXPAND
-======================================== */
-
-.catalog-tabs-wrap {
-    --catalog-progress: 0;
-
-    width: 100%;
-    height: 48px;
-
-    position: relative;
-
-    margin: 0 auto;
-}
-
-
-/* ========================================
-   伸びる背景
-======================================== */
-
-.catalog-tabs-wrap::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 100%;
-
-    transform-origin: left center;
-
-    transform:
-        scaleX(var(--catalog-progress));
-
-    border: 1px solid
-        rgba(66, 103, 145, 0.35);
-
-    border-radius: 999px;
-
-    background:
-        rgba(255, 255, 255, 0.9);
-
-    box-shadow:
-        0 4px 18px
-        rgba(38, 55, 70, 0.05);
-
-    pointer-events: none;
-}
-
-
-/* ========================================
-   タブ本体
-======================================== */
-
-.catalog-tabs {
-
-    position: relative;
-
-    display: flex;
-
-    width: 100%;
-    height: 100%;
-}
-
-
-/* ========================================
-   各ボタン
-======================================== */
-
-.catalog-tab {
-
-    flex: 1;
-
-    min-width: 0;
-
-    border: none;
-
-    border-right:
-        1px solid
-        rgba(66, 103, 145, 0.18);
-
-    background: transparent;
-
-    color: #526779;
-
-    font-size: 13px;
-
-    letter-spacing: 0.04em;
-
-    white-space: nowrap;
-
-    cursor: pointer;
-
-    opacity: 0;
-
-    transition:
-        opacity 0.3s ease,
-        background 0.25s ease,
-        color 0.25s ease;
-}
-
-
-.catalog-tab:last-child {
-    border-right: none;
-}
-
-
-/* ========================================
-   展開完了
-======================================== */
-
-.catalog-tabs-wrap.expanded .catalog-tab {
-
-    opacity: 1;
-
-}
-
-
-/* ========================================
-   選択中
-======================================== */
-
-.catalog-tab.active {
-
-    background:
-        rgba(66, 103, 145, 0.13);
-
-    color: #263746;
-
-    font-weight: 500;
-
-}
-
-
-/* ========================================
-   ホバー
-======================================== */
-
-.catalog-tab:hover {
-
-    background:
-        rgba(66, 103, 145, 0.07);
-
-    color: #263746;
-
-}
-
-
-/* ========================================
-   フォーカス
-======================================== */
-
-.catalog-tab:focus-visible {
-
-    outline:
-        2px solid
-        rgba(66, 103, 145, 0.45);
-
-    outline-offset: -3px;
-
-}
-
-
-/* ========================================
-   スマホ
-======================================== */
-
-@media (max-width: 600px) {
-
-    .catalog-tabs-wrap {
-        height: 44px;
-    }
-
-    .catalog-tab {
-        font-size: 10px;
-        letter-spacing: 0.02em;
-    }
-
 }
