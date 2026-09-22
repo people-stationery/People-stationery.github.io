@@ -2608,45 +2608,27 @@ body.page-loaded .catalog-list-back {
 .catalog-tab {
     flex: 1;
 
-    min-height: 92px;
-
-    padding:
-        20px 16px;
+    min-height: 52px;
+    padding: 0 18px;
 
     border: none;
+    border-right: 1px solid rgba(66,103,145,0.13);
 
-    border-right:
-        1px solid rgba(66,103,145,0.13);
-
-    background:
-        linear-gradient(
-            to right,
-            rgba(66,103,145,0.075),
-            rgba(66,103,145,0.018)
-        );
+    background: rgba(255,255,255,0.88);
 
     color: #52697d;
 
     font-family: inherit;
-
     font-size: 12px;
     font-weight: 700;
-
     letter-spacing: 0.08em;
 
     cursor: pointer;
 
     transition:
         background 0.3s ease,
-        color 0.3s ease,
-        box-shadow 0.3s ease;
+        color 0.3s ease;
 }
-
-
-.catalog-tab:last-child {
-    border-right: none;
-}
-
 
 /* ========================================
    HOVER
