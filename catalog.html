@@ -286,284 +286,281 @@
 
 
 <script>
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-        /* ====================================
-           要素取得
-        ==================================== */
-        const menuButton =
-            document.getElementById("menuButton");
-        const menuPanel =
-            document.getElementById("menuPanel");
-        const menuBackdrop =
-            document.getElementById("menuBackdrop");
-        /* ====================================
-           ページ表示
-        ==================================== */
-        requestAnimationFrame(
-            function () {
-                document.body.classList.add(
-                    "page-loaded"
-                );
-            }
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ====================================
+       MENU
+    ==================================== */
+
+    const menuButton =
+        document.getElementById("menuButton");
+
+    const menuPanel =
+        document.getElementById("menuPanel");
+
+    const menuBackdrop =
+        document.getElementById("menuBackdrop");
+
+
+    requestAnimationFrame(function () {
+        document.body.classList.add("page-loaded");
+    });
+
+
+    function closeMenu() {
+
+        menuButton.classList.remove("active");
+        menuPanel.classList.remove("active");
+        menuBackdrop.classList.remove("active");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
         );
-        /* ====================================
-           メニューを閉じる関数
-        ==================================== */
-        function closeMenu() {
-            menuButton.classList.remove(
-                "active"
+    }
+
+
+    menuButton.addEventListener(
+        "click",
+        function () {
+
+            const isOpen =
+                menuPanel.classList.toggle("active");
+
+            menuButton.classList.toggle(
+                "active",
+                isOpen
             );
-            menuPanel.classList.remove(
-                "active"
+
+            menuBackdrop.classList.toggle(
+                "active",
+                isOpen
             );
-            menuBackdrop.classList.remove(
-                "active"
-            );
+
             menuButton.setAttribute(
                 "aria-expanded",
-                "false"
+                String(isOpen)
             );
         }
-        /* ====================================
-           メニューを開く / 閉じる
-        ==================================== */
-        menuButton.addEventListener(
-            "click",
-            function () {
-                const isOpen =
-                    menuPanel.classList.toggle(
-                        "active"
-                    );
-                menuButton.classList.toggle(
-                    "active",
-                    isOpen
-                );
-                menuBackdrop.classList.toggle(
-                    "active",
-                    isOpen
-                );
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
-            }
-        );
-        /* ====================================
-           背景をクリックしたら閉じる
-        ==================================== */
-        menuBackdrop.addEventListener(
-            "click",
-            function () {
+    );
+
+
+    menuBackdrop.addEventListener(
+        "click",
+        function () {
+            closeMenu();
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
                 closeMenu();
             }
-        );
-        /* ====================================
-           ESCキーで閉じる
-        ==================================== */
-        document.addEventListener(
-            "keydown",
-            function (event) {
-                if (event.key === "Escape") {
-                    closeMenu();
-                }
-            }
-        );
-        /* ====================================
-           CATALOGカテゴリ切り替え
-        ==================================== */
-        const catalogTabs =
-            document.querySelectorAll(
-                ".catalog-tab"
-            );
-        const catalogPanels =
-            document.querySelectorAll(
-                ".catalog-panel"
-            );
-        catalogTabs.forEach(
-            function (tab) {
-                tab.addEventListener(
-                    "click",
-                    function () {
-                        const category =
-                            tab.dataset.category;
-                        /* ------------------------
-                           タブの選択状態
-                        ------------------------ */
-                        catalogTabs.forEach(
-                            function (item) {
-                                const isActive =
-                                    item === tab;
-                                item.classList.toggle(
-                                    "active",
-                                    isActive
-                                );
-                                item.setAttribute(
-                                    "aria-selected",
-                                    String(isActive)
-                                );
-                            }
+
+        }
+    );
+
+
+    /* ====================================
+       CATALOG TABS
+    ==================================== */
+
+    const catalogTabs =
+        document.querySelectorAll(".catalog-tab");
+
+    const catalogPanels =
+        document.querySelectorAll(".catalog-panel");
+
+
+    catalogTabs.forEach(function (tab) {
+
+        tab.addEventListener(
+            "click",
+            function () {
+
+                const category =
+                    tab.dataset.category;
+
+
+                catalogTabs.forEach(
+                    function (item) {
+
+                        const isActive =
+                            item === tab;
+
+                        item.classList.toggle(
+                            "active",
+                            isActive
                         );
-                        /* ------------------------
-                           説明の切り替え
-                        ------------------------ */
-                        catalogPanels.forEach(
-                            function (panel) {
-                                panel.classList.toggle(
-                                    "active",
-                                    panel.dataset.panel === category
-                                );
-                            }
+
+                        item.setAttribute(
+                            "aria-selected",
+                            String(isActive)
                         );
                     }
                 );
+
+
+                catalogPanels.forEach(
+                    function (panel) {
+
+                        panel.classList.toggle(
+                            "active",
+                            panel.dataset.panel === category
+                        );
+
+                    }
+                );
+
             }
         );
-        /* ====================================
-           CATALOGタブ展開アニメーション
-        ==================================== */
-        const catalogTabsWrap =
-            document.querySelector(
-                ".catalog-tabs-wrap"
+
+    });
+
+
+    /* ====================================
+       CATALOG タブ展開
+       ● → 横棒 → ボタン表示
+    ==================================== */
+
+    const catalogTabsWrap =
+        document.querySelector(
+            ".catalog-tabs-wrap"
+        );
+
+    let catalogTabsExpanded = false;
+
+
+    function updateCatalogTabs() {
+
+        if (
+            !catalogTabsWrap ||
+            catalogTabsExpanded
+        ) {
+            return;
+        }
+
+
+        const rect =
+            catalogTabsWrap.getBoundingClientRect();
+
+        const windowHeight =
+            window.innerHeight;
+
+
+        /*
+         * 少しスクロールしたら展開
+         */
+
+        if (
+            rect.top <
+            windowHeight * 0.85
+        ) {
+
+            catalogTabsExpanded = true;
+
+
+            /*
+             * 横棒を完全に展開
+             */
+
+            catalogTabsWrap.classList.add(
+                "is-expanded"
             );
-        function updateCatalogTabs() {
-            if (!catalogTabsWrap) {
-                return;
-            }
-            const rect =
-                catalogTabsWrap.getBoundingClientRect();
-            const windowHeight =
-                window.innerHeight;
-            /* ------------------------
-               展開開始位置
-            ------------------------ */
-            const start =
-                windowHeight * 0.85;
-            /* ------------------------
-               展開終了位置
-            ------------------------ */
-            const end =
-                windowHeight * 0.45;
-            /* ------------------------
-               0〜1に変換
-            ------------------------ */
-            let progress =
-                (start - rect.top) /
-                (start - end);
-            progress =
-                Math.max(
-                    0,
-                    Math.min(
-                        1,
-                        progress
-                    )
-                );
-            /* ------------------------
-               CSSへ進行度を渡す
-            ------------------------ */
+
+
             catalogTabsWrap.style.setProperty(
                 "--catalog-progress",
-                progress
+                "1"
             );
+
         }
-        /* --------------------------------
-           スクロール
-        -------------------------------- */
-        window.addEventListener(
-            "scroll",
-            updateCatalogTabs,
-            {
-                passive: true
-            }
-        );
-        /* --------------------------------
-           初期状態
-        -------------------------------- */
-        const catalogTabsWrap = document.querySelector(".catalog-tabs-wrap");
 
-let catalogTabsExpanded = false;
-
-function updateCatalogTabs() {
-    if (!catalogTabsWrap || catalogTabsExpanded) return;
-
-    const rect = catalogTabsWrap.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    /* 少しスクロールしたら展開開始 */
-    if (rect.top < windowHeight * 0.85) {
-        catalogTabsExpanded = true;
-
-        catalogTabsWrap.classList.add("is-expanded");
-
-        /* 棒を伸ばす */
-        catalogTabsWrap.style.setProperty(
-            "--catalog-progress",
-            "1"
-        );
     }
-}
 
-window.addEventListener(
-    "scroll",
-    updateCatalogTabs,
-    { passive: true }
-);
 
-updateCatalogTabs();
-        /* ====================================
-           ページ遷移
-        ==================================== */
-        const links =
-            document.querySelectorAll(
-                "a[href]"
-            );
-        links.forEach(
-            function (link) {
-                link.addEventListener(
-                    "click",
-                    function (event) {
-                        const href =
-                            link.getAttribute(
-                                "href"
-                            );
-                        /* ------------------------
-                           除外するリンク
-                        ------------------------ */
-                        if (
-                            !href ||
-                            href.startsWith("#") ||
-                            href.startsWith("http") ||
-                            href.startsWith("mailto:") ||
-                            link.target === "_blank"
-                        ) {
-                            return;
-                        }
-                        /* ------------------------
-                           通常のページ遷移
-                        ------------------------ */
-                        event.preventDefault();
-                        /* メニューを閉じる */
-                        closeMenu();
-                        /* ページをぼかして消す */
-                        document.body.classList.remove(
-                            "page-loaded"
-                        );
-                        document.body.classList.add(
-                            "page-leave"
-                        );
-                        /* CSSの0.8秒に合わせる */
-                        setTimeout(
-                            function () {
-                                window.location.href =
-                                    href;
-                            },
-                            800
-                        );
-                    }
+    window.addEventListener(
+        "scroll",
+        updateCatalogTabs,
+        {
+            passive: true
+        }
+    );
+
+
+    /*
+     * ページ読み込み時にも確認
+     */
+
+    updateCatalogTabs();
+
+
+    /* ====================================
+       ページ遷移
+    ==================================== */
+
+    const links =
+        document.querySelectorAll("a[href]");
+
+
+    links.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function (event) {
+
+                const href =
+                    link.getAttribute("href");
+
+
+                /*
+                 * 特殊リンクはそのまま
+                 */
+
+                if (
+                    !href ||
+                    href.startsWith("#") ||
+                    href.startsWith("http") ||
+                    href.startsWith("mailto:") ||
+                    link.target === "_blank"
+                ) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                closeMenu();
+
+
+                document.body.classList.remove(
+                    "page-loaded"
                 );
+
+                document.body.classList.add(
+                    "page-leave"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            href;
+
+                    },
+                    800
+                );
+
             }
         );
-    }
-);
+
+    });
+
+});
 </script>
