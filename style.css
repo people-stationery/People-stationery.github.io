@@ -2564,25 +2564,205 @@ body.page-loaded .catalog-list-back {
 
 }
 /* ========================================
-   CATALOG LINKS
+   NEW CATALOG TABS
 ======================================== */
 
-.catalog-link {
+.catalog-tabs-wrap {
+    width: 100%;
+    overflow: hidden;
+
+    margin: 0 0 45px;
+
+    border:
+        1px solid rgba(66,103,145,0.16);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.88);
+
+    box-shadow:
+        0 8px 28px rgba(42,73,104,0.07);
+}
+
+
+/* ========================================
+   TAB BAR
+======================================== */
+
+.catalog-tabs {
+    display: flex;
+
+    width: 100%;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   TAB
+======================================== */
+
+.catalog-tab {
+    flex: 1;
+
+    min-height: 92px;
+
+    padding:
+        20px 16px;
+
+    border: none;
+
+    border-right:
+        1px solid rgba(66,103,145,0.13);
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(66,103,145,0.075),
+            rgba(66,103,145,0.018)
+        );
+
+    color: #52697d;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.catalog-tab:last-child {
+    border-right: none;
+}
+
+
+/* ========================================
+   HOVER
+======================================== */
+
+.catalog-tab:hover {
+    background:
+        rgba(66,103,145,0.09);
+
+    color: #294967;
+}
+
+
+/* ========================================
+   ACTIVE
+======================================== */
+
+.catalog-tab.active {
+    background:
+        rgba(66,103,145,0.13);
+
+    color: #294967;
+
+    box-shadow:
+        inset 0 -3px 0 #426791;
+}
+
+
+/* ========================================
+   CATALOG CONTENT
+======================================== */
+
+.catalog-content {
+    position: relative;
+
+    min-height: 170px;
+}
+
+
+/* ========================================
+   PANEL
+======================================== */
+
+.catalog-panel {
+    display: none;
+
+    padding:
+        5px 5px 30px;
+}
+
+
+.catalog-panel.active {
+    display: block;
+}
+
+
+/* ========================================
+   PANEL TITLE
+======================================== */
+
+.catalog-panel h2 {
+    margin:
+        0 0 14px;
+
+    color: #315878;
+
+    font-size: 20px;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* ========================================
+   PANEL DESCRIPTION
+======================================== */
+
+.catalog-panel .catalog-description {
+    margin: 0;
+
+    color: #52697d;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    letter-spacing: 0.03em;
+}
+
+
+/* ========================================
+   LIST LINK
+======================================== */
+
+.catalog-panel .catalog-link {
     display: inline-flex;
+
     align-items: center;
+
     gap: 14px;
 
     margin-top: 28px;
+
     padding-bottom: 6px;
 
     color: #426791;
+
     text-decoration: none;
 
     font-size: 13px;
+
     font-weight: 700;
+
     letter-spacing: 0.08em;
 
-    border-bottom: 1px solid rgba(66, 103, 145, 0.35);
+    border-bottom:
+        1px solid rgba(66,103,145,0.35);
 
     transition:
         gap 0.3s ease,
@@ -2590,12 +2770,63 @@ body.page-loaded .catalog-list-back {
         color 0.3s ease;
 }
 
-.catalog-link:visited {
+
+.catalog-panel .catalog-link:visited {
     color: #426791;
 }
 
-.catalog-link:hover {
-    color: #263746;
+
+.catalog-panel .catalog-link:hover {
     gap: 20px;
-    border-color: rgba(66, 103, 145, 0.75);
+
+    color: #294967;
+
+    border-color:
+        rgba(66,103,145,0.75);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .catalog-tabs {
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+    .catalog-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .catalog-tab {
+        flex:
+            0 0 145px;
+
+        min-height: 78px;
+
+        padding:
+            16px 12px;
+
+        font-size: 10px;
+
+        letter-spacing: 0.05em;
+    }
+
+    .catalog-panel {
+        padding:
+            5px 0 25px;
+    }
+
+    .catalog-panel h2 {
+        font-size: 18px;
+    }
+
+    .catalog-panel .catalog-description {
+        font-size: 13px;
+    }
+
 }
