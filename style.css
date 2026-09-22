@@ -2840,35 +2840,39 @@ body.page-loaded .catalog-list-back {
 
 /* ========================================
    CATALOG TABS
-   ● → EXPAND
+   ● → RIGHT EXPAND
 ======================================== */
 
 .catalog-tabs-wrap {
     --catalog-progress: 0;
 
-    width: calc(
-        52px +
-        (100% - 52px) * var(--catalog-progress)
-    );
-
+    width: 100%;
     height: 48px;
 
     margin: 0 auto;
 
-    border: 1px solid rgba(66, 103, 145, 0.35);
+    position: relative;
+
+    transform-origin: left center;
+
+    transform:
+        scaleX(
+            var(--catalog-progress)
+        );
+
+    border: 1px solid
+        rgba(66, 103, 145, 0.35);
 
     border-radius: 999px;
 
-    background: rgba(255, 255, 255, 0.82);
+    background:
+        rgba(255, 255, 255, 0.9);
 
     overflow: hidden;
 
-    transition:
-        box-shadow 0.25s ease,
-        background 0.25s ease;
-
     box-shadow:
-        0 4px 18px rgba(38, 55, 70, 0.05);
+        0 4px 18px
+        rgba(38, 55, 70, 0.05);
 }
 
 
@@ -2881,6 +2885,8 @@ body.page-loaded .catalog-list-back {
 
     width: 100%;
     height: 100%;
+
+    transform-origin: left center;
 }
 
 
@@ -2896,7 +2902,8 @@ body.page-loaded .catalog-list-back {
 
     border: none;
 
-    border-right: 1px solid
+    border-right:
+        1px solid
         rgba(66, 103, 145, 0.18);
 
     background: transparent;
@@ -2913,17 +2920,12 @@ body.page-loaded .catalog-list-back {
 
     opacity: 0;
 
-    transform: translateX(-8px);
-
     transition:
-        opacity 0.35s ease,
-        transform 0.35s ease,
+        opacity 0.3s ease,
         background 0.25s ease,
         color 0.25s ease;
 }
 
-
-/* 最後の境界線を消す */
 
 .catalog-tab:last-child {
     border-right: none;
@@ -2931,18 +2933,16 @@ body.page-loaded .catalog-list-back {
 
 
 /* ========================================
-   展開中
+   展開したら文字を表示
 ======================================== */
 
-.catalog-tabs-wrap[style*="--catalog-progress: 1"] .catalog-tab {
+.catalog-tabs-wrap.expanded .catalog-tab {
     opacity: 1;
-
-    transform: translateX(0);
 }
 
 
 /* ========================================
-   タブのホバー
+   ホバー
 ======================================== */
 
 .catalog-tab:hover {
@@ -2975,21 +2975,11 @@ body.page-loaded .catalog-list-back {
 
 .catalog-tab:focus-visible {
 
-    outline: 2px solid
+    outline:
+        2px solid
         rgba(66, 103, 145, 0.45);
 
     outline-offset: -3px;
-}
-
-
-/* ========================================
-   展開完了時
-======================================== */
-
-.catalog-tabs-wrap:has(.catalog-tab.active) {
-
-    background:
-        rgba(255, 255, 255, 0.9);
 }
 
 
@@ -3000,17 +2990,12 @@ body.page-loaded .catalog-list-back {
 @media (max-width: 600px) {
 
     .catalog-tabs-wrap {
-
         height: 44px;
-
     }
 
     .catalog-tab {
-
         font-size: 10px;
-
         letter-spacing: 0.02em;
-
     }
 
 }
