@@ -2896,11 +2896,40 @@ body.page-loaded .catalog-list-back {
     }
 
     .catalog-tabs::before {
-        top: 24px;
+    content: "";
 
-        width: 48px;
-        height: 48px;
-    }
+    position: absolute;
+
+    left: 26px;
+    top: 26px;
+
+    width: 52px;
+    height: 52px;
+
+    /* 円そのもの */
+    background-color: #ffffff !important;
+
+    border: 1px solid #ffffff !important;
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    box-shadow:
+        0 4px 18px rgba(42,73,104,0.08);
+
+    z-index: 100;
+
+    transition:
+        left 2.4s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+        opacity 0.5s ease 2.4s;
+}
 
     .catalog-tabs-wrap::before {
         top: 23px;
@@ -2927,4 +2956,15 @@ body.page-loaded .catalog-list-back {
     .catalog-panel .catalog-description {
         font-size: 13px;
     }
+}
+
+/* ========================================
+   CATALOG 円の色を白に固定
+======================================== */
+
+.catalog-tabs-wrap .catalog-tabs::before {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+
+    border-color: #ffffff !important;
 }
