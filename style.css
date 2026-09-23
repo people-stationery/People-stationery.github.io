@@ -2660,44 +2660,6 @@ body.page-loaded .catalog-list-back {
 
 
 /* ========================================
-   スライドする円
-======================================== */
-
-.catalog-tabs::before {
-    content: "";
-
-    position: absolute;
-
-    left: 26px;
-    top: 26px;
-
-    width: 52px;
-    height: 52px;
-
-    background: #ffffff;
-
-    border:
-        1px solid rgba(66,103,145,0.16);
-
-    border-radius: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    z-index: 10;
-
-    transition:
-        left 1.6s cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        ),
-        opacity 0.5s ease 1.6s;
-}
-
-
-/* ========================================
    円の軌跡
 ======================================== */
 
