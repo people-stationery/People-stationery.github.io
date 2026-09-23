@@ -2565,7 +2565,7 @@ body.page-loaded .catalog-list-back {
 }
 /* ========================================
    CATALOG TABS
-   ● → 横へスライド → 横棒
+   ○ → 横へスライド → 横棒
 ======================================== */
 
 .catalog-tabs-wrap {
@@ -2581,7 +2581,7 @@ body.page-loaded .catalog-list-back {
 
 
 /* ========================================
-   横棒
+   タブ本体
 ======================================== */
 
 .catalog-tabs {
@@ -2593,25 +2593,28 @@ body.page-loaded .catalog-list-back {
     width: 100%;
     height: 52px;
 
-    margin-top: 0;
-
-    background:
-        rgba(255,255,255,0.88);
+    background: rgba(255,255,255,0.90);
 
     border:
-        1px solid rgba(66,103,145,0.16);
+        1px solid rgba(255,255,255,0.75);
 
     border-radius: 26px;
 
     box-shadow:
-        0 8px 28px rgba(42,73,104,0.07);
+        0 8px 28px rgba(42,73,104,0.06);
 
     overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.6s ease 1.8s,
+        box-shadow 0.6s ease 1.8s;
 }
 
 
 /* ========================================
-   最初の ●
+   動く白い円
 ======================================== */
 
 .catalog-tabs::before {
@@ -2619,48 +2622,40 @@ body.page-loaded .catalog-list-back {
 
     position: absolute;
 
-    left: 0;
-    top: 50%;
+    left: 26px;
+    top: 26px;
 
-    width: 8px;
-    height: 8px;
+    width: 52px;
+    height: 52px;
 
-    background: #426791;
+    background: #ffffff;
+
+    border:
+        1px solid rgba(255,255,255,0.95);
 
     border-radius: 50%;
 
     transform:
         translate(-50%, -50%);
 
+    box-shadow:
+        0 4px 18px rgba(42,73,104,0.08);
+
     z-index: 10;
 
     transition:
-        left 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.3s ease 0.7s;
+        left 2.4s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+        opacity 0.5s ease 2.4s;
 }
 
 
 /* ========================================
-   展開前
-   横棒は見えない
-======================================== */
-
-.catalog-tabs {
-    background: transparent;
-
-    border-color: transparent;
-
-    box-shadow: none;
-
-    transition:
-        background 0.3s ease 0.65s,
-        border-color 0.3s ease 0.65s,
-        box-shadow 0.3s ease 0.65s;
-}
-
-
-/* ========================================
-   円の軌跡
+   白い軌跡
 ======================================== */
 
 .catalog-tabs-wrap::before {
@@ -2674,14 +2669,17 @@ body.page-loaded .catalog-list-back {
     width: 0;
     height: 2px;
 
-    background: #426791;
+    background: rgba(255,255,255,0.95);
 
     border-radius: 2px;
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,0.5);
 
     z-index: 5;
 
     transition:
-        width 1.6s cubic-bezier(
+        width 2.4s cubic-bezier(
             0.22,
             1,
             0.36,
@@ -2691,18 +2689,27 @@ body.page-loaded .catalog-list-back {
 
 
 /* ========================================
-   展開
+   展開開始
+======================================== */
+
+.catalog-tabs-wrap.is-expanded::before {
+    width: 100%;
+}
+
+
+.catalog-tabs-wrap.is-expanded .catalog-tabs {
+    opacity: 1;
+}
+
+
+/* ========================================
+   円が右端まで移動
 ======================================== */
 
 .catalog-tabs-wrap.is-expanded .catalog-tabs::before {
     left: calc(100% - 26px);
 
     opacity: 0;
-}
-
-
-.catalog-tabs-wrap.is-expanded::before {
-    width: 100%;
 }
 
 
@@ -2721,7 +2728,7 @@ body.page-loaded .catalog-list-back {
     border: none;
 
     border-right:
-        1px solid rgba(66,103,145,0.13);
+        1px solid rgba(66,103,145,0.10);
 
     background: transparent;
 
@@ -2742,7 +2749,7 @@ body.page-loaded .catalog-list-back {
     pointer-events: none;
 
     transition:
-        opacity 0.4s ease 0.8s,
+        opacity 0.6s ease 2.0s,
         background 0.3s ease,
         color 0.3s ease;
 }
@@ -2766,7 +2773,7 @@ body.page-loaded .catalog-list-back {
 
 .catalog-tab:hover {
     background:
-        rgba(66,103,145,0.07);
+        rgba(66,103,145,0.06);
 
     color: #294967;
 }
@@ -2778,7 +2785,7 @@ body.page-loaded .catalog-list-back {
 
 .catalog-tab.active {
     background:
-        rgba(66,103,145,0.10);
+        rgba(66,103,145,0.08);
 
     color: #294967;
 
@@ -2882,8 +2889,17 @@ body.page-loaded .catalog-list-back {
         height: 48px;
     }
 
+    .catalog-tabs {
+        height: 48px;
+
+        border-radius: 24px;
+    }
+
     .catalog-tabs::before {
         top: 24px;
+
+        width: 48px;
+        height: 48px;
     }
 
     .catalog-tabs-wrap::before {
