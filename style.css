@@ -2564,13 +2564,25 @@ body.page-loaded .catalog-list-back {
 
 }
 /* ========================================
-   白い円
-   左 → 右へ移動
+   CATALOG
+   ● → ゆっくり横へ移動 → タブ表示
+======================================== */
+
+.catalog-tabs-wrap {
+    position: relative;
+    width: 100%;
+    height: 52px;
+    margin: 0 0 45px;
+    overflow: hidden;
+}
+
+
+/* ========================================
+   アニメーションの円
 ======================================== */
 
 .catalog-tabs-wrap::before {
     content: "";
-
     position: absolute;
 
     left: 26px;
@@ -2580,15 +2592,10 @@ body.page-loaded .catalog-list-back {
     height: 52px;
 
     background: #ffffff;
-
-    border: 1px solid rgba(255,255,255,0.95);
-
+    border: 1px solid rgba(66, 103, 145, 0.08);
     border-radius: 50%;
 
     transform: translate(-50%, -50%);
-
-    box-shadow:
-        0 4px 18px rgba(42,73,104,0.12);
 
     z-index: 3;
 
@@ -2598,7 +2605,7 @@ body.page-loaded .catalog-list-back {
 
 
 /* ========================================
-   円の後ろから伸びる白い線
+   アニメーションの線
 ======================================== */
 
 .catalog-tabs-wrap::after {
@@ -2613,13 +2620,9 @@ body.page-loaded .catalog-list-back {
     height: 8px;
 
     background: #ffffff;
-
     border-radius: 4px;
 
     transform: translateY(-50%);
-
-    box-shadow:
-        0 0 12px rgba(255,255,255,0.45);
 
     z-index: 2;
 
@@ -2629,13 +2632,12 @@ body.page-loaded .catalog-list-back {
 
 
 /* ========================================
-   展開
+   展開後
 ======================================== */
 
 .catalog-tabs-wrap.is-expanded::before {
     left: calc(100% - 26px);
 }
-
 
 .catalog-tabs-wrap.is-expanded::after {
     width: calc(100% - 52px);
@@ -2644,7 +2646,6 @@ body.page-loaded .catalog-list-back {
 
 /* ========================================
    タブ本体
-   最初は完全に透明
 ======================================== */
 
 .catalog-tabs {
@@ -2656,18 +2657,14 @@ body.page-loaded .catalog-list-back {
     width: 100%;
     height: 52px;
 
-    background:
-        rgba(255,255,255,0.92);
+    background: rgba(255, 255, 255, 0.94);
 
-    border:
-        1px solid rgba(66,103,145,0.12);
-
+    border: 1px solid rgba(66, 103, 145, 0.12);
     border-radius: 26px;
 
     overflow: hidden;
 
     opacity: 0;
-
     pointer-events: none;
 
     z-index: 5;
@@ -2679,6 +2676,133 @@ body.page-loaded .catalog-list-back {
 
 .catalog-tabs-wrap.is-expanded .catalog-tabs {
     opacity: 1;
-
     pointer-events: auto;
+}
+
+
+/* ========================================
+   タブ
+======================================== */
+
+.catalog-tab {
+    flex: 1;
+
+    border: none;
+    border-right: 1px solid rgba(66, 103, 145, 0.10);
+
+    background: transparent;
+
+    color: #426791;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.catalog-tab:last-child {
+    border-right: none;
+}
+
+
+.catalog-tab:hover {
+    background: rgba(66, 103, 145, 0.05);
+}
+
+
+.catalog-tab.active {
+    background: rgba(66, 103, 145, 0.10);
+    color: #2f557b;
+}
+
+
+/* ========================================
+   パネル
+======================================== */
+
+.catalog-content {
+    width: 100%;
+}
+
+
+.catalog-panel {
+    display: none;
+}
+
+
+.catalog-panel.active {
+    display: block;
+    animation: catalogPanelFade 0.35s ease;
+}
+
+
+@keyframes catalogPanelFade {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ========================================
+   パネル内
+======================================== */
+
+.catalog-panel h2 {
+    margin: 0 0 24px;
+}
+
+
+.catalog-description {
+    margin: 0 0 12px;
+}
+
+
+.catalog-link {
+    display: inline-block;
+}
+
+
+/* ========================================
+   スマホ
+======================================== */
+
+@media (max-width: 600px) {
+
+    .catalog-tabs-wrap {
+        height: 48px;
+    }
+
+    .catalog-tabs {
+        height: 48px;
+        border-radius: 24px;
+    }
+
+    .catalog-tab {
+        font-size: 11px;
+        padding: 0 4px;
+    }
+
+    .catalog-tabs-wrap::before {
+        width: 48px;
+        height: 48px;
+    }
+
+    .catalog-tabs-wrap::after {
+        height: 7px;
+    }
+
 }
