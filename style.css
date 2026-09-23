@@ -2565,7 +2565,7 @@ body.page-loaded .catalog-list-back {
 }
 /* ========================================
    CATALOG TABS
-   ○ → ━━━━━━━━━ → TAB
+   ○ → ━━━━━ → TABS
 ======================================== */
 
 .catalog-tabs-wrap {
@@ -2582,16 +2582,15 @@ body.page-loaded .catalog-list-back {
 
 /* ========================================
    白い円
-   ※最後まで円のまま
 ======================================== */
 
-.catalog-tabs::before {
+.catalog-tabs-wrap::before {
     content: "";
 
     position: absolute;
 
     left: 26px;
-    top: 26px;
+    top: 50%;
 
     width: 52px;
     height: 52px;
@@ -2609,17 +2608,15 @@ body.page-loaded .catalog-list-back {
     box-shadow:
         0 4px 18px rgba(42,73,104,0.10);
 
-    z-index: 20;
-
-    opacity: 1;
+    z-index: 1;
 }
 
 
 /* ========================================
-   円の右側から伸びる白い線
+   円から右へ伸びる線
 ======================================== */
 
-.catalog-tabs-wrap::before {
+.catalog-tabs-wrap::after {
     content: "";
 
     position: absolute;
@@ -2632,18 +2629,16 @@ body.page-loaded .catalog-list-back {
 
     background: #ffffff;
 
-    border-radius: 2px;
-
     transform:
         translateY(-50%);
 
     box-shadow:
-        0 0 8px rgba(255,255,255,0.45);
+        0 0 10px rgba(255,255,255,0.45);
 
-    z-index: 10;
+    z-index: 1;
 
     transition:
-        width 2.4s cubic-bezier(
+        width 2.2s cubic-bezier(
             0.22,
             1,
             0.36,
@@ -2653,18 +2648,17 @@ body.page-loaded .catalog-list-back {
 
 
 /* ========================================
-   展開
-   円は動かない
-   線だけ右へ伸びる
+   展開開始
 ======================================== */
 
-.catalog-tabs-wrap.is-expanded::before {
+.catalog-tabs-wrap.is-expanded::after {
     width: calc(100% - 52px);
 }
 
 
 /* ========================================
    タブ本体
+   最初は完全に存在しない
 ======================================== */
 
 .catalog-tabs {
@@ -2676,11 +2670,13 @@ body.page-loaded .catalog-list-back {
     width: 100%;
     height: 52px;
 
+    margin: 0;
+
     background:
-        rgba(255,255,255,0.90);
+        rgba(255,255,255,0.92);
 
     border:
-        1px solid rgba(66,103,145,0.10);
+        1px solid rgba(66,103,145,0.12);
 
     border-radius: 26px;
 
@@ -2689,7 +2685,25 @@ body.page-loaded .catalog-list-back {
 
     overflow: hidden;
 
-    z-index: 5;
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    transition:
+        opacity 0.6s ease 2.2s;
+}
+
+
+/* ========================================
+   線が完成したらタブを出す
+======================================== */
+
+.catalog-tabs-wrap.is-expanded .catalog-tabs {
+    opacity: 1;
+
+    pointer-events: auto;
 }
 
 
@@ -2701,6 +2715,7 @@ body.page-loaded .catalog-list-back {
     flex: 1;
 
     min-width: 0;
+
     height: 52px;
 
     padding: 0 18px;
@@ -2717,6 +2732,7 @@ body.page-loaded .catalog-list-back {
     font-family: inherit;
 
     font-size: 12px;
+
     font-weight: 700;
 
     letter-spacing: 0.08em;
@@ -2726,10 +2742,9 @@ body.page-loaded .catalog-list-back {
     cursor: pointer;
 
     opacity: 0;
-    pointer-events: none;
 
     transition:
-        opacity 0.6s ease 2.0s,
+        opacity 0.5s ease 2.45s,
         background 0.3s ease,
         color 0.3s ease;
 }
@@ -2737,8 +2752,6 @@ body.page-loaded .catalog-list-back {
 
 .catalog-tabs-wrap.is-expanded .catalog-tab {
     opacity: 1;
-
-    pointer-events: auto;
 }
 
 
@@ -2869,31 +2882,26 @@ body.page-loaded .catalog-list-back {
         height: 48px;
     }
 
-    .catalog-tabs {
-        height: 48px;
-
-        border-radius: 24px;
-    }
-
-
-    .catalog-tabs::before {
+    .catalog-tabs-wrap::before {
         left: 24px;
-        top: 24px;
 
         width: 48px;
         height: 48px;
     }
 
-
-    .catalog-tabs-wrap::before {
+    .catalog-tabs-wrap::after {
         left: 48px;
     }
 
-
-    .catalog-tabs-wrap.is-expanded::before {
+    .catalog-tabs-wrap.is-expanded::after {
         width: calc(100% - 48px);
     }
 
+    .catalog-tabs {
+        height: 48px;
+
+        border-radius: 24px;
+    }
 
     .catalog-tab {
         height: 48px;
@@ -2905,372 +2913,13 @@ body.page-loaded .catalog-list-back {
         letter-spacing: 0.02em;
     }
 
-
     .catalog-panel {
         padding: 5px 0 25px;
     }
 
-
     .catalog-panel h2 {
         font-size: 18px;
     }
-
-
-    .catalog-panel .catalog-description {
-        font-size: 13px;
-    }
-}/* ========================================
-   CATALOG TABS
-   ○ → ━━━━━━━━━ → TAB
-======================================== */
-
-.catalog-tabs-wrap {
-    position: relative;
-
-    width: 100%;
-    height: 52px;
-
-    margin: 0 0 45px;
-
-    overflow: hidden;
-}
-
-
-/* ========================================
-   白い円
-   ※最後まで円のまま
-======================================== */
-
-.catalog-tabs::before {
-    content: "";
-
-    position: absolute;
-
-    left: 26px;
-    top: 26px;
-
-    width: 52px;
-    height: 52px;
-
-    background: #ffffff;
-
-    border:
-        1px solid rgba(255,255,255,0.95);
-
-    border-radius: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    box-shadow:
-        0 4px 18px rgba(42,73,104,0.10);
-
-    z-index: 20;
-
-    opacity: 1;
-}
-
-
-/* ========================================
-   円の右側から伸びる白い線
-======================================== */
-
-.catalog-tabs-wrap::before {
-    content: "";
-
-    position: absolute;
-
-    left: 52px;
-    top: 50%;
-
-    width: 0;
-    height: 2px;
-
-    background: #ffffff;
-
-    border-radius: 2px;
-
-    transform:
-        translateY(-50%);
-
-    box-shadow:
-        0 0 8px rgba(255,255,255,0.45);
-
-    z-index: 10;
-
-    transition:
-        width 2.4s cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        );
-}
-
-
-/* ========================================
-   展開
-   円は動かない
-   線だけ右へ伸びる
-======================================== */
-
-.catalog-tabs-wrap.is-expanded::before {
-    width: calc(100% - 52px);
-}
-
-
-/* ========================================
-   タブ本体
-======================================== */
-
-.catalog-tabs {
-    position: relative;
-
-    display: flex;
-    align-items: stretch;
-
-    width: 100%;
-    height: 52px;
-
-    background:
-        rgba(255,255,255,0.90);
-
-    border:
-        1px solid rgba(66,103,145,0.10);
-
-    border-radius: 26px;
-
-    box-shadow:
-        0 8px 28px rgba(42,73,104,0.06);
-
-    overflow: hidden;
-
-    z-index: 5;
-}
-
-
-/* ========================================
-   ボタン
-======================================== */
-
-.catalog-tab {
-    flex: 1;
-
-    min-width: 0;
-    height: 52px;
-
-    padding: 0 18px;
-
-    border: none;
-
-    border-right:
-        1px solid rgba(66,103,145,0.10);
-
-    background: transparent;
-
-    color: #52697d;
-
-    font-family: inherit;
-
-    font-size: 12px;
-    font-weight: 700;
-
-    letter-spacing: 0.08em;
-
-    white-space: nowrap;
-
-    cursor: pointer;
-
-    opacity: 0;
-    pointer-events: none;
-
-    transition:
-        opacity 0.6s ease 2.0s,
-        background 0.3s ease,
-        color 0.3s ease;
-}
-
-
-.catalog-tabs-wrap.is-expanded .catalog-tab {
-    opacity: 1;
-
-    pointer-events: auto;
-}
-
-
-.catalog-tab:last-child {
-    border-right: none;
-}
-
-
-/* ========================================
-   HOVER
-======================================== */
-
-.catalog-tab:hover {
-    background:
-        rgba(66,103,145,0.06);
-
-    color: #294967;
-}
-
-
-/* ========================================
-   ACTIVE
-======================================== */
-
-.catalog-tab.active {
-    background:
-        rgba(66,103,145,0.08);
-
-    color: #294967;
-
-    box-shadow:
-        inset 0 -3px 0 #426791;
-}
-
-
-/* ========================================
-   CONTENT
-======================================== */
-
-.catalog-content {
-    position: relative;
-
-    min-height: 170px;
-}
-
-
-.catalog-panel {
-    display: none;
-
-    padding: 5px 5px 30px;
-}
-
-
-.catalog-panel.active {
-    display: block;
-}
-
-
-.catalog-panel h2 {
-    margin: 0 0 14px;
-
-    color: #315878;
-
-    font-size: 20px;
-
-    letter-spacing: 0.08em;
-}
-
-
-.catalog-panel .catalog-description {
-    margin: 0;
-
-    color: #52697d;
-
-    font-size: 14px;
-
-    line-height: 2;
-
-    letter-spacing: 0.03em;
-}
-
-
-.catalog-panel .catalog-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    margin-top: 28px;
-
-    padding-bottom: 6px;
-
-    color: #426791;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.08em;
-
-    border-bottom:
-        1px solid rgba(66,103,145,0.35);
-
-    transition:
-        gap 0.3s ease,
-        border-color 0.3s ease;
-}
-
-
-.catalog-panel .catalog-link:hover {
-    gap: 20px;
-
-    border-color:
-        rgba(66,103,145,0.75);
-}
-
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 600px) {
-
-    .catalog-tabs-wrap {
-        height: 48px;
-    }
-
-    .catalog-tabs {
-        height: 48px;
-
-        border-radius: 24px;
-    }
-
-
-    .catalog-tabs::before {
-        left: 24px;
-        top: 24px;
-
-        width: 48px;
-        height: 48px;
-    }
-
-
-    .catalog-tabs-wrap::before {
-        left: 48px;
-    }
-
-
-    .catalog-tabs-wrap.is-expanded::before {
-        width: calc(100% - 48px);
-    }
-
-
-    .catalog-tab {
-        height: 48px;
-
-        padding: 0 8px;
-
-        font-size: 10px;
-
-        letter-spacing: 0.02em;
-    }
-
-
-    .catalog-panel {
-        padding: 5px 0 25px;
-    }
-
-
-    .catalog-panel h2 {
-        font-size: 18px;
-    }
-
 
     .catalog-panel .catalog-description {
         font-size: 13px;
