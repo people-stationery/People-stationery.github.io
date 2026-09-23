@@ -2806,3 +2806,26 @@ body.page-loaded .catalog-list-back {
     }
 
 }
+
+.catalog-tabs-wrap::after {
+    content: "";
+
+    position: absolute;
+    left: 26px;
+    top: 50%;
+
+    width: 0;
+    height: 18px;
+
+    background: #ffffff;
+    border: 1px solid rgba(66, 103, 145, 0.18);
+    border-radius: 9px;
+
+    box-sizing: border-box;
+
+    transform: translateY(-50%);
+
+    z-index: 2;
+
+    transition: width 3.2s linear;
+}
