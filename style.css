@@ -2650,6 +2650,7 @@ body.page-loaded .catalog-list-back {
 
 .catalog-tabs {
     position: relative;
+    top: -20px;
 
     display: flex;
     align-items: stretch;
