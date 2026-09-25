@@ -2043,11 +2043,11 @@ body.page-loaded .catalog-section {
 /* ========================================
    商品カード一覧
 ======================================== */
-
+/* 商品カード一覧 */
 .series-products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
 }
 
 /* 商品一覧タイトルはカードの上に1段使う */
