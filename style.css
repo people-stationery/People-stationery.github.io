@@ -2353,7 +2353,7 @@ body.page-loaded .catalog-section {
 }
 
 
-.catalog-list-back a:hover {
+.catalog-list-back:hover {
     transform:
         translateY(-4px);
 
