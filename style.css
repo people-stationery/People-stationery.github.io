@@ -2277,7 +2277,7 @@ body.page-loaded .catalog-section {
 }
 
 
-.catalog-list-back a {
+a.catalog-list-back {
     display: flex;
 
     align-items: center;
