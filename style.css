@@ -2856,3 +2856,66 @@ body.page-loaded .catalog-list-back {
 
     transition: width 3.2s linear;
 }
+
+
+/* ========================================
+   シリーズ横スクロール矢印
+======================================== */
+
+.series-scroll-button {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(66, 103, 145, 0.25);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.94);
+    color: #426791;
+
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1;
+
+    box-shadow: 0 4px 14px rgba(38, 55, 70, 0.14);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* ホバー時 */
+.series-scroll-button:hover {
+    background: #426791;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(38, 55, 70, 0.22);
+    transform: translateY(-50%) scale(1.06);
+}
+
+/* 押した瞬間 */
+.series-scroll-button:active {
+    transform: translateY(-50%) scale(0.94);
+}
+
+/* スマホ */
+@media (max-width: 600px) {
+    .series-scroll-button {
+        width: 36px;
+        height: 36px;
+        font-size: 21px;
+        right: 6px;
+    }
+}
