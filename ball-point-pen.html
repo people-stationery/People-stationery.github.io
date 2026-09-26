@@ -1496,8 +1496,6 @@ function updateButton() {
         products.scrollWidth -
         products.clientWidth;
 
-
-    // 商品が7個未満なら矢印を非表示
     if (productCards.length < 7) {
 
         button.classList.add("is-hidden");
@@ -1506,8 +1504,6 @@ function updateButton() {
 
     }
 
-
-    // 7個以上でも横スクロールできない場合は非表示
     if (maxScroll <= 5) {
 
         button.classList.add("is-hidden");
@@ -1516,8 +1512,6 @@ function updateButton() {
 
     }
 
-
-    // 右端に到達した場合
     if (
         products.scrollLeft >= maxScroll - 5
     ) {
@@ -1531,27 +1525,6 @@ function updateButton() {
     }
 
 }
-
-
-
-    // 右端に到達したら非表示
-    if (
-        maxScroll <= 5 ||
-        products.scrollLeft >= maxScroll - 5
-    ) {
-
-        button.classList.add(
-            "is-hidden"
-        );
-
-    } else {
-
-        button.classList.remove(
-            "is-hidden"
-        );
-
-    }
-
 }
 
                             /* ----------------------------
