@@ -1484,37 +1484,49 @@
                             }
 
 
-                            /* ----------------------------
-                               ボタン表示状態
-                            ---------------------------- */
+                           function updateButton() {
 
-                            function updateButton() {
+    const productCards =
+        products.querySelectorAll(
+            ".stationery-card"
+        );
 
-                                const maxScroll =
-                                    products.scrollWidth -
-                                    products.clientWidth;
+    const maxScroll =
+        products.scrollWidth -
+        products.clientWidth;
 
 
-                                if (
-                                    maxScroll <= 5 ||
-                                    products.scrollLeft >=
-                                    maxScroll - 5
-                                ) {
+    // 商品が7個未満なら矢印を非表示
+    if (productCards.length < 7) {
 
-                                    button.classList.add(
-                                        "is-hidden"
-                                    );
+        button.classList.add(
+            "is-hidden"
+        );
 
-                                } else {
+        return;
 
-                                    button.classList.remove(
-                                        "is-hidden"
-                                    );
+    }
 
-                                }
 
-                            }
+    // 右端に到達したら非表示
+    if (
+        maxScroll <= 5 ||
+        products.scrollLeft >= maxScroll - 5
+    ) {
 
+        button.classList.add(
+            "is-hidden"
+        );
+
+    } else {
+
+        button.classList.remove(
+            "is-hidden"
+        );
+
+    }
+
+}
 
                             /* ----------------------------
                                右へスクロール
