@@ -2040,14 +2040,43 @@ body.page-loaded .catalog-section {
    商品カード一覧
 ======================================== */
 
-/* ========================================
-   商品カード一覧
-======================================== */
-/* 商品カード一覧 */
+/* 商品カード一覧：横スクロール */
 .series-products {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-auto-flow: column;
+    grid-auto-columns: 180px;
+
     gap: 16px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 8px 4px 16px;
+
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 商品カードの横幅を固定 */
+.series-products .stationery-card {
+    width: 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+/* スクロールバー */
+.series-products::-webkit-scrollbar {
+    height: 6px;
+}
+
+.series-products::-webkit-scrollbar-thumb {
+    background: #426791;
+    border-radius: 10px;
+}
+
+.series-products::-webkit-scrollbar-track {
+    background: #eaf0f6;
+    border-radius: 10px;
 }
 
 /* 商品一覧タイトルはカードの上に1段使う */
