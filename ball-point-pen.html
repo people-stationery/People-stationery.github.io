@@ -1484,7 +1484,8 @@
                             }
 
 
-                           function updateButton() {
+                    
+function updateButton() {
 
     const productCards =
         products.querySelectorAll(
@@ -1499,13 +1500,38 @@
     // 商品が7個未満なら矢印を非表示
     if (productCards.length < 7) {
 
-        button.classList.add(
-            "is-hidden"
-        );
+        button.classList.add("is-hidden");
 
         return;
 
     }
+
+
+    // 7個以上でも横スクロールできない場合は非表示
+    if (maxScroll <= 5) {
+
+        button.classList.add("is-hidden");
+
+        return;
+
+    }
+
+
+    // 右端に到達した場合
+    if (
+        products.scrollLeft >= maxScroll - 5
+    ) {
+
+        button.classList.add("is-hidden");
+
+    } else {
+
+        button.classList.remove("is-hidden");
+
+    }
+
+}
+
 
 
     // 右端に到達したら非表示
