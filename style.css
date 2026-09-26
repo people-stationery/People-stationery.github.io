@@ -2919,3 +2919,12 @@ body.page-loaded .catalog-list-back {
         right: 6px;
     }
 }
+/* シリーズごとのカルーセルの基準位置 */
+.series-scroll-button {
+    /* 既存の設定はそのまま */
+}
+
+/* 商品一覧を囲むシリーズ領域 */
+.series-section {
+    position: relative;
+}
