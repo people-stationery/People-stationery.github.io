@@ -2994,7 +2994,12 @@ body.page-loaded .catalog-list-back {
     }
 }
 
-/* 商品が7個未満のシリーズは矢印を非表示 */
-.series-scroll-button[hidden] {
+/* ========================================
+   シリーズ矢印：非表示制御
+======================================== */
+
+/* hidden属性またはis-hiddenクラスがある場合 */
+.series-scroll-button[hidden],
+.series-scroll-button.is-hidden {
     display: none !important;
 }
