@@ -1530,23 +1530,12 @@ function updateButton() {
                                右へスクロール
                             ---------------------------- */
 
-                            button.addEventListener(
-                                "click",
-                                function () {
-
-                                    products.scrollBy({
-
-                                        left:
-                                            products.clientWidth *
-                                            0.7,
-
-                                        behavior: "smooth"
-
-                                    });
-
-                                }
-                            );
-
+                            button.addEventListener("click", () => {
+    products.scrollTo({
+        left: products.scrollWidth,
+        behavior: "smooth"
+    });
+});
 
                             /* ----------------------------
                                スクロール時
