@@ -3098,3 +3098,74 @@ body.page-loaded .catalog-list-back {
     width: 16px;
     height: 16px;
 }
+/* ========================================
+   CATEGORY NAVIGATION
+   外枠＋丸型ボタン
+======================================== */
+
+.catalog-tabs-wrap {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 12px;
+
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(66, 103, 145, 0.14);
+    border-radius: 28px;
+
+    box-shadow: 0 8px 30px rgba(42, 73, 104, 0.05);
+}
+
+/* 横一列 */
+.catalog-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* 丸いボタン */
+.catalog-tab {
+    flex: 0 0 76px;
+    width: 76px;
+    height: 76px;
+    min-height: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(66, 103, 145, 0.18);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 14px rgba(42, 73, 104, 0.06);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background-color 0.3s ease;
+}
+
+/* ホバー */
+.catalog-tab:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(42, 73, 104, 0.12);
+}
+
+/* 選択中 */
+.catalog-tab.active {
+    background: #EAF1F8;
+    border-color: rgba(66, 103, 145, 0.55);
+    box-shadow: 0 5px 18px rgba(66, 103, 145, 0.12);
+}
+
+/* ペン先アイコン */
+.category-icon {
+    transform: rotate(-35deg) scale(0.75);
+}
