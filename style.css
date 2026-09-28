@@ -3274,3 +3274,37 @@ body.page-loaded .catalog-list-back {
 .category-icon {
     transform: rotate(145deg) scale(0.75);
 }
+/* ========================================
+   CATEGORY SVG SIZE FIX
+======================================== */
+
+.catalog-tabs .catalog-tab {
+    flex: 0 0 56px !important;
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    overflow: hidden !important;
+}
+
+.catalog-tabs .catalog-tab svg.category-svg {
+    display: block !important;
+
+    width: 44px !important;
+    height: 44px !important;
+
+    min-width: 44px !important;
+    min-height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+
+    flex: 0 0 44px !important;
+
+    transform: none !important;
+}
