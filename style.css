@@ -2589,163 +2589,268 @@ body.page-loaded .catalog-list-back {
     }
 
 }
+
 /* ========================================
-   CATALOG
-   ● → ゆっくり横へ移動 → タブ表示
+   CATALOG CATEGORY
+   外枠＋丸型ボタン4つ
 ======================================== */
 
+/* 外側の枠 */
 .catalog-tabs-wrap {
     position: relative;
     width: 100%;
-    height: 52px;
-    margin: -50px 0 45px;
+    max-width: 900px;
+    height: auto;
+    margin: -50px auto 45px;
+    padding: 12px;
+
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(66, 103, 145, 0.14);
+    border-radius: 40px;
+
+    box-shadow: 0 8px 28px rgba(42, 73, 104, 0.05);
     overflow: visible;
 }
 
-
-/* ========================================
-   アニメーションの円
-======================================== */
-
-.catalog-tabs-wrap::before {
-    content: "";
-    position: absolute;
-
-    left: 26px;
-    top: 35%;
-
-    width: 52px;
-    height: 52px;
-
-    background: #ffffff;
-    border: 1px solid rgba(66, 103, 145, 0.08);
-    border-radius: 50%;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 3;
-
-    transition:
-        left 3.2s linear;
-}
-
-
-/* ========================================
-   アニメーションの線
-======================================== */
-
+/* 古い円と線を完全に廃止 */
+.catalog-tabs-wrap::before,
 .catalog-tabs-wrap::after {
-    content: "";
-
-    position: absolute;
-
-    left: 26px;
-    top: 35%;
-
-    width: 0;
-    height: 25px;
-
-    background: #ffffff;
-    border-radius: 4px;
-
-    transform: translateY(-50%);
-
-    z-index: 2;
-
-    transition:
-        width 3.2s linear;
+    content: none;
+    display: none;
 }
 
-
-/* ========================================
-   展開後
-======================================== */
-
-.catalog-tabs-wrap.is-expanded::before {
-    left: calc(100% - 26px);
-}
-
-.catalog-tabs-wrap.is-expanded::after {
-    width: calc(100% - 52px);
-}
-
-
-/* ========================================
-   タブ本体
-======================================== */
-
+/* 4つのボタンを並べる領域 */
 .catalog-tabs {
     position: relative;
-    top: -8px;
+    top: 0;
 
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
 
     width: 100%;
-    height: 52px;
+    height: auto;
+    min-height: 76px;
 
-    background: rgba(255, 255, 255, 0.94);
+    padding: 0;
 
-    border: 1px solid rgba(66, 103, 145, 0.12);
-    border-radius: 26px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
 
-    overflow: hidden;
+    overflow: visible;
 
-    opacity: 0;
-    pointer-events: none;
-
-    z-index: 5;
-
-    transition:
-        opacity 0.7s ease 3.2s;
-}
-
-
-.catalog-tabs-wrap.is-expanded .catalog-tabs {
     opacity: 1;
     pointer-events: auto;
+    z-index: 1;
+
+    transition: none;
 }
 
-
 /* ========================================
-   タブ
+   丸型カテゴリーボタン
 ======================================== */
 
 .catalog-tab {
-    flex: 1;
+    position: relative;
 
-    border: none;
-    border-right: 1px solid rgba(66, 103, 145, 0.10);
+    flex: 0 0 76px;
+    width: 76px;
+    height: 76px;
+    min-height: 0;
 
-    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    padding: 0;
+
+    border: 1px solid rgba(66, 103, 145, 0.18);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.96);
     color: #426791;
 
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
+    box-shadow: 0 4px 14px rgba(42, 73, 104, 0.06);
+
+    font-size: 0;
+    line-height: 0;
 
     cursor: pointer;
 
     transition:
-        background 0.25s ease,
-        color 0.25s ease;
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background-color 0.3s ease;
 }
 
+/* 文字を完全に非表示 */
+.catalog-tab {
+    text-indent: -9999px;
+    overflow: hidden;
+}
 
+/* ボタン間の古い区切り線を廃止 */
 .catalog-tab:last-child {
-    border-right: none;
+    border-right: 1px solid rgba(66, 103, 145, 0.18);
 }
 
-
+/* ホバー */
 .catalog-tab:hover {
-    background: rgba(66, 103, 145, 0.05);
+    transform: translateY(-3px);
+
+    background: #F5F8FC;
+    box-shadow: 0 8px 20px rgba(42, 73, 104, 0.12);
 }
 
-
+/* 選択中 */
 .catalog-tab.active {
-    background: rgba(66, 103, 145, 0.10);
-    color: #2f557b;
+    background: #EAF1F8;
+    border-color: rgba(66, 103, 145, 0.55);
+
+    color: #2F557B;
+
+    box-shadow: 0 5px 18px rgba(66, 103, 145, 0.12);
+}
+
+/* ========================================
+   ペン先アイコン
+======================================== */
+
+.category-icon {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    display: block;
+
+    width: 60px;
+    height: 60px;
+
+    flex-shrink: 0;
+
+    transform: translate(-50%, -50%) rotate(135deg) scale(0.75);
+    transform-origin: center;
+
+    pointer-events: none;
+}
+
+/* ペン先の軸側の金属部分 */
+.category-icon::before {
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+    top: 20px;
+
+    width: 37px;
+    height: 18px;
+
+    border: 2px solid #426791;
+    border-radius: 2px 0 0 2px;
+
+    background: transparent;
+}
+
+/* 先端の尖った部分 */
+.category-icon::after {
+    content: "";
+
+    position: absolute;
+
+    left: 39px;
+    top: 20px;
+
+    width: 16px;
+    height: 16px;
+
+    border-top: 2px solid #426791;
+    border-right: 2px solid #426791;
+
+    transform: rotate(45deg);
+}
+
+/* シャープペンシル */
+.category-icon-mechanical::before {
+    width: 38px;
+    height: 16px;
+    border-radius: 1px 0 0 1px;
+}
+
+.category-icon-mechanical::after {
+    width: 13px;
+    height: 13px;
+}
+
+/* ボールペン */
+.category-icon-ballpoint::before {
+    width: 36px;
+    height: 17px;
+    border-radius: 4px 0 0 4px;
+}
+
+.category-icon-ballpoint::after {
+    width: 10px;
+    height: 10px;
+}
+
+/* 万年筆 */
+.category-icon-fountain::before {
+    width: 32px;
+    height: 21px;
+    border-radius: 50% 0 0 50%;
+}
+
+.category-icon-fountain::after {
+    width: 18px;
+    height: 18px;
+}
+
+/* Another */
+.category-icon-another::before {
+    width: 34px;
+    height: 15px;
+    border-radius: 2px 0 0 2px;
+}
+
+.category-icon-another::after {
+    width: 13px;
+    height: 13px;
+}
+
+/* ========================================
+   スマートフォン
+======================================== */
+
+@media (max-width: 600px) {
+
+    .catalog-tabs-wrap {
+        margin-top: -30px;
+        padding: 10px;
+        border-radius: 34px;
+    }
+
+    .catalog-tabs {
+        gap: 10px;
+        min-height: 64px;
+    }
+
+    .catalog-tab {
+        flex-basis: 60px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .category-icon {
+        transform:
+            translate(-50%, -50%)
+            rotate(135deg)
+            scale(0.62);
+    }
 }
 
 
