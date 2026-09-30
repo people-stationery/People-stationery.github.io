@@ -1,24 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90">
-<g fill="none" stroke="#426791" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <!-- knurled metal body -->
-  <path d="M50 22 L113 22 L117 26 L117 54 L113 58 L50 58 Z"/>
-  <g stroke-width="0.8" opacity="0.9">
-    <path d="M54 23 L89 57 M62 23 L97 57 M70 23 L105 57 M78 23 L113 57 M86 23 L117 53"/>
-    <path d="M54 57 L89 23 M62 57 L97 23 M70 57 L105 23 M78 57 L113 23 M86 57 L117 27"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 90">
+<g fill="none" stroke="#426791" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- long cylindrical knurled barrel -->
+  <path d="M48 20 L132 20 L136 24 L136 50 L132 54 L48 54 Z"/>
+
+  <!-- knurling -->
+  <g stroke-width="0.7" opacity="0.85">
+    <path d="M53 21 L86 53 M61 21 L94 53 M69 21 L102 53 M77 21 L110 53 M85 21 L118 53 M93 21 L126 53 M101 21 L134 53"/>
+    <path d="M53 53 L86 21 M61 53 L94 21 M69 53 L102 21 M77 53 L110 21 M85 53 L118 21 M93 53 L126 21 M101 53 L134 21"/>
   </g>
 
-  <!-- front collar / cone -->
-  <path d="M50 22 L40 29 L40 51 L50 58"/>
-  <path d="M40 29 L28 38 L28 42 L40 51"/>
-  <path d="M28 38 L23 38 L20 41 L23 44 L28 42"/>
+  <!-- metal nose section, deliberately cylindrical rather than pencil-like -->
+  <path d="M48 20 L39 24 L39 50 L48 54"/>
+  <path d="M39 24 L31 27 L31 47 L39 50"/>
 
-  <!-- white guide-pipe mount -->
-  <path d="M23 38 L18 38 L18 44 L23 44"/>
-  <path d="M18 38 L18 44"/>
-  
-  <!-- guide pipe, aligned with the pencil axis -->
-  <path d="M18 39 L6 39"/>
-  <path d="M18 43 L6 43"/>
-  <path d="M6 39 L6 43"/>
+  <!-- white plastic collar -->
+  <path d="M31 27 L23 30 L23 44 L31 47"/>
+  <path d="M23 30 L17 33 L17 41 L23 44"/>
+
+  <!-- metal guide-pipe base -->
+  <path d="M17 33 L13 34 L13 40 L17 41"/>
+
+  <!-- thin guide pipe -->
+  <path d="M13 34.5 L2 34.5"/>
+  <path d="M13 39.5 L2 39.5"/>
+  <path d="M2 34.5 L2 39.5"/>
+
+  <!-- subtle barrel end detail -->
+  <path d="M132 20 L132 54"/>
 </g>
 </svg>
