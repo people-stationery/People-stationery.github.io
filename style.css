@@ -3308,3 +3308,19 @@ body.page-loaded .catalog-list-back {
 
     transform: none !important;
 }
+
+.catalog-tabs .catalog-tab img.category-svg {
+    display: block !important;
+
+    width: 44px !important;
+    height: 44px !important;
+
+    min-width: 44px !important;
+    min-height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+
+    flex: 0 0 44px !important;
+
+    transform: none !important;
+}
