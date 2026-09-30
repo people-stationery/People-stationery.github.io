@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" role="img" aria-label="Ball point pen line drawing">
+<g fill="none" stroke="#426791" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <!-- barrel -->
+  <path d="M15 27 L94 27 L101 31 L101 59 L94 63 L15 63 Z"/>
+  <!-- subtle barrel end seam -->
+  <path d="M15 27 L15 63"/>
+  <!-- nose / refill boundary -->
+  <path d="M94 27 L94 63"/>
+  <!-- short metal tip -->
+  <path d="M101 31 L111 43 L111 47 L101 59"/>
+  <!-- refill point -->
+  <path d="M111 43 L116 45 L116 45 L111 47"/>
+  <!-- clear boundary line at the metal tip base -->
+  <path d="M101 31 L101 59"/>
+</g>
+</svg>
