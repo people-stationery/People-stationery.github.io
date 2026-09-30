@@ -1,19 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90">
 <g fill="none" stroke="#426791" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M52 7 L116 7 L120 11 L120 43 L116 47 L52 47 Z"/>
-  <path d="M52 7 L48 11 L48 43 L52 47"/>
-  <path d="M48 13 L42 18 L42 36 L48 41"/>
-  <path d="M42 18 L27 31 L27 37 L33 43 L42 36"/>
-  <path d="M27 31 L33 37 L42 37"/>
-  <path d="M27 37 L8 56"/>
-  <path d="M33 43 L14 62"/>
-  <path d="M8 56 L14 62"/>
-  <path d="M43 18 L48 13"/>
-  <path d="M43 36 L48 41"/>
+  <!-- knurled metal body -->
+  <path d="M50 22 L113 22 L117 26 L117 54 L113 58 L50 58 Z"/>
   <g stroke-width="0.8" opacity="0.9">
-    <path d="M56 8 L88 40 M64 8 L96 40 M72 8 L104 40 M80 8 L112 40 M88 8 L120 40"/>
-    <path d="M56 40 L88 8 M64 40 L96 8 M72 40 L104 8 M80 40 L112 8 M88 40 L120 8"/>
-    <path d="M56 14 L62 8 M56 22 L70 8 M56 30 L78 8 M56 38 L86 8"/>
+    <path d="M54 23 L89 57 M62 23 L97 57 M70 23 L105 57 M78 23 L113 57 M86 23 L117 53"/>
+    <path d="M54 57 L89 23 M62 57 L97 23 M70 57 L105 23 M78 57 L113 23 M86 57 L117 27"/>
   </g>
+
+  <!-- front collar / cone -->
+  <path d="M50 22 L40 29 L40 51 L50 58"/>
+  <path d="M40 29 L28 38 L28 42 L40 51"/>
+  <path d="M28 38 L23 38 L20 41 L23 44 L28 42"/>
+
+  <!-- white guide-pipe mount -->
+  <path d="M23 38 L18 38 L18 44 L23 44"/>
+  <path d="M18 38 L18 44"/>
+  
+  <!-- guide pipe, aligned with the pencil axis -->
+  <path d="M18 39 L6 39"/>
+  <path d="M18 43 L6 43"/>
+  <path d="M6 39 L6 43"/>
 </g>
 </svg>
