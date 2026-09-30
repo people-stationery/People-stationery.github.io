@@ -4,12 +4,6 @@
   <!-- long cylindrical knurled barrel -->
   <path d="M48 20 L132 20 L136 24 L136 50 L132 54 L48 54 Z"/>
 
-  <!-- knurling -->
-  <g stroke-width="0.7" opacity="0.85">
-    <path d="M53 21 L86 53 M61 21 L94 53 M69 21 L102 53 M77 21 L110 53 M85 21 L118 53 M93 21 L126 53 M101 21 L134 53"/>
-    <path d="M53 53 L86 21 M61 53 L94 21 M69 53 L102 21 M77 53 L110 21 M85 53 L118 21 M93 53 L126 21 M101 53 L134 21"/>
-  </g>
-
   <!-- metal nose section, deliberately cylindrical rather than pencil-like -->
   <path d="M48 20 L39 24 L39 50 L48 54"/>
   <path d="M39 24 L31 27 L31 47 L39 50"/>
