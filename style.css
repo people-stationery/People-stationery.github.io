@@ -3325,3 +3325,7 @@ body.page-loaded .catalog-list-back {
     transform: rotate(-35deg) !important;
     transform-origin: center center !important;
 }
+
+.catalog-tabs .catalog-tab[data-category="ball-point"] img.category-svg {
+    transform: rotate(35deg) !important;
+}
