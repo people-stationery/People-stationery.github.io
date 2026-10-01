@@ -3331,5 +3331,5 @@ body.page-loaded .catalog-list-back {
 }
 
 .catalog-tabs .catalog-tab[data-category="ball-point"] img.category-svg {
-    transform: rotate(35deg) !important;
+    transform: rotate(135deg) !important;
 }
