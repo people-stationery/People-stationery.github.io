@@ -1757,6 +1757,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const priceSourceNote = document.getElementById("productDetailPriceSourceNote");
     const verifiedPrices = {
         
+        "PILOT|CUSTOM 74": { value: "35,000〜40,000円", url: "https://www.pilot.co.jp/information/pricelist_202607.pdf", note: "パイロット公式・2026年7月価格表（税抜、ペン先仕様により異なる）" },
+        "PILOT|CUSTOM 742": { value: "45,000円", url: "https://www.pilot.co.jp/information/pricelist_202607.pdf", note: "パイロット公式・2026年7月価格表（税抜）" },
+        "PILOT|CUSTOM 743": { value: "55,000円", url: "https://www.pilot.co.jp/information/pricelist_202607.pdf", note: "パイロット公式・2026年7月価格表（税抜）" },
+        "PILOT|CUSTOM 823": { value: "60,000円", url: "https://www.pilot.co.jp/information/pricelist_202607.pdf", note: "パイロット公式・2026年7月価格表（税抜）" },
+        "PILOT|CUSTOM 845": { value: "120,000円", url: "https://www.pilot.co.jp/information/pricelist_202607.pdf", note: "パイロット公式・2026年7月価格表（税抜）" },
+        "PILOT|CUSTOM HERITAGE 91": { value: "35,000円", url: "https://www.pilot.co.jp/information/pricelist_202607.pdf", note: "パイロット公式・2026年7月価格表（税抜）" },
+        "PILOT|CUSTOM HERITAGE 92": { value: "40,000円", url: "https://www.pilot.co.jp/information/pricelist_202607.pdf", note: "パイロット公式・2026年7月価格表（税抜）" },
+        "PILOT|CUSTOM HERITAGE 912": { value: "45,000円", url: "https://www.pilot.co.jp/information/pricelist_202607.pdf", note: "パイロット公式・2026年7月価格表（税抜）" },
+        "PILOT|CUSTOM HERITAGE SE": { value: "40,000円", url: "https://www.pilot.co.jp/information/pricelist_202607.pdf", note: "パイロット公式・2026年7月価格表（税抜）" }
     };
 
     // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
@@ -1773,6 +1782,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "PILOT|CUSTOM 74": { value: "17.4 g", url: "https://webcatalog.pilot.co.jp/products/fileDownload?fileID=t010000016456&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
         "PILOT|CUSTOM 743": { value: "25.0 g", url: "https://webcatalog.pilot.co.jp/products/fileDownload?fileID=t010000016463&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
         "PILOT|CUSTOM 823": { value: "29.5 g", url: "https://webcatalog.pilot.co.jp/products/fileDownload?fileID=t010000016463&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" }
+        "PILOT|CUSTOM 845": { value: "約28 g", url: "https://www.pen-house.net/category/PILOT/?SEARCH_MAX_ROW_LIST=30&item_list_mode=2&next_page=3&request=page&sort_order=FREE_ITEM18_ASC", note: "ペンハウス掲載仕様（第三者情報）" },
+        "PILOT|CUSTOM HERITAGE 91": { value: "約15.7 g", url: "https://www.pen-house.net/category/PILOT/?SEARCH_MAX_ROW_LIST=30&item_list_mode=2&next_page=3&request=page&sort_order=FREE_ITEM18_ASC", note: "ペンハウス掲載仕様（第三者情報）" }
     };
     const categoryLabel = document.querySelector(".hero .small-title");
     let previousFocus = null;
