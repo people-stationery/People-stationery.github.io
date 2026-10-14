@@ -1740,7 +1740,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const series = seriesSection && seriesSection.querySelector(".series-title");
 
         nameField.textContent = name ? name.textContent.trim() : "商品詳細";
-        const weightKey = (maker ? maker.textContent.trim() : "") + "|" + (name ? name.textContent.trim().replace(/\\s+/g, " ") : "");
+        const weightKey = (maker ? maker.textContent.trim() : "") + "|" + (name ? name.textContent.trim().replace(/\s+/g, " ") : "");
         const weightData = verifiedWeights[weightKey];
         weightField.textContent = weightData ? weightData.value : "未確認";
         weightSourceNote.hidden = Boolean(weightData);
