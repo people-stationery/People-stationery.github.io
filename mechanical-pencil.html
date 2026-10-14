@@ -659,6 +659,14 @@
                 <dt>重量の出典</dt>
                 <dd><a id="productDetailWeightSource" href="#" target="_blank" rel="noopener noreferrer" hidden>メーカー公式情報</a><span id="productDetailWeightSourceNote">公式仕様を確認でき次第追加</span></dd>
             </div>
+            <div>
+                <dt>定価（税抜）</dt>
+                <dd id="productDetailPrice">未確認</dd>
+            </div>
+            <div>
+                <dt>定価の出典</dt>
+                <dd><a id="productDetailPriceSource" href="#" target="_blank" rel="noopener noreferrer" hidden>メーカー公式情報</a><span id="productDetailPriceSourceNote">公式価格を確認でき次第追加</span></dd>
+            </div>
         </dl>
         <p class="product-detail-note">製品の仕様や特徴は、確認できた情報から順次追加していきます。</p>
         <button class="product-detail-back" id="productDetailBack" type="button">一覧に戻る <span>↗</span></button>
@@ -970,9 +978,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const weightField = document.getElementById("productDetailWeight");
     const weightSourceLink = document.getElementById("productDetailWeightSource");
     const weightSourceNote = document.getElementById("productDetailWeightSourceNote");
+    const priceField = document.getElementById("productDetailPrice");
+    const priceSourceLink = document.getElementById("productDetailPriceSource");
+    const priceSourceNote = document.getElementById("productDetailPriceSourceNote");
+    const verifiedPrices = {
+        "MITSUBISHI|standard model": { value: "450円", url: "https://mpuni.life/company/press/20210128-52116.html", note: "三菱鉛筆公式・参考価格（税抜）" }
+    };
 
     // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
     const verifiedWeights = {
+        "MITSUBISHI|standard model": { value: "9.8 g", url: "https://www.crowngroup.co.jp/special/tryangle/items/free/10000005459", note: "重量仕様掲載ページ" },
         "TOMBOW|MONO graph": { value: "17 g", url: "https://www.tombow.com/press/241107/", note: "トンボ鉛筆公式・製品仕様" },
         "PILOT|Dr.Grip ACE": { value: "21.7 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100000419&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
         "PILOT|S3": { value: "10.9 g", url: "https://webcatalog.pilot.co.jp/products/fileDownload?fileID=t010000016506&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
@@ -994,6 +1009,16 @@ document.addEventListener("DOMContentLoaded", function () {
         nameField.textContent = name ? name.textContent.trim() : "商品詳細";
         const weightKey = (maker ? maker.textContent.trim() : "") + "|" + (name ? name.textContent.trim().replace(/\s+/g, " ") : "");
         const weightData = verifiedWeights[weightKey];
+        const priceData = verifiedPrices[weightKey];
+        priceField.textContent = priceData ? priceData.value : "未確認";
+        priceSourceNote.hidden = Boolean(priceData);
+        priceSourceLink.hidden = !priceData;
+        if (priceData) {
+            priceSourceLink.href = priceData.url;
+            priceSourceLink.textContent = priceData.note;
+        } else {
+            priceSourceLink.removeAttribute("href");
+        }
         weightField.textContent = weightData ? weightData.value : "未確認";
         weightSourceNote.hidden = Boolean(weightData);
         weightSourceLink.hidden = !weightData;
