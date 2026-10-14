@@ -1317,6 +1317,14 @@
                 <dt>重量の出典</dt>
                 <dd><a id="productDetailWeightSource" href="#" target="_blank" rel="noopener noreferrer" hidden>メーカー公式情報</a><span id="productDetailWeightSourceNote">公式仕様を確認でき次第追加</span></dd>
             </div>
+            <div>
+                <dt>定価（税抜）</dt>
+                <dd id="productDetailPrice">未確認</dd>
+            </div>
+            <div>
+                <dt>定価の出典</dt>
+                <dd><a id="productDetailPriceSource" href="#" target="_blank" rel="noopener noreferrer" hidden>メーカー公式情報</a><span id="productDetailPriceSourceNote">公式価格を確認でき次第追加</span></dd>
+            </div>
         </dl>
         <p class="product-detail-note">製品の仕様や特徴は、確認できた情報から順次追加していきます。</p>
         <button class="product-detail-back" id="productDetailBack" type="button">一覧に戻る <span>↗</span></button>
@@ -1744,6 +1752,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const weightField = document.getElementById("productDetailWeight");
     const weightSourceLink = document.getElementById("productDetailWeightSource");
     const weightSourceNote = document.getElementById("productDetailWeightSourceNote");
+    const priceField = document.getElementById("productDetailPrice");
+    const priceSourceLink = document.getElementById("productDetailPriceSource");
+    const priceSourceNote = document.getElementById("productDetailPriceSourceNote");
+    const verifiedPrices = {
+        
+    };
 
     // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
     const verifiedWeights = {
@@ -1775,6 +1789,16 @@ document.addEventListener("DOMContentLoaded", function () {
         nameField.textContent = name ? name.textContent.trim() : "商品詳細";
         const weightKey = (maker ? maker.textContent.trim() : "") + "|" + (name ? name.textContent.trim().replace(/\s+/g, " ") : "");
         const weightData = verifiedWeights[weightKey];
+        const priceData = verifiedPrices[weightKey];
+        priceField.textContent = priceData ? priceData.value : "未確認";
+        priceSourceNote.hidden = Boolean(priceData);
+        priceSourceLink.hidden = !priceData;
+        if (priceData) {
+            priceSourceLink.href = priceData.url;
+            priceSourceLink.textContent = priceData.note;
+        } else {
+            priceSourceLink.removeAttribute("href");
+        }
         weightField.textContent = weightData ? weightData.value : "未確認";
         weightSourceNote.hidden = Boolean(weightData);
         weightSourceLink.hidden = !weightData;
