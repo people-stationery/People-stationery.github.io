@@ -1276,6 +1276,44 @@
          フッター
     ======================================== -->
 
+    
+    <!-- ========================================
+         商品詳細パネル（DETAIL）
+    ======================================== -->
+    <div class="product-detail-backdrop" id="productDetailBackdrop" hidden></div>
+    <section
+        class="product-detail-panel"
+        id="productDetailPanel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="productDetailName"
+        aria-hidden="true"
+        hidden
+    >
+        <button class="product-detail-close" id="productDetailClose" type="button" aria-label="詳細を閉じる">×</button>
+        <p class="product-detail-eyebrow">PEOPLE STATIONERY / DETAIL</p>
+        <p class="product-detail-maker" id="productDetailMaker"></p>
+        <h2 class="product-detail-name" id="productDetailName"></h2>
+        <p class="product-detail-series" id="productDetailSeries"></p>
+        <div class="product-detail-rule"></div>
+        <dl class="product-detail-specs">
+            <div>
+                <dt>カテゴリー</dt>
+                <dd id="productDetailCategory"></dd>
+            </div>
+            <div>
+                <dt>メーカー</dt>
+                <dd id="productDetailMakerValue"></dd>
+            </div>
+            <div>
+                <dt>シリーズ</dt>
+                <dd id="productDetailSeriesValue"></dd>
+            </div>
+        </dl>
+        <p class="product-detail-note">製品の仕様や特徴は、確認できた情報から順次追加していきます。</p>
+        <button class="product-detail-back" id="productDetailBack" type="button">一覧に戻る <span>↗</span></button>
+    </section>
+
     <footer>
 
         <p>
@@ -1675,6 +1713,84 @@
         );
 
     </script>
+
+
+<script>
+/* ========================================
+   商品詳細パネル
+======================================== */
+document.addEventListener("DOMContentLoaded", function () {
+    const panel = document.getElementById("productDetailPanel");
+    const backdrop = document.getElementById("productDetailBackdrop");
+    const closeButton = document.getElementById("productDetailClose");
+    const backButton = document.getElementById("productDetailBack");
+
+    if (!panel || !backdrop || !closeButton || !backButton) return;
+
+    const nameField = document.getElementById("productDetailName");
+    const makerField = document.getElementById("productDetailMaker");
+    const makerValue = document.getElementById("productDetailMakerValue");
+    const seriesField = document.getElementById("productDetailSeries");
+    const seriesValue = document.getElementById("productDetailSeriesValue");
+    const categoryField = document.getElementById("productDetailCategory");
+    const categoryLabel = document.querySelector(".hero .small-title");
+    let previousFocus = null;
+
+    function openDetail(link) {
+        const card = link.closest(".stationery-card");
+        if (!card) return;
+
+        const name = card.querySelector(".stationery-card-name");
+        const seriesSection = card.closest(".series-section");
+        const maker = seriesSection && seriesSection.querySelector(".series-maker");
+        const series = seriesSection && seriesSection.querySelector(".series-title");
+
+        nameField.textContent = name ? name.textContent.trim() : "商品詳細";
+        makerField.textContent = maker ? maker.textContent.trim() : "メーカー情報";
+        makerValue.textContent = maker ? maker.textContent.trim() : "確認中";
+        seriesField.textContent = series ? series.textContent.trim() : "";
+        seriesValue.textContent = series ? series.textContent.trim() : "確認中";
+        categoryField.textContent = categoryLabel ? categoryLabel.textContent.replace("CATALOG /", "").trim() : "文房具";
+
+        previousFocus = link;
+        panel.hidden = false;
+        backdrop.hidden = false;
+        panel.setAttribute("aria-hidden", "false");
+        document.body.classList.add("product-detail-open");
+        requestAnimationFrame(function () {
+            panel.classList.add("is-open");
+            backdrop.classList.add("is-open");
+            closeButton.focus();
+        });
+    }
+
+    function closeDetail() {
+        panel.classList.remove("is-open");
+        backdrop.classList.remove("is-open");
+        panel.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("product-detail-open");
+        window.setTimeout(function () {
+            panel.hidden = true;
+            backdrop.hidden = true;
+            if (previousFocus) previousFocus.focus();
+        }, 220);
+    }
+
+    document.querySelectorAll(".stationery-card-link").forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            openDetail(link);
+        });
+    });
+
+    closeButton.addEventListener("click", closeDetail);
+    backButton.addEventListener("click", closeDetail);
+    backdrop.addEventListener("click", closeDetail);
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !panel.hidden) closeDetail();
+    });
+});
+</script>
 
 </body>
 </html>
