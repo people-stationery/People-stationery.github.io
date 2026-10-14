@@ -1257,6 +1257,14 @@
                 <dt>シリーズ</dt>
                 <dd id="productDetailSeriesValue"></dd>
             </div>
+            <div>
+                <dt>重量</dt>
+                <dd id="productDetailWeight">未確認</dd>
+            </div>
+            <div>
+                <dt>重量の出典</dt>
+                <dd><a id="productDetailWeightSource" href="#" target="_blank" rel="noopener noreferrer" hidden>メーカー公式情報</a><span id="productDetailWeightSourceNote">公式仕様を確認でき次第追加</span></dd>
+            </div>
         </dl>
         <p class="product-detail-note">製品の仕様や特徴は、確認できた情報から順次追加していきます。</p>
         <button class="product-detail-back" id="productDetailBack" type="button">一覧に戻る <span>↗</span></button>
@@ -1710,6 +1718,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const seriesField = document.getElementById("productDetailSeries");
     const seriesValue = document.getElementById("productDetailSeriesValue");
     const categoryField = document.getElementById("productDetailCategory");
+    const weightField = document.getElementById("productDetailWeight");
+    const weightSourceLink = document.getElementById("productDetailWeightSource");
+    const weightSourceNote = document.getElementById("productDetailWeightSourceNote");
+
+    // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
+    const verifiedWeights = {
+        "TOMBOW|MONO graph": { value: "17 g", url: "https://www.tombow.com/press/241107/", note: "トンボ鉛筆公式・製品仕様" },
+        "PLATINUM|PRESIDENT": { value: "21 g", url: "https://www.platinum-pen.co.jp/products/fountain-pen/6012/", note: "プラチナ万年筆公式・標準重量" },
+        "PLATINUM|PROCYON": { value: "23.3 g", url: "https://www.platinum-pen.co.jp/products/fountain-pen/11476/", note: "プラチナ万年筆公式・標準重量" },
+        "PLATINUM|#3776 CENTURY": { value: "20.5 g", url: "https://www.platinum-pen.co.jp/news/9605/", note: "プラチナ万年筆公式・標準重量" },
+        "SAILOR|1911 S": { value: "17.0 g", url: "https://en.sailor.co.jp/product/11-1219/", note: "セーラー万年筆公式・重量" }
+    };
     const categoryLabel = document.querySelector(".hero .small-title");
     let previousFocus = null;
 
@@ -1723,6 +1743,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const series = seriesSection && seriesSection.querySelector(".series-title");
 
         nameField.textContent = name ? name.textContent.trim() : "商品詳細";
+        const weightKey = (maker ? maker.textContent.trim() : "") + "|" + (name ? name.textContent.trim().replace(/\\s+/g, " ") : "");
+        const weightData = verifiedWeights[weightKey];
+        weightField.textContent = weightData ? weightData.value : "未確認";
+        weightSourceNote.hidden = Boolean(weightData);
+        weightSourceLink.hidden = !weightData;
+        if (weightData) {
+            weightSourceLink.href = weightData.url;
+            weightSourceLink.textContent = weightData.note;
+        } else {
+            weightSourceLink.removeAttribute("href");
+        }
         makerField.textContent = maker ? maker.textContent.trim() : "メーカー情報";
         makerValue.textContent = maker ? maker.textContent.trim() : "確認中";
         seriesField.textContent = series ? series.textContent.trim() : "";
