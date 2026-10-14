@@ -1724,7 +1724,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
     const verifiedWeights = {
+        "PILOT|Juice": { value: "9.9 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100001045&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
         "PILOT|Juice up": { value: "11.6 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100000935&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
+        "PILOT|Juice up 4": { value: "11.6 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100000960&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
         "PILOT|Juice up 3": { value: "12.2 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100001075&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" }
     };
     const categoryLabel = document.querySelector(".hero .small-title");
