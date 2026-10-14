@@ -150,12 +150,12 @@ header {
     text-decoration: none;
 
     font-family: "Bodoni Moda", "Times New Roman", serif;
-    font-size: 26px;
+    font-size: 62px;
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0;
     font-optical-sizing: auto;
-    line-height: 1.2;
+    line-height: 1;
 
     transition:
         opacity 0.25s ease,
@@ -865,7 +865,7 @@ footer {
     }
 
     .logo {
-        font-size: 21px;
+        font-size: clamp(30px, 9.5vw, 38px);
     }
 
     .menu-button {
