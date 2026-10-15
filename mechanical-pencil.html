@@ -985,6 +985,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const priceSourceLink = document.getElementById("productDetailPriceSource");
     const priceSourceNote = document.getElementById("productDetailPriceSourceNote");
     const verifiedPrices = {
+        "TOMBOW|MONO graph grip": { value: "500円", url: "https://www.tombow.com/products/mechanical-pencil/", note: "価格はユーザー提供値" },
         "MITSUBISHI|standard model": { value: "450円", url: "https://mpuni.life/company/press/20210128-52116.html", note: "三菱鉛筆公式・参考価格（税抜）" },
         "MITSUBISHI|roulette model": { value: "1,000円", url: "https://prtimes.jp/main/html/rd/p/000000018.000028890.html", note: "三菱鉛筆公式発表・本体価格（税抜）" },
         "MITSUBISHI|METAL": { value: "2,500円", url: "https://mpuni.life/company/press/20240405-53473.html", note: "三菱鉛筆公式発表・参考価格（税抜）" },
@@ -1005,6 +1006,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
     const verifiedWeights = {
+        "TOMBOW|MONO graph grip": { value: "16.9 g", url: "https://www.tombow.com/products/mechanical-pencil/", note: "重量はユーザー提供値" },
         "MITSUBISHI|standard model": { value: "9.8 g", url: "https://www.crowngroup.co.jp/special/tryangle/items/free/10000005459", note: "重量仕様掲載ページ" },
         "MITSUBISHI|roulette model": { value: "15.1 g", url: "https://www.pen-house.net/item/19322.html", note: "重量仕様掲載ページ" },
         "MITSUBISHI|METAL": { value: "17.6 g", url: "https://mpuni.life/special/kurutogametal/index.html", note: "三菱鉛筆公式・製品仕様" },
