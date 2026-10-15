@@ -3353,7 +3353,7 @@ body.product-detail-open {
 .product-detail-backdrop {
     position: fixed;
     inset: 0;
-    z-index: 9990;
+    z-index: 10010;
     background: rgba(16, 29, 43, 0.42);
     opacity: 0;
     transition: opacity 220ms ease;
@@ -3367,7 +3367,7 @@ body.product-detail-open {
 
 .product-detail-panel {
     position: fixed;
-    z-index: 9991;
+    z-index: 10011;
     top: 50%;
     left: 50%;
     width: min(560px, calc(100% - 32px));
