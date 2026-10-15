@@ -300,6 +300,7 @@ header {
 
 .menu-panel {
     position: fixed;
+    isolation: isolate;
 
     top: 0;
     right: 0;
@@ -345,6 +346,21 @@ header {
     justify-content: center;
 
     gap: 18px;
+}
+
+/* メニュー背景のシンボル：薄く大きな気球 */
+.menu-panel::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: min(88%, 440px);
+    aspect-ratio: 240 / 320;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url("hot-air-balloon.svg") center / contain no-repeat;
+    opacity: 0.12;
+    pointer-events: none;
 }
 
 .menu-panel.active {
