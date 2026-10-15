@@ -353,7 +353,7 @@ header {
     content: "";
     position: absolute;
     z-index: -1;
-    width: min(165%, 820px);
+    width: min(112%, 700px);
     aspect-ratio: 240 / 320;
     top: 50%;
     left: 50%;
