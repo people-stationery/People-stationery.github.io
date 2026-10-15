@@ -322,6 +322,9 @@ header {
     border-radius:
         24px 0 0 24px;
 
+    /* パネルの外にはみ出した背景シンボルを隠す */
+    overflow: hidden;
+
     box-shadow:
         -15px 0 45px rgba(42,73,104,0.12);
 
@@ -353,10 +356,10 @@ header {
     content: "";
     position: absolute;
     z-index: -1;
-    width: min(200%, 1000px);
+    width: min(250%, 1200px);
     aspect-ratio: 240 / 320;
     top: 50%;
-    left: 50%;
+    left: 62%;
     transform: translate(-50%, -50%);
     background: url("hot-air-balloon.svg") center / contain no-repeat;
     opacity: 0.12;
