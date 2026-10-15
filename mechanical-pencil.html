@@ -1048,7 +1048,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const series = seriesSection && seriesSection.querySelector(".series-title");
 
         nameField.textContent = name ? name.textContent.trim() : "商品詳細";
-        const weightKey = (maker ? maker.textContent.trim() : "") + "|" + (name ? name.textContent.trim().replace(/\s+/g, " ") : "");
+        // 製品名内の補足ラベル（例：廃盤）はデータ照合キーから除外する
+        const lookupName = name ? name.cloneNode(true) : null;
+        if (lookupName) lookupName.querySelectorAll("small").forEach(label => label.remove());
+        const weightKey = (maker ? maker.textContent.trim() : "") + "|" + (lookupName ? lookupName.textContent.trim().replace(/\s+/g, " ") : "");
         const weightData = verifiedWeights[weightKey];
         const priceData = verifiedPrices[weightKey];
         priceField.textContent = priceData ? priceData.value : "未確認";
