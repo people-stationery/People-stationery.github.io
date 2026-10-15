@@ -3377,7 +3377,7 @@ body.product-detail-open {
     color: #25384b;
     background: rgba(255, 255, 255, 0.97);
     border: 1px solid rgba(66, 103, 145, 0.22);
-    border-radius: 8px;
+    border-radius: 24px;
     box-shadow: 0 24px 80px rgba(13, 32, 52, 0.22);
     opacity: 0;
     transform: translate(-50%, -47%) scale(0.985);
