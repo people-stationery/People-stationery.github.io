@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const repoOwner = "people-stationery";
     const repoName = "People-stationery.github.io";
     const branch = "main";
-    const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/`;
+    const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/?per_page=100`;
 
     try {
         const response = await fetch(apiUrl, {
