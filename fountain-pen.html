@@ -1760,6 +1760,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const priceSourceLink = document.getElementById("productDetailPriceSource");
     const priceSourceNote = document.getElementById("productDetailPriceSourceNote");
     const verifiedPrices = {
+        "PLATINUM|出雲": { value: "55,000〜100,000円", url: "https://www.platinum-pen.co.jp/products_category/fountain-pen/", note: "プラチナ万年筆公式・モデルにより異なる（税抜、代表的な出雲シリーズ）" },
+        "PLATINUM|#3776 CENTURY": { value: "40,000〜45,000円", url: "https://www.platinum-pen.co.jp/products/fountain-pen/1464/", note: "プラチナ万年筆公式・従来モデル40,000円、新Ver.2.0は45,000円（税抜）" },
+        "PLATINUM|美巧": { value: "80,000円", url: "https://www.platinum-pen.co.jp/products/fountain-pen/2096/", note: "プラチナ万年筆公式・金沢箔シリーズ（税抜）" },
+        "PLATINUM|PRESIDENT": { value: "68,000〜70,000円", url: "https://www.platinum-pen.co.jp/products/fountain-pen/2158/", note: "プラチナ万年筆公式・モデルにより異なる（税抜）" },
+        "PLATINUM|PROCYON": { value: "9,000円", url: "https://www.platinum-pen.co.jp/products/fountain-pen/11476/", note: "プラチナ万年筆公式・税抜希望小売価格" },
+        "PLATINUM|PREPPY": { value: "600円", url: "https://www.platinum-pen.co.jp/products/fountain-pen/2209/", note: "プラチナ万年筆公式・税抜希望小売価格" },
         "PILOT|CUSTOM NS": { value: "15,000円", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100005711&volumeName=00004", note: "パイロット公式ウェブカタログ・税抜希望小売価格" },
         "PILOT|CUSTOM 楓": { value: "50,000円", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100000218&volumeName=00004", note: "パイロット公式ウェブカタログ・税抜希望小売価格" },
         "PILOT|CUSTOM 槐": { value: "100,000円", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100000371&volumeName=00004", note: "パイロット公式ウェブカタログ・税抜希望小売価格" },
@@ -1781,6 +1787,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
     const verifiedWeights = {
+        "PLATINUM|出雲": { value: "33〜34.5 g（モデル例）", url: "https://www.platinum-pen.co.jp/products/fountain-pen/10631/", note: "プラチナ万年筆公式・製品例の標準重量。モデルにより異なる" },
+        "PLATINUM|#3776 CENTURY": { value: "20.0〜20.5 g", url: "https://www.platinum-pen.co.jp/products/fountain-pen/1464/", note: "プラチナ万年筆公式・Ver.2.0デモンストレーターと従来モデルの標準重量" },
+        "PLATINUM|美巧": { value: "16.7 g", url: "https://www.platinum-pen.co.jp/products/fountain-pen/2096/", note: "プラチナ万年筆公式・金沢箔シリーズの標準重量" },
+        "PLATINUM|PRESIDENT": { value: "21 g", url: "https://www.platinum-pen.co.jp/products/fountain-pen/2158/", note: "プラチナ万年筆公式・標準重量" },
+        "PLATINUM|PREPPY": { value: "13 g", url: "https://www.platinum-pen.co.jp/products/fountain-pen/2209/", note: "プラチナ万年筆公式・標準重量" },
         "PILOT|CUSTOM HERITAGE SE": { value: "22 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100000247&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
         "PILOT|CUSTOM NS": { value: "22.6 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100005711&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
         "PILOT|CUSTOM 楓": { value: "20 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100000218&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
