@@ -425,6 +425,49 @@
 
 
             <!-- ========================================
+                 PILOT CUSTOM HERITAGE SERIES
+            ======================================== -->
+
+            <div class="series-section">
+                <p class="series-maker">
+                    PILOT
+                </p>
+                <h2 class="series-title">
+                    CUSTOM HERITAGE Series
+                </h2>
+                <div class="series-products-wrapper">
+                    <div class="series-products">
+                        <article class="stationery-card">
+                            <div class="stationery-card-inner">
+                                <h3 class="stationery-card-name">カスタムヘリテイジ91</h3>
+                                <a href="#" class="stationery-card-link"><span>DETAIL</span><span>→</span></a>
+                            </div>
+                        </article>
+                        <article class="stationery-card">
+                            <div class="stationery-card-inner">
+                                <h3 class="stationery-card-name">カスタムヘリテイジ91（キャップスライド式）</h3>
+                                <a href="#" class="stationery-card-link"><span>DETAIL</span><span>→</span></a>
+                            </div>
+                        </article>
+                        <article class="stationery-card">
+                            <div class="stationery-card-inner">
+                                <h3 class="stationery-card-name">カスタムヘリテイジSE</h3>
+                                <a href="#" class="stationery-card-link"><span>DETAIL</span><span>→</span></a>
+                            </div>
+                        </article>
+                        <article class="stationery-card">
+                            <div class="stationery-card-inner">
+                                <h3 class="stationery-card-name">カスタムヘリテイジCR</h3>
+                                <a href="#" class="stationery-card-link"><span>DETAIL</span><span>→</span></a>
+                            </div>
+                        </article>
+                    </div>
+                    <button class="series-scroll-button" type="button" aria-label="右へスクロール">→</button>
+                </div>
+            </div>
+
+
+            <!-- ========================================
                  SAKURA craft_lab SERIES
             ======================================== -->
 
@@ -1737,6 +1780,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const priceSourceLink = document.getElementById("productDetailPriceSource");
     const priceSourceNote = document.getElementById("productDetailPriceSourceNote");
     const verifiedPrices = {
+        "PILOT|カスタムヘリテイジ91": { value: "12,000円", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100002034&volumeName=00004", note: "パイロット公式ウェブカタログ・税抜希望小売価格（回転繰り出し式）" },
+        "PILOT|カスタムヘリテイジ91（キャップスライド式）": { value: "6,000円", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100002039&volumeName=00004", note: "パイロット公式ウェブカタログ・税抜希望小売価格" },
+        "PILOT|カスタムヘリテイジSE": { value: "15,000円", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100002031&volumeName=00004", note: "パイロット公式ウェブカタログ・税抜希望小売価格" },
+        "PILOT|カスタムヘリテイジCR": { value: "20,000円", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100002035&volumeName=00004", note: "パイロット公式ウェブカタログ・税抜希望小売価格" },
         "TOMBOW|ZOOM L2": { value: "3,520円", url: "https://www.tombow.com/press/260204/", note: "トンボ鉛筆公式・税込希望小売価格" },
         "TOMBOW|ZOOM L1": { value: "4,400円", url: "https://www.tombow.com/press/230210/", note: "トンボ鉛筆公式・税込希望小売価格" },
         "TOMBOW|ZOOM C1": { value: "7,700円", url: "https://www.tombow.com/press/230210/", note: "トンボ鉛筆公式・税込希望小売価格" },
@@ -1789,6 +1836,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
     const verifiedWeights = {
+        "PILOT|カスタムヘリテイジ91": { value: "28.1 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100002034&volumeName=00004", note: "パイロット公式ウェブカタログ・重量（回転繰り出し式）" },
+        "PILOT|カスタムヘリテイジ91（キャップスライド式）": { value: "20.7 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100002039&volumeName=00004", note: "パイロット公式ウェブカタログ・重量" },
+        "PILOT|カスタムヘリテイジSE": { value: "27.3 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100002031&volumeName=00004", note: "パイロット公式ウェブカタログ・重量（マーブルブルー）" },
+        "PILOT|カスタムヘリテイジCR": { value: "33 g", url: "https://webcatalog.pilot.co.jp/products/DispDetail.do?itemID=t000100002035&volumeName=00004", note: "パイロット公式ウェブカタログ・重量（ブラック）" },
         "PENTEL|ENERGEL キャップ式": { value: "13 g", url: "https://www.pentel.co.jp/products/ballpointpen/energel_captype/", note: "重量（ユーザー提供値）" },
         "PENTEL|ENERGEL S": { value: "12 g", url: "https://www.pentel.co.jp/products/ballpointpen/energel_s/", note: "重量（ユーザー提供値）" },
         "PENTEL|ENERGEL クレナ": { value: "13 g", url: "https://www.pentel.co.jp/products/ballpointpen/energel_clena/", note: "重量（ユーザー提供値）" },
