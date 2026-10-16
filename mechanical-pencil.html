@@ -986,6 +986,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const priceSourceLink = document.getElementById("productDetailPriceSource");
     const priceSourceNote = document.getElementById("productDetailPriceSourceNote");
     const verifiedPrices = {
+        "rOtring|300": { value: "価格未確認", url: "https://www.rotring.jp/mechanical-pencil-comparison.html", note: "日本公式ページで価格を確認できず" },
+        "rOtring|500": { value: "1,650円", url: "https://mall.line.me/sb/rOtring/7408470", note: "rOtring公式ショップ掲載価格（税込）" },
+        "rOtring|600": { value: "4,180円", url: "https://mall.line.me/sb/035541d1/7433676", note: "rOtring公式ショップ掲載価格（税込）" },
+        "rOtring|800": { value: "8,800円", url: "https://webshop.sekaido.co.jp/product/A009285", note: "世界堂掲載の希望小売価格（税込）" },
+        "rOtring|800+": { value: "9,900円", url: "https://www.pen-house.net/item/29879.html", note: "ペンハウス掲載の希望小売価格（税込）" },
         "STAEDTLER|925-15": { value: "605円", url: "https://www.staedtler.jp/products/sharp/seizu.html", note: "ステッドラー日本公式・メーカー希望小売価格" },
         "STAEDTLER|925-25": { value: "1,980円", url: "https://www.staedtler.jp/products/sharp/seizu.html", note: "ステッドラー日本公式・メーカー希望小売価格" },
         "STAEDTLER|925-35": { value: "2,310円", url: "https://www.staedtler.jp/products/sharp/seizu.html", note: "ステッドラー日本公式・メーカー希望小売価格" },
@@ -1019,6 +1024,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
     const verifiedWeights = {
+        "rOtring|300": { value: "約8.4 g", url: "https://jg2oaj.blogspot.com/2017/", note: "第三者による実測値（2017年）" },
+        "rOtring|500": { value: "13 g", url: "https://mall.line.me/sb/rOtring/7408470", note: "rOtring公式ショップ掲載仕様" },
+        "rOtring|600": { value: "22 g", url: "https://mall.line.me/sb/035541d1/7433676", note: "rOtring公式ショップ掲載仕様" },
+        "rOtring|800": { value: "25 g（ブラック）／21 g（シルバー）", url: "https://webshop.sekaido.co.jp/product/A009285", note: "世界堂掲載仕様。カラーで重量差あり" },
+        "rOtring|800+": { value: "約25 g", url: "https://www.nagasawa-shop.jp/shopdetail/000000001432/", note: "ナガサワ文具センター掲載仕様" },
         "STAEDTLER|925-15": { value: "9.2 g", url: "https://www.staedtler.jp/products/sharp/seizu.html", note: "ステッドラー日本公式・製品仕様" },
         "STAEDTLER|925-25": { value: "17 g", url: "https://www.staedtler.jp/products/sharp/seizu.html", note: "ステッドラー日本公式・製品仕様（2.0mmを除く）" },
         "STAEDTLER|925-35": { value: "17 g", url: "https://www.staedtler.jp/products/sharp/seizu.html", note: "ステッドラー日本公式・製品仕様（2.0mmを除く）" },
