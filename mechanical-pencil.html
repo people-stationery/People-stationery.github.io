@@ -986,6 +986,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const priceSourceLink = document.getElementById("productDetailPriceSource");
     const priceSourceNote = document.getElementById("productDetailPriceSourceNote");
     const verifiedPrices = {
+        "PILOT|The Dr.Grip": { value: "1,430円", url: "https://www.pilot.co.jp/", note: "価格はユーザー提供値" },
         "PILOT|S5": { value: "500円", url: "https://www.pilot.co.jp/products/pen/sharp_pen/sharp_pen/s5/", note: "価格はユーザー提供値" },
         "PILOT|S30": { value: "3,000円", url: "https://www.pilot.co.jp/", note: "価格はユーザー提供値" },
         "TOMBOW|MONO graph fine": { value: "1,200円", url: "https://www.tombow.com/products/mechanical-pencil/", note: "価格はユーザー提供値" },
@@ -1011,6 +1012,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
     const verifiedWeights = {
+        "PILOT|The Dr.Grip": { value: "22.9 g", url: "https://www.pilot.co.jp/", note: "重量はユーザー提供値" },
         "PILOT|S5": { value: "11.2 g", url: "https://www.pilot.co.jp/products/pen/sharp_pen/sharp_pen/s5/", note: "重量はユーザー提供値" },
         "PILOT|S30": { value: "21 g", url: "https://www.pilot.co.jp/", note: "重量はユーザー提供値" },
         "TOMBOW|MONO graph fine": { value: "21.8 g", url: "https://www.tombow.com/products/mechanical-pencil/", note: "重量はユーザー提供値" },
