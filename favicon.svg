@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 794 794" fill="none" stroke="#426791" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="794" height="794" fill="#ffffff" stroke="none"/>
+  <!-- Original balloon silhouette -->
+  <path d="M389 122
+    C332 122 275 139 237 180
+    C199 221 184 270 185 326
+    C186 391 218 451 258 493
+    C282 518 303 545 316 611
+    L463 611
+    C477 546 500 518 525 490
+    C566 444 591 390 591 325
+    C591 268 574 218 536 179
+    C497 139 443 122 389 122 Z"/>
+  <!-- Top opening seam -->
+  <path d="M286 159
+    C317 188 354 203 393 203
+    C430 203 465 190 493 164"/>
+  <!-- Vertical balloon panels -->
+  <path d="M319 190
+    C296 227 286 278 286 332
+    C286 398 302 452 327 500
+    C337 519 346 544 352 605"/>
+  <path d="M457 190
+    C482 229 492 279 492 333
+    C492 398 476 454 452 501
+    C442 522 433 546 426 605"/>
+  <!-- Lower edge and suspension lines -->
+  <path d="M316 612 L463 612"/>
+  <path d="M323 614 L342 695 M455 614 L436 695 M361 615 L370 695 M416 615 L407 695"/>
+  <!-- Basket -->
+  <path d="M337 697 L432 697 L424 755
+    Q422 769 406 770 L363 770
+    Q349 769 346 756 Z"/>
+</svg>
