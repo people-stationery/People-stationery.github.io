@@ -37,7 +37,7 @@
 
         /* Reveal meaningful content gently as it enters the viewport. */
         var selectors = [
-            ".hero > *",
+            /* .hero は既存の heroTextIn アニメーションを使うため除外 */
             ".youtube-area",
             ".articles h2",
             ".article-card",
