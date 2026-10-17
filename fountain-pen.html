@@ -379,6 +379,18 @@
                         <article class="stationery-card">
                             <div class="stationery-card-inner">
                                 <h3 class="stationery-card-name">
+                                    M300
+                                </h3>
+                                <a href="#" class="stationery-card-link">
+                                    <span>DETAIL</span>
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="stationery-card">
+                            <div class="stationery-card-inner">
+                                <h3 class="stationery-card-name">
                                     M400
                                 </h3>
                                 <a href="#" class="stationery-card-link">
@@ -1877,6 +1889,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const priceSourceLink = document.getElementById("productDetailPriceSource");
     const priceSourceNote = document.getElementById("productDetailPriceSourceNote");
     const verifiedPrices = {
+        "PELIKAN|M300": { value: "39,600円（税込）", url: "https://www.mistore.jp/shopping/brand/list?brand=004427&cgid=28_060000", note: "ユーザー提供情報（税込）" },
         "PELIKAN|M400": { value: "63,800円（税込）", url: "https://www.mistore.jp/shopping/brand/list?brand=004427&cgid=28_060000", note: "三越伊勢丹オンラインストア掲載価格（税込。カラー・仕様により異なる場合あり）" },
         "PELIKAN|M405": { value: "71,500円（税込）", url: "https://www.mistore.jp/shopping/brand/list?brand=004427&cgid=28_060000", note: "三越伊勢丹オンラインストア掲載価格（税込。カラー・仕様により異なる場合あり）" },
         "PELIKAN|M600": { value: "71,500円（税込）", url: "https://www.mistore.jp/shopping/brand/list?brand=004427&cgid=28_060000", note: "三越伊勢丹オンラインストア掲載価格（税込。カラー・仕様により異なる場合あり）" },
@@ -1921,6 +1934,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 重量はメーカー公式ページで確認できた製品のみ登録。シリーズ名が同じでも別製品へ推定適用しない。
     const verifiedWeights = {
+        "PELIKAN|M300": { value: "11 g", url: "https://www.pelikan.com/ae/services/faq.html", note: "ユーザー提供情報" },
         "PELIKAN|M400": { value: "14.9 g", url: "https://www.pelikan.com/ae/services/faq.html", note: "Pelikan公式FAQ・Souverän M400標準重量" },
         "PELIKAN|M405": { value: "14.9 g（M400系の参考値）", url: "https://www.pelikan.com/ae/services/faq.html", note: "Pelikan公式FAQではM400系の重量を掲載。M405個別重量は未確認" },
         "PELIKAN|M600": { value: "16.4 g", url: "https://www.pelikan.com/ae/services/faq.html", note: "Pelikan公式FAQ・Souverän M600標準重量" },
