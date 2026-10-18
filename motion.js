@@ -53,13 +53,13 @@
             return Math.max(min, Math.min(max, value));
         }
 
-        function updateMotion() {
+        function updateMotion(allowReveal) {
             var root = document.documentElement;
             var maxScroll = root.scrollHeight - window.innerHeight;
             var amount = maxScroll > 0 ? window.scrollY / maxScroll : 0;
             progress.style.transform = "scaleX(" + clamp(amount, 0, 1) + ")";
             
-            if (!reducedMotion) {
+            if (!reducedMotion && allowReveal) {
                 revealItems.forEach(function (item) {
                     if (item.done) return;
 
@@ -97,8 +97,8 @@
         }
 
         window.addEventListener("scroll", requestUpdate, { passive: true });
-        window.addEventListener("resize", requestUpdate);
-        updateMotion();
+        window.addEventListener("resize", function () { updateMotion(false); });
+        updateMotion(false);
     }
 
     if (document.readyState === "loading") {
