@@ -53,6 +53,10 @@
     transition: transform 0.45s ease;
 }
 
+.home-quicklink::before {
+    will-change: transform;
+}
+
 .home-quicklink:hover::before {
     transform: translateY(-50%) scale(1.04);
 }
@@ -176,5 +180,52 @@
     .home-quicklink::after,
     .home-quicklink-button {
         transition: none;
+    }
+}
+
+
+/* ========================================
+   HOME — editorial reveal motion
+======================================== */
+
+@keyframes homeQuicklinkRise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.motion-enabled .home-quicklink.motion-reveal .home-quicklink-label,
+.motion-enabled .home-quicklink.motion-reveal .home-quicklink-heading,
+.motion-enabled .home-quicklink.motion-reveal .home-quicklink-button {
+    opacity: 0;
+}
+
+.motion-enabled .home-quicklink.motion-reveal.is-visible .home-quicklink-label {
+    animation: homeQuicklinkRise 650ms cubic-bezier(.2,.7,.2,1) 80ms both;
+}
+
+.motion-enabled .home-quicklink.motion-reveal.is-visible .home-quicklink-heading {
+    animation: homeQuicklinkRise 750ms cubic-bezier(.2,.7,.2,1) 170ms both;
+}
+
+.motion-enabled .home-quicklink.motion-reveal.is-visible .home-quicklink-button {
+    animation: homeQuicklinkRise 650ms cubic-bezier(.2,.7,.2,1) 280ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .motion-enabled .home-quicklink.motion-reveal .home-quicklink-label,
+    .motion-enabled .home-quicklink.motion-reveal .home-quicklink-heading,
+    .motion-enabled .home-quicklink.motion-reveal .home-quicklink-button {
+        opacity: 1;
+        animation: none !important;
+    }
+
+    .home-quicklink::before {
+        will-change: auto;
     }
 }
