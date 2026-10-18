@@ -229,3 +229,16 @@
         will-change: auto;
     }
 }
+
+
+/* The section itself carries the scroll-driven motion; child elements
+   must not start independent autoplay animations. */
+.motion-enabled .home-quicklink.motion-reveal .home-quicklink-label,
+.motion-enabled .home-quicklink.motion-reveal .home-quicklink-heading,
+.motion-enabled .home-quicklink.motion-reveal .home-quicklink-button,
+.motion-enabled .home-quicklink.motion-reveal.is-visible .home-quicklink-label,
+.motion-enabled .home-quicklink.motion-reveal.is-visible .home-quicklink-heading,
+.motion-enabled .home-quicklink.motion-reveal.is-visible .home-quicklink-button {
+    opacity: 1;
+    animation: none !important;
+}
