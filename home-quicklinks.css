@@ -1,6 +1,6 @@
 /* ========================================
    HOME — ARTICLE / CATALOG セクション
-   ヒーローと同じように、余白と大きな文字で見せる
+   大きな見出しと、独立したアクションボタン
 ======================================== */
 
 .home-quicklinks {
@@ -14,106 +14,106 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    min-height: 520px;
-    padding: 100px 20px;
+    min-height: 410px;
+    padding: 76px 20px;
     color: #294967;
-    text-decoration: none;
     background: transparent;
-    border: 0;
-    border-bottom: 1px solid rgba(66, 103, 145, 0.13);
-    border-radius: 0;
-    box-shadow: none;
+    border-bottom: 1px solid rgba(66, 103, 145, 0.16);
     overflow: hidden;
-    transition: color 0.25s ease;
 }
 
 .home-quicklink::before {
     content: "";
     position: absolute;
-    width: 380px;
-    height: 380px;
+    width: 340px;
+    height: 340px;
     right: -150px;
     top: 50%;
     transform: translateY(-50%);
     border-radius: 50%;
     background: linear-gradient(
         135deg,
-        rgba(66, 103, 145, 0.09),
+        rgba(66, 103, 145, 0.065),
         rgba(255, 255, 255, 0)
     );
     pointer-events: none;
-    transition: transform 0.45s ease, opacity 0.45s ease;
+    transition: transform 0.45s ease;
 }
 
 .home-quicklink::after {
     content: "";
     position: absolute;
-    width: 150px;
-    height: 150px;
-    right: 90px;
-    bottom: 50px;
-    border: 1px solid rgba(66, 103, 145, 0.12);
+    width: 120px;
+    height: 120px;
+    right: 75px;
+    bottom: 45px;
+    border: 1px solid rgba(66, 103, 145, 0.10);
     border-radius: 50%;
     pointer-events: none;
     transition: transform 0.45s ease;
 }
 
-.home-quicklink:hover,
-.home-quicklink:focus-visible {
-    background: transparent;
-    border-color: rgba(66, 103, 145, 0.24);
-    box-shadow: none;
-    transform: none;
+.home-quicklink:hover::before {
+    transform: translateY(-50%) scale(1.04);
 }
 
-.home-quicklink:hover::before,
-.home-quicklink:focus-visible::before {
-    transform: translateY(-50%) scale(1.06);
-}
-
-.home-quicklink:hover::after,
-.home-quicklink:focus-visible::after {
-    transform: translate(-5px, -5px);
-}
-
-.home-quicklink:focus-visible {
-    outline: 2px solid #426791;
-    outline-offset: -4px;
+.home-quicklink:hover::after {
+    transform: translate(-4px, -4px);
 }
 
 .home-quicklink-label {
     position: relative;
     z-index: 1;
-    margin-bottom: 18px;
+    margin: 0 0 14px;
     color: #6c8aa5;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.18em;
 }
 
 .home-quicklink-title {
     position: relative;
     z-index: 1;
+    margin: 0;
     color: #294967;
-    font-size: clamp(42px, 7vw, 72px);
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: 0.04em;
+    font-size: clamp(38px, 5.5vw, 58px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.045em;
 }
 
-.home-quicklink-arrow {
+.home-quicklink-button {
     position: relative;
     z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
     margin-top: 30px;
-    color: #6c8aa5;
-    font-size: 28px;
-    line-height: 1;
-    transition: transform 0.3s ease;
+    padding: 13px 0;
+    color: #426791;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(66, 103, 145, 0.4);
+    transition: gap 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
-.home-quicklink:hover .home-quicklink-arrow,
-.home-quicklink:focus-visible .home-quicklink-arrow {
-    transform: translateX(7px);
+.home-quicklink-button span {
+    font-size: 17px;
+    line-height: 1;
+}
+
+.home-quicklink-button:hover,
+.home-quicklink-button:focus-visible {
+    gap: 29px;
+    color: #294967;
+    border-color: #294967;
+}
+
+.home-quicklink-button:focus-visible {
+    outline: 2px solid #426791;
+    outline-offset: 5px;
 }
 
 @media (max-width: 600px) {
@@ -122,33 +122,32 @@
     }
 
     .home-quicklink {
-        min-height: 460px;
-        padding: 90px 12px;
+        min-height: 340px;
+        padding: 64px 12px;
     }
 
     .home-quicklink-title {
-        font-size: clamp(36px, 10vw, 52px);
+        font-size: clamp(34px, 9vw, 48px);
     }
 
     .home-quicklink::before {
-        width: 300px;
-        height: 300px;
-        right: -170px;
+        width: 270px;
+        height: 270px;
+        right: -160px;
     }
 
     .home-quicklink::after {
-        width: 110px;
-        height: 110px;
+        width: 90px;
+        height: 90px;
         right: 25px;
-        bottom: 35px;
+        bottom: 30px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .home-quicklink,
     .home-quicklink::before,
     .home-quicklink::after,
-    .home-quicklink-arrow {
+    .home-quicklink-button {
         transition: none;
     }
 }
