@@ -219,14 +219,14 @@
         ==================================== */
         /* ====================================
            ページ遷移
-           Web Animations APIでフェード完了後に移動
+           CSSのopacity transition完了後に移動
         ==================================== */
+        let isLeaving = false;
         document.addEventListener("click", function (event) {
-            const target = event.target;
-            const link = target && target.closest
-                ? target.closest("a[href]")
+            const link = event.target && event.target.closest
+                ? event.target.closest("a[href]")
                 : null;
-            if (!link) return;
+            if (!link || isLeaving) return;
 
             if (
                 event.button !== 0 ||
@@ -245,41 +245,43 @@
 
             if (destination.origin !== window.location.origin) return;
             if (destination.pathname === window.location.pathname &&
-                destination.search === window.location.search) return;
+                destination.search === window.location.search &&
+                destination.hash) return;
+            if (destination.pathname === window.location.pathname &&
+                destination.search === window.location.search &&
+                !destination.hash) return;
 
             event.preventDefault();
             event.stopImmediatePropagation();
+            isLeaving = true;
             closeMenu();
 
-            const body = document.body;
             const reduceMotion = window.matchMedia(
                 "(prefers-reduced-motion: reduce)"
-            ).matches;
+            ).matches || document.body.classList.contains("sp-reduce-motion");
 
-            if (reduceMotion || typeof body.animate !== "function") {
+            if (reduceMotion) {
                 window.location.assign(destination.href);
                 return;
             }
 
-            const currentOpacity = getComputedStyle(body).opacity;
-            const fade = body.animate(
-                [
-                    { opacity: currentOpacity },
-                    { opacity: 0 }
-                ],
-                {
-                    duration: 800,
-                    easing: "ease",
-                    fill: "forwards"
-                }
-            );
+            document.body.classList.add("page-leave");
 
-            fade.finished.then(function () {
+            let navigated = false;
+            const navigate = function () {
+                if (navigated) return;
+                navigated = true;
                 window.location.assign(destination.href);
-            }).catch(function () {
-                /* アニメーションが中断された場合も遷移を止めない */
-                window.location.assign(destination.href);
+            };
+
+            document.body.addEventListener("transitionend", function onEnd(e) {
+                if (e.target !== document.body || e.propertyName !== "opacity") return;
+                document.body.removeEventListener("transitionend", onEnd);
+                navigate();
             });
+
+            /* transitionendが発火しない環境でも遷移が止まらないよう保険を設定 */
+            window.setTimeout(navigate, 1000);
         }, true);
     });
 </script>
