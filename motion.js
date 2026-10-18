@@ -64,6 +64,7 @@
                 entries.forEach(function (entry) {
                     if (!entry.isIntersecting) return;
                     entry.target.classList.add("is-visible");
+                    /* 一度表示した要素は監視を終了。上へ戻っても再び隠さない。 */
                     observer.unobserve(entry.target);
                 });
             }, {
@@ -73,9 +74,23 @@
 
             revealItems.forEach(function (item, index) {
                 item.style.setProperty("--motion-delay", Math.min(index % 5, 4) * 55 + "ms");
-                observer.observe(item);
+            });
+
+            /* 初期表示では動かさず、ユーザーがスクロールし始めてから監視を開始。 */
+            function startScrollReveals() {
+                revealItems.forEach(function (item) {
+                    if (!item.classList.contains("is-visible")) {
+                        observer.observe(item);
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", startScrollReveals, {
+                passive: true,
+                once: true
             });
         } else {
+            /* 動きを減らす設定や非対応環境では、内容をそのまま表示する。 */
             revealItems.forEach(function (item) {
                 item.classList.add("is-visible");
             });
