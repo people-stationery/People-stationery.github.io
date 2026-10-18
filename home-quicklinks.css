@@ -1,0 +1,108 @@
+/* ========================================
+   HOME クイックアクセス
+   既存の白 × 青のデザインを保ち、移動先を見つけやすくする
+======================================== */
+
+.home-quicklinks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding: 0 20px 28px;
+}
+
+.home-quicklink {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 112px;
+    padding: 20px 48px 20px 22px;
+    color: #315878;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(66, 103, 145, 0.16);
+    border-radius: 18px;
+    box-shadow: 0 6px 22px rgba(42, 73, 104, 0.055);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.home-quicklink:hover,
+.home-quicklink:focus-visible {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(66, 103, 145, 0.32);
+    box-shadow: 0 12px 28px rgba(42, 73, 104, 0.11);
+}
+
+.home-quicklink:focus-visible {
+    outline: 2px solid #426791;
+    outline-offset: 3px;
+}
+
+.home-quicklink-label {
+    margin-bottom: 8px;
+    color: #7794ac;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.home-quicklink-title {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.home-quicklink-arrow {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    color: #6c8aa5;
+    font-size: 20px;
+    transform: translateY(-50%);
+    transition: transform 0.25s ease;
+}
+
+.home-quicklink:hover .home-quicklink-arrow,
+.home-quicklink:focus-visible .home-quicklink-arrow {
+    transform: translate(3px, -50%);
+}
+
+@media (max-width: 600px) {
+    .home-quicklinks {
+        gap: 10px;
+        padding: 0 8px 20px;
+    }
+
+    .home-quicklink {
+        min-height: 100px;
+        padding: 16px 32px 16px 14px;
+        border-radius: 15px;
+    }
+
+    .home-quicklink-title {
+        font-size: 14px;
+    }
+
+    .home-quicklink-arrow {
+        right: 12px;
+        font-size: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-quicklink,
+    .home-quicklink-arrow {
+        transition: none;
+    }
+
+    .home-quicklink:hover,
+    .home-quicklink:focus-visible {
+        transform: none;
+    }
+}
