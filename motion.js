@@ -39,6 +39,7 @@
         var selectors = [
             /* .hero は既存の heroTextIn アニメーションを使うため除外 */
             ".youtube-area",
+            ".home-quicklink",
             ".articles h2",
             ".article-card",
             ".series-section",
