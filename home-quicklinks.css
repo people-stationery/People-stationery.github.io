@@ -188,14 +188,14 @@
    HOME — editorial reveal motion
 ======================================== */
 
-@keyframes homeQuicklinkRise {
+@keyframes homeQuicklinkSlide {
     from {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateX(-16px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 
@@ -206,15 +206,15 @@
 }
 
 .motion-enabled .home-quicklink.motion-reveal.is-visible .home-quicklink-label {
-    animation: homeQuicklinkRise 650ms cubic-bezier(.2,.7,.2,1) 80ms both;
+    animation: homeQuicklinkSlide 650ms cubic-bezier(.2,.7,.2,1) 80ms both;
 }
 
 .motion-enabled .home-quicklink.motion-reveal.is-visible .home-quicklink-heading {
-    animation: homeQuicklinkRise 750ms cubic-bezier(.2,.7,.2,1) 170ms both;
+    animation: homeQuicklinkSlide 750ms cubic-bezier(.2,.7,.2,1) 170ms both;
 }
 
 .motion-enabled .home-quicklink.motion-reveal.is-visible .home-quicklink-button {
-    animation: homeQuicklinkRise 650ms cubic-bezier(.2,.7,.2,1) 280ms both;
+    animation: homeQuicklinkSlide 650ms cubic-bezier(.2,.7,.2,1) 280ms both;
 }
 
 @media (prefers-reduced-motion: reduce) {
