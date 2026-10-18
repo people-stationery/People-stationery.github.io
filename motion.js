@@ -1,6 +1,6 @@
 /* ========================================
-   Studio People — motion system
-   Soft reveals, tactile feedback, scroll progress
+   Studio People — scroll-driven motion
+   Motion follows downward scrolling and never reverses.
 ======================================== */
 (function () {
     "use strict";
@@ -11,33 +11,13 @@
 
         body.classList.add("motion-enabled");
 
-        /* A slim progress line that tracks page scrolling. */
+        /* Scroll progress line */
         var progress = document.createElement("div");
         progress.className = "scroll-progress";
         progress.setAttribute("aria-hidden", "true");
         body.appendChild(progress);
 
-        var ticking = false;
-        function updateProgress() {
-            var root = document.documentElement;
-            var maxScroll = root.scrollHeight - window.innerHeight;
-            var amount = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-            progress.style.transform = "scaleX(" + Math.max(0, Math.min(1, amount)) + ")";
-            ticking = false;
-        }
-        function onScroll() {
-            if (!ticking) {
-                window.requestAnimationFrame(updateProgress);
-                ticking = true;
-            }
-        }
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", updateProgress);
-        updateProgress();
-
-        /* Reveal meaningful content gently as it enters the viewport. */
         var selectors = [
-            /* .hero は既存の heroTextIn アニメーションを使うため除外 */
             ".youtube-area",
             ".home-quicklink",
             ".articles h2",
@@ -52,49 +32,73 @@
 
         var candidates = document.querySelectorAll(selectors.join(","));
         var revealItems = [];
+
         candidates.forEach(function (item) {
             if (item.classList.contains("motion-reveal")) return;
             item.classList.add("motion-reveal");
-            revealItems.push(item);
+            item.style.setProperty("--scroll-reveal-progress", "0");
+            revealItems.push({ element: item, progress: 0, done: false });
         });
 
-        if ("IntersectionObserver" in window &&
-            !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add("is-visible");
-                    /* 一度表示した要素は監視を終了。上へ戻っても再び隠さない。 */
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                threshold: 0.08,
-                rootMargin: "0px 0px -36px 0px"
+        var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reducedMotion) {
+            revealItems.forEach(function (item) {
+                item.element.classList.add("is-visible");
             });
+        }
 
-            revealItems.forEach(function (item, index) {
-                item.style.setProperty("--motion-delay", Math.min(index % 5, 4) * 55 + "ms");
-            });
+        var ticking = false;
 
-            /* 初期表示では動かさず、ユーザーがスクロールし始めてから監視を開始。 */
-            function startScrollReveals() {
+        function clamp(value, min, max) {
+            return Math.max(min, Math.min(max, value));
+        }
+
+        function updateMotion() {
+            var root = document.documentElement;
+            var maxScroll = root.scrollHeight - window.innerHeight;
+            var amount = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+            progress.style.transform = "scaleX(" + clamp(amount, 0, 1) + ")";
+            
+            if (!reducedMotion) {
                 revealItems.forEach(function (item) {
-                    if (!item.classList.contains("is-visible")) {
-                        observer.observe(item);
+                    if (item.done) return;
+
+                    var rect = item.element.getBoundingClientRect();
+                    /* Starts as the element enters the viewport, completes after
+                       moving through the first 55% of viewport height. */
+                    var next = clamp((window.innerHeight * 0.92 - rect.top) /
+                        (window.innerHeight * 0.55), 0, 1);
+
+                    /* Keep the furthest progress reached: upward scrolling never
+                       makes an element move backward. */
+                    item.progress = Math.max(item.progress, next);
+                    item.element.style.setProperty(
+                        "--scroll-reveal-progress",
+                        String(item.progress)
+                    );
+
+                    if (item.progress >= 1) {
+                        item.done = true;
+                        item.element.classList.add("is-visible");
+                        item.element.style.removeProperty("--scroll-reveal-progress");
+                        item.element.style.removeProperty("opacity");
+                        item.element.style.removeProperty("transform");
                     }
                 });
             }
 
-            window.addEventListener("scroll", startScrollReveals, {
-                passive: true,
-                once: true
-            });
-        } else {
-            /* 動きを減らす設定や非対応環境では、内容をそのまま表示する。 */
-            revealItems.forEach(function (item) {
-                item.classList.add("is-visible");
-            });
+            ticking = false;
         }
+
+        function requestUpdate() {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(updateMotion);
+        }
+
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate);
+        updateMotion();
     }
 
     if (document.readyState === "loading") {
