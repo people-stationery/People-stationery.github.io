@@ -1,13 +1,11 @@
 /* ========================================
-   HOME クイックアクセス
-   ARTICLE / CATALOG を縦に大きく見せる
+   HOME — ARTICLE / CATALOG セクション
+   ヒーローと同じように、余白と大きな文字で見せる
 ======================================== */
 
 .home-quicklinks {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
-    padding: 0 20px 44px;
+    display: block;
+    padding: 0 20px;
 }
 
 .home-quicklink {
@@ -16,97 +14,141 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    min-height: 320px;
-    padding: 40px 72px 40px 40px;
-    color: #315878;
+    min-height: 520px;
+    padding: 100px 20px;
+    color: #294967;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(66, 103, 145, 0.16);
-    border-radius: 24px;
-    box-shadow: 0 6px 22px rgba(42, 73, 104, 0.055);
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(66, 103, 145, 0.13);
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    transition: color 0.25s ease;
+}
+
+.home-quicklink::before {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    right: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        rgba(66, 103, 145, 0.09),
+        rgba(255, 255, 255, 0)
+    );
+    pointer-events: none;
+    transition: transform 0.45s ease, opacity 0.45s ease;
+}
+
+.home-quicklink::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    right: 90px;
+    bottom: 50px;
+    border: 1px solid rgba(66, 103, 145, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.45s ease;
 }
 
 .home-quicklink:hover,
 .home-quicklink:focus-visible {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.96);
-    border-color: rgba(66, 103, 145, 0.32);
-    box-shadow: 0 12px 28px rgba(42, 73, 104, 0.11);
+    background: transparent;
+    border-color: rgba(66, 103, 145, 0.24);
+    box-shadow: none;
+    transform: none;
+}
+
+.home-quicklink:hover::before,
+.home-quicklink:focus-visible::before {
+    transform: translateY(-50%) scale(1.06);
+}
+
+.home-quicklink:hover::after,
+.home-quicklink:focus-visible::after {
+    transform: translate(-5px, -5px);
 }
 
 .home-quicklink:focus-visible {
     outline: 2px solid #426791;
-    outline-offset: 3px;
+    outline-offset: -4px;
 }
 
 .home-quicklink-label {
-    margin-bottom: 14px;
-    color: #7794ac;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 18px;
+    color: #6c8aa5;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
 }
 
 .home-quicklink-title {
-    font-size: clamp(24px, 4vw, 36px);
-    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    color: #294967;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 700;
+    line-height: 1.25;
     letter-spacing: 0.04em;
 }
 
 .home-quicklink-arrow {
-    position: absolute;
-    top: 50%;
-    right: 36px;
+    position: relative;
+    z-index: 1;
+    margin-top: 30px;
     color: #6c8aa5;
-    font-size: 32px;
-    transform: translateY(-50%);
-    transition: transform 0.25s ease;
+    font-size: 28px;
+    line-height: 1;
+    transition: transform 0.3s ease;
 }
 
 .home-quicklink:hover .home-quicklink-arrow,
 .home-quicklink:focus-visible .home-quicklink-arrow {
-    transform: translate(5px, -50%);
+    transform: translateX(7px);
 }
 
 @media (max-width: 600px) {
     .home-quicklinks {
-        gap: 20px;
-        padding: 0 12px 32px;
+        padding: 0 12px;
     }
 
     .home-quicklink {
-        min-height: 260px;
-        padding: 28px 52px 28px 24px;
-        border-radius: 20px;
-    }
-
-    .home-quicklink-label {
-        font-size: 11px;
+        min-height: 460px;
+        padding: 90px 12px;
     }
 
     .home-quicklink-title {
-        font-size: 25px;
+        font-size: clamp(36px, 10vw, 52px);
     }
 
-    .home-quicklink-arrow {
-        right: 20px;
-        font-size: 26px;
+    .home-quicklink::before {
+        width: 300px;
+        height: 300px;
+        right: -170px;
+    }
+
+    .home-quicklink::after {
+        width: 110px;
+        height: 110px;
+        right: 25px;
+        bottom: 35px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .home-quicklink,
+    .home-quicklink::before,
+    .home-quicklink::after,
     .home-quicklink-arrow {
         transition: none;
-    }
-
-    .home-quicklink:hover,
-    .home-quicklink:focus-visible {
-        transform: none;
     }
 }
