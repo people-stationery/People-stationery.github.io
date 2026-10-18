@@ -3581,7 +3581,7 @@ body.product-detail-open {
 /* スクロールに合わせて、控えめに表示 */
 .motion-enabled .motion-reveal {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateX(-18px);
     transition:
         opacity 650ms cubic-bezier(.2,.7,.2,1),
         transform 650ms cubic-bezier(.2,.7,.2,1);
@@ -3590,7 +3590,7 @@ body.product-detail-open {
 
 .motion-enabled .motion-reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 /* 画面上端に、現在のスクロール位置を示す細い青いライン */
