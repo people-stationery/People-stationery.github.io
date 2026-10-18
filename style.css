@@ -3739,3 +3739,29 @@ body[data-sp-theme="dark"] .sp-settings-title,body[data-sp-theme="dark"] .sp-set
         transition: none;
     }
 }
+
+
+/* ========================================
+   Scroll-driven reveal: motion follows scroll position
+======================================== */
+.motion-enabled .motion-reveal {
+    opacity: var(--scroll-reveal-progress, 0);
+    transform: translateX(calc(-18px * (1 - var(--scroll-reveal-progress, 0))));
+    transition: none !important;
+    will-change: opacity, transform;
+}
+
+.motion-enabled .motion-reveal.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+    will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .motion-enabled .motion-reveal,
+    .motion-enabled .motion-reveal.is-visible {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
