@@ -219,36 +219,46 @@
         ==================================== */
         /* ====================================
            ページ遷移（イベント委譲）
-           後から追加される記事カードのリンクも対象にする
         ==================================== */
         document.addEventListener("click", function (event) {
-            const link = event.target.closest("a[href]");
+            const target = event.target;
+            const link = target && target.closest
+                ? target.closest("a[href]")
+                : null;
             if (!link) return;
 
-            const href = link.getAttribute("href");
+            /* 通常クリックだけを対象にする */
             if (
-                !href ||
-                href.startsWith("#") ||
-                href.startsWith("http") ||
-                href.startsWith("mailto:") ||
-                link.target === "_blank" ||
-                link.hasAttribute("download") ||
                 event.defaultPrevented ||
                 event.button !== 0 ||
-                event.metaKey || event.ctrlKey || event.shiftKey || event.altKey
-            ) {
+                event.metaKey || event.ctrlKey ||
+                event.shiftKey || event.altKey ||
+                link.target === "_blank" ||
+                link.hasAttribute("download")
+            ) return;
+
+            let destination;
+            try {
+                destination = new URL(link.getAttribute("href"), window.location.href);
+            } catch (_) {
                 return;
             }
+
+            /* 外部サイト・ページ内リンクは通常動作 */
+            if (destination.origin !== window.location.origin) return;
+            if (destination.hash && destination.pathname === window.location.pathname) return;
+            if (destination.href === window.location.href) return;
 
             event.preventDefault();
             closeMenu();
 
-            document.body.classList.remove("page-loaded");
-            document.body.classList.add("page-leave");
+            const body = document.body;
+            body.classList.add("page-leave");
 
-            /* フェードアウトが終わってから移動 */
+            /* CSSの変更を確定してから、遷移待ちを開始 */
+            void body.offsetWidth;
             window.setTimeout(function () {
-                window.location.href = href;
+                window.location.assign(destination.href);
             }, 800);
         }, true);
     });
