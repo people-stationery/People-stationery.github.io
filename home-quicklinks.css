@@ -71,15 +71,31 @@
     letter-spacing: 0.18em;
 }
 
-.home-quicklink-title {
+.home-quicklink-heading {
     position: relative;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: clamp(28px, 6vw, 84px);
+    width: 100%;
+}
+
+.home-quicklink-title {
+    flex: 0 0 auto;
     margin: 0;
     color: #294967;
     font-size: clamp(38px, 5.5vw, 58px);
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: 0.045em;
+}
+
+.home-quicklink-description {
+    margin: 0;
+    color: #60778b;
+    font-size: 14px;
+    line-height: 2;
+    letter-spacing: 0.035em;
 }
 
 .home-quicklink-button {
@@ -126,8 +142,19 @@
         padding: 64px 12px;
     }
 
+    .home-quicklink-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
     .home-quicklink-title {
         font-size: clamp(34px, 9vw, 48px);
+    }
+
+    .home-quicklink-description {
+        font-size: 13px;
+        line-height: 1.9;
     }
 
     .home-quicklink::before {
