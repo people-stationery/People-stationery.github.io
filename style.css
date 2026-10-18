@@ -3712,3 +3712,30 @@ body[data-sp-theme="dark"] .sp-theme-option[aria-pressed="true"]{background:#213
 body[data-sp-theme="dark"] .sp-settings-title,body[data-sp-theme="dark"] .sp-settings-section-title{color:var(--sp-accent)!important}
 @media(max-width:600px){.sp-settings-button{top:14px;right:66px;width:44px;height:44px}.sp-settings-panel{width:min(430px,92vw);padding:24px 20px 28px;border-radius:20px 0 0 20px}.sp-theme-grid{gap:8px}.sp-theme-option{gap:8px;padding:9px}}
 @media(prefers-reduced-motion:reduce){.sp-settings-button,.sp-settings-panel,.sp-settings-backdrop,.sp-theme-option,.sp-settings-close,.sp-settings-reset,.sp-switch,.sp-switch::after{transition:none!important}}
+
+
+/* ========================================
+   GLOBAL MOTION — left-to-right reveal
+======================================== */
+.motion-enabled .motion-reveal {
+    opacity: 0;
+    transform: translateX(-18px);
+    transition:
+        opacity 650ms cubic-bezier(.2,.7,.2,1),
+        transform 650ms cubic-bezier(.2,.7,.2,1);
+    transition-delay: var(--motion-delay, 0ms);
+}
+
+.motion-enabled .motion-reveal.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .motion-enabled .motion-reveal,
+    .motion-enabled .motion-reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
