@@ -218,7 +218,8 @@
            ページ遷移
         ==================================== */
         /* ====================================
-           ページ遷移（イベント委譲）
+           ページ遷移
+           Web Animations APIでフェード完了後に移動
         ==================================== */
         document.addEventListener("click", function (event) {
             const target = event.target;
@@ -227,9 +228,7 @@
                 : null;
             if (!link) return;
 
-            /* 通常クリックだけを対象にする */
             if (
-                event.defaultPrevented ||
                 event.button !== 0 ||
                 event.metaKey || event.ctrlKey ||
                 event.shiftKey || event.altKey ||
@@ -239,27 +238,48 @@
 
             let destination;
             try {
-                destination = new URL(link.getAttribute("href"), window.location.href);
+                destination = new URL(link.href, window.location.href);
             } catch (_) {
                 return;
             }
 
-            /* 外部サイト・ページ内リンクは通常動作 */
             if (destination.origin !== window.location.origin) return;
-            if (destination.hash && destination.pathname === window.location.pathname) return;
-            if (destination.href === window.location.href) return;
+            if (destination.pathname === window.location.pathname &&
+                destination.search === window.location.search) return;
 
             event.preventDefault();
+            event.stopImmediatePropagation();
             closeMenu();
 
             const body = document.body;
-            body.classList.add("page-leave");
+            const reduceMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
 
-            /* CSSの変更を確定してから、遷移待ちを開始 */
-            void body.offsetWidth;
-            window.setTimeout(function () {
+            if (reduceMotion || typeof body.animate !== "function") {
                 window.location.assign(destination.href);
-            }, 800);
+                return;
+            }
+
+            const currentOpacity = getComputedStyle(body).opacity;
+            const fade = body.animate(
+                [
+                    { opacity: currentOpacity },
+                    { opacity: 0 }
+                ],
+                {
+                    duration: 800,
+                    easing: "ease",
+                    fill: "forwards"
+                }
+            );
+
+            fade.finished.then(function () {
+                window.location.assign(destination.href);
+            }).catch(function () {
+                /* アニメーションが中断された場合も遷移を止めない */
+                window.location.assign(destination.href);
+            });
         }, true);
     });
 </script>
