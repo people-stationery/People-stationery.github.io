@@ -30,6 +30,12 @@ function handleSubscribe_(e) {
       return page_('入力内容をご確認ください', '有効なメールアドレスを入力してください。');
     }
 
+    const cache = CacheService.getScriptCache();
+    const throttleKey = 'newsletter:' + Utilities.base64EncodeWebSafe(Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, email));
+    if (cache.get(throttleKey)) {
+      return page_('確認メールを確認してください', 'このアドレスには直近で確認メールを送信しています。少し時間をおいてからお試しください。');
+    }
+
     const props = PropertiesService.getScriptProperties();
     const existing = findSubscriberByEmail_(props, email);
     if (existing && existing.confirmed && !existing.unsubscribed) {
@@ -73,6 +79,7 @@ function handleSubscribe_(e) {
       '<p style="font-size:12px;color:#718096">お心当たりがない場合は、このメールを無視してください。確認されるまで配信は始まりません。</p>' +
       '<p>文房具を、ちょっと深く。<br>Studio People</p></div>';
     MailApp.sendEmail(email, subject, textBody, {htmlBody: htmlBody, name: 'Studio People'});
+    cache.put(throttleKey, '1', 300);
     return page_('確認メールを送りました', '入力したメールアドレスをご確認ください。メール内の「購読を確認する」を押すと登録が完了します。');
   } catch (err) {
     console.error(err && err.stack ? err.stack : err);
