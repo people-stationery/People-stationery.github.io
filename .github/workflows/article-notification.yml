@@ -1,0 +1,73 @@
+name: Article publication email
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Find newly added numbered article pages
+        id: articles
+        shell: bash
+        run: |
+          set -euo pipefail
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+          if [[ "$BEFORE" =~ ^0+$ ]]; then
+            BEFORE="$(git rev-list --max-count=1 "$AFTER^" 2>/dev/null || true)"
+          fi
+          if [[ -z "$BEFORE" ]]; then
+            echo 'files=[]' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          FILES="$(git diff --diff-filter=A --name-only "$BEFORE" "$AFTER" -- '*.html' | grep -E '^[0-9]+\.html$' || true)"
+          python3 - "$FILES" >> "$GITHUB_OUTPUT" <<'PY'
+          import json, sys
+          files = [line.strip() for line in sys.argv[1].splitlines() if line.strip()]
+          print("files=" + json.dumps(files))
+          PY
+
+      - name: Send email for each new article
+        if: steps.articles.outputs.files != '[]' && steps.articles.outputs.files != ''
+        env:
+          ARTICLE_FILES: ${{ steps.articles.outputs.files }}
+          WEBHOOK_URL: ${{ secrets.ARTICLE_MAIL_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ secrets.ARTICLE_MAIL_WEBHOOK_SECRET }}
+          REPOSITORY: ${{ github.repository }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$WEBHOOK_URL" || -z "$WEBHOOK_SECRET" ]]; then
+            echo "Email notification is not configured yet. Add ARTICLE_MAIL_WEBHOOK_URL and ARTICLE_MAIL_WEBHOOK_SECRET repository secrets."
+            exit 0
+          fi
+          python3 - <<'PY'
+          import json, os, re, subprocess, urllib.request, urllib.error, html
+          files = json.loads(os.environ["ARTICLE_FILES"])
+          for path in files:
+              with open(path, encoding="utf-8") as f:
+                  page = f.read()
+              title_match = re.search(r"<title[^>]*>(.*?)</title>", page, re.I | re.S)
+              title = html.unescape(re.sub(r"\s+", " ", title_match.group(1)).strip()) if title_match else path
+              title = re.sub(r"\s*[|｜]\s*(人文房具|studio people).*?$", "", title, flags=re.I).strip()
+              url = "https://people-stationery.github.io/" + path
+              payload = json.dumps({"secret": os.environ["WEBHOOK_SECRET"], "title": title, "url": url, "path": path, "commit": os.environ["COMMIT_SHA"]}).encode()
+              req = urllib.request.Request(os.environ["WEBHOOK_URL"], data=payload, headers={"Content-Type": "application/json"}, method="POST")
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as response:
+                      result = response.read().decode()
+                      print(f"Notification response for {path}: {result}")
+              except urllib.error.HTTPError as e:
+                  raise SystemExit(f"Email notification failed for {path}: HTTP {e.code}: {e.read().decode()}")
+          PY
