@@ -3,8 +3,6 @@ name: Article publication email
 on:
   push:
     branches: [main]
-  workflow_dispatch:
-
 permissions:
   contents: read
 
