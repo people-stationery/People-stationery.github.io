@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=transition-4">
+<link rel="stylesheet" href="style.css?v=newsletter-1">
     <link rel="stylesheet" href="home-quicklinks.css?v=7">
 </head>
 <body>
@@ -122,6 +122,33 @@
                 文房具を探す <span aria-hidden="true">↗</span>
             </a>
         </section>
+    </section>
+
+    <!-- ====================================
+         新着記事メール購読
+    ==================================== -->
+    <section class="newsletter" aria-labelledby="newsletter-title">
+        <p class="newsletter-eyebrow">STAY IN THE LOOP</p>
+        <h2 id="newsletter-title">新しい記事を、メールで。</h2>
+        <p class="newsletter-description">
+            文房具の新しい記事を公開したときにお知らせします。<br>
+            登録後に届く確認メールのリンクを押すと購読が始まります。
+        </p>
+        <form class="newsletter-form"
+              action="https://script.google.com/macros/s/AKfycbwS_ElSWjEjrXZPxHou2bhzJX3XSTf3vCjSPE7kN9qu0L5zK5N0IfBaFbLdx9Ko9tTN/exec"
+              method="post" target="_blank">
+            <input type="hidden" name="action" value="subscribe">
+            <label class="newsletter-label" for="newsletter-email">メールアドレス</label>
+            <div class="newsletter-controls">
+                <input id="newsletter-email" name="email" type="email"
+                       autocomplete="email" maxlength="254" required
+                       placeholder="you@example.com">
+                <button type="submit">購読を申し込む <span aria-hidden="true">↗</span></button>
+            </div>
+            <p class="newsletter-note">
+                確認が完了するまで配信されません。いつでも配信停止できます。
+            </p>
+        </form>
     </section>
 
 </main>
