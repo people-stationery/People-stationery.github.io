@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+    <title>メール通知テスト | 人文房具</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=transition-3">
+</head>
+<body>
+    <div class="page-line"></div>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">Studio People</a>
+            <button class="menu-button" id="menuButton" type="button" aria-label="メニュー" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+    <nav class="menu-panel" id="menuPanel" aria-label="メインメニュー">
+        <a href="index.html">HOME</a>
+        <a href="article.html">ARTICLE</a>
+        <a href="catalog.html">CATALOG</a>
+        <a href="about.html">ABOUT</a>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <p class="small-title">BLOG / TEST</p>
+            <h1>メール通知の<br>動作テスト</h1>
+            <p class="description">この記事はStudio Peopleの新着記事メール通知を確認するためのテスト記事です。</p>
+        </section>
+        <section class="articles">
+            <article>
+                <p>これはメール通知機能の動作確認用の記事です。</p>
+                <p>通知のテストが完了したら、この記事を実際の文房具記事に書き換える予定です。</p>
+                <p>文房具を、ちょっと深く。<br>Studio People</p>
+            </article>
+        </section>
+        <section class="article-navigation">
+            <a href="3.html" class="prev-article">← 前の記事</a>
+            <a href="article.html" class="next-article">記事一覧へ →</a>
+        </section>
+        <section class="article-list-back">
+            <a href="article.html">← 記事一覧へ戻る</a>
+        </section>
+    </main>
+
+    <footer><p>© 人文房具</p></footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.getElementById("menuButton");
+        const menuPanel = document.getElementById("menuPanel");
+        const menuBackdrop = document.getElementById("menuBackdrop");
+
+        requestAnimationFrame(function () {
+            document.body.classList.add("page-loaded");
+        });
+
+        function closeMenu() {
+            menuButton.classList.remove("active");
+            menuPanel.classList.remove("active");
+            menuBackdrop.classList.remove("active");
+            menuButton.setAttribute("aria-expanded", "false");
+        }
+
+        menuButton.addEventListener("click", function () {
+            const isOpen = menuPanel.classList.toggle("active");
+            menuButton.classList.toggle("active", isOpen);
+            menuBackdrop.classList.toggle("active", isOpen);
+            menuButton.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        menuBackdrop.addEventListener("click", closeMenu);
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") closeMenu();
+        });
+    });
+    </script>
+    <script src="motion.js?v=5"></script>
+    <script src="settings.js?v=5"></script>
+    <script src="page-transition.js?v=1"></script>
+</body>
+</html>
