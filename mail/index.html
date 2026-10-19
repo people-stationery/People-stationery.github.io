@@ -22,12 +22,15 @@
     .eyebrow{font-size:10px;letter-spacing:.24em;font-weight:750;color:#7892ac}
     h1{font-size:clamp(32px,7vw,42px);line-height:1.15;letter-spacing:.01em;color:var(--deep);font-weight:600;margin:13px 0 10px}
     .intro{font-size:13px;line-height:1.9;color:var(--muted);margin:0 0 27px}
-    .google-button{width:100%;min-height:50px;display:flex;align-items:center;justify-content:center;gap:12px;border:1px solid #d7dfe7;border-radius:13px;background:#fff;color:#34495e;font:inherit;font-size:13px;font-weight:650;opacity:.62;cursor:not-allowed}
+    .google-button{width:100%;min-height:50px;display:flex;align-items:center;justify-content:center;gap:12px;border:1px solid #d7dfe7;border-radius:13px;background:#fff;color:#34495e;font:inherit;font-size:13px;font-weight:650;cursor:pointer;transition:transform .18s,border-color .18s,box-shadow .18s}
+    .google-button:hover:not(:disabled){transform:translateY(-1px);border-color:#a8bbce;box-shadow:0 8px 22px rgba(42,73,104,.08)}
+    .google-button:disabled{opacity:.55;cursor:not-allowed}
     .google-mark{font-weight:800;font-size:19px;font-family:Arial,sans-serif;color:#4285f4}
-    .status{margin-top:18px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#f4f7fa;color:#63798e;font-size:11px;line-height:1.85}
+    .status{margin-top:18px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#f4f7fa;color:#63798e;font-size:11px;line-height:1.85;overflow-wrap:anywhere}
     .status strong{color:var(--deep)}
     .account{margin-top:19px;font-size:12px;line-height:1.8;color:#6d8297}
     .account code{font-family:ui-monospace,SFMono-Regular,monospace;color:var(--deep);overflow-wrap:anywhere}
+    .logout{display:none;width:100%;margin-top:12px;min-height:43px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--deep);font:inherit;cursor:pointer}
     .back{display:inline-block;margin-top:23px;color:#6d8297;text-decoration:none;font-size:12px;transition:color .2s}
     .back:hover{color:var(--blue)}
     footer{text-align:center;border-top:1px solid var(--line);padding:20px;color:#8293a3;font-size:10px;letter-spacing:.08em}
@@ -41,13 +44,80 @@
     <section class="login" aria-labelledby="login-title">
       <div class="eyebrow">PRIVATE AREA / ADMIN</div>
       <h1 id="login-title">Welcome back.</h1>
-      <p class="intro">Studio People Mail の管理画面です。登録申請の承認や、新着記事のお知らせを管理します。</p>
-      <button class="google-button" type="button" disabled aria-disabled="true"><span class="google-mark" aria-hidden="true">G</span>Googleで管理者ログイン</button>
-      <div class="status" role="status"><strong>Google認証の接続待ち</strong><br>このページはGoogleログイン用の画面に切り替えました。実際のログインを有効にするには、認証サービスの初期設定が必要です。接続前にボタンを有効化すると、ログインできない画面になってしまうため、今は無効にしています。</div>
+      <p class="intro">Studio People Mail の管理画面です。Googleアカウントで管理者確認を行います。</p>
+      <button class="google-button" id="google-login" type="button"><span class="google-mark" aria-hidden="true">G</span>Googleで管理者ログイン</button>
+      <div class="status" id="status" role="status" aria-live="polite"><strong>接続設定が必要です</strong><br>認証サービスの設定後、このボタンからログインできるようになります。</div>
       <div class="account">許可する管理者アカウント<br><code>studio.people.web@gmail.com</code></div>
+      <button class="logout" id="logout" type="button">ログアウト</button>
       <a class="back" href="../index.html">← Studio People に戻る</a>
     </section>
   </main>
   <footer>© Studio People · PRIVATE MAIL WORKSPACE</footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // Add your Supabase Project URL and publishable key here after creating the project.
+    // These client-side values are intended to be public. Never put a service_role/secret key here.
+    const SUPABASE_URL = "PASTE_SUPABASE_PROJECT_URL_HERE";
+    const SUPABASE_PUBLISHABLE_KEY = "PASTE_SUPABASE_PUBLISHABLE_KEY_HERE";
+    const ADMIN_EMAIL = "studio.people.web@gmail.com";
+
+    const loginButton = document.getElementById("google-login");
+    const logoutButton = document.getElementById("logout");
+    const statusBox = document.getElementById("status");
+    const configured = SUPABASE_URL.startsWith("https://") &&
+      !SUPABASE_URL.includes("PASTE_") &&
+      SUPABASE_PUBLISHABLE_KEY &&
+      !SUPABASE_PUBLISHABLE_KEY.includes("PASTE_") &&
+      window.supabase;
+
+    function showStatus(title, message) {
+      statusBox.replaceChildren();
+      const strong = document.createElement("strong");
+      strong.textContent = title;
+      statusBox.append(strong, document.createElement("br"), document.createTextNode(message));
+    }
+
+    if (!configured) {
+      loginButton.disabled = true;
+      showStatus("あと一度、接続設定が必要です", "SupabaseのProject URLとPublishable keyが未設定です。認証サービスを作成して値を設定すると、Googleログインを有効にできます。");
+    } else {
+      const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+      async function checkSession() {
+        const { data, error } = await client.auth.getUser();
+        if (error || !data.user) return;
+        const email = (data.user.email || "").toLowerCase();
+        if (email !== ADMIN_EMAIL) {
+          await client.auth.signOut();
+          showStatus("このアカウントは許可されていません", "studio.people.web@gmail.com でログインしてください。");
+          return;
+        }
+        showStatus("管理者としてログイン中", "ログイン中のアカウント：" + email + "。管理画面のデータ操作側でも管理者権限の検証が必要です。");
+        loginButton.style.display = "none";
+        logoutButton.style.display = "block";
+      }
+
+      loginButton.addEventListener("click", async () => {
+        loginButton.disabled = true;
+        showStatus("Googleへ移動します", "アカウントを選択してください。");
+        const { error } = await client.auth.signInWithOAuth({
+          provider: "google",
+          options: { redirectTo: window.location.href.split("?")[0].split("#")[0] }
+        });
+        if (error) {
+          showStatus("ログインを開始できませんでした", error.message);
+          loginButton.disabled = false;
+        }
+      });
+
+      logoutButton.addEventListener("click", async () => {
+        const { error } = await client.auth.signOut();
+        if (error) showStatus("ログアウトに失敗しました", error.message);
+        else window.location.reload();
+      });
+
+      checkSession();
+    }
+  </script>
 </body>
 </html>
