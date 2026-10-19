@@ -4,86 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
-  <title>Mail — Studio People</title>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Login — Studio People Mail</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&display=swap" rel="stylesheet">
   <style>
-    :root{color-scheme:light;--blue:#426791;--deep:#294967;--ink:#263746;--muted:#718398;--line:rgba(66,103,145,.16);--glass:rgba(255,255,255,.82)}
+    :root{--blue:#426791;--deep:#294967;--ink:#263746;--muted:#718398;--line:rgba(66,103,145,.16)}
     *{box-sizing:border-box}
-    body{margin:0;min-height:100vh;color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fff 0%,#f8fbfe 58%,#edf4fa 100%)}
+    body{margin:0;min-height:100svh;color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fff 0%,#f8fbfe 58%,#edf4fa 100%);display:flex;flex-direction:column}
     body:before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(-25deg,rgba(66,103,145,.025) 0 2px,transparent 2px 28px);z-index:-1}
-    header{height:76px;padding:0 clamp(20px,5vw,64px);display:flex;align-items:center;border-bottom:1px solid var(--line);background:rgba(255,255,255,.7);backdrop-filter:blur(14px)}
-    .brand{font-family:"Bodoni Moda","Times New Roman",serif;font-size:clamp(30px,4vw,42px);color:var(--blue);text-decoration:none}
-    .brand span{font-family:system-ui,sans-serif;font-size:11px;letter-spacing:.2em;color:var(--muted);margin-left:14px;vertical-align:middle}
-    main{width:min(1040px,calc(100% - 36px));margin:0 auto;padding:clamp(44px,8vw,88px) 0 70px}
-    .eyebrow{font-size:11px;letter-spacing:.24em;font-weight:700;color:#7892ac}
-    h1{font-size:clamp(38px,7vw,64px);line-height:1.08;letter-spacing:.015em;color:var(--deep);font-weight:600;margin:15px 0 14px}
-    .intro{color:#687d91;line-height:1.9;margin:0;max-width:620px}
-    .layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.72fr);gap:22px;margin-top:40px;align-items:start}
-    .panel{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,4vw,34px);box-shadow:0 16px 48px rgba(42,73,104,.06);backdrop-filter:blur(12px)}
-    h2{margin:0 0 8px;font-size:20px;font-weight:650;color:var(--deep)}
-    .sub{font-size:13px;line-height:1.8;color:var(--muted);margin:0 0 25px}
-    label{display:block;font-size:12px;font-weight:700;letter-spacing:.05em;color:#526b83;margin:18px 0 8px}
-    input,textarea{font:inherit;width:100%;border:1px solid rgba(66,103,145,.22);border-radius:12px;background:rgba(255,255,255,.88);padding:13px 14px;color:var(--ink);outline:none}
-    input:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(66,103,145,.09)}
-    textarea{resize:vertical;min-height:125px;line-height:1.7}
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 20px;border:1px solid var(--blue);border-radius:30px;background:var(--blue);color:#fff;font:inherit;font-size:13px;font-weight:650;letter-spacing:.04em;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
-    .button:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(42,73,104,.16)}
-    .button.secondary{background:transparent;color:var(--blue);border-color:var(--line)}
-    .button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
-    .full{width:100%;margin-top:22px}
-    .status{border-radius:12px;padding:12px 14px;background:#f2f6fa;border:1px solid var(--line);color:#526b83;font-size:12px;line-height:1.8;margin-top:18px}
+    header{height:76px;padding:0 clamp(20px,5vw,64px);display:flex;align-items:center;border-bottom:1px solid var(--line);background:rgba(255,255,255,.72);backdrop-filter:blur(14px)}
+    .brand{font-family:"Bodoni Moda","Times New Roman",serif;font-size:clamp(29px,4vw,40px);color:var(--blue);text-decoration:none;line-height:1}
+    .brand small{display:block;margin-top:5px;font-family:system-ui,sans-serif;font-size:9px;letter-spacing:.25em;color:var(--muted)}
+    main{flex:1;width:min(460px,calc(100% - 36px));margin:0 auto;display:flex;align-items:center;padding:54px 0}
+    .login{width:100%;padding:clamp(25px,6vw,42px);background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:24px;box-shadow:0 20px 60px rgba(42,73,104,.08);backdrop-filter:blur(12px)}
+    .eyebrow{font-size:10px;letter-spacing:.24em;font-weight:750;color:#7892ac}
+    h1{font-size:clamp(32px,7vw,42px);line-height:1.15;letter-spacing:.01em;color:var(--deep);font-weight:600;margin:13px 0 10px}
+    .intro{font-size:13px;line-height:1.9;color:var(--muted);margin:0 0 27px}
+    label{display:block;font-size:12px;font-weight:700;letter-spacing:.04em;color:#526b83;margin:18px 0 8px}
+    input{font:inherit;width:100%;border:1px solid rgba(66,103,145,.22);border-radius:12px;background:#fff;padding:13px 14px;color:var(--ink);outline:none}
+    input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(66,103,145,.09)}
+    input::placeholder{color:#a0adba}
+    .button{width:100%;min-height:49px;margin-top:24px;border:1px solid var(--blue);border-radius:30px;background:var(--blue);color:#fff;font:inherit;font-size:13px;font-weight:650;letter-spacing:.04em;opacity:.55;cursor:not-allowed}
+    .status{margin-top:18px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#f4f7fa;color:#63798e;font-size:11px;line-height:1.8}
     .status strong{color:var(--deep)}
-    .steps{display:grid;gap:18px;margin-top:22px}
-    .step{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
-    .num{width:32px;height:32px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--blue);font-size:12px}
-    .step p{margin:2px 0 0;font-size:13px;line-height:1.8;color:#6c8093}
-    .step strong{display:block;color:var(--deep);font-size:13px;margin-bottom:2px}
-    .foot{margin-top:28px;font-size:11px;line-height:1.8;color:#8293a3}
-    footer{text-align:center;border-top:1px solid var(--line);padding:24px;color:#8293a3;font-size:11px;letter-spacing:.08em}
-    @media(max-width:720px){.layout{grid-template-columns:1fr}.brand span{display:block;margin:0;font-size:9px}.panel{border-radius:18px}}
+    .back{display:inline-block;margin-top:23px;color:#6d8297;text-decoration:none;font-size:12px;transition:color .2s}
+    .back:hover{color:var(--blue)}
+    footer{text-align:center;border-top:1px solid var(--line);padding:20px;color:#8293a3;font-size:10px;letter-spacing:.08em}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
   </style>
 </head>
 <body>
   <header>
-    <a class="brand" href="../index.html">Studio People <span>MAIL WORKSPACE</span></a>
+    <a class="brand" href="../index.html">Studio People<small>MAIL WORKSPACE</small></a>
   </header>
   <main>
-    <div class="eyebrow">PRIVATE WORKSPACE / 01</div>
-    <h1>Mail, with care.</h1>
-    <p class="intro">Studio People のメール管理スペース。ここからログインして、メールの作成・送信を行うための専用ページです。</p>
-    <div class="layout">
-      <section class="panel" aria-labelledby="login-title">
-        <h2 id="login-title">ログイン</h2>
-        <p class="sub">登録した管理者アカウントでログインします。</p>
-        <form id="login-form">
-          <label for="email">メールアドレス</label>
-          <input id="email" name="email" type="email" autocomplete="username" placeholder="管理者アドレス" required>
-          <label for="password">パスワード</label>
-          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="パスワード" required>
-          <button class="button full" type="submit" disabled>ログイン設定を準備中</button>
-        </form>
-        <div class="status" role="status"><strong>初期設定中</strong><br>この画面は作成済みですが、認証サービスをまだ接続していません。安全なログイン設定が完了するまでは、入力しても送信・認証されません。</div>
-      </section>
-      <aside class="panel">
-        <h2>Workspace setup</h2>
-        <p class="sub">実際に使えるようにするための設定</p>
-        <div class="steps">
-          <div class="step"><div class="num">01</div><p><strong>管理者認証</strong>メールアドレスとパスワードでログインできる仕組みを接続。</p></div>
-          <div class="step"><div class="num">02</div><p><strong>送信アカウント</strong>専用Gmailを送信元として安全に連携。</p></div>
-          <div class="step"><div class="num">03</div><p><strong>メール送信</strong>宛先・件名・本文を入力し、送信結果を確認。</p></div>
-        </div>
-        <p class="foot">セキュリティのため、パスワードやAPIキーなどの秘密情報をページのコードに直接保存しない設計にします。</p>
-      </aside>
-    </div>
+    <section class="login" aria-labelledby="login-title">
+      <div class="eyebrow">PRIVATE AREA / ADMIN</div>
+      <h1 id="login-title">Welcome back.</h1>
+      <p class="intro">Studio People Mail の管理者ログイン。新着記事のお知らせを登録者へ送信するための専用スペースです。</p>
+      <form id="login-form">
+        <label for="email">メールアドレス</label>
+        <input id="email" name="email" type="email" autocomplete="username" placeholder="管理者メールアドレス" required>
+        <label for="password">パスワード</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="パスワード" required>
+        <button class="button" type="button" disabled>ログイン機能は準備中</button>
+      </form>
+      <div class="status" role="status"><strong>初期設定中</strong><br>ログイン画面のデザインを用意しました。認証サービスはまだ接続していないため、現在はログインできません。</div>
+      <a class="back" href="../index.html">← Studio People に戻る</a>
+    </section>
   </main>
   <footer>© Studio People · PRIVATE MAIL WORKSPACE</footer>
-  <script>
-    document.getElementById("login-form").addEventListener("submit", function(event) {
-      event.preventDefault();
-      alert("現在は初期設定中です。認証サービスの接続が完了するまでログインできません。");
-    });
-  </script>
 </body>
 </html>
