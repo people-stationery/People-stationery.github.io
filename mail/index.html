@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
   <meta name="robots" content="noindex, nofollow">
-  <title>Login — Studio People Mail</title>
+  <title>Admin — Studio People Mail</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&display=swap" rel="stylesheet">
@@ -18,21 +18,19 @@
     .brand{font-family:"Bodoni Moda","Times New Roman",serif;font-size:clamp(29px,4vw,40px);color:var(--blue);text-decoration:none;line-height:1}
     .brand small{display:block;margin-top:5px;font-family:system-ui,sans-serif;font-size:9px;letter-spacing:.25em;color:var(--muted)}
     main{flex:1;width:min(460px,calc(100% - 36px));margin:0 auto;display:flex;align-items:center;padding:54px 0}
-    .login{width:100%;padding:clamp(25px,6vw,42px);background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:24px;box-shadow:0 20px 60px rgba(42,73,104,.08);backdrop-filter:blur(12px)}
+    .login{width:100%;padding:clamp(25px,6vw,42px);background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:24px;box-shadow:0 20px 60px rgba(42,73,104,.08);backdrop-filter:blur(12px)}
     .eyebrow{font-size:10px;letter-spacing:.24em;font-weight:750;color:#7892ac}
     h1{font-size:clamp(32px,7vw,42px);line-height:1.15;letter-spacing:.01em;color:var(--deep);font-weight:600;margin:13px 0 10px}
     .intro{font-size:13px;line-height:1.9;color:var(--muted);margin:0 0 27px}
-    label{display:block;font-size:12px;font-weight:700;letter-spacing:.04em;color:#526b83;margin:18px 0 8px}
-    input{font:inherit;width:100%;border:1px solid rgba(66,103,145,.22);border-radius:12px;background:#fff;padding:13px 14px;color:var(--ink);outline:none}
-    input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(66,103,145,.09)}
-    input::placeholder{color:#a0adba}
-    .button{width:100%;min-height:49px;margin-top:24px;border:1px solid var(--blue);border-radius:30px;background:var(--blue);color:#fff;font:inherit;font-size:13px;font-weight:650;letter-spacing:.04em;opacity:.55;cursor:not-allowed}
-    .status{margin-top:18px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#f4f7fa;color:#63798e;font-size:11px;line-height:1.8}
+    .google-button{width:100%;min-height:50px;display:flex;align-items:center;justify-content:center;gap:12px;border:1px solid #d7dfe7;border-radius:13px;background:#fff;color:#34495e;font:inherit;font-size:13px;font-weight:650;opacity:.62;cursor:not-allowed}
+    .google-mark{font-weight:800;font-size:19px;font-family:Arial,sans-serif;color:#4285f4}
+    .status{margin-top:18px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#f4f7fa;color:#63798e;font-size:11px;line-height:1.85}
     .status strong{color:var(--deep)}
+    .account{margin-top:19px;font-size:12px;line-height:1.8;color:#6d8297}
+    .account code{font-family:ui-monospace,SFMono-Regular,monospace;color:var(--deep);overflow-wrap:anywhere}
     .back{display:inline-block;margin-top:23px;color:#6d8297;text-decoration:none;font-size:12px;transition:color .2s}
     .back:hover{color:var(--blue)}
     footer{text-align:center;border-top:1px solid var(--line);padding:20px;color:#8293a3;font-size:10px;letter-spacing:.08em}
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
   </style>
 </head>
 <body>
@@ -43,15 +41,10 @@
     <section class="login" aria-labelledby="login-title">
       <div class="eyebrow">PRIVATE AREA / ADMIN</div>
       <h1 id="login-title">Welcome back.</h1>
-      <p class="intro">Studio People Mail の管理者ログイン。新着記事のお知らせを登録者へ送信するための専用スペースです。</p>
-      <form id="login-form">
-        <label for="email">メールアドレス</label>
-        <input id="email" name="email" type="email" autocomplete="username" placeholder="管理者メールアドレス" required>
-        <label for="password">パスワード</label>
-        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="パスワード" required>
-        <button class="button" type="button" disabled>ログイン機能は準備中</button>
-      </form>
-      <div class="status" role="status"><strong>初期設定中</strong><br>ログイン画面のデザインを用意しました。認証サービスはまだ接続していないため、現在はログインできません。</div>
+      <p class="intro">Studio People Mail の管理画面です。登録申請の承認や、新着記事のお知らせを管理します。</p>
+      <button class="google-button" type="button" disabled aria-disabled="true"><span class="google-mark" aria-hidden="true">G</span>Googleで管理者ログイン</button>
+      <div class="status" role="status"><strong>Google認証の接続待ち</strong><br>このページはGoogleログイン用の画面に切り替えました。実際のログインを有効にするには、認証サービスの初期設定が必要です。接続前にボタンを有効化すると、ログインできない画面になってしまうため、今は無効にしています。</div>
+      <div class="account">許可する管理者アカウント<br><code>studio.people.web@gmail.com</code></div>
       <a class="back" href="../index.html">← Studio People に戻る</a>
     </section>
   </main>
