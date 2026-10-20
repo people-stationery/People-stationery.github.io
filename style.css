@@ -4234,3 +4234,258 @@ body[data-sp-theme="greige"] .sp-theme-option[aria-pressed="true"] {
     --sp-preview-accent: #35312D;
     --sp-preview-surface: #F8F5EF;
 }
+
+
+/* ========================================
+   Play Button Minimal
+   Studio People original theme
+   Play Red #E62117 / White / Graphite
+======================================== */
+body[data-sp-theme="play-button-minimal"] {
+    color-scheme: light;
+    --sp-accent: #E62117;
+    --sp-accent-strong: #B81710;
+    --sp-page: #F4F4F4;
+    --sp-text: #292929;
+    --sp-soft: #E3E3E3;
+    --sp-panel: #FFFFFF;
+    --sp-line: #E3E3E3;
+    background: #F4F4F4 !important;
+    color: #292929 !important;
+}
+body[data-sp-theme="play-button-minimal"]::before,
+body[data-sp-theme="play-button-minimal"]::after {
+    display: none !important;
+}
+body[data-sp-theme="play-button-minimal"] header {
+    background: #E62117 !important;
+    border-bottom: 1px solid rgba(255,255,255,.22) !important;
+    box-shadow: 0 4px 18px rgba(184,23,16,.12) !important;
+}
+body[data-sp-theme="play-button-minimal"] .logo {
+    color: #FFFFFF !important;
+    font-family: "Bodoni Moda", Georgia, serif !important;
+    font-weight: 600 !important;
+    letter-spacing: -.035em !important;
+    text-shadow: none !important;
+}
+body[data-sp-theme="play-button-minimal"] .logo::before {
+    content: "▶";
+    display: inline-block;
+    color: #E62117;
+    background: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-size: .42em;
+    line-height: 1;
+    vertical-align: .22em;
+    padding: .48em .42em .48em .52em;
+    margin-right: .55em;
+    border-radius: 5px;
+    letter-spacing: 0;
+}
+body[data-sp-theme="play-button-minimal"] .menu-button,
+body[data-sp-theme="play-button-minimal"] .sp-settings-button {
+    color: #FFFFFF !important;
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.45) !important;
+    box-shadow: none !important;
+}
+body[data-sp-theme="play-button-minimal"] .menu-button span {
+    background: #FFFFFF !important;
+}
+body[data-sp-theme="play-button-minimal"] .menu-button:hover,
+body[data-sp-theme="play-button-minimal"] .sp-settings-button:hover {
+    background: #B81710 !important;
+    border-color: #FFFFFF !important;
+}
+body[data-sp-theme="play-button-minimal"] .hero {
+    background: #E62117 !important;
+    color: #FFFFFF !important;
+    border-color: rgba(255,255,255,.22) !important;
+    box-shadow: none !important;
+}
+body[data-sp-theme="play-button-minimal"] .hero h1,
+body[data-sp-theme="play-button-minimal"] .hero h2,
+body[data-sp-theme="play-button-minimal"] .hero p,
+body[data-sp-theme="play-button-minimal"] .hero .small-title,
+body[data-sp-theme="play-button-minimal"] .hero a,
+body[data-sp-theme="play-button-minimal"] .hero span {
+    color: #FFFFFF !important;
+}
+body[data-sp-theme="play-button-minimal"] .hero a {
+    border-color: #FFFFFF !important;
+}
+body[data-sp-theme="play-button-minimal"] .hero a:hover {
+    color: #B81710 !important;
+    background: #FFFFFF !important;
+}
+body[data-sp-theme="play-button-minimal"] .small-title {
+    color: #E62117 !important;
+}
+body[data-sp-theme="play-button-minimal"] .youtube-area,
+body[data-sp-theme="play-button-minimal"] .newsletter {
+    background: #E62117 !important;
+    color: #FFFFFF !important;
+    border-color: #E62117 !important;
+    box-shadow: none !important;
+}
+body[data-sp-theme="play-button-minimal"] .youtube-area h2,
+body[data-sp-theme="play-button-minimal"] .youtube-area p,
+body[data-sp-theme="play-button-minimal"] .newsletter h2,
+body[data-sp-theme="play-button-minimal"] .newsletter p,
+body[data-sp-theme="play-button-minimal"] .newsletter label,
+body[data-sp-theme="play-button-minimal"] .newsletter .newsletter-eyebrow,
+body[data-sp-theme="play-button-minimal"] .newsletter .newsletter-note {
+    color: #FFFFFF !important;
+}
+body[data-sp-theme="play-button-minimal"] .youtube-button,
+body[data-sp-theme="play-button-minimal"] .newsletter-controls button {
+    color: #E62117 !important;
+    background: #FFFFFF !important;
+    border-color: #FFFFFF !important;
+}
+body[data-sp-theme="play-button-minimal"] .youtube-button:hover,
+body[data-sp-theme="play-button-minimal"] .newsletter-controls button:hover {
+    color: #FFFFFF !important;
+    background: #B81710 !important;
+    border-color: #B81710 !important;
+}
+body[data-sp-theme="play-button-minimal"] .newsletter-controls input {
+    color: #292929 !important;
+    background: #FFFFFF !important;
+    border-color: #FFFFFF !important;
+}
+body[data-sp-theme="play-button-minimal"] .newsletter-controls input::placeholder {
+    color: #777777 !important;
+}
+body[data-sp-theme="play-button-minimal"] .home-quicklink {
+    background: #FFFFFF !important;
+    border-color: #E3E3E3 !important;
+    color: #292929 !important;
+    box-shadow: 0 8px 24px rgba(41,41,41,.045) !important;
+}
+body[data-sp-theme="play-button-minimal"] .home-quicklink:hover {
+    border-color: #E62117 !important;
+    box-shadow: 0 12px 30px rgba(41,41,41,.09) !important;
+}
+body[data-sp-theme="play-button-minimal"] .home-quicklink-label,
+body[data-sp-theme="play-button-minimal"] .home-quicklink-button {
+    color: #E62117 !important;
+}
+body[data-sp-theme="play-button-minimal"] .home-quicklink-heading,
+body[data-sp-theme="play-button-minimal"] .home-quicklink-title {
+    color: #292929 !important;
+}
+body[data-sp-theme="play-button-minimal"] .articles,
+body[data-sp-theme="play-button-minimal"] .catalog,
+body[data-sp-theme="play-button-minimal"] .catalog-content,
+body[data-sp-theme="play-button-minimal"] .about-section,
+body[data-sp-theme="play-button-minimal"] .catalog-list {
+    color: #292929 !important;
+}
+body[data-sp-theme="play-button-minimal"] .article-list,
+body[data-sp-theme="play-button-minimal"] .stationery-card,
+body[data-sp-theme="play-button-minimal"] .catalog-panel,
+body[data-sp-theme="play-button-minimal"] .product-detail-panel {
+    background: #FFFFFF !important;
+    color: #292929 !important;
+    border-color: #E3E3E3 !important;
+    box-shadow: 0 8px 24px rgba(41,41,41,.045) !important;
+}
+body[data-sp-theme="play-button-minimal"] .article-list a,
+body[data-sp-theme="play-button-minimal"] .catalog-link,
+body[data-sp-theme="play-button-minimal"] .stationery-card-link,
+body[data-sp-theme="play-button-minimal"] .article-navigation a,
+body[data-sp-theme="play-button-minimal"] .catalog-list-back,
+body[data-sp-theme="play-button-minimal"] .product-detail-back {
+    color: #E62117 !important;
+}
+body[data-sp-theme="play-button-minimal"] .catalog-tab,
+body[data-sp-theme="play-button-minimal"] .catalog-category-tab {
+    color: #292929 !important;
+    background: #FFFFFF !important;
+    border-color: #E3E3E3 !important;
+}
+body[data-sp-theme="play-button-minimal"] .catalog-tab.active,
+body[data-sp-theme="play-button-minimal"] .catalog-category-tab.active,
+body[data-sp-theme="play-button-minimal"] .catalog-tab[aria-selected="true"],
+body[data-sp-theme="play-button-minimal"] .catalog-category-tab[aria-selected="true"] {
+    color: #FFFFFF !important;
+    background: #E62117 !important;
+    border-color: #E62117 !important;
+}
+body[data-sp-theme="play-button-minimal"] .catalog-tab:hover,
+body[data-sp-theme="play-button-minimal"] .catalog-category-tab:hover {
+    color: #B81710 !important;
+    background: #F4F4F4 !important;
+    border-color: #E62117 !important;
+}
+body[data-sp-theme="play-button-minimal"] .menu-panel {
+    color: #292929 !important;
+    background: #FFFFFF !important;
+    border-color: #E3E3E3 !important;
+    box-shadow: 0 16px 42px rgba(41,41,41,.16) !important;
+}
+body[data-sp-theme="play-button-minimal"] .menu-panel a {
+    color: #292929 !important;
+    border-color: #E3E3E3 !important;
+}
+body[data-sp-theme="play-button-minimal"] .menu-panel a:hover,
+body[data-sp-theme="play-button-minimal"] .menu-panel a:focus-visible {
+    color: #E62117 !important;
+    background: #F4F4F4 !important;
+}
+body[data-sp-theme="play-button-minimal"] .sp-settings-panel {
+    color: #292929 !important;
+    background: #FFFFFF !important;
+    border-color: #E3E3E3 !important;
+}
+body[data-sp-theme="play-button-minimal"] .sp-settings-title,
+body[data-sp-theme="play-button-minimal"] .sp-settings-section-title {
+    color: #292929 !important;
+}
+body[data-sp-theme="play-button-minimal"] .sp-settings-subtitle,
+body[data-sp-theme="play-button-minimal"] .sp-settings-section-caption {
+    color: #777777 !important;
+}
+body[data-sp-theme="play-button-minimal"] .sp-settings-close,
+body[data-sp-theme="play-button-minimal"] .sp-settings-reset {
+    color: #292929 !important;
+    border-color: #E3E3E3 !important;
+}
+body[data-sp-theme="play-button-minimal"] .sp-settings-close:hover,
+body[data-sp-theme="play-button-minimal"] .sp-settings-reset:hover {
+    color: #E62117 !important;
+    background: #F4F4F4 !important;
+}
+body[data-sp-theme="play-button-minimal"] .sp-theme-option {
+    color: #292929 !important;
+    background: #F4F4F4 !important;
+    border-color: #E3E3E3 !important;
+}
+body[data-sp-theme="play-button-minimal"] .sp-theme-option:hover {
+    border-color: #E62117 !important;
+}
+body[data-sp-theme="play-button-minimal"] .sp-theme-option[aria-pressed="true"] {
+    color: #292929 !important;
+    background: #FFFFFF !important;
+    border-color: #E62117 !important;
+    box-shadow: inset 0 0 0 1px #E62117 !important;
+}
+body[data-sp-theme="play-button-minimal"] .sp-theme-play-button-minimal .sp-theme-preview {
+    background: #E62117;
+    --sp-preview-accent: #292929;
+    --sp-preview-surface: #FFFFFF;
+}
+body[data-sp-theme="play-button-minimal"] .scroll-progress {
+    background: #E62117 !important;
+}
+body[data-sp-theme="play-button-minimal"] footer {
+    color: #777777 !important;
+    border-top-color: #E3E3E3 !important;
+}
+body[data-sp-theme="play-button-minimal"] a:focus-visible,
+body[data-sp-theme="play-button-minimal"] button:focus-visible {
+    outline: 2px solid #B81710 !important;
+    outline-offset: 3px;
+}
