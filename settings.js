@@ -2,7 +2,7 @@
   "use strict";
   const STORAGE_KEY = "studioPeople.settings.v1";
   const DEFAULTS = { theme: "standard", motion: true };
-  const THEMES = ["standard", "midnight", "dark", "sky"];
+  const THEMES = ["standard", "midnight", "dark", "sky", "mono-black", "mono-white"];
 
   function loadSettings() {
     try {
@@ -61,6 +61,8 @@
           <button type="button" class="sp-theme-option sp-theme-midnight" data-sp-theme-choice="midnight" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">Midnight</span><span class="sp-theme-desc">深いネイビー</span></span></button>
           <button type="button" class="sp-theme-option sp-theme-dark" data-sp-theme-choice="dark" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">Dark</span><span class="sp-theme-desc">暗色 × 水色</span></span></button>
           <button type="button" class="sp-theme-option sp-theme-sky" data-sp-theme-choice="sky" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">Sky</span><span class="sp-theme-desc">淡い空色</span></span></button>
+          <button type="button" class="sp-theme-option sp-theme-mono-black" data-sp-theme-choice="mono-black" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">Mono Black</span><span class="sp-theme-desc">黒 × グレー</span></span></button>
+          <button type="button" class="sp-theme-option sp-theme-mono-white" data-sp-theme-choice="mono-white" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">Mono White</span><span class="sp-theme-desc">白 × ブラック</span></span></button>
         </div>
       </section>
       <section class="sp-settings-section">
