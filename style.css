@@ -4061,3 +4061,176 @@ body[data-sp-theme="mono-white"] .sp-theme-mono-white .sp-theme-preview {
     --sp-preview-accent: #111;
     --sp-preview-surface: #ddd;
 }
+
+ 
+/* ========================================
+   GREIGE THEME — warm, minimal neutrals
+   Background: Sand Beige #E4D9C9
+======================================== */
+body[data-sp-theme="greige"] {
+    color-scheme: light;
+    --sp-accent: #B7A58D;
+    --sp-accent-strong: #35312D;
+    --sp-page: #E4D9C9;
+    --sp-text: #35312D;
+    --sp-soft: #E8DFD2;
+    --sp-panel: rgba(248,245,239,.97);
+    --sp-line: rgba(117,104,88,.24);
+    background: #E4D9C9 !important;
+    color: #35312D !important;
+}
+body[data-sp-theme="greige"]::before {
+    background: repeating-linear-gradient(-25deg, rgba(117,104,88,.045) 0, rgba(117,104,88,.045) 2px, transparent 2px, transparent 30px) !important;
+    opacity: .75 !important;
+}
+body[data-sp-theme="greige"]::after {
+    background: radial-gradient(circle, rgba(183,165,141,.25) 0%, rgba(183,165,141,.08) 46%, transparent 74%) !important;
+}
+body[data-sp-theme="greige"] header {
+    background: rgba(228,217,201,.78) !important;
+    border-bottom-color: rgba(117,104,88,.24) !important;
+}
+body[data-sp-theme="greige"] .logo,
+body[data-sp-theme="greige"] .hero h1,
+body[data-sp-theme="greige"] .newsletter h2 {
+    color: #35312D !important;
+}
+body[data-sp-theme="greige"] .menu-button,
+body[data-sp-theme="greige"] .sp-settings-button {
+    color: #35312D !important;
+    background: rgba(248,245,239,.94) !important;
+    border-color: rgba(117,104,88,.25) !important;
+    box-shadow: 0 4px 16px rgba(72,59,45,.09) !important;
+}
+body[data-sp-theme="greige"] .menu-button span {
+    background: #35312D !important;
+}
+body[data-sp-theme="greige"] .menu-panel,
+body[data-sp-theme="greige"] .sp-settings-panel {
+    color: #35312D !important;
+    background: rgba(248,245,239,.97) !important;
+    border-color: rgba(117,104,88,.24) !important;
+    box-shadow: -14px 0 42px rgba(72,59,45,.12) !important;
+}
+body[data-sp-theme="greige"] .menu-panel a {
+    color: #51483E !important;
+}
+body[data-sp-theme="greige"] .menu-panel a:hover {
+    color: #292621 !important;
+    background: rgba(183,165,141,.22) !important;
+}
+body[data-sp-theme="greige"] .menu-backdrop,
+body[data-sp-theme="greige"] .sp-settings-backdrop {
+    background: rgba(53,49,45,.22) !important;
+}
+body[data-sp-theme="greige"] .small-title,
+body[data-sp-theme="greige"] .newsletter-eyebrow {
+    color: #756858 !important;
+}
+body[data-sp-theme="greige"] .description,
+body[data-sp-theme="greige"] .newsletter-description,
+body[data-sp-theme="greige"] .newsletter-note,
+body[data-sp-theme="greige"] .newsletter-label,
+body[data-sp-theme="greige"] .catalog-description,
+body[data-sp-theme="greige"] .section-description,
+body[data-sp-theme="greige"] .article-summary,
+body[data-sp-theme="greige"] .article-meta,
+body[data-sp-theme="greige"] .article-date,
+body[data-sp-theme="greige"] .category,
+body[data-sp-theme="greige"] .stationery-card-maker,
+body[data-sp-theme="greige"] .stationery-card-description {
+    color: #756858 !important;
+}
+body[data-sp-theme="greige"] .hero::before {
+    background: linear-gradient(135deg, rgba(183,165,141,.22), rgba(248,245,239,0)) !important;
+}
+body[data-sp-theme="greige"] .hero::after {
+    border-color: rgba(117,104,88,.22) !important;
+}
+body[data-sp-theme="greige"] .article-card,
+body[data-sp-theme="greige"] .stationery-card,
+body[data-sp-theme="greige"] .youtube-button,
+body[data-sp-theme="greige"] .catalog-tabs-wrap,
+body[data-sp-theme="greige"] .catalog-tab,
+body[data-sp-theme="greige"] .catalog-category-tab,
+body[data-sp-theme="greige"] .series-scroll-button,
+body[data-sp-theme="greige"] .product-detail-panel,
+body[data-sp-theme="greige"] .product-detail-close,
+body[data-sp-theme="greige"] .article-navigation a,
+body[data-sp-theme="greige"] .article-list-back a,
+body[data-sp-theme="greige"] .catalog-list-back a {
+    color: #35312D !important;
+    background: #F8F5EF !important;
+    background-image: none !important;
+    border-color: rgba(117,104,88,.24) !important;
+    box-shadow: 0 8px 26px rgba(72,59,45,.055) !important;
+}
+body[data-sp-theme="greige"] .article-card *,
+body[data-sp-theme="greige"] .stationery-card *,
+body[data-sp-theme="greige"] .product-detail-panel * {
+    color: inherit;
+}
+body[data-sp-theme="greige"] .youtube-button {
+    border-radius: 30px;
+}
+body[data-sp-theme="greige"] .youtube-button:hover,
+body[data-sp-theme="greige"] .catalog-tab:hover,
+body[data-sp-theme="greige"] .catalog-category-tab:hover {
+    background: #E8DFD2 !important;
+}
+body[data-sp-theme="greige"] .newsletter {
+    background: rgba(248,245,239,.92) !important;
+    border-color: rgba(117,104,88,.24) !important;
+    box-shadow: 0 12px 32px rgba(72,59,45,.045) !important;
+}
+body[data-sp-theme="greige"] .newsletter-controls input {
+    color: #35312D !important;
+    background: #F8F5EF !important;
+    border-color: rgba(117,104,88,.32) !important;
+}
+body[data-sp-theme="greige"] .newsletter-controls input::placeholder {
+    color: #918475 !important;
+}
+body[data-sp-theme="greige"] .newsletter-controls button {
+    color: #F8F5EF !important;
+    background: #35312D !important;
+    border-color: #35312D !important;
+}
+body[data-sp-theme="greige"] .newsletter-controls button:hover {
+    background: #51483E !important;
+}
+body[data-sp-theme="greige"] .scroll-progress {
+    background: #756858 !important;
+}
+body[data-sp-theme="greige"] footer {
+    color: #756858 !important;
+    border-top-color: rgba(117,104,88,.24) !important;
+}
+body[data-sp-theme="greige"] .sp-settings-title,
+body[data-sp-theme="greige"] .sp-settings-section-title {
+    color: #51483E !important;
+}
+body[data-sp-theme="greige"] .sp-settings-close,
+body[data-sp-theme="greige"] .sp-settings-reset {
+    color: #35312D !important;
+    border-color: rgba(117,104,88,.28) !important;
+}
+body[data-sp-theme="greige"] .sp-settings-close:hover,
+body[data-sp-theme="greige"] .sp-settings-reset:hover {
+    background: #E8DFD2 !important;
+}
+body[data-sp-theme="greige"] .sp-theme-option {
+    color: #35312D !important;
+    background: rgba(228,217,201,.22) !important;
+    border-color: rgba(117,104,88,.22) !important;
+}
+body[data-sp-theme="greige"] .sp-theme-option[aria-pressed="true"] {
+    background: #E8DFD2 !important;
+    border-color: #82715D !important;
+    box-shadow: inset 0 0 0 1px #82715D !important;
+}
+.sp-theme-greige .sp-theme-preview {
+    background: #E4D9C9;
+    --sp-preview-accent: #35312D;
+    --sp-preview-surface: #F8F5EF;
+}
