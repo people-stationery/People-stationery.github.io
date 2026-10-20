@@ -3840,3 +3840,224 @@ body[data-sp-theme="dark"] .newsletter-controls input {
 @media (prefers-reduced-motion: reduce) {
     .newsletter-controls button { transition: none; }
 }
+
+
+/* ========================================
+   MONOCHROME THEMES
+   Settings: Mono Black / Mono White
+======================================== */
+body[data-sp-theme="mono-black"] {
+    color-scheme: dark;
+    --sp-accent: #f2f2f2;
+    --sp-accent-strong: #ffffff;
+    --sp-page: #080808;
+    --sp-text: #f0f0f0;
+    --sp-soft: #252525;
+    --sp-panel: rgba(20,20,20,.96);
+    --sp-line: rgba(255,255,255,.18);
+    background: #080808 !important;
+    color: #f0f0f0 !important;
+}
+body[data-sp-theme="mono-white"] {
+    color-scheme: light;
+    --sp-accent: #171717;
+    --sp-accent-strong: #000000;
+    --sp-page: #ffffff;
+    --sp-text: #171717;
+    --sp-soft: #eeeeee;
+    --sp-panel: rgba(255,255,255,.96);
+    --sp-line: rgba(0,0,0,.18);
+    background: #ffffff !important;
+    color: #171717 !important;
+}
+
+/* Black theme: restrained grayscale surfaces and readable text */
+body[data-sp-theme="mono-black"]::before {
+    background: repeating-linear-gradient(-25deg, rgba(255,255,255,.025) 0, rgba(255,255,255,.025) 2px, transparent 2px, transparent 28px) !important;
+}
+body[data-sp-theme="mono-black"]::after {
+    background: radial-gradient(circle, rgba(255,255,255,.09) 0%, rgba(255,255,255,.025) 45%, transparent 72%) !important;
+}
+body[data-sp-theme="mono-black"] header {
+    background: rgba(8,8,8,.58) !important;
+}
+body[data-sp-theme="mono-black"] .menu-button,
+body[data-sp-theme="mono-black"] .menu-panel,
+body[data-sp-theme="mono-black"] .sp-settings-panel {
+    background: var(--sp-panel) !important;
+}
+body[data-sp-theme="mono-black"] .menu-button span,
+body[data-sp-theme="mono-black"] .category-icon::before,
+body[data-sp-theme="mono-black"] .category-icon::after {
+    border-color: #e8e8e8 !important;
+    background-color: transparent;
+}
+body[data-sp-theme="mono-black"] .menu-button span {
+    background: #e8e8e8 !important;
+}
+body[data-sp-theme="mono-black"] .menu-panel a,
+body[data-sp-theme="mono-black"] .article-card,
+body[data-sp-theme="mono-black"] .stationery-card,
+body[data-sp-theme="mono-black"] .youtube-button,
+body[data-sp-theme="mono-black"] .catalog-tabs-wrap,
+body[data-sp-theme="mono-black"] .catalog-tab,
+body[data-sp-theme="mono-black"] .catalog-category-tab,
+body[data-sp-theme="mono-black"] .series-scroll-button,
+body[data-sp-theme="mono-black"] .product-detail-panel,
+body[data-sp-theme="mono-black"] .product-detail-close,
+body[data-sp-theme="mono-black"] .article-navigation a,
+body[data-sp-theme="mono-black"] .article-list-back a,
+body[data-sp-theme="mono-black"] .catalog-list-back a {
+    color: #f0f0f0 !important;
+    background-color: #181818 !important;
+    background-image: none !important;
+    border-color: #383838 !important;
+    box-shadow: 0 8px 28px rgba(0,0,0,.28) !important;
+}
+body[data-sp-theme="mono-black"] p,
+body[data-sp-theme="mono-black"] li,
+body[data-sp-theme="mono-black"] label,
+body[data-sp-theme="mono-black"] small,
+body[data-sp-theme="mono-black"] .description,
+body[data-sp-theme="mono-black"] .article p,
+body[data-sp-theme="mono-black"] .about p,
+body[data-sp-theme="mono-black"] .catalog-description,
+body[data-sp-theme="mono-black"] .section-description,
+body[data-sp-theme="mono-black"] .article-summary,
+body[data-sp-theme="mono-black"] .article-meta,
+body[data-sp-theme="mono-black"] .newsletter-description,
+body[data-sp-theme="mono-black"] .newsletter-note,
+body[data-sp-theme="mono-black"] .newsletter-label,
+body[data-sp-theme="mono-black"] .category,
+body[data-sp-theme="mono-black"] .stationery-card-maker,
+body[data-sp-theme="mono-black"] .stationery-card-description,
+body[data-sp-theme="mono-black"] .article-date {
+    color: #c4c4c4 !important;
+}
+body[data-sp-theme="mono-black"] .newsletter {
+    background: #141414 !important;
+    border-color: #383838 !important;
+}
+body[data-sp-theme="mono-black"] .newsletter-controls input {
+    color: #f0f0f0 !important;
+    background: #080808 !important;
+    border-color: #484848 !important;
+}
+body[data-sp-theme="mono-black"] .newsletter-controls button {
+    color: #080808 !important;
+    background: #f0f0f0 !important;
+    border-color: #f0f0f0 !important;
+}
+body[data-sp-theme="mono-black"] .scroll-progress {
+    background: #f0f0f0 !important;
+}
+body[data-sp-theme="mono-black"] .sp-theme-option {
+    color: #f0f0f0;
+    background: rgba(255,255,255,.04);
+}
+body[data-sp-theme="mono-black"] .sp-theme-option[aria-pressed="true"] {
+    background: #252525;
+}
+body[data-sp-theme="mono-black"] footer {
+    color: #888 !important;
+    border-top-color: #333 !important;
+}
+
+/* White theme: black typography, gray details, no blue accents */
+body[data-sp-theme="mono-white"]::before {
+    background: repeating-linear-gradient(-25deg, rgba(0,0,0,.025) 0, rgba(0,0,0,.025) 2px, transparent 2px, transparent 28px) !important;
+}
+body[data-sp-theme="mono-white"]::after {
+    background: radial-gradient(circle, rgba(0,0,0,.055) 0%, rgba(0,0,0,.015) 45%, transparent 72%) !important;
+}
+body[data-sp-theme="mono-white"] header {
+    background: rgba(255,255,255,.72) !important;
+}
+body[data-sp-theme="mono-white"] .menu-button,
+body[data-sp-theme="mono-white"] .menu-panel,
+body[data-sp-theme="mono-white"] .sp-settings-panel {
+    background: rgba(255,255,255,.96) !important;
+}
+body[data-sp-theme="mono-white"] .menu-button span {
+    background: #111 !important;
+}
+body[data-sp-theme="mono-white"] .menu-panel a,
+body[data-sp-theme="mono-white"] .article-card,
+body[data-sp-theme="mono-white"] .stationery-card,
+body[data-sp-theme="mono-white"] .youtube-button,
+body[data-sp-theme="mono-white"] .catalog-tabs-wrap,
+body[data-sp-theme="mono-white"] .catalog-tab,
+body[data-sp-theme="mono-white"] .catalog-category-tab,
+body[data-sp-theme="mono-white"] .series-scroll-button,
+body[data-sp-theme="mono-white"] .product-detail-panel,
+body[data-sp-theme="mono-white"] .product-detail-close,
+body[data-sp-theme="mono-white"] .article-navigation a,
+body[data-sp-theme="mono-white"] .article-list-back a,
+body[data-sp-theme="mono-white"] .catalog-list-back a {
+    color: #171717 !important;
+    background-color: #fff !important;
+    background-image: none !important;
+    border-color: #d5d5d5 !important;
+    box-shadow: 0 8px 28px rgba(0,0,0,.045) !important;
+}
+body[data-sp-theme="mono-white"] p,
+body[data-sp-theme="mono-white"] li,
+body[data-sp-theme="mono-white"] label,
+body[data-sp-theme="mono-white"] small,
+body[data-sp-theme="mono-white"] .description,
+body[data-sp-theme="mono-white"] .article p,
+body[data-sp-theme="mono-white"] .about p,
+body[data-sp-theme="mono-white"] .catalog-description,
+body[data-sp-theme="mono-white"] .section-description,
+body[data-sp-theme="mono-white"] .article-summary,
+body[data-sp-theme="mono-white"] .article-meta,
+body[data-sp-theme="mono-white"] .newsletter-description,
+body[data-sp-theme="mono-white"] .newsletter-note,
+body[data-sp-theme="mono-white"] .newsletter-label,
+body[data-sp-theme="mono-white"] .category,
+body[data-sp-theme="mono-white"] .stationery-card-maker,
+body[data-sp-theme="mono-white"] .stationery-card-description,
+body[data-sp-theme="mono-white"] .article-date {
+    color: #555 !important;
+}
+body[data-sp-theme="mono-white"] .newsletter {
+    background: #fafafa !important;
+    border-color: #d5d5d5 !important;
+}
+body[data-sp-theme="mono-white"] .newsletter-controls input {
+    color: #171717 !important;
+    background: #fff !important;
+    border-color: #bdbdbd !important;
+}
+body[data-sp-theme="mono-white"] .newsletter-controls button {
+    color: #fff !important;
+    background: #171717 !important;
+    border-color: #171717 !important;
+}
+body[data-sp-theme="mono-white"] .scroll-progress {
+    background: #171717 !important;
+}
+body[data-sp-theme="mono-white"] footer {
+    color: #777 !important;
+    border-top-color: #ddd !important;
+}
+body[data-sp-theme="mono-black"] .sp-theme-mono-black .sp-theme-preview {
+    background: #080808;
+    --sp-preview-accent: #fff;
+    --sp-preview-surface: #333;
+}
+body[data-sp-theme="mono-white"] .sp-theme-mono-white .sp-theme-preview {
+    background: #fff;
+    --sp-preview-accent: #111;
+    --sp-preview-surface: #ddd;
+}
+.sp-theme-mono-black .sp-theme-preview {
+    background: #080808;
+    --sp-preview-accent: #fff;
+    --sp-preview-surface: #333;
+}
+.sp-theme-mono-white .sp-theme-preview {
+    background: #fff;
+    --sp-preview-accent: #111;
+    --sp-preview-surface: #ddd;
+}
