@@ -1,0 +1,154 @@
+/* ========================================
+   GALAXY Color — Deep Space
+   Separate theme layer; existing themes remain unchanged.
+======================================== */
+body[data-sp-theme="galaxy"] {
+  --galaxy-base: #090D20;
+  --galaxy-blue: #5268B8;
+  --galaxy-violet: #8175D8;
+  --galaxy-starlight: #E5E9FF;
+  --galaxy-cyan: #78CFE0;
+  background: #090D20 !important;
+  color: #E5E9FF !important;
+  color-scheme: dark;
+}
+
+/* Diffuse blue-violet nebula across the entire page */
+body[data-sp-theme="galaxy"]::before {
+  z-index: -1;
+  opacity: 1 !important;
+  background:
+    radial-gradient(ellipse at 16% 18%, rgba(82,104,184,.25) 0, transparent 34%),
+    radial-gradient(ellipse at 78% 28%, rgba(129,117,216,.22) 0, transparent 36%),
+    radial-gradient(ellipse at 48% 64%, rgba(82,104,184,.16) 0, transparent 40%),
+    radial-gradient(ellipse at 88% 86%, rgba(129,117,216,.15) 0, transparent 32%),
+    radial-gradient(ellipse at 12% 92%, rgba(120,207,224,.08) 0, transparent 28%);
+  pointer-events: none;
+}
+
+body[data-sp-theme="galaxy"] header,
+body[data-sp-theme="galaxy"] .menu-panel,
+body[data-sp-theme="galaxy"] .sp-settings-panel {
+  background: rgba(9,13,32,.94) !important;
+  color: var(--galaxy-starlight) !important;
+  border-color: rgba(129,117,216,.28) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+body[data-sp-theme="galaxy"] .logo,
+body[data-sp-theme="galaxy"] h1,
+body[data-sp-theme="galaxy"] h2,
+body[data-sp-theme="galaxy"] h3,
+body[data-sp-theme="galaxy"] h4,
+body[data-sp-theme="galaxy"] .hero,
+body[data-sp-theme="galaxy"] main,
+body[data-sp-theme="galaxy"] footer,
+body[data-sp-theme="galaxy"] p,
+body[data-sp-theme="galaxy"] li,
+body[data-sp-theme="galaxy"] label {
+  color: var(--galaxy-starlight);
+}
+
+body[data-sp-theme="galaxy"] a {
+  color: var(--galaxy-cyan);
+}
+body[data-sp-theme="galaxy"] a:hover {
+  color: #FFFFFF;
+}
+
+body[data-sp-theme="galaxy"] button,
+body[data-sp-theme="galaxy"] .youtube-button,
+body[data-sp-theme="galaxy"] .home-quicklink-button,
+body[data-sp-theme="galaxy"] .newsletter-form button {
+  color: var(--galaxy-starlight);
+  background-color: rgba(82,104,184,.22);
+  border-color: rgba(120,207,224,.42);
+}
+
+body[data-sp-theme="galaxy"] .home-quicklink,
+body[data-sp-theme="galaxy"] .newsletter,
+body[data-sp-theme="galaxy"] .stationery-card,
+body[data-sp-theme="galaxy"] .article-card,
+body[data-sp-theme="galaxy"] .catalog-category-tab,
+body[data-sp-theme="galaxy"] .catalog-category-panel {
+  color: var(--galaxy-starlight);
+  background-color: rgba(23,27,56,.72);
+  border-color: rgba(129,117,216,.28);
+  box-shadow: 0 12px 36px rgba(0,0,0,.18);
+}
+
+body[data-sp-theme="galaxy"] .home-quicklink-title,
+body[data-sp-theme="galaxy"] .home-quicklink-label,
+body[data-sp-theme="galaxy"] .newsletter-eyebrow,
+body[data-sp-theme="galaxy"] .small-title,
+body[data-sp-theme="galaxy"] .catalog-list-label {
+  color: var(--galaxy-cyan);
+}
+
+body[data-sp-theme="galaxy"] input,
+body[data-sp-theme="galaxy"] textarea,
+body[data-sp-theme="galaxy"] select {
+  color: var(--galaxy-starlight);
+  background: rgba(9,13,32,.88);
+  border-color: rgba(129,117,216,.42);
+}
+body[data-sp-theme="galaxy"] input::placeholder,
+body[data-sp-theme="galaxy"] textarea::placeholder {
+  color: rgba(229,233,255,.58);
+}
+
+body[data-sp-theme="galaxy"] .sp-settings-title,
+body[data-sp-theme="galaxy"] .sp-settings-section-title,
+body[data-sp-theme="galaxy"] .sp-settings-row-title,
+body[data-sp-theme="galaxy"] .sp-theme-name {
+  color: var(--galaxy-starlight);
+}
+body[data-sp-theme="galaxy"] .sp-settings-subtitle,
+body[data-sp-theme="galaxy"] .sp-settings-section-caption,
+body[data-sp-theme="galaxy"] .sp-settings-row-description,
+body[data-sp-theme="galaxy"] .sp-theme-desc,
+body[data-sp-theme="galaxy"] .sp-settings-footnote {
+  color: rgba(229,233,255,.68);
+}
+body[data-sp-theme="galaxy"] .sp-theme-option {
+  background: rgba(23,27,56,.74);
+  border-color: rgba(129,117,216,.28);
+}
+body[data-sp-theme="galaxy"] .sp-theme-option[aria-pressed="true"] {
+  border-color: var(--galaxy-cyan);
+  box-shadow: 0 0 0 1px rgba(120,207,224,.28), 0 0 24px rgba(82,104,184,.18);
+}
+body[data-sp-theme="galaxy"] .sp-theme-galaxy .sp-theme-preview {
+  background:
+    radial-gradient(ellipse at 30% 35%, #5268B8 0, transparent 48%),
+    radial-gradient(ellipse at 72% 60%, #8175D8 0, transparent 52%),
+    #090D20;
+}
+body[data-sp-theme="galaxy"] .sp-settings-button,
+body[data-sp-theme="galaxy"] .menu-button {
+  color: var(--galaxy-starlight);
+}
+body[data-sp-theme="galaxy"] .menu-backdrop,
+body[data-sp-theme="galaxy"] .sp-settings-backdrop {
+  background: rgba(3,5,17,.72);
+}
+body[data-sp-theme="galaxy"] .page-line {
+  background: linear-gradient(90deg, transparent, var(--galaxy-blue), var(--galaxy-violet), transparent);
+}
+body[data-sp-theme="galaxy"] .catalog-list-header h1,
+body[data-sp-theme="galaxy"] .mechanical-pencil-list > h2 {
+  color: var(--galaxy-starlight);
+}
+body[data-sp-theme="galaxy"] .stationery-card::before {
+  background: linear-gradient(to bottom, var(--galaxy-blue), var(--galaxy-violet), rgba(120,207,224,.2));
+}
+body[data-sp-theme="galaxy"] .series-products::-webkit-scrollbar-thumb {
+  background: var(--galaxy-violet);
+}
+body[data-sp-theme="galaxy"].sp-reduce-motion *,
+body[data-sp-theme="galaxy"].sp-reduce-motion *::before,
+body[data-sp-theme="galaxy"].sp-reduce-motion *::after {
+  animation-duration: .01ms !important;
+  transition-duration: .01ms !important;
+}
