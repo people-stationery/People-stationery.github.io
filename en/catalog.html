@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=2">
+    <title>Catalog | Studio People</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=play-1">
+</head>
+
+<body>
+
+<div class="page-line"></div>
+
+<!-- ========================================
+     ヘッダー
+======================================== -->
+<header>
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            Studio People
+        </a>
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+</header>
+
+
+<!-- ========================================
+     メニュー背景
+======================================== -->
+<div
+    class="menu-backdrop"
+    id="menuBackdrop"
+></div>
+
+
+<!-- ========================================
+     ハンバーガーメニュー
+======================================== -->
+<nav
+    class="menu-panel"
+    id="menuPanel"
+    aria-label="Main menu"
+>
+
+    <a href="index.html">
+        HOME
+    </a>
+
+    <a href="article.html">
+        ARTICLE
+    </a>
+
+    <a href="catalog.html">
+        CATALOG
+    </a>
+
+    <a href="about.html">
+        ABOUT
+    </a>
+
+</nav>
+
+
+<!-- ========================================
+     メイン
+======================================== -->
+<main>
+
+    <!-- ====================================
+         CATALOG ヒーロー
+         
+         INDEXの .hero をそのまま使用
+         → 円もそのまま表示される
+    ==================================== -->
+    <section class="hero">
+
+        <p class="small-title">
+            STATIONERY CATALOG
+        </p>
+
+        <h1>
+            文房具を、<br>
+            もっと詳しく。
+        </h1>
+
+        <p class="description">
+            人文房具が観察してきた文房具を、<br>
+            カテゴリごとにまとめています。
+        </p>
+
+    </section>
+
+
+ <!-- ====================================
+     CATALOG カテゴリ
+==================================== -->
+<section class="catalog">
+
+   <!-- ==================================
+     カテゴリ選択
+     
+     スクロールすると
+     円 → 横長のタブへ展開
+================================== -->
+
+
+<div class="catalog-tabs-wrap">
+
+    <div class="catalog-tabs" role="tablist">
+
+        <!-- Mechanical Pencil -->
+        <button
+            class="catalog-tab active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-category="mechanical"
+            aria-label="Mechanical Pencil"
+        >
+         
+<img class="category-svg" src="../mechanical-pencil-icon.svg?v=2" alt="" aria-hidden="true">
+
+        </button>
+
+        <!-- Ball Point Pen -->
+        <button
+            class="catalog-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="ball-point"
+            aria-label="Ball Point Pen"
+        >
+            <img class="category-svg ball-point-icon" src="../ball-point-pen-icon.svg?v=1" alt="" aria-hidden="true">
+        </button>
+
+        <!-- Fountain Pen -->
+        <button
+            class="catalog-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="fountain"
+            aria-label="Fountain Pen"
+        >
+            <svg class="category-svg" viewBox="0 0 100 100"
+                 aria-hidden="true">
+                <g transform="rotate(135 50 50)"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="2.5"
+                   stroke-linecap="round"
+                   stroke-linejoin="round">
+
+                    <path d="M12 50
+                             C24 35 46 35 65 42
+                             L86 50
+                             L65 58
+                             C46 65 24 65 12 50 Z"/>
+
+                    <path d="M65 42 L65 58"/>
+                    <path d="M12 50 L91 50"/>
+                    <circle cx="60" cy="50" r="3"/>
+                </g>
+            </svg>
+        </button>
+
+        <!-- Another -->
+        <button
+            class="catalog-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="another"
+            aria-label="Another"
+        >
+            <svg class="category-svg" viewBox="0 0 100 100"
+                 aria-hidden="true">
+                <g transform="rotate(135 50 50)"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="2.5"
+                   stroke-linecap="round"
+                   stroke-linejoin="round">
+
+                    <path d="M12 42 L63 42 L86 50 L63 58 L12 58 Z"/>
+                    <path d="M63 42 L63 58"/>
+                    <path d="M86 50 L91 50"/>
+                    <path d="M20 42 L20 58"/>
+                </g>
+            </svg>
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- ==================================
+         カテゴリ説明
+    ================================== -->
+    <div class="catalog-content">
+
+
+        <!-- Mechanical Pencil -->
+        <section
+            class="catalog-panel active"
+            data-panel="mechanical"
+        >
+
+            <h2>
+                Mechanical Pencil
+            </h2>
+
+            <p class="catalog-description">
+                シャープペンシルを中心に、
+                書き味や機構、デザインなどを紹介します。
+            </p>
+
+            <a
+                href="mechanical-pencil.html"
+                class="catalog-link"
+            >
+                一覧ページへ ↓
+            </a>
+
+        </section>
+
+
+        <!-- Ball Point Pen -->
+        <section
+            class="catalog-panel"
+            data-panel="ball-point"
+        >
+
+            <h2>
+                Ball Point Pen
+            </h2>
+
+            <p class="catalog-description">
+                ボールペンの特徴や仕組み、
+                デザインについて紹介します。
+            </p>
+
+            <a
+                href="ball-point-pen.html"
+                class="catalog-link"
+            >
+                一覧ページへ ↓
+            </a>
+
+        </section>
+
+
+        <!-- Fountain Pen -->
+        <section
+            class="catalog-panel"
+            data-panel="fountain"
+        >
+
+            <h2>
+                Fountain Pen
+            </h2>
+
+            <p class="catalog-description">
+                万年筆のペン先や軸、インクなど、
+                奥深い世界を紹介します。
+            </p>
+
+            <a
+                href="fountain-pen.html"
+                class="catalog-link"
+            >
+                一覧ページへ ↓
+            </a>
+
+        </section>
+
+
+        <!-- Another -->
+        <section
+            class="catalog-panel"
+            data-panel="another"
+        >
+
+            <h2>
+                Another
+            </h2>
+
+            <p class="catalog-description">
+                その他の文房具や、
+                カテゴリに収まりきらないものを紹介します。
+            </p>
+
+            <a
+                href="another.html"
+                class="catalog-link"
+            >
+                一覧ページへ ↓
+            </a>
+
+        </section>
+
+    </div>
+
+</section>
+<!-- ========================================
+     フッター
+======================================== -->
+<footer>
+
+    <p>© People Stationery</p>
+
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ====================================
+       MENU
+    ==================================== */
+
+    const menuButton =
+        document.getElementById("menuButton");
+
+    const menuPanel =
+        document.getElementById("menuPanel");
+
+    const menuBackdrop =
+        document.getElementById("menuBackdrop");
+
+
+    requestAnimationFrame(function () {
+        document.body.classList.add("page-loaded");
+    });
+
+
+    function closeMenu() {
+
+        menuButton.classList.remove("active");
+        menuPanel.classList.remove("active");
+        menuBackdrop.classList.remove("active");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+    }
+
+
+    menuButton.addEventListener(
+        "click",
+        function () {
+
+            const isOpen =
+                menuPanel.classList.toggle("active");
+
+            menuButton.classList.toggle(
+                "active",
+                isOpen
+            );
+
+            menuBackdrop.classList.toggle(
+                "active",
+                isOpen
+            );
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+        }
+    );
+
+
+    menuBackdrop.addEventListener(
+        "click",
+        function () {
+            closeMenu();
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+                closeMenu();
+            }
+
+        }
+    );
+
+
+    /* ====================================
+       CATALOG TABS
+    ==================================== */
+
+    const catalogTabs =
+        document.querySelectorAll(".catalog-tab");
+
+    const catalogPanels =
+        document.querySelectorAll(".catalog-panel");
+
+
+    catalogTabs.forEach(function (tab) {
+
+        tab.addEventListener(
+            "click",
+            function () {
+
+                const category =
+                    tab.dataset.category;
+
+
+                catalogTabs.forEach(
+                    function (item) {
+
+                        const isActive =
+                            item === tab;
+
+                        item.classList.toggle(
+                            "active",
+                            isActive
+                        );
+
+                        item.setAttribute(
+                            "aria-selected",
+                            String(isActive)
+                        );
+                    }
+                );
+
+
+                catalogPanels.forEach(
+                    function (panel) {
+
+                        panel.classList.toggle(
+                            "active",
+                            panel.dataset.panel === category
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    });
+
+
+    /* ====================================
+       CATALOG タブ展開
+       ● → 横棒 → ボタン表示
+    ==================================== */
+
+    const catalogTabsWrap =
+        document.querySelector(
+            ".catalog-tabs-wrap"
+        );
+
+    let catalogTabsExpanded = false;
+
+
+    function updateCatalogTabs() {
+
+        if (
+            !catalogTabsWrap ||
+            catalogTabsExpanded
+        ) {
+            return;
+        }
+
+
+        const rect =
+            catalogTabsWrap.getBoundingClientRect();
+
+        const windowHeight =
+            window.innerHeight;
+
+
+        /*
+         * 少しスクロールしたら展開
+         */
+
+        if (true) {
+
+            catalogTabsExpanded = true;
+
+
+            /*
+             * 横棒を完全に展開
+             */
+
+            catalogTabsWrap.classList.add(
+                "is-expanded"
+            );
+
+
+            catalogTabsWrap.style.setProperty(
+                "--catalog-progress",
+                "1"
+            );
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateCatalogTabs,
+        {
+            passive: true
+        }
+    );
+
+
+    /*
+     * ページ読み込み時にも確認
+     */
+
+    setTimeout(
+    updateCatalogTabs,
+    1500
+);
+
+
+    /* ====================================
+       ページ遷移
+    ==================================== */
+
+    const links =
+        document.querySelectorAll("a[href]");
+
+
+    links.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function (event) {
+
+                const href =
+                    link.getAttribute("href");
+
+
+                /*
+                 * 特殊リンクはそのまま
+                 */
+
+                if (
+                    !href ||
+                    href.startsWith("#") ||
+                    href.startsWith("http") ||
+                    href.startsWith("mailto:") ||
+                    link.target === "_blank"
+                ) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                closeMenu();
+
+
+                document.body.classList.remove(
+                    "page-loaded"
+                );
+
+                document.body.classList.add(
+                    "page-leave"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            href;
+
+                    },
+                    800
+                );
+
+            }
+        );
+
+    });
+
+});
+</script>
+
+<script src="../motion.js?v=1"></script>
+
+<script src="../settings.js?v=language-1"></script>
+<script src="../page-transition.js?v=1"></script>
+</body>
+</html>
