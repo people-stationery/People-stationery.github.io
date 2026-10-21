@@ -59,7 +59,7 @@ jobs:
               title_match = re.search(r"<title[^>]*>(.*?)</title>", page, re.I | re.S)
               title = html.unescape(re.sub(r"\s+", " ", title_match.group(1)).strip()) if title_match else path
               title = re.sub(r"\s*[|｜]\s*(人文房具|studio people).*?$", "", title, flags=re.I).strip()
-              url = "https://people-stationery.github.io/" + path
+              url = "https://studio-people-jp.github.io/" + path
               payload = json.dumps({"secret": os.environ["WEBHOOK_SECRET"], "title": title, "url": url, "path": path, "commit": os.environ["COMMIT_SHA"]}).encode()
               req = urllib.request.Request(os.environ["WEBHOOK_URL"], data=payload, headers={"Content-Type": "application/json"}, method="POST")
               try:
