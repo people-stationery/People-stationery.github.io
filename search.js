@@ -68,7 +68,8 @@
   };
   // Explicit aliases for brand names whose Japanese spelling cannot be reliably inferred from romaji.
   const searchAliases = [
-    { keys: ["staedtler", "ステッドラー"], aliases: ["ステッドラー", "すてっどらー"] }
+    { keys: ["staedtler", "ステッドラー"], aliases: ["ステッドラー", "すてっどらー"] },
+    { keys: ["pentel", "ぺんてる", "ペンテル"], aliases: ["ぺんてる", "ペンテル"] }
   ];
   const withSearchAliases = value => {
     let result = String(value || "");
