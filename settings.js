@@ -38,10 +38,10 @@
     settingsButton.type = "button";
     settingsButton.className = "sp-settings-button";
     settingsButton.id = "spSettingsButton";
-    settingsButton.setAttribute("aria-label", "設定を開く");
+    settingsButton.setAttribute("aria-label", settings.language === "en" ? "Open settings" : "設定を開く");
     settingsButton.setAttribute("aria-expanded", "false");
     settingsButton.setAttribute("aria-controls", "spSettingsPanel");
-    settingsButton.title = "設定";
+    settingsButton.title = settings.language === "en" ? "Settings" : "設定";
     settingsButton.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8Z" stroke="currentColor" stroke-width="1.7" transform="translate(2 -1)"/><path d="m19.4 13.5 1.1.8-1.1 1.9-1.3-.5a7.8 7.8 0 0 1-1.6.9l-.2 1.4h-2.2l-.3-1.4a7.8 7.8 0 0 1-1.7-.5l-1.1.8-1.9-1.1.5-1.3a7.8 7.8 0 0 1-.9-1.6l-1.4-.2v-2.2l1.4-.3a7.8 7.8 0 0 1 .5-1.7l-.8-1.1 1.1-1.9 1.3.5a7.8 7.8 0 0 1 1.6-.9l.2-1.4h2.2l.3 1.4a7.8 7.8 0 0 1 1.7.5l1.1-.8 1.9 1.1-.5 1.3a7.8 7.8 0 0 1 .9 1.6l1.4.2v2.2l-1.4.3" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" /></svg>';
     menuButton.insertAdjacentElement("beforebegin", settingsButton);
 
@@ -179,7 +179,7 @@
       panel.classList.remove("active");
       backdrop.classList.remove("active");
       settingsButton.setAttribute("aria-expanded", "false");
-      settingsButton.setAttribute("aria-label", "設定を開く");
+      settingsButton.setAttribute("aria-label", settings.language === "en" ? "Open settings" : "設定を開く");
       backdrop.setAttribute("aria-hidden", "true");
       if (returnFocus) settingsButton.focus({ preventScroll: true });
     }
@@ -189,7 +189,7 @@
       panel.classList.add("active");
       backdrop.classList.add("active");
       settingsButton.setAttribute("aria-expanded", "true");
-      settingsButton.setAttribute("aria-label", "設定を閉じる");
+      settingsButton.setAttribute("aria-label", settings.language === "en" ? "Close settings" : "設定を閉じる");
       backdrop.setAttribute("aria-hidden", "false");
       closeButton.focus({ preventScroll: true });
     }
