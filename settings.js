@@ -132,6 +132,7 @@
       const motionDescription = panel.querySelector(".sp-settings-row-description");
       if (motionTitle) motionTitle.textContent = "Motion effects";
       if (motionDescription) motionDescription.textContent = "Enable movement in headings, buttons, and other elements";
+      panel.querySelector("#spMotionToggle").setAttribute("aria-label", "Motion effects");
       panel.querySelector("#spSettingsReset").textContent = "Reset settings";
       panel.querySelector(".sp-settings-footnote").textContent = "Settings are saved in this browser and applied on your next visit.";
       panel.querySelector(".sp-settings-reset").setAttribute("aria-label", "Reset settings");
@@ -229,6 +230,11 @@
     resetButton.addEventListener("click", function () {
       settings = { ...DEFAULTS };
       applySettings(true);
+      if (currentIsEnglish) {
+        const pathParts = window.location.pathname.split("/").filter(Boolean);
+        const file = pathParts[pathParts.length - 1] === "en" ? "index.html" : (pathParts[pathParts.length - 1] || "index.html");
+        window.location.href = "/" + file;
+      }
     });
 
     applySettings(false);
