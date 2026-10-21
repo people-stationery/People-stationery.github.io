@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const list = document.getElementById("articleList");
     if (!list) return;
 
-    const repoOwner = "people-stationery";
-    const repoName = "People-stationery.github.io";
+    const repoOwner = "studio-people-jp";
+    const repoName = "studio-people-jp.github.io";
     const branch = "main";
     const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/?per_page=100`;
 
