@@ -2,7 +2,7 @@
   "use strict";
   const STORAGE_KEY = "studioPeople.settings.v1";
   const DEFAULTS = { theme: "standard", motion: true };
-  const THEMES = ["standard", "midnight", "dark", "sky", "mono-black", "mono-white", "greige", "play-button-minimal"];
+  const THEMES = ["standard", "midnight", "dark", "sky", "mono-black", "mono-white", "greige", "play-button-minimal", "galaxy"];
 
   function loadSettings() {
     try {
@@ -65,6 +65,7 @@
           <button type="button" class="sp-theme-option sp-theme-mono-white" data-sp-theme-choice="mono-white" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">Mono White</span><span class="sp-theme-desc">白 × ブラック</span></span></button>
           <button type="button" class="sp-theme-option sp-theme-greige" data-sp-theme-choice="greige" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">Greige</span><span class="sp-theme-desc">ベージュ × チャコール</span></span></button>
           <button type="button" class="sp-theme-option sp-theme-play-button-minimal" data-sp-theme-choice="play-button-minimal" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">Play Button Minimal</span><span class="sp-theme-desc">レッド × ホワイト × グラファイト</span></span></button>
+          <button type="button" class="sp-theme-option sp-theme-galaxy" data-sp-theme-choice="galaxy" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">GALAXY Color</span><span class="sp-theme-desc">Deep Space / 青紫の星雲</span></span></button>
         </div>
       </section>
       <section class="sp-settings-section">
@@ -89,6 +90,14 @@
 
     function applySettings(persist) {
       document.body.dataset.spTheme = settings.theme;
+      let galaxyStylesheet = document.getElementById("spGalaxyStylesheet");
+      if (!galaxyStylesheet) {
+        galaxyStylesheet = document.createElement("link");
+        galaxyStylesheet.id = "spGalaxyStylesheet";
+        galaxyStylesheet.rel = "stylesheet";
+        galaxyStylesheet.href = "galaxy.css?v=1";
+        document.head.appendChild(galaxyStylesheet);
+      }
       document.body.classList.toggle("sp-reduce-motion", !settings.motion);
       themeButtons.forEach(function (button) {
         button.setAttribute("aria-pressed", String(button.dataset.spThemeChoice === settings.theme));
