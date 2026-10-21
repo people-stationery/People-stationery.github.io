@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   const STORAGE_KEY = "studioPeople.settings.v1";
-  const DEFAULTS = { theme: "standard", motion: true };
+  const DEFAULTS = { theme: "standard", motion: true, language: "ja" };
   const THEMES = ["standard", "midnight", "dark", "sky", "mono-black", "mono-white", "greige", "play-button-minimal", "galaxy", "editorial"];
 
   function loadSettings() {
@@ -9,7 +9,8 @@
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
       return {
         theme: saved && THEMES.includes(saved.theme) ? saved.theme : DEFAULTS.theme,
-        motion: saved && typeof saved.motion === "boolean" ? saved.motion : DEFAULTS.motion
+        motion: saved && typeof saved.motion === "boolean" ? saved.motion : DEFAULTS.motion,
+        language: saved && ["ja", "en"].includes(saved.language) ? saved.language : (window.location.pathname.split("/").includes("en") ? "en" : DEFAULTS.language)
       };
     } catch (_) { return { ...DEFAULTS }; }
   }
@@ -18,11 +19,20 @@
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(value)); } catch (_) {}
   }
 
+  const SETTINGS_SCRIPT_URL = document.currentScript ? document.currentScript.src : window.location.href;
+
   function init() {
     const menuButton = document.getElementById("menuButton");
     if (!menuButton || !document.body) return;
 
     let settings = loadSettings();
+    const currentIsEnglish = window.location.pathname.split("/").includes("en");
+    if ((settings.language === "en") !== currentIsEnglish) {
+      const file = window.location.pathname.split("/").filter(Boolean).pop() || "index.html";
+      const target = settings.language === "en" ? "/en/" + file : "/" + file;
+      window.location.replace(target);
+      return;
+    }
     const settingsButton = document.createElement("button");
     settingsButton.type = "button";
     settingsButton.className = "sp-settings-button";
@@ -53,6 +63,14 @@
         </div>
         <button class="sp-settings-close" type="button" id="spSettingsClose" aria-label="設定を閉じる">×</button>
       </div>
+      <section class="sp-settings-section">
+        <h3 class="sp-settings-section-title">Language / 言語</h3>
+        <p class="sp-settings-section-caption">Choose the language used by the site / サイトの表示言語を選びます。</p>
+        <div class="sp-theme-grid sp-language-grid">
+          <button type="button" class="sp-theme-option" data-sp-language-choice="ja" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">日本語</span><span class="sp-theme-desc">Japanese</span></span></button>
+          <button type="button" class="sp-theme-option" data-sp-language-choice="en" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">English</span><span class="sp-theme-desc">英語</span></span></button>
+        </div>
+      </section>
       <section class="sp-settings-section">
         <h3 class="sp-settings-section-title">外観・テーマカラー</h3>
         <p class="sp-settings-section-caption">Studio Peopleの色合いを切り替えます。</p>
@@ -88,6 +106,7 @@
     const motionToggle = document.getElementById("spMotionToggle");
     const resetButton = document.getElementById("spSettingsReset");
     const themeButtons = Array.from(panel.querySelectorAll("[data-sp-theme-choice]"));
+    const languageButtons = Array.from(panel.querySelectorAll("[data-sp-language-choice]"));
 
     function applySettings(persist) {
       document.body.dataset.spTheme = settings.theme;
@@ -96,7 +115,7 @@
         editorialStylesheet = document.createElement("link");
         editorialStylesheet.id = "spEditorialStylesheet";
         editorialStylesheet.rel = "stylesheet";
-        editorialStylesheet.href = "editorial.css?v=1";
+        editorialStylesheet.href = new URL("editorial.css?v=1", SETTINGS_SCRIPT_URL).href;
         document.head.appendChild(editorialStylesheet);
       }
       let galaxyStylesheet = document.getElementById("spGalaxyStylesheet");
@@ -104,7 +123,7 @@
         galaxyStylesheet = document.createElement("link");
         galaxyStylesheet.id = "spGalaxyStylesheet";
         galaxyStylesheet.rel = "stylesheet";
-        galaxyStylesheet.href = "galaxy.css?v=1";
+        galaxyStylesheet.href = new URL("galaxy.css?v=1", SETTINGS_SCRIPT_URL).href;
         document.head.appendChild(galaxyStylesheet);
       }
       document.body.classList.toggle("sp-reduce-motion", !settings.motion);
@@ -112,6 +131,9 @@
         button.setAttribute("aria-pressed", String(button.dataset.spThemeChoice === settings.theme));
       });
       motionToggle.setAttribute("aria-checked", String(settings.motion));
+      languageButtons.forEach(function (button) {
+        button.setAttribute("aria-pressed", String(button.dataset.spLanguageChoice === settings.language));
+      });
       if (persist) saveSettings(settings);
     }
 
@@ -150,6 +172,15 @@
       button.addEventListener("click", function () {
         settings.theme = button.dataset.spThemeChoice;
         applySettings(true);
+      });
+    });
+    languageButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        settings.language = button.dataset.spLanguageChoice;
+        saveSettings(settings);
+        const file = window.location.pathname.split("/").filter(Boolean).pop() || "index.html";
+        const target = settings.language === "en" ? "/en/" + file : "/" + file;
+        window.location.href = target;
       });
     });
     motionToggle.addEventListener("click", function () {
