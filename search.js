@@ -66,6 +66,21 @@
     }
     return normalize(out);
   };
+  // Explicit aliases for brand names whose Japanese spelling cannot be reliably inferred from romaji.
+  const searchAliases = [
+    { keys: ["staedtler", "ステッドラー"], aliases: ["ステッドラー", "すてっどらー"] }
+  ];
+  const withSearchAliases = value => {
+    let result = String(value || "");
+    const normalized = normalize(result);
+    searchAliases.forEach(entry => {
+      if (entry.keys.some(key => normalized.includes(normalize(key)))) {
+        result += " " + entry.aliases.join(" ");
+      }
+    });
+    return result;
+  };
+
   const currentPath = path => new URL(path, window.location.href).pathname;
   let indexPromise = null;
   let closeSearch = function () {};
@@ -104,7 +119,7 @@
             id: "product:" + url + ":" + i + ":" + name, kind: "product", title: name,
             subtitle: [maker, series || category].filter(Boolean).join(" · "),
             type: isEnglish ? "PRODUCT" : "商品", url, cardName: name,
-            searchable: [name, maker, series, category, doc.title].join(" ")
+            searchable: withSearchAliases([name, maker, series, category, doc.title].join(" "))
           });
         });
         return results;
