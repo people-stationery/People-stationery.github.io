@@ -28,7 +28,8 @@
     let settings = loadSettings();
     const currentIsEnglish = window.location.pathname.split("/").includes("en");
     if ((settings.language === "en") !== currentIsEnglish) {
-      const file = window.location.pathname.split("/").filter(Boolean).pop() || "index.html";
+      const pathParts = window.location.pathname.split("/").filter(Boolean);
+      const file = pathParts[pathParts.length - 1] === "en" ? "index.html" : (pathParts[pathParts.length - 1] || "index.html");
       const target = settings.language === "en" ? "/en/" + file : "/" + file;
       window.location.replace(target);
       return;
@@ -99,6 +100,43 @@
         <button type="button" class="sp-settings-reset" id="spSettingsReset">設定を初期状態に戻す</button>
         <p class="sp-settings-footnote">設定はこのブラウザに保存され、次回の訪問時にも適用されます。</p>
       </section>`;
+    if (settings.language === "en") {
+      panel.querySelector("#spSettingsTitle").textContent = "Settings";
+      panel.querySelector("#spSettingsClose").setAttribute("aria-label", "Close settings");
+      panel.querySelector(".sp-settings-subtitle").textContent = "STUDIO PEOPLE / PERSONALIZE";
+      const sectionTitles = panel.querySelectorAll(".sp-settings-section-title");
+      if (sectionTitles[0]) sectionTitles[0].textContent = "Language";
+      if (sectionTitles[1]) sectionTitles[1].textContent = "Appearance & theme";
+      if (sectionTitles[2]) sectionTitles[2].textContent = "Motion";
+      const captions = panel.querySelectorAll(".sp-settings-section-caption");
+      if (captions[0]) captions[0].textContent = "Choose the language used by the site.";
+      if (captions[1]) captions[1].textContent = "Change the look and color palette of Studio People.";
+      if (captions[2]) captions[2].textContent = "Adjust animations to your preference.";
+      const themeDescriptions = {
+        "standard": "White × Blue",
+        "midnight": "Deep navy",
+        "dark": "Dark × Light blue",
+        "sky": "Pale sky blue",
+        "mono-black": "Black × Gray",
+        "mono-white": "White × Black",
+        "greige": "Beige × Charcoal",
+        "play-button-minimal": "Red × White × Graphite",
+        "galaxy": "Deep Space / Blue-violet nebula",
+        "editorial": "PRINT JOURNAL / Paper magazine"
+      };
+      panel.querySelectorAll("[data-sp-theme-choice]").forEach(function (button) {
+        const description = button.querySelector(".sp-theme-desc");
+        if (description && themeDescriptions[button.dataset.spThemeChoice]) description.textContent = themeDescriptions[button.dataset.spThemeChoice];
+      });
+      const motionTitle = panel.querySelector(".sp-settings-row-title");
+      const motionDescription = panel.querySelector(".sp-settings-row-description");
+      if (motionTitle) motionTitle.textContent = "Motion effects";
+      if (motionDescription) motionDescription.textContent = "Enable movement in headings, buttons, and other elements";
+      panel.querySelector("#spSettingsReset").textContent = "Reset settings";
+      panel.querySelector(".sp-settings-footnote").textContent = "Settings are saved in this browser and applied on your next visit.";
+      panel.querySelector(".sp-settings-reset").setAttribute("aria-label", "Reset settings");
+    }
+
     document.body.append(backdrop, panel);
 
     const menuPanel = document.getElementById("menuPanel");
@@ -178,7 +216,8 @@
       button.addEventListener("click", function () {
         settings.language = button.dataset.spLanguageChoice;
         saveSettings(settings);
-        const file = window.location.pathname.split("/").filter(Boolean).pop() || "index.html";
+        const pathParts = window.location.pathname.split("/").filter(Boolean);
+        const file = pathParts[pathParts.length - 1] === "en" ? "index.html" : (pathParts[pathParts.length - 1] || "index.html");
         const target = settings.language === "en" ? "/en/" + file : "/" + file;
         window.location.href = target;
       });
