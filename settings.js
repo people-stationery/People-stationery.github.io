@@ -2,7 +2,7 @@
   "use strict";
   const STORAGE_KEY = "studioPeople.settings.v1";
   const DEFAULTS = { theme: "standard", motion: true };
-  const THEMES = ["standard", "midnight", "dark", "sky", "mono-black", "mono-white", "greige", "play-button-minimal", "galaxy"];
+  const THEMES = ["standard", "midnight", "dark", "sky", "mono-black", "mono-white", "greige", "play-button-minimal", "galaxy", "editorial"];
 
   function loadSettings() {
     try {
@@ -66,6 +66,7 @@
           <button type="button" class="sp-theme-option sp-theme-greige" data-sp-theme-choice="greige" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">Greige</span><span class="sp-theme-desc">ベージュ × チャコール</span></span></button>
           <button type="button" class="sp-theme-option sp-theme-play-button-minimal" data-sp-theme-choice="play-button-minimal" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">Play Button Minimal</span><span class="sp-theme-desc">レッド × ホワイト × グラファイト</span></span></button>
           <button type="button" class="sp-theme-option sp-theme-galaxy" data-sp-theme-choice="galaxy" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">GALAXY Color</span><span class="sp-theme-desc">Deep Space / 青紫の星雲</span></span></button>
+          <button type="button" class="sp-theme-option sp-theme-editorial" data-sp-theme-choice="editorial" aria-pressed="false"><span class="sp-theme-preview" aria-hidden="true"></span><span><span class="sp-theme-name">EDITORIAL</span><span class="sp-theme-desc">PRINT JOURNAL / 紙の雑誌</span></span></button>
         </div>
       </section>
       <section class="sp-settings-section">
@@ -90,6 +91,14 @@
 
     function applySettings(persist) {
       document.body.dataset.spTheme = settings.theme;
+      let editorialStylesheet = document.getElementById("spEditorialStylesheet");
+      if (!editorialStylesheet) {
+        editorialStylesheet = document.createElement("link");
+        editorialStylesheet.id = "spEditorialStylesheet";
+        editorialStylesheet.rel = "stylesheet";
+        editorialStylesheet.href = "editorial.css?v=1";
+        document.head.appendChild(editorialStylesheet);
+      }
       let galaxyStylesheet = document.getElementById("spGalaxyStylesheet");
       if (!galaxyStylesheet) {
         galaxyStylesheet = document.createElement("link");
