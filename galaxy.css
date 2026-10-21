@@ -15,7 +15,6 @@ body[data-sp-theme="galaxy"] {
 
 /* Diffuse blue-violet nebula across the entire page */
 body[data-sp-theme="galaxy"]::before {
-  z-index: -1;
   opacity: 1 !important;
   background:
     radial-gradient(ellipse at 16% 18%, rgba(82,104,184,.25) 0, transparent 34%),
