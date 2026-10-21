@@ -12,7 +12,7 @@
         motion: saved && typeof saved.motion === "boolean" ? saved.motion : DEFAULTS.motion,
         language: saved && ["ja", "en"].includes(saved.language) ? saved.language : (window.location.pathname.split("/").includes("en") ? "en" : DEFAULTS.language)
       };
-    } catch (_) { return { ...DEFAULTS }; }
+    } catch (_) { return { ...DEFAULTS, language: window.location.pathname.split("/").includes("en") ? "en" : DEFAULTS.language }; }
   }
 
   function saveSettings(value) {
