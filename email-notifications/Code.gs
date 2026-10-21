@@ -134,7 +134,7 @@ function handleArticleNotification_(e) {
     const title = String(body.title || '').trim().slice(0, 200);
     const url = String(body.url || '').trim();
     const path = String(body.path || '').trim();
-    if (!title || !/^https:\/\/people-stationery\.github\.io\/[0-9]+\.html$/.test(url) ||
+    if (!title || !/^https:\/\/studio-people-jp\.github\.io\/[0-9]+\.html$/.test(url) ||
         !/^[0-9]+\.html$/.test(path) || url !== SITE_URL + path) return json_({ok:false,error:'Invalid article data'});
     const ownerEmail = normalizeEmail_(props.getProperty('OWNER_EMAIL'));
     if (!ownerEmail) return json_({ok:false,error:'OWNER_EMAIL is not configured'});
