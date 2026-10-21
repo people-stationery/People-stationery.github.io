@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=2">
+<title>Studio People | Stationery Journal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=play-1">
+    <link rel="stylesheet" href="../home-quicklinks.css?v=7">
+</head>
+<body>
+    <div class="page-line"></div>
+<!-- ========================================
+     ヘッダー
+======================================== -->
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="logo">
+            Studio People
+        </a>
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+<!-- ========================================
+     メニュー背景
+======================================== -->
+<div
+    class="menu-backdrop"
+    id="menuBackdrop"
+></div>
+<!-- ========================================
+     ハンバーガーメニュー
+======================================== -->
+<nav
+    class="menu-panel"
+    id="menuPanel"
+    aria-label="Main menu"
+>
+    <a href="index.html">
+        HOME
+    </a>
+
+    <a href="article.html">
+        ARTICLE
+    </a>
+
+    <a href="catalog.html">
+        CATALOG
+    </a>
+
+    <a href="about.html">
+        ABOUT
+    </a>
+</nav>
+<!-- ========================================
+     メイン
+======================================== -->
+<main>
+    <!-- ====================================
+         ヒーロー
+    ==================================== -->
+    <section class="hero">
+        <p class="small-title">
+            STATIONERY MEDIA
+        </p>
+        <h1>
+            Stationery,<br>
+            explored a little deeper.
+        </h1>
+        <p class="description">
+            Observe, research, and think about stationery.<br>
+            Welcome to People Stationery.
+        </p>
+    </section>
+    <!-- ====================================
+         YouTube
+    ==================================== -->
+    <div class="youtube-area">
+        <a
+            href="https://www.youtube.com/@そこら辺にいるただの人-Zzz"
+            class="youtube-button"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Visit our YouTube channel ↓
+        </a>
+    </div>
+    <!-- ====================================
+         クイックアクセス
+    ==================================== -->
+    <section class="home-quicklinks" aria-label="コンテンツ">
+        <section class="home-quicklink" aria-labelledby="home-article-title">
+            <span class="home-quicklink-label">01 / READ</span>
+            <div class="home-quicklink-heading">
+                <h2 class="home-quicklink-title" id="home-article-title">ARTICLE</h2>
+                <p class="home-quicklink-description">文房具の魅力や、気になることを<br>ひとつずつ深く掘り下げる記事。</p>
+            </div>
+            <a class="home-quicklink-button" href="article.html">
+                Read articles <span aria-hidden="true">↗</span>
+            </a>
+        </section>
+        <section class="home-quicklink" aria-labelledby="home-catalog-title">
+            <span class="home-quicklink-label">02 / DISCOVER</span>
+            <div class="home-quicklink-heading">
+                <h2 class="home-quicklink-title" id="home-catalog-title">CATALOG</h2>
+                <p class="home-quicklink-description">気になる文房具を探して、<br>名前や特徴から新しい一本に出会う。</p>
+            </div>
+            <a class="home-quicklink-button" href="catalog.html">
+                Explore catalog <span aria-hidden="true">↗</span>
+            </a>
+        </section>
+    </section>
+
+    <!-- ====================================
+         新着記事メール購読
+    ==================================== -->
+    <section class="newsletter" aria-labelledby="newsletter-title">
+        <p class="newsletter-eyebrow">STAY IN THE LOOP</p>
+        <h2 id="newsletter-title">New articles, by email.</h2>
+        <p class="newsletter-description">
+            Get notified when we publish a new stationery article.<br>
+            Click the confirmation link in your email to subscribe.
+        </p>
+        <form class="newsletter-form"
+              action="https://script.google.com/macros/s/AKfycbwS_ElSWjEjrXZPxHou2bhzJX3XSTf3vCjSPE7kN9qu0L5zK5N0IfBaFbLdx9Ko9tTN/exec"
+              method="post" target="_blank">
+            <input type="hidden" name="action" value="subscribe">
+            <label class="newsletter-label" for="newsletter-email">Email address</label>
+            <div class="newsletter-controls">
+                <input id="newsletter-email" name="email" type="email"
+                       autocomplete="email" maxlength="254" required
+                       placeholder="you@example.com">
+                <button type="submit">Subscribe <span aria-hidden="true">↗</span></button>
+            </div>
+            <p class="newsletter-note">
+                You'll only receive emails after confirmation. Unsubscribe anytime.
+            </p>
+        </form>
+    </section>
+
+</main>
+<!-- ========================================
+     フッター
+======================================== -->
+<footer>
+    <p>© People Stationery</p>
+</footer>
+<!-- ========================================
+     JavaScript
+======================================== -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        /* ====================================
+           要素取得
+        ==================================== */
+        const menuButton =
+            document.getElementById("menuButton");
+        const menuPanel =
+            document.getElementById("menuPanel");
+        const menuBackdrop =
+            document.getElementById("menuBackdrop");
+        /* ====================================
+           ページ表示
+        ==================================== */
+        /*
+            CSS側では最初、
+            opacity: 0;
+            filter: blur(10px);
+            になっている。
+            ここで page-loaded を追加して
+            通常表示に戻す。
+        */
+        requestAnimationFrame(function () {
+            document.body.classList.add("page-loaded");
+        });
+        /* ====================================
+           Close menu関数
+        ==================================== */
+        function closeMenu() {
+            menuButton.classList.remove("active");
+            menuPanel.classList.remove("active");
+            menuBackdrop.classList.remove("active");
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
+        /* ====================================
+           Open menu / 閉じる
+        ==================================== */
+        menuButton.addEventListener(
+            "click",
+            function () {
+                const isOpen =
+                    menuPanel.classList.toggle("active");
+                menuButton.classList.toggle(
+                    "active",
+                    isOpen
+                );
+                menuBackdrop.classList.toggle(
+                    "active",
+                    isOpen
+                );
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+            }
+        );
+        /* ====================================
+           背景をクリックしたら閉じる
+        ==================================== */
+        menuBackdrop.addEventListener(
+            "click",
+            function () {
+                closeMenu();
+            }
+        );
+        /* ====================================
+           ESCキーで閉じる
+        ==================================== */
+        document.addEventListener(
+            "keydown",
+            function (event) {
+                if (event.key === "Escape") {
+                    closeMenu();
+                }
+            }
+        );
+        /* ====================================
+           ページ遷移
+        ==================================== */
+
+    });
+</script>
+<script src="../motion.js?v=5"></script>
+    <script src="../settings.js?v=language-1"></script>
+
+<script src="../page-transition.js?v=1"></script>
+</body>
+</html>
