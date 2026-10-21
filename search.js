@@ -12,7 +12,7 @@
   document.head.appendChild(css);
 
   const isEnglish = window.location.pathname.split("/").includes("en");
-  const root = isEnglish ? "../" : "";
+  const root = "";
   const pages = [
     { path: root + "index.html", type: isEnglish ? "PAGE" : "ページ", title: isEnglish ? "Home" : "ホーム" },
     { path: root + "article.html", type: isEnglish ? "ARTICLES" : "記事一覧", title: isEnglish ? "Articles" : "記事一覧" },
@@ -59,13 +59,13 @@
           const maker = section && section.querySelector(".series-maker") ? section.querySelector(".series-maker").textContent.trim() : "";
           const series = section && section.querySelector(".series-title") ? section.querySelector(".series-title").textContent.trim() : "";
           const group = card.closest(".series-products");
-          const context = (section && section.textContent || group && group.textContent || "").replace(/\s+/g, " ").trim();
+          const context = (group && group.textContent || "").replace(/\s+/g, " ").trim();
           const category = page.title;
           results.push({
             id: "product:" + url + ":" + i + ":" + name, kind: "product", title: name,
             subtitle: [maker, series || category].filter(Boolean).join(" · "),
             type: isEnglish ? "PRODUCT" : "商品", url, cardName: name,
-            searchable: [name, maker, series, context, category, doc.title].join(" ")
+            searchable: [name, maker, series, category, doc.title].join(" ")
           });
         });
         return results;
