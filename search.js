@@ -26,7 +26,46 @@
     { path: root + "3.html", type: isEnglish ? "ARTICLE" : "記事", title: "" }
   ];
 
-  const normalize = value => String(value || "").normalize("NFKC").toLocaleLowerCase().replace(/[\s\u3000]+/g, " ").trim();
+  // Kana-aware search: unify hiragana/katakana and add a romaji-to-kana variant.
+  const normalize = value => String(value || "").normalize("NFKC").toLocaleLowerCase()
+    .replace(/[\s\u3000]+/g, " ").trim()
+    .replace(/[ァ-ヶ]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60));
+
+  const romajiKana = {
+    kya:"きゃ",kyu:"きゅ",kyo:"きょ",sha:"しゃ",shu:"しゅ",sho:"しょ",sya:"しゃ",syu:"しゅ",syo:"しょ",
+    cha:"ちゃ",chu:"ちゅ",cho:"ちょ",tya:"ちゃ",tyu:"ちゅ",tyo:"ちょ",nya:"にゃ",nyu:"にゅ",nyo:"にょ",
+    hya:"ひゃ",hyu:"ひゅ",hyo:"ひょ",mya:"みゃ",myu:"みゅ",myo:"みょ",rya:"りゃ",ryu:"りゅ",ryo:"りょ",
+    gya:"ぎゃ",gyu:"ぎゅ",gyo:"ぎょ",ja:"じゃ",ju:"じゅ",jo:"じょ",zya:"じゃ",zyu:"じゅ",zyo:"じょ",
+    bya:"びゃ",byu:"びゅ",byo:"びょ",pya:"ぴゃ",pyu:"ぴゅ",pyo:"ぴょ",
+    shi:"し",chi:"ち",tsu:"つ",ji:"じ",fu:"ふ",si:"し",ti:"ち",tu:"つ",hu:"ふ",
+    ka:"か",ki:"き",ku:"く",ke:"け",ko:"こ",ga:"が",gi:"ぎ",gu:"ぐ",ge:"げ",go:"ご",
+    sa:"さ",su:"す",se:"せ",so:"そ",za:"ざ",zi:"じ",zu:"ず",ze:"ぜ",zo:"ぞ",
+    ta:"た",te:"て",to:"と",da:"だ",di:"ぢ",du:"づ",de:"で",do:"ど",
+    na:"な",ni:"に",nu:"ぬ",ne:"ね",no:"の",ha:"は",hi:"ひ",he:"へ",ho:"ほ",
+    ma:"ま",mi:"み",mu:"む",me:"め",mo:"も",ya:"や",yu:"ゆ",yo:"よ",
+    ra:"ら",ri:"り",ru:"る",re:"れ",ro:"ろ",wa:"わ",wi:"うぃ",we:"うぇ",wo:"を",
+    ba:"ば",bi:"び",bu:"ぶ",be:"べ",bo:"ぼ",pa:"ぱ",pi:"ぴ",pu:"ぷ",pe:"ぺ",po:"ぽ",
+    a:"あ",i:"い",u:"う",e:"え",o:"お",n:"ん"
+  };
+  const romajiToKana = value => {
+    const s = String(value || "").toLocaleLowerCase();
+    let out = "", i = 0;
+    while (i < s.length) {
+      if (/[bcdfghjklmpqrstvwxyz]/.test(s[i]) && s[i] === s[i + 1] && s[i] !== "n") {
+        out += "っ"; i++; continue;
+      }
+      if (s[i] === "n" && (s[i + 1] === "'" || (s[i + 1] && !/[aiueoy]/.test(s[i + 1])))) {
+        out += "ん"; i += s[i + 1] === "'" ? 2 : 1; continue;
+      }
+      let found = false;
+      for (const size of [3, 2, 1]) {
+        const part = s.slice(i, i + size);
+        if (romajiKana[part]) { out += romajiKana[part]; i += size; found = true; break; }
+      }
+      if (!found) { out += s[i]; i++; }
+    }
+    return normalize(out);
+  };
   const currentPath = path => new URL(path, window.location.href).pathname;
   let indexPromise = null;
   let closeSearch = function () {};
@@ -209,7 +248,13 @@
       resultsBox.setAttribute("aria-busy", "true");
       const index = await buildIndex();
       if (run !== searchRun) return;
-      const matches = index.filter(item => normalize(item.searchable).includes(query));
+      const queryKana = romajiToKana(query);
+      const matches = index.filter(item => {
+        const searchable = normalize(item.searchable);
+        const searchableKana = romajiToKana(searchable);
+        return searchable.includes(query) || searchable.includes(queryKana) ||
+          searchableKana.includes(query) || searchableKana.includes(queryKana);
+      });
       matches.sort((a, b) => {
         const aTitle = normalize(a.title), bTitle = normalize(b.title);
         const aExact = aTitle === query ? 0 : aTitle.startsWith(query) ? 1 : 2;
