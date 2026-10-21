@@ -5,7 +5,7 @@
  *
  * Never expose the Supabase service-role key in client-side code.
  */
-const SITE_URL = 'https://people-stationery.github.io/';
+const SITE_URL = 'https://studio-people-jp.github.io/';
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwS_ElSWjEjrXZPxHou2bhzJX3XSTf3vCjSPE7kN9qu0L5zK5N0IfBaFbLdx9Ko9tTN/exec';
 
 function doPost(e) {
