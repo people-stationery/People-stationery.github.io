@@ -1079,14 +1079,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const maker = seriesSection && seriesSection.querySelector(".series-maker");
         const series = seriesSection && seriesSection.querySelector(".series-title");
 
-        nameField.textContent = name ? name.textContent.trim() : "商品詳細";
+        nameField.textContent = name ? name.textContent.trim() : (document.documentElement.lang === "en" ? "Product details" : "商品詳細");
         // 製品名内の補足ラベル（例：廃盤）はデータ照合キーから除外する
         const lookupName = name ? name.cloneNode(true) : null;
         if (lookupName) lookupName.querySelectorAll("small").forEach(label => label.remove());
         const weightKey = (maker ? maker.textContent.trim() : "") + "|" + (lookupName ? lookupName.textContent.trim().replace(/\s+/g, " ") : "");
         const weightData = verifiedWeights[weightKey];
         const priceData = verifiedPrices[weightKey];
-        priceField.textContent = priceData ? priceData.value : "未確認";
+        priceField.textContent = priceData ? priceData.value : (document.documentElement.lang === "en" ? "Not verified" : "未確認");
         priceSourceNote.hidden = Boolean(priceData);
         priceSourceLink.hidden = !priceData;
         if (priceData) {
@@ -1095,7 +1095,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             priceSourceLink.removeAttribute("href");
         }
-        weightField.textContent = weightData ? weightData.value : "未確認";
+        weightField.textContent = weightData ? weightData.value : (document.documentElement.lang === "en" ? "Not verified" : "未確認");
         weightSourceNote.hidden = Boolean(weightData);
         weightSourceLink.hidden = !weightData;
         if (weightData) {
@@ -1104,11 +1104,11 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             weightSourceLink.removeAttribute("href");
         }
-        makerField.textContent = maker ? maker.textContent.trim() : "メーカー情報";
-        makerValue.textContent = maker ? maker.textContent.trim() : "確認中";
+        makerField.textContent = maker ? maker.textContent.trim() : (document.documentElement.lang === "en" ? "Maker information" : "メーカー情報");
+        makerValue.textContent = maker ? maker.textContent.trim() : (document.documentElement.lang === "en" ? "Pending" : "確認中");
         seriesField.textContent = series ? series.textContent.trim() : "";
-        seriesValue.textContent = series ? series.textContent.trim() : "確認中";
-        categoryField.textContent = categoryLabel ? categoryLabel.textContent.replace("CATALOG /", "").trim() : "文房具";
+        seriesValue.textContent = series ? series.textContent.trim() : (document.documentElement.lang === "en" ? "Pending" : "確認中");
+        categoryField.textContent = categoryLabel ? categoryLabel.textContent.replace("CATALOG /", "").trim() : (document.documentElement.lang === "en" ? "Stationery" : "文房具");
 
         previousFocus = link;
         panel.hidden = false;
