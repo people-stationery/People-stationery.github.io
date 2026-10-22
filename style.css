@@ -4782,3 +4782,23 @@ body[data-sp-theme="play-button-minimal"] button:focus-visible {
 @media (max-width: 480px) {
     .site-footer .footer-social-x .footer-x-logo { width: 44px; height: 44px; font-size: 38px; }
 }
+
+/* Fix: render distinct YouTube and X marks directly, without image assets */
+.site-footer .footer-social-youtube::before { content: none !important; }
+.site-footer .footer-social-youtube .footer-youtube-logo {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 34px;
+    border-radius: 9px;
+    background: #e62117;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1;
+    padding-left: 3px;
+    box-sizing: border-box;
+}
+.site-footer .footer-social-youtube .footer-social-label { display: none !important; }
+.site-footer .footer-social-youtube { position: relative; z-index: 2; cursor: pointer; }
