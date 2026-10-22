@@ -4557,3 +4557,53 @@ body[data-sp-theme="play-button-minimal"] button:focus-visible {
         font-size: 10px;
     }
 }
+
+
+/* ========================================
+   Stardio footer refinement
+======================================== */
+.site-footer {
+    padding-top: 42px;
+    padding-bottom: 62px;
+    gap: 18px;
+}
+
+.site-footer .footer-links {
+    gap: 12px 12px;
+    line-height: 2;
+}
+
+.site-footer .footer-operator {
+    line-height: 1.9;
+    font-size: 12px;
+}
+
+.site-footer .footer-company-name {
+    display: inline-block;
+    margin-left: 3px;
+    color: #426791;
+    font-size: 1.18em;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+}
+
+.site-footer .footer-copyright {
+    line-height: 1.9;
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding-top: 36px;
+        padding-bottom: 54px;
+        gap: 16px;
+    }
+
+    .site-footer .footer-links {
+        gap: 9px 8px;
+        line-height: 2.1;
+    }
+
+    .site-footer .footer-operator {
+        line-height: 2;
+    }
+}
