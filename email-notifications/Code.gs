@@ -11,6 +11,7 @@ const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwS_ElSWjEjrXZPxHou
 function doPost(e) {
   const action = String((e && e.parameter && e.parameter.action) || '');
   if (action === 'subscribe') return handleSubscribe_(e);
+  if (action === 'contact') return handleContact_(e);
   return handleArticleNotification_(e);
 }
 
@@ -21,6 +22,78 @@ function doGet(e) {
   if (action === 'confirm') return handleConfirm_(token);
   if (action === 'unsubscribe') return handleUnsubscribe_(token);
   return page_('Studio People', 'このリンクは無効です。');
+}
+
+
+function handleContact_(e) {
+  try {
+    const p = (e && e.parameter) || {};
+    const name = String(p.name || '').trim().slice(0, 100);
+    const email = normalizeEmail_(p.email);
+    const category = String(p.category || '').trim().slice(0, 80);
+    const subjectLine = String(p.subject || '').trim().slice(0, 160);
+    const message = String(p.message || '').trim().slice(0, 5000);
+    const consent = String(p.privacy_consent || '') === 'yes';
+
+    if (!email || email.length > 254 || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email) ||
+        !subjectLine || !message || message.length < 5 || !consent) {
+      return page_('送信内容をご確認ください', '必須項目を確認し、プライバシーポリシーに同意してから送信してください。');
+    }
+
+    const cache = CacheService.getScriptCache();
+    const throttleKey = 'contact:' + Utilities.base64EncodeWebSafe(
+      Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, email)
+    );
+    if (cache.get(throttleKey)) {
+      return page_('少し時間をおいてください', 'このメールアドレスからのお問い合わせは、少し時間をおいてから再度お試しください。');
+    }
+
+    const props = PropertiesService.getScriptProperties();
+    const ownerEmail = normalizeEmail_(props.getProperty('OWNER_EMAIL'));
+    if (!ownerEmail) throw new Error('OWNER_EMAIL is not configured');
+
+    const safeName = name || '未入力';
+    const subject = '【Studio People お問い合わせ】' + subjectLine;
+    const textBody =
+      'Studio People のお問い合わせフォームから送信されました。\\n\\n' +
+      'お名前：' + safeName + '\\n' +
+      '返信先：' + email + '\\n' +
+      '種別：' + (category || '未選択') + '\\n' +
+      '件名：' + subjectLine + '\\n\\n' +
+      'お問い合わせ内容：\\n' + message + '\\n\\n' +
+      'このメールは Studio People のお問い合わせフォームから自動送信されました。';
+    const htmlBody =
+      '<div style="font-family:Arial,sans-serif;line-height:1.9;color:#263746;max-width:640px;margin:auto">' +
+      '<p style="color:#6c8aa5;letter-spacing:.15em;font-size:12px">STUDIO PEOPLE / CONTACT</p>' +
+      '<h2 style="color:#426791">新しいお問い合わせ</h2>' +
+      '<p><strong>お名前：</strong>' + escapeHtml_(safeName) + '<br>' +
+      '<strong>返信先：</strong>' + escapeHtml_(email) + '<br>' +
+      '<strong>種別：</strong>' + escapeHtml_(category || '未選択') + '<br>' +
+      '<strong>件名：</strong>' + escapeHtml_(subjectLine) + '</p>' +
+      '<hr style="border:0;border-top:1px solid #e3eaf1">' +
+      '<p style="white-space:pre-wrap">' + escapeHtml_(message) + '</p>' +
+      '<p style="font-size:12px;color:#718096">送信元：Studio People お問い合わせフォーム</p></div>';
+
+    MailApp.sendEmail(ownerEmail, subject, textBody, {
+      htmlBody: htmlBody,
+      name: 'Studio People',
+      replyTo: email
+    });
+
+    cache.put(throttleKey, '1', 300);
+    try {
+      MailApp.sendEmail(email, '【Studio People】お問い合わせを受け付けました',
+        'お問い合わせありがとうございます。以下の内容で受け付けました。\\n\\n件名：' + subjectLine +
+        '\\n\\n通常、確認後に返信いたします。\\n\\nStudio People / Stardio',
+        {name: 'Studio People'});
+    } catch (confirmationError) {
+      console.error('Contact confirmation email failed: ' + confirmationError);
+    }
+    return page_('お問い合わせを受け付けました', '送信が完了しました。確認メールが届かない場合は、入力したメールアドレスをご確認ください。');
+  } catch (err) {
+    console.error(err && err.stack ? err.stack : err);
+    return page_('送信できませんでした', '時間をおいてから、もう一度お試しください。');
+  }
 }
 
 function handleSubscribe_(e) {
