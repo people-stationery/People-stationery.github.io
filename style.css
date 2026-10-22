@@ -4802,3 +4802,38 @@ body[data-sp-theme="play-button-minimal"] button:focus-visible {
 }
 .site-footer .footer-social-youtube .footer-social-label { display: none !important; }
 .site-footer .footer-social-youtube { position: relative; z-index: 2; cursor: pointer; }
+
+/* Use the user's exact supplied PNGs for the footer social buttons */
+.site-footer .footer-social-button::before { content: none !important; display: none !important; }
+.site-footer .footer-social-button .footer-social-image {
+    display: block !important;
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.site-footer .footer-social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    min-height: 58px;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    opacity: 1;
+}
+@media (max-width: 480px) {
+    .site-footer .footer-social-button,
+    .site-footer .footer-social-button .footer-social-image {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        min-height: 52px;
+    }
+}
