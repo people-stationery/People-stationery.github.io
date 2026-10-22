@@ -4607,3 +4607,57 @@ body[data-sp-theme="play-button-minimal"] button:focus-visible {
         line-height: 2;
     }
 }
+
+
+/* ========================================
+   Stardio footer — larger type & breathing room
+======================================== */
+.site-footer {
+    padding-top: 84px;
+    padding-bottom: 124px;
+    gap: 36px;
+}
+
+.site-footer .footer-links {
+    gap: 24px 24px;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.site-footer .footer-operator {
+    font-size: 16px;
+    line-height: 2;
+}
+
+.site-footer .footer-company-name {
+    font-size: 1.36em;
+    letter-spacing: 0.06em;
+}
+
+.site-footer .footer-copyright {
+    font-size: 13px;
+    line-height: 2;
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding-top: 72px;
+        padding-bottom: 108px;
+        gap: 30px;
+    }
+
+    .site-footer .footer-links {
+        gap: 18px 16px;
+        font-size: 12px;
+        line-height: 2.1;
+    }
+
+    .site-footer .footer-operator {
+        font-size: 14px;
+        line-height: 2;
+    }
+
+    .site-footer .footer-copyright {
+        font-size: 12px;
+    }
+}
