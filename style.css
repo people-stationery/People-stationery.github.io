@@ -4662,3 +4662,51 @@ body[data-sp-theme="play-button-minimal"] button:focus-visible {
         line-height: 2.2;
     }
 }
+
+
+/* ========================================
+   フッター公式SNSボタン
+======================================== */
+.site-footer .footer-socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 42px;
+}
+.site-footer .footer-social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    min-width: 205px;
+    min-height: 54px;
+    padding: 0 24px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    box-shadow: 0 7px 22px rgba(25, 39, 54, .12);
+    transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+}
+.site-footer .footer-social-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 11px 28px rgba(25, 39, 54, .18);
+}
+.site-footer .footer-social-youtube { background: #e62117; }
+.site-footer .footer-social-x { background: #111; }
+.site-footer .footer-social-play { font-size: 15px; }
+.site-footer .footer-social-x-mark { font-size: 19px; line-height: 1; }
+@media (max-width: 480px) {
+    .site-footer .footer-socials { gap: 10px; margin-bottom: 34px; }
+    .site-footer .footer-social-button {
+        min-width: min(100%, 205px);
+        min-height: 48px;
+        padding: 0 19px;
+        font-size: 12px;
+    }
+}
