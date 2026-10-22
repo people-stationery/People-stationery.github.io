@@ -4760,3 +4760,25 @@ body[data-sp-theme="play-button-minimal"] button:focus-visible {
     .site-footer .footer-social-button { width: 52px; height: 52px; }
     .site-footer .footer-social-button::before { width: 44px; height: 44px; }
 }
+
+/* Fix: ensure the X destination has a visible, reliable icon */
+.site-footer .footer-social-x::before { content: none !important; }
+.site-footer .footer-social-x .footer-x-logo {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: var(--text-color, #111);
+    font-family: Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 1;
+}
+.site-footer .footer-social-x .footer-social-label { display: none !important; }
+.site-footer .footer-social-x { position: relative; z-index: 2; cursor: pointer; }
+.site-footer .footer-social-youtube { position: relative; z-index: 2; cursor: pointer; }
+@media (max-width: 480px) {
+    .site-footer .footer-social-x .footer-x-logo { width: 44px; height: 44px; font-size: 38px; }
+}
