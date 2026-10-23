@@ -296,7 +296,7 @@
     style.textContent = [
       "body.sp-opening-active header{animation:none!important;transform:none!important;}",
       "body.sp-opening-active .hero>*{animation:none!important;transform:none!important;}",
-      "body.sp-opening-active footer,body.sp-opening-active footer *{animation:none!important;transition:none!important;transform:none!important;}",
+      "body.sp-opening-active footer,body.sp-opening-active footer *{animation-delay:0ms!important;animation-duration:1ms!important;animation-iteration-count:1!important;transition-delay:0ms!important;transition-duration:1ms!important;}",
 
       "body.sp-opening-active .sp-opening-hidden{opacity:0!important;visibility:hidden!important;}",
       
