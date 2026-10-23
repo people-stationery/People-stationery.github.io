@@ -259,6 +259,8 @@
   var DAILY_KEY = "studioPeople.dailyOpening.v1";
   var SETTINGS_KEY = "studioPeople.settings.v1";
   var TOTAL_MS = 3000;
+  /* Temporary tuning mode: play on every page visit/reload. */
+  var PLAY_EVERY_VISIT = true;
 
   function localDateKey() {
     var now = new Date();
@@ -277,12 +279,14 @@
     try {
       var settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "null");
       if (settings && settings.motion === false) return true;
-      if (localStorage.getItem(DAILY_KEY) === localDateKey()) return true;
-      /* Save immediately so navigation or refresh cannot replay it today. */
-      localStorage.setItem(DAILY_KEY, localDateKey());
+      if (!PLAY_EVERY_VISIT) {
+        if (localStorage.getItem(DAILY_KEY) === localDateKey()) return true;
+        /* Save immediately so navigation or refresh cannot replay it today. */
+        localStorage.setItem(DAILY_KEY, localDateKey());
+      }
     } catch (_) {
-      /* If storage is unavailable, do not block or delay the page. */
-      return true;
+      /* In tuning mode, storage being unavailable should not prevent the preview. */
+      if (!PLAY_EVERY_VISIT) return true;
     }
     return false;
   }
