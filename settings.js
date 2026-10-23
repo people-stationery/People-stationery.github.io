@@ -252,22 +252,15 @@
   else init();
 })();
 
-/* Studio People — editorial opening that lands on the real header and home title */
+/* Studio People — opening animation, aligned to the real page layout */
 (function () {
   "use strict";
 
-  var DAILY_KEY = "studioPeople.dailyOpening.v1";
   var SETTINGS_KEY = "studioPeople.settings.v1";
   var TOTAL_MS = 3000;
   /* Temporary tuning mode: play on every page visit/reload. */
   var PLAY_EVERY_VISIT = true;
-
-  function localDateKey() {
-    var now = new Date();
-    return now.getFullYear() + "-" +
-      String(now.getMonth() + 1).padStart(2, "0") + "-" +
-      String(now.getDate()).padStart(2, "0");
-  }
+  var DAILY_KEY = "studioPeople.dailyOpening.v1";
 
   function shouldSkip() {
     if (window.matchMedia &&
@@ -278,8 +271,12 @@
       var settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "null");
       if (settings && settings.motion === false) return true;
       if (!PLAY_EVERY_VISIT) {
-        if (localStorage.getItem(DAILY_KEY) === localDateKey()) return true;
-        localStorage.setItem(DAILY_KEY, localDateKey());
+        var now = new Date();
+        var today = now.getFullYear() + "-" +
+          String(now.getMonth() + 1).padStart(2, "0") + "-" +
+          String(now.getDate()).padStart(2, "0");
+        if (localStorage.getItem(DAILY_KEY) === today) return true;
+        localStorage.setItem(DAILY_KEY, today);
       }
     } catch (_) {
       if (!PLAY_EVERY_VISIT) return true;
@@ -294,158 +291,157 @@
     var homeTitle = document.querySelector(".hero h1");
     if (!headerLogo) return;
 
-    var headerInner = document.querySelector("header .header-inner");
-    var headerLogoWidth = headerLogo.offsetWidth;
-    var headerFont = window.getComputedStyle(headerLogo);
-    var headerLeft = headerInner
-      ? headerInner.getBoundingClientRect().left + headerLogo.offsetLeft
-      : 20 + headerLogo.offsetLeft;
-    /* The header is initially animated off-screen; use layout coordinates, not its transformed rectangle. */
-    if (headerInner) {
-      var headerWidth = Math.min(1100, window.innerWidth - 40);
-      headerLeft = Math.max(20, (window.innerWidth - headerWidth) / 2) + headerLogo.offsetLeft;
-    }
-    var headerX = headerLeft + headerLogoWidth / 2;
-    var headerY = 38;
-    var headerFontSize = parseFloat(headerFont.fontSize) || 50;
-
-    var titleLeft = 20;
-    var titleTop = Math.max(120, window.innerHeight * 0.25);
-    var titleFontSize = Math.min(78, Math.max(42, window.innerWidth * 0.07));
-    var titleLetterSpacing = "0.04em";
-    var titleLineHeight = "1.25";
-    if (homeTitle) {
-      var titleRect = homeTitle.getBoundingClientRect();
-      var titleStyle = window.getComputedStyle(homeTitle);
-      /* Undo the existing heroTextIn animation's temporary -50px offset. */
-      titleLeft = titleRect.left + 50;
-      titleTop = titleRect.top;
-      titleFontSize = parseFloat(titleStyle.fontSize) || titleFontSize;
-      titleLetterSpacing = titleStyle.letterSpacing || titleLetterSpacing;
-      titleLineHeight = titleStyle.lineHeight || titleLineHeight;
-    }
-
     var style = document.createElement("style");
     style.id = "sp-daily-opening-style";
     style.textContent = [
-      "#sp-daily-opening{position:fixed;inset:0;z-index:2147483000;pointer-events:none;overflow:hidden;}",
+      "body.sp-opening-active header{animation:none!important;transform:none!important;}",
+      "body.sp-opening-active .hero>*{animation:none!important;transform:none!important;}",
+      "body.sp-opening-active .sp-opening-hidden{opacity:0!important;visibility:hidden!important;}",
+      "body.sp-opening-settled header{animation:none!important;transform:none!important;}",
+      "body.sp-opening-settled .hero>*{animation:none!important;transform:none!important;opacity:1!important;}",
+      "#sp-daily-opening{position:fixed;inset:0;z-index:2147483000;pointer-events:none;overflow:hidden;background:#fff;}",
       "#sp-daily-opening .sp-opening-curtain{position:absolute;inset:0;background:#fff;transform:translateY(0);will-change:transform;}",
-      "#sp-daily-opening .sp-opening-logo,#sp-daily-opening .sp-opening-tagline{position:fixed;left:50%;top:50%;margin:0;transform:translate(-50%,-50%);will-change:left,top,font-size,transform;}",
+      "#sp-daily-opening .sp-opening-logo,#sp-daily-opening .sp-opening-tagline{position:fixed;margin:0;will-change:left,top,font-size,transform;}",
       "#sp-daily-opening .sp-opening-logo{white-space:nowrap;font-family:'Bodoni Moda','Times New Roman',serif;font-size:clamp(2.1rem,7vw,4.2rem);font-weight:400;letter-spacing:0;line-height:1;color:#426791;}",
-      "#sp-daily-opening .sp-opening-tagline{display:block;width:max-content;max-width:calc(100vw - 40px);white-space:normal;text-align:left;font-family:sans-serif;font-size:16px;font-weight:700;letter-spacing:.02em;line-height:1.5;color:#294967;}",
+      "#sp-daily-opening .sp-opening-tagline{display:block;width:max-content;max-width:calc(100vw - 40px);white-space:normal;text-align:left;font-family:sans-serif;font-weight:700;color:#294967;}",
       "#sp-daily-opening .sp-opening-char{opacity:0;}",
-      ".sp-opening-header-logo,.sp-opening-home-title{opacity:0!important;animation:none!important;}",
       "@media(max-width:380px){#sp-daily-opening .sp-opening-logo{font-size:2rem}}"
     ].join("\n");
     document.head.appendChild(style);
+    document.body.classList.add("sp-opening-active");
+
+    headerLogo.classList.add("sp-opening-hidden");
+    if (homeTitle) homeTitle.classList.add("sp-opening-hidden");
 
     var overlay = document.createElement("div");
     overlay.id = "sp-daily-opening";
     overlay.setAttribute("aria-hidden", "true");
-
     var curtain = document.createElement("div");
     curtain.className = "sp-opening-curtain";
-
     var logo = document.createElement("p");
     logo.className = "sp-opening-logo";
     logo.textContent = "Studio People";
-
-    var tagline = document.createElement("p");
-    tagline.className = "sp-opening-tagline";
-    tagline.setAttribute("aria-label", "文房具を、ちょっと深く。");
-    Array.from("文房具を、ちょっと深く。").forEach(function (character, index) {
-      if (index === 5) tagline.appendChild(document.createElement("br"));
-      var span = document.createElement("span");
-      span.className = "sp-opening-char";
-      span.textContent = character;
-      tagline.appendChild(span);
-    });
-
     overlay.appendChild(curtain);
     overlay.appendChild(logo);
-    overlay.appendChild(tagline);
+
+    var tagline = null;
+    if (homeTitle) {
+      tagline = document.createElement("p");
+      tagline.className = "sp-opening-tagline";
+      tagline.setAttribute("aria-label", "文房具を、ちょっと深く。");
+      Array.from("文房具を、ちょっと深く。").forEach(function (character, index) {
+        if (index === 5) tagline.appendChild(document.createElement("br"));
+        var span = document.createElement("span");
+        span.className = "sp-opening-char";
+        span.textContent = character;
+        tagline.appendChild(span);
+      });
+      overlay.appendChild(tagline);
+    }
     document.body.appendChild(overlay);
-    headerLogo.classList.add("sp-opening-header-logo");
-    if (homeTitle) homeTitle.classList.add("sp-opening-home-title");
 
     if (typeof logo.animate !== "function") {
       overlay.remove();
       style.remove();
-      headerLogo.classList.remove("sp-opening-header-logo");
-      if (homeTitle) homeTitle.classList.remove("sp-opening-home-title");
+      document.body.classList.remove("sp-opening-active");
+      headerLogo.classList.remove("sp-opening-hidden");
+      if (homeTitle) homeTitle.classList.remove("sp-opening-hidden");
       return;
     }
 
-    var startLogoFontSize = parseFloat(window.getComputedStyle(logo).fontSize) || 60;
-    var logoStartLeft = window.innerWidth / 2;
-    var logoStartTop = window.innerHeight / 2;
-    var logoTargetLeft = headerX;
-    var logoTargetTop = headerY;
-    var logoStartTransform = "translate(-50%,-50%)";
-    var logoTargetTransform = "translate(-50%,-50%)";
+    /* Wait for the reset layout to be measured, avoiding animated/off-screen coordinates. */
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var headerRect = headerLogo.getBoundingClientRect();
+        var headerStyle = window.getComputedStyle(headerLogo);
+        var headerX = headerRect.left + headerRect.width / 2;
+        var headerY = headerRect.top + headerRect.height / 2;
+        var headerFontSize = parseFloat(headerStyle.fontSize) || 50;
 
-    logo.animate([
-      { left: logoStartLeft + "px", top: logoStartTop + "px", fontSize: startLogoFontSize + "px", transform: logoStartTransform, offset: 0 },
-      { left: logoStartLeft + "px", top: logoStartTop + "px", fontSize: startLogoFontSize + "px", transform: logoStartTransform, offset: 0.12 },
-      { left: logoTargetLeft + "px", top: logoTargetTop + "px", fontSize: headerFontSize + "px", transform: logoTargetTransform, offset: 0.82 },
-      { left: logoTargetLeft + "px", top: logoTargetTop + "px", fontSize: headerFontSize + "px", transform: logoTargetTransform, offset: 1 }
-    ], {
-      duration: 2250,
-      delay: 80,
-      easing: "cubic-bezier(.65,0,.35,1)",
-      fill: "forwards"
-    });
+        var startX = window.innerWidth / 2;
+        var startY = window.innerHeight / 2;
+        var startFontSize = parseFloat(window.getComputedStyle(logo).fontSize) || 60;
 
-    Array.from(tagline.querySelectorAll(".sp-opening-char")).forEach(function (span, index) {
-      span.animate([{ opacity: 0 }, { opacity: 1 }], {
-        duration: 160,
-        delay: 260 + index * 42,
-        easing: "ease-out",
-        fill: "forwards"
+        logo.style.left = startX + "px";
+        logo.style.top = startY + "px";
+        logo.style.transform = "translate(-50%,-50%)";
+
+        logo.animate([
+          { left: startX + "px", top: startY + "px", fontSize: startFontSize + "px", transform: "translate(-50%,-50%)", offset: 0 },
+          { left: startX + "px", top: startY + "px", fontSize: startFontSize + "px", transform: "translate(-50%,-50%)", offset: 0.12 },
+          { left: headerX + "px", top: headerY + "px", fontSize: headerFontSize + "px", transform: "translate(-50%,-50%)", offset: 0.84 },
+          { left: headerX + "px", top: headerY + "px", fontSize: headerFontSize + "px", transform: "translate(-50%,-50%)", offset: 1 }
+        ], {
+          duration: 2250,
+          delay: 80,
+          easing: "cubic-bezier(.65,0,.35,1)",
+          fill: "forwards"
+        });
+
+        if (tagline && homeTitle) {
+          var titleRect = homeTitle.getBoundingClientRect();
+          var titleStyle = window.getComputedStyle(homeTitle);
+          var titleFontSize = parseFloat(titleStyle.fontSize) || 48;
+          var titleLineHeight = titleStyle.lineHeight || "1.25";
+          var titleLetterSpacing = titleStyle.letterSpacing || ".04em";
+          tagline.style.left = startX + "px";
+          tagline.style.top = (startY + 64) + "px";
+          tagline.style.fontSize = "16px";
+          tagline.style.lineHeight = "1.5";
+          tagline.style.letterSpacing = ".02em";
+          tagline.style.transform = "translate(-50%,-50%)";
+
+          tagline.animate([
+            { left: startX + "px", top: (startY + 64) + "px", fontSize: "16px", lineHeight: "1.5", letterSpacing: ".02em", transform: "translate(-50%,-50%)", offset: 0 },
+            { left: startX + "px", top: (startY + 64) + "px", fontSize: "16px", lineHeight: "1.5", letterSpacing: ".02em", transform: "translate(-50%,-50%)", offset: 0.2 },
+            { left: titleRect.left + "px", top: titleRect.top + "px", fontSize: titleFontSize + "px", lineHeight: titleLineHeight, letterSpacing: titleLetterSpacing, transform: "translate(0,0)", offset: 0.86 },
+            { left: titleRect.left + "px", top: titleRect.top + "px", fontSize: titleFontSize + "px", lineHeight: titleLineHeight, letterSpacing: titleLetterSpacing, transform: "translate(0,0)", offset: 1 }
+          ], {
+            duration: 2100,
+            delay: 80,
+            easing: "cubic-bezier(.65,0,.35,1)",
+            fill: "forwards"
+          });
+
+          Array.from(tagline.querySelectorAll(".sp-opening-char")).forEach(function (span, index) {
+            span.animate([{ opacity: 0 }, { opacity: 1 }], {
+              duration: 150,
+              delay: 260 + index * 42,
+              easing: "ease-out",
+              fill: "forwards"
+            });
+          });
+        }
+
+        window.setTimeout(function () {
+          if (tagline) {
+            tagline.animate([{ opacity: 1 }, { opacity: 0 }], {
+              duration: 180,
+              easing: "ease-out",
+              fill: "forwards"
+            });
+          }
+          headerLogo.classList.remove("sp-opening-hidden");
+          if (homeTitle) homeTitle.classList.remove("sp-opening-hidden");
+          curtain.animate([
+            { transform: "translateY(0)" },
+            { transform: "translateY(-100%)" }
+          ], {
+            duration: 650,
+            easing: "cubic-bezier(.65,0,.35,1)",
+            fill: "forwards"
+          });
+        }, 2300);
+
+        window.setTimeout(function () {
+          overlay.remove();
+          document.body.classList.remove("sp-opening-active");
+          document.body.classList.add("sp-opening-settled");
+          headerLogo.classList.remove("sp-opening-hidden");
+          if (homeTitle) homeTitle.classList.remove("sp-opening-hidden");
+        }, TOTAL_MS);
       });
     });
-
-    var titleTargetLeft = titleLeft;
-    var titleTargetTop = titleTop;
-    var taglineStartFontSize = 16;
-    var taglineTargetFontSize = titleFontSize;
-    var taglineTargetTransform = "translate(0,0)";
-    tagline.animate([
-      { left: "50%", top: "calc(50% + 64px)", fontSize: taglineStartFontSize + "px", lineHeight: "1.5", letterSpacing: ".02em", transform: "translate(-50%,-50%)", offset: 0 },
-      { left: "50%", top: "calc(50% + 64px)", fontSize: taglineStartFontSize + "px", lineHeight: "1.5", letterSpacing: ".02em", transform: "translate(-50%,-50%)", offset: 0.22 },
-      { left: titleTargetLeft + "px", top: titleTargetTop + "px", fontSize: taglineTargetFontSize + "px", lineHeight: titleLineHeight, letterSpacing: titleLetterSpacing, transform: taglineTargetTransform, offset: 0.88 },
-      { left: titleTargetLeft + "px", top: titleTargetTop + "px", fontSize: taglineTargetFontSize + "px", lineHeight: titleLineHeight, letterSpacing: titleLetterSpacing, transform: taglineTargetTransform, offset: 1 }
-    ], {
-      duration: 2050,
-      delay: 80,
-      easing: "cubic-bezier(.65,0,.35,1)",
-      fill: "forwards"
-    });
-
-    window.setTimeout(function () {
-      if (homeTitle) homeTitle.classList.remove("sp-opening-home-title");
-      tagline.animate([{ opacity: 1 }, { opacity: 0 }], {
-        duration: 220,
-        easing: "ease-out",
-        fill: "forwards"
-      });
-      headerLogo.classList.remove("sp-opening-header-logo");
-      curtain.animate([
-        { transform: "translateY(0)" },
-        { transform: "translateY(-100%)" }
-      ], {
-        duration: 650,
-        easing: "cubic-bezier(.65,0,.35,1)",
-        fill: "forwards"
-      });
-    }, 2340);
-
-    window.setTimeout(function () {
-      overlay.remove();
-      style.remove();
-      headerLogo.classList.remove("sp-opening-header-logo");
-      if (homeTitle) homeTitle.classList.remove("sp-opening-home-title");
-    }, TOTAL_MS);
   }
 
   if (document.readyState === "loading") {
