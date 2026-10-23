@@ -297,7 +297,7 @@
       "body.sp-opening-active header{animation:none!important;transform:none!important;}",
       "body.sp-opening-active .hero>*{animation:none!important;transform:none!important;}",
       "body.sp-opening-active .sp-opening-hidden{opacity:0!important;visibility:hidden!important;}",
-      "body.sp-opening-active footer{opacity:0!important;visibility:hidden!important;}",
+      "body.sp-opening-active footer{animation:none!important;transition:none!important;transform:none!important;opacity:0!important;visibility:hidden!important;}",
       "#sp-daily-opening{position:fixed;inset:0;z-index:2147483000;pointer-events:none;overflow:hidden;background:transparent;}",
       "#sp-daily-opening .sp-opening-curtain{position:absolute;inset:0;background:#fff;transform:translateY(0);will-change:transform;}",
       "#sp-daily-opening .sp-opening-logo,#sp-daily-opening .sp-opening-tagline{position:fixed;margin:0;will-change:left,top,font-size,transform;}",
