@@ -257,7 +257,7 @@
   "use strict";
 
   var SETTINGS_KEY = "studioPeople.settings.v1";
-  var TOTAL_MS = 3000;
+  var TOTAL_MS = 3350;
   /* Temporary tuning mode: play on every page visit/reload. */
   var PLAY_EVERY_VISIT = true;
   var DAILY_KEY = "studioPeople.dailyOpening.v1";
@@ -297,8 +297,6 @@
       "body.sp-opening-active header{animation:none!important;transform:none!important;}",
       "body.sp-opening-active .hero>*{animation:none!important;transform:none!important;}",
       "body.sp-opening-active .sp-opening-hidden{opacity:0!important;visibility:hidden!important;}",
-      "body.sp-opening-settled header{animation:none!important;transform:none!important;}",
-      "body.sp-opening-settled .hero>*{animation:none!important;transform:none!important;opacity:1!important;}",
       "#sp-daily-opening{position:fixed;inset:0;z-index:2147483000;pointer-events:none;overflow:hidden;background:transparent;}",
       "#sp-daily-opening .sp-opening-curtain{position:absolute;inset:0;background:#fff;transform:translateY(0);will-change:transform;}",
       "#sp-daily-opening .sp-opening-logo,#sp-daily-opening .sp-opening-tagline{position:fixed;margin:0;will-change:left,top,font-size,transform;}",
@@ -421,7 +419,6 @@
         window.setTimeout(function () {
           overlay.remove();
           document.body.classList.remove("sp-opening-active");
-          document.body.classList.add("sp-opening-settled");
           headerLogo.classList.remove("sp-opening-hidden");
           if (homeTitle) homeTitle.classList.remove("sp-opening-hidden");
         }, TOTAL_MS);
