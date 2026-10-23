@@ -444,9 +444,11 @@
     });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", startOpening, { once: true });
-  } else {
+  /* settings.js is loaded after the page markup; start immediately so the page's
+     own entrance animations cannot appear before the white opening curtain. */
+  if (document.body) {
     startOpening();
+  } else {
+    document.addEventListener("DOMContentLoaded", startOpening, { once: true });
   }
 })();
