@@ -296,7 +296,6 @@
     style.textContent = [
       "body.sp-opening-active header{animation:none!important;transform:none!important;}",
       "body.sp-opening-active .hero>*{animation:none!important;transform:none!important;}",
-      "body.sp-opening-active .site-footer .motion-reveal{transition-delay:0ms!important;transition-duration:650ms!important;}",
 
       "body.sp-opening-active .sp-opening-hidden{opacity:0!important;visibility:hidden!important;}",
       
