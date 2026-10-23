@@ -379,7 +379,7 @@
     var startLogoFontSize = parseFloat(window.getComputedStyle(logo).fontSize) || 60;
     var logoStartLeft = window.innerWidth / 2;
     var logoStartTop = window.innerHeight / 2;
-    var logoTargetLeft = headerX - (headerLogoWidth / 2);
+    var logoTargetLeft = headerX;
     var logoTargetTop = headerY;
     var logoStartTransform = "translate(-50%,-50%)";
     var logoTargetTransform = "translate(-50%,-50%)";
@@ -438,7 +438,7 @@
         easing: "cubic-bezier(.65,0,.35,1)",
         fill: "forwards"
       });
-    }, 2320);
+    }, 2340);
 
     window.setTimeout(function () {
       overlay.remove();
