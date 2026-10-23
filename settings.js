@@ -251,3 +251,133 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
   else init();
 })();
+
+/* Studio People — once-daily editorial opening */
+(function () {
+  "use strict";
+
+  var DAILY_KEY = "studioPeople.dailyOpening.v1";
+  var SETTINGS_KEY = "studioPeople.settings.v1";
+  var TOTAL_MS = 3000;
+
+  function localDateKey() {
+    var now = new Date();
+    return now.getFullYear() + "-" +
+      String(now.getMonth() + 1).padStart(2, "0") + "-" +
+      String(now.getDate()).padStart(2, "0");
+  }
+
+  function shouldSkip() {
+    if (window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return true;
+    }
+    if (document.body.classList.contains("sp-reduce-motion")) return true;
+
+    try {
+      var settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "null");
+      if (settings && settings.motion === false) return true;
+      if (localStorage.getItem(DAILY_KEY) === localDateKey()) return true;
+      /* Save immediately so navigation or refresh cannot replay it today. */
+      localStorage.setItem(DAILY_KEY, localDateKey());
+    } catch (_) {
+      /* If storage is unavailable, do not block or delay the page. */
+      return true;
+    }
+    return false;
+  }
+
+  function startOpening() {
+    if (!document.body || shouldSkip()) return;
+
+    var style = document.createElement("style");
+    style.id = "sp-daily-opening-style";
+    style.textContent = [
+      "#sp-daily-opening{position:fixed;inset:0;z-index:2147483000;background:#fff;opacity:1;overflow:hidden;pointer-events:none;}",
+      "#sp-daily-opening .sp-opening-logo{position:absolute;left:50%;top:50%;margin:0;white-space:nowrap;transform:translate(-50%,-50%);font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(2.1rem,7vw,4.2rem);font-weight:400;letter-spacing:-.045em;line-height:1;color:#426791;}",
+      "#sp-daily-opening .sp-opening-tagline{position:absolute;left:50%;top:calc(50% + 43px);display:flex;justify-content:center;white-space:pre;transform:translateX(-50%);font-family:inherit;font-size:clamp(.88rem,2.8vw,1.05rem);font-weight:400;letter-spacing:.12em;line-height:1.8;color:#426791;}",
+      "#sp-daily-opening .sp-opening-char{opacity:0;}",
+      "@media(max-width:380px){#sp-daily-opening .sp-opening-logo{font-size:2rem}#sp-daily-opening .sp-opening-tagline{letter-spacing:.07em;font-size:.82rem;top:calc(50% + 37px)}}"
+    ].join("\n");
+    document.head.appendChild(style);
+
+    var overlay = document.createElement("div");
+    overlay.id = "sp-daily-opening";
+    overlay.setAttribute("aria-hidden", "true");
+
+    var logo = document.createElement("p");
+    logo.className = "sp-opening-logo";
+    logo.textContent = "Studio People";
+
+    var tagline = document.createElement("p");
+    tagline.className = "sp-opening-tagline";
+    tagline.setAttribute("aria-label", "文房具を、ちょっと深く");
+    Array.from("文房具を、ちょっと深く").forEach(function (character, index) {
+      var span = document.createElement("span");
+      span.className = "sp-opening-char";
+      span.textContent = character;
+      tagline.appendChild(span);
+      span.style.animation = "none";
+      span.dataset.index = String(index);
+    });
+
+    overlay.appendChild(logo);
+    overlay.appendChild(tagline);
+    document.body.appendChild(overlay);
+
+    if (typeof logo.animate !== "function") {
+      overlay.remove();
+      style.remove();
+      return;
+    }
+
+    logo.animate([
+      { transform: "translate(-50%,-50%)", offset: 0 },
+      { transform: "translate(-50%,-50%)", offset: 0.16 },
+      { transform: "translate(-50%,calc(-50% - 39px))", offset: 0.78 },
+      { transform: "translate(-50%,calc(-50% - 39px))", offset: 1 }
+    ], {
+      duration: 1320,
+      delay: 80,
+      easing: "cubic-bezier(.65,0,.35,1)",
+      fill: "forwards"
+    });
+
+    Array.from(tagline.children).forEach(function (span, index) {
+      span.animate([{ opacity: 0 }, { opacity: 1 }], {
+        duration: 180,
+        delay: 1040 + index * 48,
+        easing: "ease-out",
+        fill: "forwards"
+      });
+    });
+
+    window.setTimeout(function () {
+      var exitOptions = {
+        duration: 650,
+        easing: "cubic-bezier(.65,0,.35,1)",
+        fill: "forwards"
+      };
+      logo.animate([
+        { opacity: 1, filter: "blur(0px)", transform: "translate(-50%,calc(-50% - 39px)) scale(1)" },
+        { opacity: 0, filter: "blur(12px)", transform: "translate(-50%,calc(-50% - 39px)) scale(1.18)" }
+      ], exitOptions);
+      tagline.animate([
+        { opacity: 1, filter: "blur(0px)", transform: "translateX(-50%) scale(1)" },
+        { opacity: 0, filter: "blur(12px)", transform: "translateX(-50%) scale(1.18)" }
+      ], exitOptions);
+      overlay.animate([{ opacity: 1 }, { opacity: 0 }], exitOptions);
+    }, 2350);
+
+    window.setTimeout(function () {
+      overlay.remove();
+      style.remove();
+    }, TOTAL_MS);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startOpening, { once: true });
+  } else {
+    startOpening();
+  }
+})();
