@@ -296,6 +296,7 @@
     style.textContent = [
       "body.sp-opening-active header{animation:none!important;transform:none!important;}",
       "body.sp-opening-active .hero>*{animation:none!important;transform:none!important;}",
+      "body.sp-opening-active footer{animation:none!important;transform:none!important;}",
       "body.sp-opening-active .sp-opening-hidden{opacity:0!important;visibility:hidden!important;}",
       
       "#sp-daily-opening{position:fixed;inset:0;z-index:2147483000;pointer-events:none;overflow:hidden;background:transparent;}",
@@ -409,6 +410,7 @@
         window.setTimeout(function () {
           headerLogo.classList.remove("sp-opening-hidden");
           if (homeTitle) homeTitle.classList.remove("sp-opening-hidden");
+          if (footer) footer.classList.remove("sp-opening-hidden");
           curtain.animate([
             { transform: "translateY(0)" },
             { transform: "translateY(-100%)" }
