@@ -299,7 +299,7 @@
       "body.sp-opening-active .sp-opening-hidden{opacity:0!important;visibility:hidden!important;}",
       "body.sp-opening-settled header{animation:none!important;transform:none!important;}",
       "body.sp-opening-settled .hero>*{animation:none!important;transform:none!important;opacity:1!important;}",
-      "#sp-daily-opening{position:fixed;inset:0;z-index:2147483000;pointer-events:none;overflow:hidden;background:#fff;}",
+      "#sp-daily-opening{position:fixed;inset:0;z-index:2147483000;pointer-events:none;overflow:hidden;background:transparent;}",
       "#sp-daily-opening .sp-opening-curtain{position:absolute;inset:0;background:#fff;transform:translateY(0);will-change:transform;}",
       "#sp-daily-opening .sp-opening-logo,#sp-daily-opening .sp-opening-tagline{position:fixed;margin:0;will-change:left,top,font-size,transform;}",
       "#sp-daily-opening .sp-opening-logo{white-space:nowrap;font-family:'Bodoni Moda','Times New Roman',serif;font-size:clamp(2.1rem,7vw,4.2rem);font-weight:400;letter-spacing:0;line-height:1;color:#426791;}",
