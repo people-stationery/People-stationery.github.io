@@ -378,30 +378,15 @@
           fill: "forwards"
         });
 
-        if (tagline && homeTitle) {
-          var titleRect = homeTitle.getBoundingClientRect();
-          var titleStyle = window.getComputedStyle(homeTitle);
-          var titleFontSize = parseFloat(titleStyle.fontSize) || 48;
-          var titleLineHeight = titleStyle.lineHeight || "1.25";
-          var titleLetterSpacing = titleStyle.letterSpacing || ".04em";
+        if (tagline) {
+          /* Keep the tagline stationary: only the Studio People logo travels to the header. */
           tagline.style.left = startX + "px";
           tagline.style.top = (startY + 64) + "px";
           tagline.style.fontSize = "16px";
           tagline.style.lineHeight = "1.5";
           tagline.style.letterSpacing = ".02em";
           tagline.style.transform = "translate(-50%,-50%)";
-
-          tagline.animate([
-            { left: startX + "px", top: (startY + 64) + "px", fontSize: "16px", lineHeight: "1.5", letterSpacing: ".02em", transform: "translate(-50%,-50%)", offset: 0 },
-            { left: startX + "px", top: (startY + 64) + "px", fontSize: "16px", lineHeight: "1.5", letterSpacing: ".02em", transform: "translate(-50%,-50%)", offset: 0.2 },
-            { left: titleRect.left + "px", top: titleRect.top + "px", fontSize: titleFontSize + "px", lineHeight: titleLineHeight, letterSpacing: titleLetterSpacing, transform: "translate(0,0)", offset: 0.86 },
-            { left: titleRect.left + "px", top: titleRect.top + "px", fontSize: titleFontSize + "px", lineHeight: titleLineHeight, letterSpacing: titleLetterSpacing, transform: "translate(0,0)", offset: 1 }
-          ], {
-            duration: 2100,
-            delay: 80,
-            easing: "cubic-bezier(.65,0,.35,1)",
-            fill: "forwards"
-          });
+          tagline.style.opacity = "1";
 
           Array.from(tagline.querySelectorAll(".sp-opening-char")).forEach(function (span, index) {
             span.animate([{ opacity: 0 }, { opacity: 1 }], {
