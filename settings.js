@@ -360,18 +360,22 @@
 
         var startX = window.innerWidth / 2;
         var startY = window.innerHeight / 2;
-        /* Keep the logo the same size throughout; animate its position only. */
+        /* Lock the logo at screen center and move it with a transform only. */
         var logoFontSize = headerFontSize;
+        var deltaX = headerX - startX;
+        var deltaY = headerY - startY;
+        var startTransform = "translate(-50%,-50%) translate(0px,0px)";
+        var endTransform = "translate(-50%,-50%) translate(" + deltaX + "px," + deltaY + "px)";
         logo.style.left = startX + "px";
         logo.style.top = startY + "px";
         logo.style.fontSize = logoFontSize + "px";
-        logo.style.transform = "translate(-50%,-50%)";
+        logo.style.transform = startTransform;
 
         logo.animate([
-          { left: startX + "px", top: startY + "px", fontSize: logoFontSize + "px", transform: "translate(-50%,-50%)", offset: 0 },
-          { left: startX + "px", top: startY + "px", fontSize: logoFontSize + "px", transform: "translate(-50%,-50%)", offset: 0.14 },
-          { left: headerX + "px", top: headerY + "px", fontSize: logoFontSize + "px", transform: "translate(-50%,-50%)", offset: 0.9 },
-          { left: headerX + "px", top: headerY + "px", fontSize: logoFontSize + "px", transform: "translate(-50%,-50%)", offset: 1 }
+          { transform: startTransform, offset: 0 },
+          { transform: startTransform, offset: 0.14 },
+          { transform: endTransform, offset: 0.9 },
+          { transform: endTransform, offset: 1 }
         ], {
           duration: 2250,
           delay: 80,
