@@ -297,7 +297,7 @@
       "body.sp-opening-active header{animation:none!important;transform:none!important;}",
       "body.sp-opening-active .hero>*{animation:none!important;transform:none!important;}",
       "body.sp-opening-active .sp-opening-hidden{opacity:0!important;visibility:hidden!important;}",
-      "body.sp-opening-active footer{animation:none!important;transition:none!important;transform:none!important;opacity:0!important;visibility:hidden!important;}",
+      
       "#sp-daily-opening{position:fixed;inset:0;z-index:2147483000;pointer-events:none;overflow:hidden;background:transparent;}",
       "#sp-daily-opening .sp-opening-curtain{position:absolute;inset:0;background:#fff;transform:translateY(0);will-change:transform;}",
       "#sp-daily-opening .sp-opening-logo,#sp-daily-opening .sp-opening-tagline{position:fixed;margin:0;will-change:left,top,font-size,transform;}",
@@ -311,6 +311,8 @@
 
     headerLogo.classList.add("sp-opening-hidden");
     if (homeTitle) homeTitle.classList.add("sp-opening-hidden");
+    var footer = document.querySelector("footer");
+    if (footer) footer.classList.add("sp-opening-hidden");
 
     var overlay = document.createElement("div");
     overlay.id = "sp-daily-opening";
@@ -423,20 +425,7 @@
           headerLogo.classList.remove("sp-opening-hidden");
           if (homeTitle) homeTitle.classList.remove("sp-opening-hidden");
 
-          /* Reveal the real footer only after the opening curtain has fully cleared. */
-          var footer = document.querySelector("footer");
-          if (footer && typeof footer.animate === "function") {
-            footer.style.visibility = "visible";
-            footer.animate([
-              { opacity: 0, transform: "translateY(18px)" },
-              { opacity: 1, transform: "translateY(0)" }
-            ], {
-              duration: 700,
-              delay: 80,
-              easing: "cubic-bezier(.22,1,.36,1)",
-              fill: "both"
-            });
-          }
+          if (footer) footer.classList.remove("sp-opening-hidden");
         }, TOTAL_MS);
       });
     });
