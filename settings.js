@@ -360,33 +360,25 @@
 
         var startX = window.innerWidth / 2;
         var startY = window.innerHeight / 2;
-        /* Lock the logo at screen center and move it with a transform only. */
-        var logoFontSize = headerFontSize;
-        var deltaX = headerX - startX;
-        var deltaY = headerY - startY;
-        var startTransform = "translate(-50%,-50%) translate(0px,0px)";
-        var endTransform = "translate(-50%,-50%) translate(" + deltaX + "px," + deltaY + "px)";
-        logo.style.left = startX + "px";
-        logo.style.top = startY + "px";
-        logo.style.fontSize = logoFontSize + "px";
-        logo.style.transform = startTransform;
-
+        /* Text stays in place; only its opacity changes. */
+        logo.style.left = "50%";
+        logo.style.top = "50%";
+        logo.style.transform = "translate(-50%,-50%)";
+        logo.style.fontSize = "clamp(2.1rem,7vw,4.2rem)";
         logo.animate([
-          { transform: startTransform, offset: 0 },
-          { transform: startTransform, offset: 0.14 },
-          { transform: endTransform, offset: 0.9 },
-          { transform: endTransform, offset: 1 }
+          { opacity: 1, offset: 0 },
+          { opacity: 1, offset: 0.55 },
+          { opacity: 0, offset: 1 }
         ], {
-          duration: 2250,
-          delay: 80,
-          easing: "cubic-bezier(.65,0,.35,1)",
+          duration: 1800,
+          delay: 500,
+          easing: "ease",
           fill: "forwards"
         });
 
         if (tagline) {
-          /* Keep the tagline stationary: only the Studio People logo travels to the header. */
-          tagline.style.left = startX + "px";
-          tagline.style.top = (startY + 64) + "px";
+          tagline.style.left = "50%";
+          tagline.style.top = "calc(50% + 64px)";
           tagline.style.fontSize = "16px";
           tagline.style.lineHeight = "1.5";
           tagline.style.letterSpacing = ".02em";
@@ -401,23 +393,26 @@
               fill: "forwards"
             });
           });
+          tagline.animate([
+            { opacity: 1, offset: 0 },
+            { opacity: 1, offset: 0.45 },
+            { opacity: 0, offset: 1 }
+          ], {
+            duration: 1000,
+            delay: 1700,
+            easing: "ease-out",
+            fill: "forwards"
+          });
         }
 
         window.setTimeout(function () {
-          if (tagline) {
-            tagline.animate([{ opacity: 1 }, { opacity: 0 }], {
-              duration: 180,
-              easing: "ease-out",
-              fill: "forwards"
-            });
-          }
           headerLogo.classList.remove("sp-opening-hidden");
           if (homeTitle) homeTitle.classList.remove("sp-opening-hidden");
           curtain.animate([
             { transform: "translateY(0)" },
             { transform: "translateY(-100%)" }
           ], {
-            duration: 650,
+            duration: 900,
             easing: "cubic-bezier(.65,0,.35,1)",
             fill: "forwards"
           });
