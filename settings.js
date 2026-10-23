@@ -295,9 +295,9 @@
     style.textContent = [
       "#sp-daily-opening{position:fixed;inset:0;z-index:2147483000;background:#fff;opacity:1;overflow:hidden;pointer-events:none;}",
       "#sp-daily-opening .sp-opening-logo{position:absolute;left:50%;top:50%;margin:0;white-space:nowrap;transform:translate(-50%,-50%);font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(2.1rem,7vw,4.2rem);font-weight:400;letter-spacing:-.045em;line-height:1;color:#426791;}",
-      "#sp-daily-opening .sp-opening-tagline{position:absolute;left:50%;top:calc(50% + 43px);display:flex;justify-content:center;white-space:pre;transform:translateX(-50%);font-family:inherit;font-size:clamp(.88rem,2.8vw,1.05rem);font-weight:400;letter-spacing:.12em;line-height:1.8;color:#426791;}",
+      "#sp-daily-opening .sp-opening-tagline{position:absolute;left:50%;top:calc(50% + 2px);display:flex;justify-content:center;white-space:pre;transform:translateX(-50%);font-family:inherit;font-size:clamp(.88rem,2.8vw,1.05rem);font-weight:400;letter-spacing:.12em;line-height:1.8;color:#426791;}",
       "#sp-daily-opening .sp-opening-char{opacity:0;}",
-      "@media(max-width:380px){#sp-daily-opening .sp-opening-logo{font-size:2rem}#sp-daily-opening .sp-opening-tagline{letter-spacing:.07em;font-size:.82rem;top:calc(50% + 37px)}}"
+      "@media(max-width:380px){#sp-daily-opening .sp-opening-logo{font-size:2rem}#sp-daily-opening .sp-opening-tagline{letter-spacing:.07em;font-size:.82rem;top:calc(50% + 2px)}}"
     ].join("\n");
     document.head.appendChild(style);
 
