@@ -360,17 +360,18 @@
 
         var startX = window.innerWidth / 2;
         var startY = window.innerHeight / 2;
-        var startFontSize = parseFloat(window.getComputedStyle(logo).fontSize) || 60;
-
+        /* Keep the logo the same size throughout; animate its position only. */
+        var logoFontSize = headerFontSize;
         logo.style.left = startX + "px";
         logo.style.top = startY + "px";
+        logo.style.fontSize = logoFontSize + "px";
         logo.style.transform = "translate(-50%,-50%)";
 
         logo.animate([
-          { left: startX + "px", top: startY + "px", fontSize: startFontSize + "px", transform: "translate(-50%,-50%)", offset: 0 },
-          { left: startX + "px", top: startY + "px", fontSize: startFontSize + "px", transform: "translate(-50%,-50%)", offset: 0.12 },
-          { left: headerX + "px", top: headerY + "px", fontSize: headerFontSize + "px", transform: "translate(-50%,-50%)", offset: 0.84 },
-          { left: headerX + "px", top: headerY + "px", fontSize: headerFontSize + "px", transform: "translate(-50%,-50%)", offset: 1 }
+          { left: startX + "px", top: startY + "px", fontSize: logoFontSize + "px", transform: "translate(-50%,-50%)", offset: 0 },
+          { left: startX + "px", top: startY + "px", fontSize: logoFontSize + "px", transform: "translate(-50%,-50%)", offset: 0.14 },
+          { left: headerX + "px", top: headerY + "px", fontSize: logoFontSize + "px", transform: "translate(-50%,-50%)", offset: 0.9 },
+          { left: headerX + "px", top: headerY + "px", fontSize: logoFontSize + "px", transform: "translate(-50%,-50%)", offset: 1 }
         ], {
           duration: 2250,
           delay: 80,
