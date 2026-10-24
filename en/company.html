@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An overview of Stardio and Studio People, including careers and collaboration information.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=2">
+  <title>Company & Careers | Studio People</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=play-1">
+  <style>
+    .company-content{width:min(900px,calc(100% - 40px));margin:0 auto 100px}
+    .company-section{margin:0 0 64px}
+    .company-eyebrow{font-size:11px;letter-spacing:.16em;color:#426791;font-weight:650;margin:0 0 12px}
+    .company-section h2{font-size:clamp(24px,4vw,34px);font-weight:500;letter-spacing:.02em;margin:0 0 20px}
+    .company-section p,.company-section li{line-height:2;color:#526679}
+    .company-lead{font-size:clamp(17px,2.4vw,21px);color:#263746!important;line-height:1.9!important}
+    .company-profile{width:100%;border-collapse:collapse;margin-top:24px}
+    .company-profile th,.company-profile td{text-align:left;vertical-align:top;padding:17px 12px;border-bottom:1px solid rgba(66,103,145,.18);line-height:1.8}
+    .company-profile th{width:28%;font-weight:600;color:#426791}
+    .company-note{padding:18px 20px;border-left:3px solid #426791;background:rgba(66,103,145,.06);font-size:13px}
+    .company-link{display:inline-flex;align-items:center;gap:10px;margin-top:12px;padding:12px 18px;border:1px solid rgba(66,103,145,.35);border-radius:999px;color:#426791;text-decoration:none;transition:background .2s,color .2s}
+    .company-link:hover{background:#426791;color:white}
+    @media(max-width:600px){.company-content{width:calc(100% - 32px)}.company-profile th,.company-profile td{display:block;width:100%;padding:10px 4px}.company-profile th{padding-top:18px;border-bottom:0}.company-profile td{padding-top:0}}
+  </style>
+</head>
+<body>
+  <div class="page-line"></div>
+  <header><div class="header-inner">
+    <a href="index.html" class="logo">Studio People</a>
+    <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div></header>
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+  <nav class="menu-panel" id="menuPanel" aria-label="Main menu">
+    <a href="index.html">HOME</a><a href="article.html">ARTICLE</a><a href="catalog.html">CATALOG</a><a href="about.html">ABOUT</a>
+  </nav>
+  <main>
+    <section class="hero">
+      <p class="small-title">COMPANY & CAREERS</p>
+      <h1>Company &<br>Careers</h1>
+      <p class="description">About Stardio and what comes next.</p>
+    </section>
+    <div class="company-content">
+      <section class="company-section">
+        <p class="company-eyebrow">01 / ABOUT STARDIO</p>
+        <h2>Turning curiosity into media.</h2>
+        <p class="company-lead">Stardio is an activity brand focused on exploring the things we love and sharing their appeal through our own perspective.</p>
+        <p>The name “Stardio” combines “Star” and “Studio.” We turn interests and discoveries into content and share them with others.</p>
+        <p>Our current focus is stationery media. We aim to go beyond collecting facts and include the perspectives and experiences of the people who use stationery.</p>
+      </section>
+      <section class="company-section">
+        <p class="company-eyebrow">02 / OUR PROJECTS</p>
+        <h2>Projects & content</h2>
+        <table class="company-profile">
+          <tr><th>Studio People</th><td>A stationery media project featuring articles, a catalog, and information about stationery.</td></tr>
+          <tr><th>People Stationery</th><td>A content project built around observing, researching, and thinking about stationery.</td></tr>
+          <tr><th>Digital publishing</th><td>Content creation and publishing through websites, videos, and social media.</td></tr>
+        </table>
+      </section>
+      <section class="company-section">
+        <p class="company-eyebrow">03 / PROFILE</p>
+        <h2>Operating profile</h2>
+        <table class="company-profile">
+          <tr><th>Operator name</th><td>Stardio</td></tr>
+          <tr><th>Main activities</th><td>Planning and operating stationery media, writing articles, website management, and publishing through video and social media.</td></tr>
+          <tr><th>Main website</th><td><a href="../index.html">Studio People</a></td></tr>
+          <tr><th>Contact</th><td>Please use our <a href="contact.html">contact form</a>.</td></tr>
+        </table>
+        <p class="company-note">“Stardio” is the operator and activity-brand name used on this website. Details that have not been confirmed, such as legal incorporation, office address, and representative name, are not listed.</p>
+      </section>
+      <section class="company-section">
+        <p class="company-eyebrow">04 / CAREERS & COLLABORATION</p>
+        <h2>Careers & collaboration</h2>
+        <p class="company-lead">We are not currently accepting formal applications.</p>
+        <p>Any future opportunities will be announced on this page as the project grows. For content tips or collaboration enquiries, please contact us using the form below.</p>
+        <a class="company-link" href="contact.html">Contact us <span aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <nav class="footer-links" aria-label="Footer"><a href="company.html">Company & Careers</a><span aria-hidden="true">/</span><a href="privacy.html">Privacy Policy</a><span aria-hidden="true">/</span><a href="contact.html">Contact</a></nav>
+    <p class="footer-operator">Operated by <span class="footer-company-name">Stardio</span></p>
+    <p class="footer-copyright">© Studio People</p>
+    <p><a href="../company.html">日本語</a></p>
+  </footer>
+  <script>
+  document.addEventListener("DOMContentLoaded",function(){
+    const b=document.getElementById("menuButton"),p=document.getElementById("menuPanel"),o=document.getElementById("menuBackdrop");
+    document.body.classList.add("page-loaded");
+    function close(){b.classList.remove("active");p.classList.remove("active");o.classList.remove("active");b.setAttribute("aria-expanded","false")}
+    b.addEventListener("click",function(){const open=p.classList.toggle("active");b.classList.toggle("active",open);o.classList.toggle("active",open);b.setAttribute("aria-expanded",String(open))});
+    o.addEventListener("click",close);
+  });
+  </script>
+</body>
+</html>
