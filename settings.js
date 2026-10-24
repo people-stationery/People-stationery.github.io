@@ -258,8 +258,8 @@
 
   var SETTINGS_KEY = "studioPeople.settings.v1";
   var TOTAL_MS = 3350;
-  /* Temporary tuning mode: play on every page visit/reload. */
-  var PLAY_EVERY_VISIT = true;
+  /* Play the opening only on the first visit of each local calendar day. */
+  var PLAY_EVERY_VISIT = false;
   var DAILY_KEY = "studioPeople.dailyOpening.v1";
 
   function shouldSkip() {
