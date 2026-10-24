@@ -294,8 +294,6 @@
     var style = document.createElement("style");
     style.id = "sp-daily-opening-style";
     style.textContent = [
-      "body.sp-opening-active header{animation:none!important;transform:none!important;}",
-      "body.sp-opening-active .hero>*{animation:none!important;transform:none!important;}",
 
       "body.sp-opening-active .sp-opening-hidden{opacity:0!important;visibility:hidden!important;}",
       
