@@ -24,6 +24,18 @@
     .company-link{display:inline-flex;align-items:center;gap:10px;margin-top:12px;padding:12px 18px;border:1px solid rgba(66,103,145,.35);border-radius:999px;color:#426791;text-decoration:none;transition:background .2s,color .2s}
     .company-link:hover{background:#426791;color:white}
     @media(max-width:600px){.company-content{width:calc(100% - 32px)}.company-profile th,.company-profile td{display:block;width:100%;padding:10px 4px}.company-profile th{padding-top:18px;border-bottom:0}.company-profile td{padding-top:0}}
+    /* Keep this page connected to Studio People's shared appearance settings. */
+    body[data-sp-theme] .company-section p,
+    body[data-sp-theme] .company-section li,
+    body[data-sp-theme] .company-profile td { color:var(--sp-text)!important; }
+    body[data-sp-theme] .company-eyebrow,
+    body[data-sp-theme] .company-profile th { color:var(--sp-accent)!important; }
+    body[data-sp-theme] .company-lead { color:var(--sp-text)!important; }
+    body[data-sp-theme] .company-note { color:var(--sp-text)!important;background:var(--sp-soft)!important;border-left-color:var(--sp-accent)!important; }
+    body[data-sp-theme] .company-profile th,
+    body[data-sp-theme] .company-profile td { border-bottom-color:var(--sp-line)!important; }
+    body[data-sp-theme] .company-link { color:var(--sp-accent-strong)!important;border-color:var(--sp-line)!important; }
+    body[data-sp-theme] .company-link:hover { color:var(--sp-page)!important;background:var(--sp-accent)!important; }
   </style>
 </head>
 <body>
@@ -94,5 +106,8 @@
     o.addEventListener("click",close);
   });
   </script>
+  <script src="motion.js?v=5"></script>
+  <script src="settings.js?v=global-search-1"></script>
+  <script src="page-transition.js?v=1"></script>
 </body>
 </html>
